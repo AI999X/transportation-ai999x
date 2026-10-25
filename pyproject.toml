@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "transportation-ai999x"
+version = "1.0.1"
+description = "Offline transportation solver: vehicle dynamics, braking and stopping distances, traffic flow, highway geometry, railway operations, route planning and transit capacity, with steps, LaTeX and honest refusals"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "Apache-2.0"}
+authors = [{name = "Ibnul Jaif Farabi"}]
+maintainers = [{name = "AI999X"}]
+keywords = ["transportation", "transportation engineering", "ai999x", "offline", "cpu", "stem", "education", "step-by-step", "latex", "solver", "stopping sight distance", "braking distance", "vehicle dynamics", "understeer", "highway geometry", "superelevation", "vertical curves", "traffic flow", "greenshields", "shockwave", "signal timing", "queueing", "railway operations", "train running time", "route planning", "gravity model", "mode choice", "logit"]
+classifiers = ["License :: OSI Approved :: Apache Software License", "Programming Language :: Python :: 3", "Programming Language :: Python :: 3 :: Only", "Operating System :: OS Independent", "Intended Audience :: Education", "Intended Audience :: Science/Research", "Intended Audience :: Developers", "Topic :: Scientific/Engineering", "Topic :: Education", "Development Status :: 5 - Production/Stable"]
+dependencies = ["sympy>=1.12", "mpmath>=1.3"]
+
+[project.optional-dependencies]
+search = ["onnxruntime>=1.17", "tokenizers>=0.15", "numpy>=1.24"]
+plot = ["matplotlib>=3.7"]
+all = ["matplotlib>=3.7", "numpy>=1.24", "onnxruntime>=1.17", "tokenizers>=0.15"]
+reader = ["onnxruntime>=1.17", "tokenizers>=0.15", "numpy>=1.24"]
+
+[project.scripts]
+transportation-ai999x = "transportation_ai999x.cli:main"
+
+[project.urls]
+"Source" = "https://github.com/AI999X/transportation-ai999x"
+"Issues" = "https://github.com/AI999X/transportation-ai999x/issues"
+"Homepage" = "https://ai999x.com"
+"Hugging Face" = "https://huggingface.co/AI999X/transportation-ai999x"
+"Funding" = "https://buymeacoffee.com/ibnuljaiffarabi"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+transportation_ai999x = ["pack/*.json", "pack/*/*.json", "pack/*.sqlite", "pack/capabilities/*.py", "pack/search/*.onnx", "pack/reader/*.onnx"]
