@@ -4,7 +4,7 @@
 
 **[Install](https://pypi.org/project/transportation-ai999x/)** · **[Capability guide](https://huggingface.co/AI999X/transportation-ai999x/tree/main/docs)** · **[Evaluation](https://huggingface.co/AI999X/transportation-ai999x/tree/main/evaluation)** · **[AI999X on Hugging Face](https://huggingface.co/AI999X)** · **[Website](https://ai999x.com)** · **[Support: Buy Me a Coffee](https://buymeacoffee.com/ibnuljaiffarabi)**
 
-License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.0.2
+License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.0.3
 
 Field: **Engineering** · Tasks: Question Answering, Token Classification, Text Classification, Sentence Similarity, Feature Extraction
 
@@ -27,7 +27,7 @@ transportation-ai999x is an offline, deterministic Python solver that answers tr
 
 | Property | Value |
 |---|---|
-| Package | `transportation-ai999x` 1.0.2 (import `transportation_ai999x`) |
+| Package | `transportation-ai999x` 1.0.3 (import `transportation_ai999x`) |
 | Type | Deterministic neuro-symbolic transportation engine (rule-based reading + certified symbolic capabilities) |
 | Capabilities | 77 certified procedures |
 | Knowledge pack | version 1.0.0 |
@@ -61,7 +61,7 @@ transportation.ask("Who created you?").message
 # -> transportation-ai999x was created and engineered by Ibnul Jaif Farabi at AI999X.
 ```
 
-Command line: `transportation-ai999x "<question>"`, `transportation-ai999x --capabilities`. The outputs above were produced by running this exact code on transportation-ai999x 1.0.2.
+Command line: `transportation-ai999x "<question>"`, `transportation-ai999x --capabilities`. The outputs above were produced by running this exact code on transportation-ai999x 1.0.3.
 
 ## Find the right capability, and draw it
 
@@ -216,10 +216,10 @@ _Time–space diagram of the queue at a signal (arrivals 1000 veh/h at 20 veh/km
 ## Citation
 
 ```bibtex
-@software{transportation_ai999x_1_0_2,
+@software{transportation_ai999x_1_0_3,
   title  = {transportation-ai999x: an offline, verified transportation solver},
   author = {Farabi, Ibnul Jaif}, organization = {AI999X},
-  year   = {2026}, version = {1.0.2},
+  year   = {2026}, version = {1.0.3},
   url    = {https://huggingface.co/AI999X/transportation-ai999x}
 }
 ```
