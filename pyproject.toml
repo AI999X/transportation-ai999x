@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "transportation-ai999x"
-version = "1.0.1"
+version = "1.0.2"
 description = "Offline transportation solver: vehicle dynamics, braking and stopping distances, traffic flow, highway geometry, railway operations, route planning and transit capacity, with steps, LaTeX and honest refusals"
 readme = "README.md"
 requires-python = ">=3.10"
