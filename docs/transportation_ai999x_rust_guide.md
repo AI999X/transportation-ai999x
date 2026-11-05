@@ -1,4 +1,4 @@
-# transportation: the Transportation program — user guide
+# transportation: the Transportation program, user guide
 
 **transportation-ai999x 1.1.0**, Rust build: command line, desktop app and browser. **Creator / engineer:** Ibnul Jaif Farabi · **Company:** AI999X · support@ai999x.com
 
@@ -17,63 +17,63 @@ Transportation covers vehicle dynamics, braking and stopping distances, traffic 
 
 ## 1. Get it
 
-Version 1.4.0 of the AI999X desktop app and of the command-line bundle. Checksums for every file: https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS; the newest version is always under https://downloads.ai999x.com/desktop/latest/. Full instructions: https://www.ai999x.com/desktop-cli/
+Version 1.5.0 of the AI999X desktop app and of the command-line bundle. Checksums for every file: https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS; the newest version is always under https://downloads.ai999x.com/desktop/latest/. Full instructions: https://www.ai999x.com/desktop-cli/
 
 | what | system | download |
 |---|---|---|
-| Desktop app: Transportation | Windows x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-transportation-1.4.0-windows-x86_64.zip |
-| Desktop app: Transportation | Linux x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-transportation-1.4.0-linux-x86_64.tar.gz |
-| Desktop app: all models | Windows x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-1.4.0-windows-x86_64.zip |
-| Desktop app: all models | Linux x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-1.4.0-linux-x86_64.tar.gz |
-| Command line | Windows x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-windows-x86_64.zip |
-| Command line | Linux x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-linux-x86_64.tar.gz |
+| Desktop app: Transportation | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-transportation-1.5.0-windows-x86_64.zip |
+| Desktop app: Transportation | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-transportation-1.5.0-linux-x86_64.tar.gz |
+| Desktop app: all models | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-windows-x86_64.zip |
+| Desktop app: all models | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-linux-x86_64.tar.gz |
+| Command line | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-windows-x86_64.zip |
+| Command line | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz |
 
 ### Desktop app
 
-Transportation in its own app: search, questions in words, input forms, live figures and explanations. Windows: Download ai999x-transportation-1.4.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x-transportation.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
+Transportation in its own app: search, questions in words, input forms, live figures and explanations. Windows: Download ai999x-transportation-1.5.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x-transportation.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/ai999x-transportation-1.4.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-transportation-1.5.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-transportation-1.4.0-linux-x86_64.tar.gz
-./ai999x-transportation-1.4.0-linux-x86_64/ai999x-transportation
+tar xzf ai999x-transportation-1.5.0-linux-x86_64.tar.gz
+./ai999x-transportation-1.5.0-linux-x86_64/ai999x-transportation
 ```
 
-It opens on this model: type a question or pick a capability, fill in the form and press Compute. The AI999X desktop app with every model works the same way (choose the model first). Windows: Download ai999x-1.4.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
+It opens on this model: type a question or pick a capability, fill in the form and press Compute. The AI999X desktop app with every model works the same way (choose the model first). Windows: Download ai999x-1.5.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/ai999x-1.4.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-1.4.0-linux-x86_64.tar.gz
-./ai999x-1.4.0-linux-x86_64/ai999x
+tar xzf ai999x-1.5.0-linux-x86_64.tar.gz
+./ai999x-1.5.0-linux-x86_64/ai999x
 ```
 
-### Command line — Linux
+### Command line: Linux
 
 The bundle holds one program per model; `transportation` is this one. The checksum line should print OK.
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-mkdir -p ~/.local/share && tar xzf ai999x-cli-1.4.0-linux-x86_64.tar.gz -C ~/.local/share
-echo 'export PATH="$HOME/.local/share/ai999x-cli-1.4.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
+mkdir -p ~/.local/share && tar xzf ai999x-cli-1.5.0-linux-x86_64.tar.gz -C ~/.local/share
+echo 'export PATH="$HOME/.local/share/ai999x-cli-1.5.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
 transportation --version
 ```
 
-### Command line — Windows (PowerShell)
+### Command line: Windows (PowerShell)
 
 The fourth line should print True.
 
 ```powershell
-$F = "ai999x-cli-1.4.0-windows-x86_64.zip"
-Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.4.0/$F" -OutFile $F
-Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS" -OutFile SHA256SUMS
+$F = "ai999x-cli-1.5.0-windows-x86_64.zip"
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.5.0/$F" -OutFile $F
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS" -OutFile SHA256SUMS
 (Get-FileHash $F -Algorithm SHA256).Hash.ToLower() -eq ((Select-String -SimpleMatch $F SHA256SUMS).Line -split ' ')[0]
 Expand-Archive $F -DestinationPath "$env:LOCALAPPDATA\AI999X" -Force
-$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.4.0-windows-x86_64"; $env:Path += ";$D"
+$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.5.0-windows-x86_64"; $env:Path += ";$D"
 [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";$D", "User")
 transportation --version
 ```
@@ -96,7 +96,7 @@ Prints the model, its version and that this is the Rust build.
 
 ```shell
 $ transportation --version
-transportation-ai999x 1.0.3 (Rust build, ax-engine 0.1.0)
+transportation-ai999x 1.5.0 (Rust build, ax-engine 1.5.0)
 ```
 
 ### 2.2 Ask in words
@@ -206,35 +206,7 @@ $ transportation solve transport_signal_queue_uniform_delay "lam=600 1/h" "s=180
 NEEDS_INPUT: transport_signal_queue_uniform_delay needs g (effective green). Example: solve('transport_signal_queue_uniform_delay', lam='0.166667 1/s', s='0.5 1/s', r='40 s', g='30 s').
 ```
 
-### 2.9 Draw the figures
-
-The live figures for your own inputs, written as SVG files into the folder given with --out (here the current folder); open them in any browser. Without --out the SVG text comes back as JSON.
-
-```shell
-$ transportation figures transport_signal_queue_uniform_delay "lam=600 1/h" "s=1800 1/h" "r=40 s" "g=30 s" --out .
-[
-  {
-    "slug": "transport-signal-queue-uniform-delay-queue",
-    "title": "Queue at a traffic signal over one cycle",
-    "caption": "Queue at a signal over one cycle (red 40 s, green 30 s): it grows during red to the largest queue the model returned, 6.667 vehicles, and clears 20 s into green; the shaded area is the total delay 200 veh·s (17.14 s per vehicle, 85.71 % stopped). Your inputs: lam = 600 1/h, s = 1800 1/h, r = 40 s, g = 30 s.",
-    "file": ".\\transport-signal-queue-uniform-delay-queue.svg"
-  },
-  {
-    "slug": "transport-signal-queue-uniform-delay-live-1",
-    "title": "Largest queue as effective red varies",
-    "caption": "Largest queue as r runs from 10 to 59.5 s, every other input as you entered it (34 solutions). Marked: your r = 40 s gives Q_max = 6.667. Your inputs: lam = 600 1/h, s = 1800 1/h, r = 40 s, g = 30 s.",
-    "file": ".\\transport-signal-queue-uniform-delay-live-1.svg"
-  },
-  {
-    "slug": "transport-signal-queue-uniform-delay-live-2",
-    "title": "Largest queue as arrival flow (veh/h in questions; veh/s in solv... varies",
-    "caption": "Largest queue as lam runs from 150 to 760.7 1/h, every other input as you entered it (20 solutions). Marked: your lam = 600 1/h gives Q_max = 6.667. Your inputs: lam = 600 1/h, s = 1800 1/h, r = 40 s, g = 30 s.",
-    "file": ".\\transport-signal-queue-uniform-delay-live-2.svg"
-  }
-]
-```
-
-### 2.10 Many questions at once
+### 2.9 Many questions at once
 
 One JSON request per line in, one JSON answer per line out, in order: for scripts, notebooks and agents (the program starts once). In PowerShell: Get-Content cases.jsonl | transportation batch
 
@@ -307,30 +279,6 @@ answers = [json.loads(line) for line in out.splitlines()]
 
 `transportation figures <capability> name=value ... --out DIR` draws the live figures for those inputs and writes each as an SVG file into DIR (an existing folder); without `--out` the SVG text comes back as JSON. The desktop app and the model page draw the same figures as soon as you press Compute.
 
-```shell
-$ transportation figures transport_signal_queue_uniform_delay "lam=600 1/h" "s=1800 1/h" "r=40 s" "g=30 s" --out .
-[
-  {
-    "slug": "transport-signal-queue-uniform-delay-queue",
-    "title": "Queue at a traffic signal over one cycle",
-    "caption": "Queue at a signal over one cycle (red 40 s, green 30 s): it grows during red to the largest queue the model returned, 6.667 vehicles, and clears 20 s into green; the shaded area is the total delay 200 veh·s (17.14 s per vehicle, 85.71 % stopped). Your inputs: lam = 600 1/h, s = 1800 1/h, r = 40 s, g = 30 s.",
-    "file": ".\\transport-signal-queue-uniform-delay-queue.svg"
-  },
-  {
-    "slug": "transport-signal-queue-uniform-delay-live-1",
-    "title": "Largest queue as effective red varies",
-    "caption": "Largest queue as r runs from 10 to 59.5 s, every other input as you entered it (34 solutions). Marked: your r = 40 s gives Q_max = 6.667. Your inputs: lam = 600 1/h, s = 1800 1/h, r = 40 s, g = 30 s.",
-    "file": ".\\transport-signal-queue-uniform-delay-live-1.svg"
-  },
-  {
-    "slug": "transport-signal-queue-uniform-delay-live-2",
-    "title": "Largest queue as arrival flow (veh/h in questions; veh/s in solv... varies",
-    "caption": "Largest queue as lam runs from 150 to 760.7 1/h, every other input as you entered it (20 solutions). Marked: your lam = 600 1/h gives Q_max = 6.667. Your inputs: lam = 600 1/h, s = 1800 1/h, r = 40 s, g = 30 s.",
-    "file": ".\\transport-signal-queue-uniform-delay-live-2.svg"
-  }
-]
-```
-
 ## 7. In a web page or Node.js: WebAssembly
 
 The same model is a WebAssembly module, `transportation_ai999x.wasm` (https://www.ai999x.com/compute/rust/transportation_ai999x.wasm), with a small loader, `ax-wasm.js` (https://www.ai999x.com/compute/rust/ax-wasm.js). It runs in a browser, a Web Worker or Node.js, with no server.
@@ -354,7 +302,7 @@ By topic. For each: what it does, what it needs and gives, when it applies, and 
 
 <a id="transport_braking_distance"></a>
 
-#### Braking distance from speed and deceleration — `transport_braking_distance`
+#### Braking distance from speed and deceleration, `transport_braking_distance`
 
 Distance and time for a vehicle to stop from speed v at a constant deceleration a (no reaction time).
 
@@ -385,7 +333,7 @@ t = 8.169934641 s
 
 <a id="transport_speed_reduction_distance"></a>
 
-#### Distance to slow from one speed to another (friction and grade) — `transport_speed_reduction_distance`
+#### Distance to slow from one speed to another (friction and grade), `transport_speed_reduction_distance`
 
 Braking distance and time to slow from v1 to v2 with friction coefficient f on a grade G (deceleration g (f + G)).
 
@@ -397,8 +345,8 @@ $$
 |---|---|---|---|
 | `v1` | in | initial speed | m/s |
 | `v2` | in | final speed | m/s |
-| `f` | in | friction coefficient | — |
-| `G` | in | grade, decimal (positive uphill) (optional) | — |
+| `f` | in | friction coefficient | - |
+| `G` | in | grade, decimal (positive uphill) (optional) | - |
 | `d` | out | braking distance (m) | m |
 | `t` | out | braking time (s) | s |
 
@@ -420,7 +368,7 @@ t = 3.292532274 s
 
 <a id="transport_impact_speed"></a>
 
-#### Impact speed with an obstacle after reaction and braking — `transport_impact_speed`
+#### Impact speed with an obstacle after reaction and braking, `transport_impact_speed`
 
 A driver at speed v sees an obstacle at distance D, reacts after t_r and brakes with friction f on grade G: the speed at the obstacle (0 if the vehicle stops in time) and the full stopping distance.
 
@@ -433,8 +381,8 @@ $$
 | `v` | in | initial speed | m/s |
 | `D` | in | distance to the obstacle | m |
 | `t_r` | in | perception-reaction time | s |
-| `f` | in | friction coefficient | — |
-| `G` | in | grade, decimal (positive uphill) (optional) | — |
+| `f` | in | friction coefficient | - |
+| `G` | in | grade, decimal (positive uphill) (optional) | - |
 | `v_impact` | out | speed at the obstacle (m/s), 0 if the vehicle stops before it | m/s |
 | `v_impact_kmh` | out | speed at the obstacle (km/h) | km/h |
 | `d_stop` | out | stopping distance from the moment the obstacle is seen (m) | m |
@@ -458,7 +406,7 @@ d_stop = 78.09208291 m
 
 <a id="transport_skid_speed"></a>
 
-#### Speed estimate from skid-mark length — `transport_skid_speed`
+#### Speed estimate from skid-mark length: `transport_skid_speed`
 
 Initial speed of a vehicle that skidded to rest over a length d with friction coefficient f on a grade G.
 
@@ -469,8 +417,8 @@ $$
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
 | `d` | in | skid-mark length | m |
-| `f` | in | friction coefficient | — |
-| `G` | in | grade, decimal (positive uphill) (optional) | — |
+| `f` | in | friction coefficient | - |
+| `G` | in | grade, decimal (positive uphill) (optional) | - |
 | `v` | out | initial speed (m/s) | m/s |
 | `v_kmh` | out | initial speed (km/h) | km/h |
 
@@ -490,7 +438,7 @@ v_kmh = 67.65318618 km/h
 
 <a id="transport_stopping_sight_distance"></a>
 
-#### Stopping sight distance (reaction plus braking, with grade) — `transport_stopping_sight_distance`
+#### Stopping sight distance (reaction plus braking, with grade), `transport_stopping_sight_distance`
 
 Stopping sight distance = perception-reaction distance + braking distance on a grade, with either the longitudinal friction coefficient f (braking deceleration g (f + G)) or a deceleration rate a (AASHTO: a + g G, design value 3.4 m/s^2).
 
@@ -502,9 +450,9 @@ $$
 |---|---|---|---|
 | `v` | in | design speed | m/s |
 | `t_r` | in | perception-reaction time | s |
-| `f` | in | longitudinal friction coefficient (optional) | — |
+| `f` | in | longitudinal friction coefficient (optional) | - |
 | `a` | in | deceleration rate (optional) | m/s^2 |
-| `G` | in | grade, decimal (positive uphill) (optional) | — |
+| `G` | in | grade, decimal (positive uphill) (optional) | - |
 | `SSD` | out | stopping sight distance (m) | m |
 | `d_r` | out | perception-reaction distance (m) | m |
 | `d_b` | out | braking distance (m) | m |
@@ -527,7 +475,7 @@ d_b = 113.4713145 m
 
 <a id="transport_braking_with_air_resistance"></a>
 
-#### Theoretical stopping distance with aerodynamic and rolling resistance — `transport_braking_with_air_resistance`
+#### Theoretical stopping distance with aerodynamic and rolling resistance, `transport_braking_with_air_resistance`
 
 Stopping (or slowing) distance and time of a road vehicle braking with tyre-road friction mu and braking efficiency eta, helped by aerodynamic drag (rho C_D A v^2 / 2), rolling resistance f_r and the grade; gamma is the mass factor for rotating parts (1.04 for braking).
 
@@ -539,14 +487,14 @@ $$
 |---|---|---|---|
 | `m` | in | vehicle mass | kg |
 | `v1` | in | initial speed | m/s |
-| `mu` | in | tyre-road friction coefficient | — |
-| `C_D` | in | drag coefficient | — |
+| `mu` | in | tyre-road friction coefficient | - |
+| `C_D` | in | drag coefficient | - |
 | `A` | in | frontal area | m^2 |
 | `rho` | in | air density (default 1.2 kg/m^3) (optional) | kg/m^3 |
-| `f_r` | in | rolling resistance coefficient (default 0.01) (optional) | — |
-| `G` | in | grade, decimal (positive uphill) (optional) | — |
-| `eta` | in | braking efficiency (default 1) (optional) | — |
-| `gamma` | in | mass factor for braking (default 1.04) (optional) | — |
+| `f_r` | in | rolling resistance coefficient (default 0.01) (optional) | - |
+| `G` | in | grade, decimal (positive uphill) (optional) | - |
+| `eta` | in | braking efficiency (default 1) (optional) | - |
+| `gamma` | in | mass factor for braking (default 1.04) (optional) | - |
 | `v2` | in | final speed (default 0) (optional) | m/s |
 | `S` | out | braking distance (m) | m |
 | `t` | out | braking time (s) | s |
@@ -574,7 +522,7 @@ t = 5.132823511 s
 
 <a id="transport_clothoid_coordinates"></a>
 
-#### Clothoid (spiral) transition curve coordinates — `transport_clothoid_coordinates`
+#### Clothoid (spiral) transition curve coordinates, `transport_clothoid_coordinates`
 
 Coordinates along the tangent (x) and offset from it (y), and the tangent deflection angle, at distance s along a clothoid transition of length L_s that ends at a circular curve of radius R (A^2 = R L_s).
 
@@ -608,7 +556,7 @@ In the worked example, R = 300 m, L_s = 80 m go through the equation above and g
 
 <a id="transport_simplified_curve_formula"></a>
 
-#### Curve radius or speed by the simplified e + f formula — `transport_simplified_curve_formula`
+#### Curve radius or speed by the simplified e + f formula, `transport_simplified_curve_formula`
 
 The minimum radius R = v^2/(g (e + f)) for a speed, or the maximum speed sqrt(g R (e + f)) on a radius, by the simplified (small-angle) point-mass formula of horizontal curves (the exact form is minimum curve radius).
 
@@ -618,13 +566,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `e` | in | superelevation rate, decimal | — |
-| `f` | in | side friction factor | — |
+| `e` | in | superelevation rate, decimal | - |
+| `f` | in | side friction factor | - |
 | `v` | in | design speed (give v or R) (optional) | m/s |
 | `R` | in | curve radius (give v or R) (optional) | m |
 | `R` | out | curve radius (m) | m |
 | `v` | out | speed (m/s) | m/s |
-| `v_kmh` | out | speed (km/h) | — |
+| `v_kmh` | out | speed (km/h) | - |
 
 **Applies when:** -0.1 <= e <= 0.2; 0 < f <= 0.5; the speed or the radius (one of them); small-angle (simplified) form.
 
@@ -644,7 +592,7 @@ v_kmh = 100
 
 <a id="transport_horizontal_sight_offset"></a>
 
-#### Horizontal sightline offset on a circular curve — `transport_horizontal_sight_offset`
+#### Horizontal sightline offset on a circular curve, `transport_horizontal_sight_offset`
 
 The clearance M needed from the centre of the inside lane to an obstruction (middle ordinate) so that a driver on a curve of radius R sees the sight distance S, both driver and object on the curve.
 
@@ -673,7 +621,7 @@ M = 10.60360643 m
 
 <a id="transport_curve_safe_speed"></a>
 
-#### Maximum safe speed on a superelevated horizontal curve — `transport_curve_safe_speed`
+#### Maximum safe speed on a superelevated horizontal curve, `transport_curve_safe_speed`
 
 The highest speed at which a vehicle (point mass) can hold a curve of radius R with superelevation e and side friction factor f.
 
@@ -684,8 +632,8 @@ $$
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
 | `R` | in | curve radius | m |
-| `e` | in | superelevation rate, decimal | — |
-| `f` | in | side friction factor | — |
+| `e` | in | superelevation rate, decimal | - |
+| `f` | in | side friction factor | - |
 | `v` | out | maximum safe speed (m/s) | m/s |
 | `v_kmh` | out | maximum safe speed (km/h) | km/h |
 
@@ -706,7 +654,7 @@ v_kmh = 83.1578017 km/h
 
 <a id="transport_crest_curve_length"></a>
 
-#### Minimum length of a crest vertical curve for a sight distance — `transport_crest_curve_length`
+#### Minimum length of a crest vertical curve for a sight distance, `transport_crest_curve_length`
 
 The shortest crest vertical curve between grades g1 and g2 that provides the sight distance S (AASHTO: eye height 1.08 m, object height 0.60 m unless stated), choosing the S < L or S > L form.
 
@@ -716,13 +664,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `g1` | in | grade before the curve, decimal (positive uphill) | — |
-| `g2` | in | grade after the curve, decimal | — |
+| `g1` | in | grade before the curve, decimal (positive uphill) | - |
+| `g2` | in | grade after the curve, decimal | - |
 | `S` | in | required sight distance | m |
 | `h1` | in | driver eye height (default 1.08 m) (optional) | m |
 | `h2` | in | object height (default 0.60 m) (optional) | m |
 | `L` | out | minimum curve length (m) | m |
-| `case` | out | S < L, S > L or no curve needed | — |
+| `case` | out | S < L, S > L or no curve needed | - |
 
 **Applies when:** g1 > g2; S > 0.
 
@@ -741,7 +689,7 @@ In the worked example, g1 = 0.03 1, g2 = -0.02 1, S = 185 m go through the equat
 
 <a id="transport_minimum_curve_radius"></a>
 
-#### Minimum radius of a horizontal curve — `transport_minimum_curve_radius`
+#### Minimum radius of a horizontal curve: `transport_minimum_curve_radius`
 
 The smallest curve radius for a design speed v, maximum superelevation e and side friction factor f.
 
@@ -752,8 +700,8 @@ $$
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
 | `v` | in | design speed | m/s |
-| `e` | in | superelevation rate, decimal | — |
-| `f` | in | side friction factor | — |
+| `e` | in | superelevation rate, decimal | - |
+| `f` | in | side friction factor | - |
 | `R_min` | out | minimum curve radius (m) | m |
 
 **Applies when:** v > 0; f > 0; e f < 1.
@@ -772,7 +720,7 @@ R_min = 389.4992513 m
 
 <a id="transport_passing_sight_distance"></a>
 
-#### Passing sight distance (four-component method) — `transport_passing_sight_distance`
+#### Passing sight distance (four-component method), `transport_passing_sight_distance`
 
 The passing sight distance on a two-lane road as d1 + d2 + d3 + d4: the initial manoeuvre d1 = t1 (v - m + a t1/2), the time in the left lane d2 = v t2, the clearance d3 and the opposing vehicle's travel d4 = 2 d2/3 (AASHTO 2001).
 
@@ -817,7 +765,7 @@ d4 = 173.3333333 m
 
 <a id="transport_sag_curve_headlight"></a>
 
-#### Sag vertical curve length for headlight sight distance — `transport_sag_curve_headlight`
+#### Sag vertical curve length for headlight sight distance, `transport_sag_curve_headlight`
 
 The minimum length of a sag vertical curve for the headlight sight distance S by the AASHTO formulas (headlight 0.6 m high, beam rising 1 degree): L = A S^2/(120 + 3.5 S) when S < L, L = 2S - (120 + 3.5 S)/A when S > L, A = g2 - g1 in percent.
 
@@ -827,13 +775,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `g1` | in | entering grade, decimal | — |
-| `g2` | in | leaving grade, decimal | — |
+| `g1` | in | entering grade, decimal | - |
+| `g2` | in | leaving grade, decimal | - |
 | `S` | in | headlight sight distance | m |
 | `L` | out | minimum curve length (m) | m |
-| `A` | out | algebraic grade difference (%) | — |
-| `K` | out | rate of vertical curvature L/A (m per %) | — |
-| `case` | out | S < L or S > L | — |
+| `A` | out | algebraic grade difference (%) | - |
+| `K` | out | rate of vertical curvature L/A (m per %) | - |
+| `case` | out | S < L or S > L | - |
 
 **Applies when:** g2 > g1 (a sag); AASHTO headlight height 0.6 m and 1 degree upward beam (coefficients 120 and 3.5).
 
@@ -854,7 +802,7 @@ case = S < L
 
 <a id="transport_side_friction_demand"></a>
 
-#### Side friction demanded on a superelevated curve — `transport_side_friction_demand`
+#### Side friction demanded on a superelevated curve, `transport_side_friction_demand`
 
 The side friction factor a vehicle needs at speed v on a curve of radius R with superelevation e (negative: the superelevation alone exceeds the demand and friction acts up the slope).
 
@@ -866,8 +814,8 @@ $$
 |---|---|---|---|
 | `v` | in | design speed | m/s |
 | `R` | in | curve radius | m |
-| `e` | in | superelevation rate, decimal | — |
-| `f` | out | side friction factor demanded | — |
+| `e` | in | superelevation rate, decimal | - |
+| `f` | out | side friction factor demanded | - |
 
 **Applies when:** v > 0; R > 0.
 
@@ -885,7 +833,7 @@ f = 0.1919076305
 
 <a id="transport_sight_distance_from_offset"></a>
 
-#### Sight distance available on a curve with a roadside obstruction — `transport_sight_distance_from_offset`
+#### Sight distance available on a curve with a roadside obstruction, `transport_sight_distance_from_offset`
 
 The sight distance available on a curve of radius R (inside lane centreline) when an obstruction stands at the offset M from that centreline.
 
@@ -914,7 +862,7 @@ S = 147.3393105 m
 
 <a id="transport_crest_curve_sight_distance"></a>
 
-#### Sight distance available over a crest vertical curve — `transport_crest_curve_sight_distance`
+#### Sight distance available over a crest vertical curve, `transport_crest_curve_sight_distance`
 
 The sight distance a crest vertical curve of length L between grades g1 and g2 provides (eye height 1.08 m, object height 0.60 m unless stated).
 
@@ -924,13 +872,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `g1` | in | grade before the curve, decimal (positive uphill) | — |
-| `g2` | in | grade after the curve, decimal | — |
+| `g1` | in | grade before the curve, decimal (positive uphill) | - |
+| `g2` | in | grade after the curve, decimal | - |
 | `L` | in | curve length | m |
 | `h1` | in | driver eye height (default 1.08 m) (optional) | m |
 | `h2` | in | object height (default 0.60 m) (optional) | m |
 | `S` | out | available sight distance (m) | m |
-| `case` | out | S < L or S > L | — |
+| `case` | out | S < L or S > L | - |
 
 **Applies when:** g1 > g2; L >= 0.
 
@@ -949,7 +897,7 @@ case = S < L
 
 <a id="transport_superelevation_required"></a>
 
-#### Superelevation required on a horizontal curve — `transport_superelevation_required`
+#### Superelevation required on a horizontal curve, `transport_superelevation_required`
 
 The superelevation rate needed at speed v on a curve of radius R when the side friction factor f is used.
 
@@ -961,9 +909,9 @@ $$
 |---|---|---|---|
 | `v` | in | design speed | m/s |
 | `R` | in | curve radius | m |
-| `f` | in | side friction factor | — |
-| `e` | out | superelevation rate (decimal) | — |
-| `e_percent` | out | superelevation rate (%) | — |
+| `f` | in | side friction factor | - |
+| `e` | out | superelevation rate (decimal) | - |
+| `e_percent` | out | superelevation rate (%) | - |
 
 **Applies when:** v > 0; R > 0; f >= 0.
 
@@ -984,7 +932,7 @@ e_percent = 5.366318384
 
 <a id="transport_logit_elasticities"></a>
 
-#### Direct and cross elasticities of logit choice probabilities — `transport_logit_elasticities`
+#### Direct and cross elasticities of logit choice probabilities, `transport_logit_elasticities`
 
 Point elasticities of logit probabilities with respect to an attribute x (such as cost or time) that enters the utility linearly with coefficient beta: direct E_ii = beta x_i (1 - P_i) and cross E_ji = -beta x_i P_i (the same for every other alternative j, the IIA property).
 
@@ -994,12 +942,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `V` | in | utility of each alternative | — |
-| `x` | in | value of the attribute for each alternative | — |
-| `beta` | in | coefficient of the attribute | — |
-| `P` | out | probability of each alternative | — |
-| `direct` | out | direct elasticity of each alternative | — |
-| `cross` | out | cross elasticity of the other alternatives with respect to each alternative's attribute | — |
+| `V` | in | utility of each alternative | - |
+| `x` | in | value of the attribute for each alternative | - |
+| `beta` | in | coefficient of the attribute | - |
+| `P` | out | probability of each alternative | - |
+| `direct` | out | direct elasticity of each alternative | - |
+| `cross` | out | cross elasticity of the other alternatives with respect to each alternative's attribute | - |
 
 **Applies when:** one attribute value per alternative.
 
@@ -1017,7 +965,7 @@ cross = [0.41402233514,0.926473117406,0.112219279949]
 
 <a id="transport_logit_from_attributes"></a>
 
-#### Logit mode choice from attributes and coefficients — `transport_logit_from_attributes`
+#### Logit mode choice from attributes and coefficients, `transport_logit_from_attributes`
 
 Utilities V_i = ASC_i + sum_k beta_k x_ik of each mode from its attributes (rows of X: modes; columns: attributes such as time in min and cost) and the coefficients, and the resulting logit choice probabilities.
 
@@ -1027,11 +975,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `X` | in | attributes: one row per mode, one column per attribute | — |
-| `beta` | in | coefficient of each attribute | — |
-| `asc` | in | alternative-specific constant of each mode (default 0) (optional) | — |
-| `V` | out | utility of each mode | — |
-| `P` | out | probability of each mode | — |
+| `X` | in | attributes: one row per mode, one column per attribute | - |
+| `beta` | in | coefficient of each attribute | - |
+| `asc` | in | alternative-specific constant of each mode (default 0) (optional) | - |
+| `V` | out | utility of each mode | - |
+| `P` | out | probability of each mode | - |
 
 **Applies when:** one coefficient per attribute column; at least two modes.
 
@@ -1047,7 +995,7 @@ P = [0.629152135572,0.268909017211,0.101938847218]
 
 <a id="transport_logit_mode_shares"></a>
 
-#### Multinomial logit mode shares from utilities — `transport_logit_mode_shares`
+#### Multinomial logit mode shares from utilities, `transport_logit_mode_shares`
 
 Choice probabilities (mode shares) of a multinomial logit model from the systematic utilities of the alternatives, and the logsum (expected maximum utility).
 
@@ -1057,9 +1005,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `V` | in | utility of each alternative | — |
-| `P` | out | probability of each alternative | — |
-| `logsum` | out | logsum ln(sum exp V) | — |
+| `V` | in | utility of each alternative | - |
+| `P` | out | probability of each alternative | - |
+| `logsum` | out | logsum ln(sum exp V) | - |
 
 **Applies when:** at least two alternatives.
 
@@ -1075,7 +1023,7 @@ logsum = -0.1358430862
 
 <a id="transport_nested_logit"></a>
 
-#### Nested logit choice probabilities — `transport_nested_logit`
+#### Nested logit choice probabilities: `transport_nested_logit`
 
 Choice probabilities of a two-level nested logit model (for example car / public transport nests holding bus and rail): alternatives grouped into nests 1..K with dissimilarity (logsum) parameters lam_k in (0, 1]; also the probability of each nest.
 
@@ -1085,11 +1033,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `V` | in | utility of each alternative | — |
-| `nest` | in | nest number (1, 2, ...) of each alternative | — |
-| `lam` | in | dissimilarity parameter of each nest, in (0, 1] | — |
-| `P` | out | probability of each alternative | — |
-| `P_nest` | out | probability of each nest | — |
+| `V` | in | utility of each alternative | - |
+| `nest` | in | nest number (1, 2, ...) of each alternative | - |
+| `lam` | in | dissimilarity parameter of each nest, in (0, 1] | - |
+| `P` | out | probability of each alternative | - |
+| `P_nest` | out | probability of each nest | - |
 
 **Applies when:** nests numbered 1..K, each used; 0 < lam_k <= 1.
 
@@ -1105,7 +1053,7 @@ P_nest = [0.560574109573,0.439425890427]
 
 <a id="transport_logsum_user_benefit"></a>
 
-#### User benefit of a change from the logit logsum — `transport_logsum_user_benefit`
+#### User benefit of a change from the logit logsum, `transport_logsum_user_benefit`
 
 Change in consumer surplus per trip (in money units) when the utilities of the alternatives change from V0 to V1, from the difference of the logsums divided by the (negative) cost coefficient.
 
@@ -1115,12 +1063,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `V0` | in | utilities before the change | — |
-| `V1` | in | utilities after the change | — |
-| `beta_cost` | in | cost coefficient (utility per money unit, negative) | — |
-| `dCS` | out | change in consumer surplus per trip (money units) | — |
-| `logsum0` | out | logsum before | — |
-| `logsum1` | out | logsum after | — |
+| `V0` | in | utilities before the change | - |
+| `V1` | in | utilities after the change | - |
+| `beta_cost` | in | cost coefficient (utility per money unit, negative) | - |
+| `dCS` | out | change in consumer surplus per trip (money units) | - |
+| `logsum0` | out | logsum before | - |
+| `logsum1` | out | logsum after | - |
 
 **Applies when:** same alternatives before and after; beta_cost < 0.
 
@@ -1140,7 +1088,7 @@ logsum1 = 0.1040188667
 
 <a id="transport_erlang_b_blocking"></a>
 
-#### Blocking probability with no waiting room (Erlang B), e.g. parking spaces — `transport_erlang_b_blocking`
+#### Blocking probability with no waiting room (Erlang B), e.g. parking spaces, `transport_erlang_b_blocking`
 
 Arrivals at lam (veh/h) to c spaces or servers held for a mean time 1/mu with no waiting room (a car park, loading bays, taxi ranks): the probability an arrival is turned away (Erlang B), the mean number of occupied spaces and the vehicles lost per hour. Rates in veh/h.
 
@@ -1152,9 +1100,9 @@ $$
 |---|---|---|---|
 | `lam` | in | arrival rate (veh/h in questions; veh/s in solve(), or a string such as '600 1/h') | 1/s |
 | `mu` | in | service rate per server (veh/h in questions; veh/s in solve(), or a string such as '600 1/h') | 1/s |
-| `c` | in | number of spaces or servers (whole number) | — |
-| `P_block` | out | probability an arrival is turned away | — |
-| `carried` | out | mean number of occupied spaces | — |
+| `c` | in | number of spaces or servers (whole number) | - |
+| `P_block` | out | probability an arrival is turned away | - |
+| `carried` | out | mean number of occupied spaces | - |
 | `lost_per_h` | out | vehicles turned away (veh/h) | 1/h |
 
 **Applies when:** 1 <= c <= 1000.
@@ -1174,7 +1122,7 @@ lost_per_h = 4.165126144 1/h
 
 <a id="transport_fifo_queue_simulation"></a>
 
-#### First-come-first-served queue from arrival and service times — `transport_fifo_queue_simulation`
+#### First-come-first-served queue from arrival and service times, `transport_fifo_queue_simulation`
 
 Waiting time of every vehicle (or passenger) at c identical servers in first-come-first-served order from given arrival times and service times (a toll plaza, a bus stop with c berths): mean and longest wait, mean time in the system, when the last one leaves and the longest waiting line. Times in s.
 
@@ -1184,15 +1132,15 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `arrivals` | in | arrival times in s, increasing | — |
-| `service` | in | service times in s (one per arrival, or one for all) | — |
-| `c` | in | number of servers (default 1) (optional) | — |
-| `waits` | out | waiting time of each arrival (s) | — |
+| `arrivals` | in | arrival times in s, increasing | - |
+| `service` | in | service times in s (one per arrival, or one for all) | - |
+| `c` | in | number of servers (default 1) (optional) | - |
+| `waits` | out | waiting time of each arrival (s) | - |
 | `mean_wait` | out | mean waiting time (s) | s |
 | `max_wait` | out | longest wait (s) | s |
 | `mean_time_in_system` | out | mean time in the system (s) | s |
 | `last_departure` | out | time the last one leaves (s) | s |
-| `max_queue` | out | longest waiting line | — |
+| `max_queue` | out | longest waiting line | - |
 
 **Applies when:** arrival times increasing; service times > 0; c >= 1.
 
@@ -1212,7 +1160,7 @@ max_queue = 4
 
 <a id="transport_mmc_queue"></a>
 
-#### Multi-server random queue (M/M/c, Erlang C), e.g. a toll plaza — `transport_mmc_queue`
+#### Multi-server random queue (M/M/c, Erlang C), e.g. a toll plaza, `transport_mmc_queue`
 
 Poisson arrivals at lam served by c parallel exponential servers at mu each (toll lanes, loading bays, ticket windows): probability of waiting (Erlang C), mean queue, mean wait, mean time in the system and mean number in the system. Rates in veh/h.
 
@@ -1224,12 +1172,12 @@ $$
 |---|---|---|---|
 | `lam` | in | arrival rate (veh/h in questions; veh/s in solve(), or a string such as '600 1/h') | 1/s |
 | `mu` | in | service rate per server (veh/h in questions; veh/s in solve(), or a string such as '600 1/h') | 1/s |
-| `c` | in | number of servers (whole number) | — |
-| `P_wait` | out | probability an arrival waits (Erlang C) | — |
-| `Lq` | out | mean number waiting (veh) | — |
+| `c` | in | number of servers (whole number) | - |
+| `P_wait` | out | probability an arrival waits (Erlang C) | - |
+| `Lq` | out | mean number waiting (veh) | - |
 | `Wq` | out | mean waiting time (s) | s |
 | `W` | out | mean time in the system (s) | s |
-| `L` | out | mean number in the system (veh) | — |
+| `L` | out | mean number in the system (veh) | - |
 
 **Applies when:** lam < c mu; 1 <= c <= 200.
 
@@ -1250,7 +1198,7 @@ L = 5.135366877
 
 <a id="transport_md1_queue"></a>
 
-#### Single server with constant service time (M/D/1) — `transport_md1_queue`
+#### Single server with constant service time (M/D/1), `transport_md1_queue`
 
 Poisson arrivals at lam and a constant service time 1/mu (an automated toll gate, a ramp meter): mean queue, mean wait, mean time in the system and mean number in the system. Rates in veh/h.
 
@@ -1262,10 +1210,10 @@ $$
 |---|---|---|---|
 | `lam` | in | arrival rate (veh/h in questions; veh/s in solve(), or a string such as '600 1/h') | 1/s |
 | `mu` | in | service rate per server (veh/h in questions; veh/s in solve(), or a string such as '600 1/h') | 1/s |
-| `Lq` | out | mean number waiting (veh) | — |
+| `Lq` | out | mean number waiting (veh) | - |
 | `Wq` | out | mean waiting time (s) | s |
 | `W` | out | mean time in the system (s) | s |
-| `L` | out | mean number in the system (veh) | — |
+| `L` | out | mean number in the system (veh) | - |
 
 **Applies when:** lam < mu.
 
@@ -1285,7 +1233,7 @@ L = 2.4
 
 <a id="transport_mm1_queue"></a>
 
-#### Single-server random queue (M/M/1), e.g. a toll booth — `transport_mm1_queue`
+#### Single-server random queue (M/M/1), e.g. a toll booth, `transport_mm1_queue`
 
 Poisson arrivals at lam and exponential service at mu at one server (a toll booth, a ramp meter): utilisation, mean number in the system and in the queue, mean time in the system and waiting, and the probability that the server is idle. Rates in veh/h.
 
@@ -1297,12 +1245,12 @@ $$
 |---|---|---|---|
 | `lam` | in | arrival rate (veh/h in questions; veh/s in solve(), or a string such as '600 1/h') | 1/s |
 | `mu` | in | service rate per server (veh/h in questions; veh/s in solve(), or a string such as '600 1/h') | 1/s |
-| `rho` | out | utilisation lam / mu | — |
-| `L` | out | mean number in the system (veh) | — |
-| `Lq` | out | mean number waiting (veh) | — |
+| `rho` | out | utilisation lam / mu | - |
+| `L` | out | mean number in the system (veh) | - |
+| `Lq` | out | mean number waiting (veh) | - |
 | `W` | out | mean time in the system (s) | s |
 | `Wq` | out | mean waiting time (s) | s |
-| `P0` | out | probability the system is empty | — |
+| `P0` | out | probability the system is empty | - |
 
 **Applies when:** lam < mu.
 
@@ -1326,7 +1274,7 @@ P0 = 0.2
 
 <a id="transport_rail_station_headway"></a>
 
-#### Minimum headway of trains at a station stop (moving block) — `transport_rail_station_headway`
+#### Minimum headway of trains at a station stop (moving block), `transport_rail_station_headway`
 
 Shortest headway between trains serving a station under a brick-wall (moving-block) separation: the leader dwells t_d, accelerates at a until its rear clears the platform plus the safety margin s_m, while the follower approaches at the line speed v and brakes at b to stop at the platform; and the corresponding line capacity in trains per hour.
 
@@ -1365,7 +1313,7 @@ trains_per_h = 51.28057554 1/h
 
 <a id="transport_train_running_time"></a>
 
-#### Running time between stations (accelerate, cruise, brake) — `transport_train_running_time`
+#### Running time between stations (accelerate, cruise, brake), `transport_train_running_time`
 
 Minimum running time of a train (or bus) between two stops a distance D apart with acceleration a, braking rate b and line speed v_max; when the stops are too close to reach v_max the profile is accelerate-brake.
 
@@ -1381,7 +1329,7 @@ $$
 | `b` | in | braking rate | m/s^2 |
 | `T` | out | running time stop to stop (s) | s |
 | `v_peak` | out | highest speed reached (m/s) | m/s |
-| `profile` | out | accelerate-cruise-brake or accelerate-brake | — |
+| `profile` | out | accelerate-cruise-brake or accelerate-brake | - |
 
 **Applies when:** all inputs positive.
 
@@ -1402,7 +1350,7 @@ profile = accelerate-cruise-brake
 
 <a id="transport_train_acceleration"></a>
 
-#### Train acceleration time and distance (tractive effort curve, Davis resistance) — `transport_train_acceleration`
+#### Train acceleration time and distance (tractive effort curve, Davis resistance), `transport_train_acceleration`
 
 Time and distance for a train to accelerate from v1 to v2 with a tractive effort F_max up to the speed P / F_max and constant power P above it, against the Davis resistance A + B v + C v^2 and the gradient, with a rotating-mass factor gamma.
 
@@ -1420,8 +1368,8 @@ $$
 | `A` | in | Davis coefficient A (constant resistance) | N |
 | `B` | in | Davis coefficient B (per speed) | N*s/m |
 | `C` | in | Davis coefficient C (per speed squared) | N*s^2/m^2 |
-| `G` | in | grade, decimal (positive uphill) (optional) | — |
-| `gamma` | in | rotating-mass factor (default 1.08) (optional) | — |
+| `G` | in | grade, decimal (positive uphill) (optional) | - |
+| `gamma` | in | rotating-mass factor (default 1.08) (optional) | - |
 | `t` | out | acceleration time (s) | s |
 | `d` | out | distance travelled (m) | m |
 
@@ -1447,7 +1395,7 @@ d = 1222.691944 m
 
 <a id="transport_train_braking_distance"></a>
 
-#### Train braking distance with Davis resistance and gradient — `transport_train_braking_distance`
+#### Train braking distance with Davis resistance and gradient, `transport_train_braking_distance`
 
 Braking distance and time of a train of mass m braking with a constant brake force F_b from v1 to v2, helped by the Davis train resistance R = A + B v + C v^2 and the gradient (positive uphill), with a rotating-mass factor gamma.
 
@@ -1463,8 +1411,8 @@ $$
 | `A` | in | Davis coefficient A (constant resistance) | N |
 | `B` | in | Davis coefficient B (per speed) | N*s/m |
 | `C` | in | Davis coefficient C (per speed squared) | N*s^2/m^2 |
-| `G` | in | grade, decimal (positive uphill) (optional) | — |
-| `gamma` | in | rotating-mass factor (default 1.06) (optional) | — |
+| `G` | in | grade, decimal (positive uphill) (optional) | - |
+| `gamma` | in | rotating-mass factor (default 1.06) (optional) | - |
 | `v2` | in | final speed (default 0) (optional) | m/s |
 | `S` | out | braking distance (m) | m |
 | `t` | out | braking time (s) | s |
@@ -1491,7 +1439,7 @@ t = 42.47286839 s
 
 <a id="transport_fastest_route"></a>
 
-#### Fastest route on a road network (link lengths and speeds) — `transport_fastest_route`
+#### Fastest route on a road network (link lengths and speeds), `transport_fastest_route`
 
 The quickest route between two places on a road network whose links are given by length (km) and speed (km/h): the route, its travel time in minutes and its length in km. Roads are two-way unless directed = yes.
 
@@ -1501,12 +1449,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `roads` | in | roads as 'A-B length' with lengths in km | — |
-| `speeds` | in | speed on each road in km/h, in the same order | — |
-| `origin` | in | starting place | — |
-| `destination` | in | destination | — |
-| `directed` | in | one-way links as written (default no) (optional) | — |
-| `route` | out | fastest route (places joined by '-') | — |
+| `roads` | in | roads as 'A-B length' with lengths in km | - |
+| `speeds` | in | speed on each road in km/h, in the same order | - |
+| `origin` | in | starting place | - |
+| `destination` | in | destination | - |
+| `directed` | in | one-way links as written (default no) (optional) | - |
+| `route` | out | fastest route (places joined by '-') | - |
 | `time` | out | travel time (min) | min |
 | `distance` | out | route length (km) | km |
 
@@ -1527,7 +1475,7 @@ distance = 12.5 km
 
 <a id="transport_travel_time_skim"></a>
 
-#### Zone-to-zone travel time matrix (skim) of a road network — `transport_travel_time_skim`
+#### Zone-to-zone travel time matrix (skim) of a road network, `transport_travel_time_skim`
 
 The fastest travel time in minutes between every pair of places of a road network given by link lengths (km) and speeds (km/h), as a matrix in alphabetical order of the places (the skim used for trip distribution).
 
@@ -1537,11 +1485,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `roads` | in | roads as 'A-B length' with lengths in km | — |
-| `speeds` | in | speed on each road in km/h, in the same order | — |
-| `directed` | in | one-way links as written (default no) (optional) | — |
-| `places` | out | places in the order of the matrix | — |
-| `times` | out | travel time matrix (min) | — |
+| `roads` | in | roads as 'A-B length' with lengths in km | - |
+| `speeds` | in | speed on each road in km/h, in the same order | - |
+| `directed` | in | one-way links as written (default no) (optional) | - |
+| `places` | out | places in the order of the matrix | - |
+| `times` | out | travel time matrix (min) | - |
 
 **Applies when:** every place reachable; at most 60 places.
 
@@ -1559,7 +1507,7 @@ times = [[0.0,4.0,3.0,7.75,9.66666666667],[4.0,0.0,1.8,3.75,6.15],[3.0,1.8,0.0,4
 
 <a id="transport_greenberg_fit"></a>
 
-#### Fit the Greenberg (logarithmic) model to speed-density observations — `transport_greenberg_fit`
+#### Fit the Greenberg (logarithmic) model to speed-density observations, `transport_greenberg_fit`
 
 Least-squares fit of Greenberg's model v = v0 ln(kj / k) (v against ln k) to observed speeds (km/h) and densities (veh/km): the optimum speed v0, jam density, capacity v0 kj / e and the coefficient of determination.
 
@@ -1569,12 +1517,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `speeds` | in | observed space-mean speeds in km/h | — |
-| `densities` | in | observed densities in veh/km, in the same order | — |
+| `speeds` | in | observed space-mean speeds in km/h | - |
+| `densities` | in | observed densities in veh/km, in the same order | - |
 | `v0` | out | optimum speed v0 (km/h) | km/h |
 | `kj` | out | jam density (veh/km) | 1/km |
 | `q_max` | out | capacity (veh/h) | 1/h |
-| `r2` | out | coefficient of determination (v on ln k) | — |
+| `r2` | out | coefficient of determination (v on ln k) | - |
 
 **Applies when:** at least three observations; speeds fall with density.
 
@@ -1592,7 +1540,7 @@ r2 = 0.9573293444
 
 <a id="transport_greenshields_fit"></a>
 
-#### Fit the Greenshields model to speed-density observations — `transport_greenshields_fit`
+#### Fit the Greenshields model to speed-density observations, `transport_greenshields_fit`
 
 Least-squares fit of Greenshields' line v = vf - (vf/kj) k to observed speeds (km/h) and densities (veh/km): the free-flow speed, jam density, capacity and the coefficient of determination of the line.
 
@@ -1602,12 +1550,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `speeds` | in | observed space-mean speeds in km/h | — |
-| `densities` | in | observed densities in veh/km, in the same order | — |
+| `speeds` | in | observed space-mean speeds in km/h | - |
+| `densities` | in | observed densities in veh/km, in the same order | - |
 | `vf` | out | free-flow speed (km/h) | km/h |
 | `kj` | out | jam density (veh/km) | 1/km |
 | `q_max` | out | capacity (veh/h) | 1/h |
-| `r2` | out | coefficient of determination of the fit | — |
+| `r2` | out | coefficient of determination of the fit | - |
 
 **Applies when:** at least three observations; speeds fall with density.
 
@@ -1625,7 +1573,7 @@ r2 = 0.9986899158
 
 <a id="transport_underwood_fit"></a>
 
-#### Fit the Underwood (exponential) model to speed-density observations — `transport_underwood_fit`
+#### Fit the Underwood (exponential) model to speed-density observations, `transport_underwood_fit`
 
 Least-squares fit of Underwood's model v = vf exp(-k / k0) (ln v against k) to observed speeds (km/h) and densities (veh/km): the free-flow speed, the optimum density k0, capacity vf k0 / e and the coefficient of determination.
 
@@ -1635,12 +1583,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `speeds` | in | observed space-mean speeds in km/h | — |
-| `densities` | in | observed densities in veh/km, in the same order | — |
+| `speeds` | in | observed space-mean speeds in km/h | - |
+| `densities` | in | observed densities in veh/km, in the same order | - |
 | `vf` | out | free-flow speed (km/h) | km/h |
 | `k0` | out | optimum density (veh/km) | 1/km |
 | `q_max` | out | capacity (veh/h) | 1/h |
-| `r2` | out | coefficient of determination (ln v on k) | — |
+| `r2` | out | coefficient of determination (ln v on k) | - |
 
 **Applies when:** at least three observations; speeds fall with density.
 
@@ -1658,7 +1606,7 @@ r2 = 0.9749558489
 
 <a id="transport_greenberg_capacity"></a>
 
-#### Greenberg model: capacity and density at capacity — `transport_greenberg_capacity`
+#### Greenberg model: capacity and density at capacity, `transport_greenberg_capacity`
 
 Capacity of a traffic stream following Greenberg's model v = v0 ln(kj / k) and the density at which it occurs (the speed there is v0).
 
@@ -1689,7 +1637,7 @@ k_m = 51.50312176 1/km
 
 <a id="transport_greenshields_capacity"></a>
 
-#### Greenshields model: capacity, optimum speed and density — `transport_greenshields_capacity`
+#### Greenshields model: capacity, optimum speed and density, `transport_greenshields_capacity`
 
 Capacity (maximum flow) of a traffic stream following Greenshields' linear speed-density model v = vf (1 - k/kj), with the density and speed at which it occurs.
 
@@ -1722,7 +1670,7 @@ v_m = 50 km/h
 
 <a id="transport_greenshields_speed_at_flow"></a>
 
-#### Greenshields model: densities and speeds at a given flow — `transport_greenshields_speed_at_flow`
+#### Greenshields model: densities and speeds at a given flow, `transport_greenshields_speed_at_flow`
 
 The two traffic states (uncongested and congested) of a Greenshields stream that carry the flow q: their densities and speeds.
 
@@ -1759,7 +1707,7 @@ v_2 = 21.13248654 km/h
 
 <a id="transport_headway_probability"></a>
 
-#### Probability of a headway longer than h (negative exponential) — `transport_headway_probability`
+#### Probability of a headway longer than h (negative exponential), `transport_headway_probability`
 
 Probability that the time headway between random vehicles at flow q is at least h (and shorter than h), for the negative exponential distribution or the shifted one with a minimum headway tau.
 
@@ -1772,8 +1720,8 @@ $$
 | `q` | in | traffic flow (veh/h in questions; veh/s in solve(), or a string such as '600 1/h') | 1/s |
 | `h` | in | headway | s |
 | `tau` | in | minimum headway (default 0) (optional) | s |
-| `P_ge` | out | P(headway >= h) | — |
-| `P_lt` | out | P(headway < h) | — |
+| `P_ge` | out | P(headway >= h) | - |
+| `P_lt` | out | P(headway < h) | - |
 
 **Applies when:** q > 0; tau < 1/q.
 
@@ -1791,7 +1739,7 @@ In the worked example, q = 600 1/h, h = 8 s go through the equation above and gi
 
 <a id="transport_poisson_arrivals"></a>
 
-#### Probability of n vehicle arrivals in an interval (Poisson) — `transport_poisson_arrivals`
+#### Probability of n vehicle arrivals in an interval (Poisson), `transport_poisson_arrivals`
 
 Probability that exactly n, at most n and at least n vehicles arrive in an interval t when arrivals are random (Poisson) at the flow q.
 
@@ -1803,10 +1751,10 @@ $$
 |---|---|---|---|
 | `q` | in | traffic flow (veh/h in questions; veh/s in solve(), or a string such as '600 1/h') | 1/s |
 | `t` | in | interval length | s |
-| `n` | in | number of arrivals (whole number) | — |
-| `P_n` | out | P(exactly n arrivals) | — |
-| `P_le` | out | P(at most n arrivals) | — |
-| `P_ge` | out | P(at least n arrivals) | — |
+| `n` | in | number of arrivals (whole number) | - |
+| `P_n` | out | P(exactly n arrivals) | - |
+| `P_le` | out | P(at most n arrivals) | - |
+| `P_ge` | out | P(at least n arrivals) | - |
 
 **Applies when:** q > 0; t > 0; n a whole number >= 0.
 
@@ -1825,7 +1773,7 @@ P_ge = 0.8008517265
 
 <a id="transport_bottleneck_queue"></a>
 
-#### Queue and delay at a temporary bottleneck (incident, lane closure) — `transport_bottleneck_queue`
+#### Queue and delay at a temporary bottleneck (incident, lane closure), `transport_bottleneck_queue`
 
 Deterministic queue when the capacity of a road falls from mu to mu_r for a time t_r (an incident or a work zone) while vehicles arrive at lam: the longest queue, how long the queue lasts and the total delay.
 
@@ -1839,7 +1787,7 @@ $$
 | `mu` | in | normal capacity (veh/h in questions; veh/s in solve(), or a string such as '600 1/h') | 1/s |
 | `mu_r` | in | reduced capacity (veh/h in questions; veh/s in solve(), or a string such as '600 1/h') | 1/s |
 | `t_r` | in | duration of the reduction | s |
-| `Q_max` | out | longest queue (veh) | — |
+| `Q_max` | out | longest queue (veh) | - |
 | `T` | out | duration of the queue from the start of the reduction (s) | s |
 | `T_min` | out | duration of the queue (min) | min |
 | `D_total` | out | total delay (veh h) | h |
@@ -1864,7 +1812,7 @@ D_total = 481.25 h
 
 <a id="transport_interval_queue"></a>
 
-#### Queue from arrival counts and capacity per interval — `transport_interval_queue`
+#### Queue from arrival counts and capacity per interval, `transport_interval_queue`
 
 Vehicles queued at the end of each counting interval when the arrivals per interval are served up to the capacity per interval (deterministic queue, first in first out), the longest queue and the vehicles served per interval.
 
@@ -1874,11 +1822,11 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `arrivals` | in | arrivals in each interval (veh) | — |
-| `capacity` | in | capacity of each interval (veh), or one value for all | — |
-| `queue` | out | queue at the end of each interval (veh) | — |
-| `Q_max` | out | longest queue (veh) | — |
-| `served` | out | vehicles served in each interval (veh) | — |
+| `arrivals` | in | arrivals in each interval (veh) | - |
+| `capacity` | in | capacity of each interval (veh), or one value for all | - |
+| `queue` | out | queue at the end of each interval (veh) | - |
+| `Q_max` | out | longest queue (veh) | - |
+| `served` | out | vehicles served in each interval (veh) | - |
 
 **Applies when:** counts >= 0; capacity: one value or one per interval.
 
@@ -1895,7 +1843,7 @@ served = [90.0,100.0,100.0,100.0,100.0,100.0]
 
 <a id="transport_shockwave_speed"></a>
 
-#### Shockwave speed between two traffic states — `transport_shockwave_speed`
+#### Shockwave speed between two traffic states, `transport_shockwave_speed`
 
 Speed of the boundary (shockwave) between an upstream traffic state (q1, k1) and a downstream state (q2, k2): u = (q2 - q1) / (k2 - k1), negative when it moves upstream (for example the back of a queue).
 
@@ -1911,7 +1859,7 @@ $$
 | `k2` | in | downstream density (veh/km in questions; veh/m in solve(), or '25 1/km') | 1/m |
 | `u` | out | shockwave speed (km/h), positive downstream | km/h |
 | `u_ms` | out | shockwave speed (m/s) | m/s |
-| `direction` | out | upstream, downstream or stationary | — |
+| `direction` | out | upstream, downstream or stationary | - |
 
 **Applies when:** k1, k2 > 0, q1, q2 >= 0; the denser state is the slower one.
 
@@ -1932,7 +1880,7 @@ direction = upstream
 
 <a id="transport_greenshields_shockwave"></a>
 
-#### Shockwave speed in a Greenshields traffic stream — `transport_greenshields_shockwave`
+#### Shockwave speed in a Greenshields traffic stream, `transport_greenshields_shockwave`
 
 Speed of the shockwave between two states of a Greenshields stream with densities k1 (upstream) < k2 (downstream): u = vf (1 - (k1 + k2) / kj).
 
@@ -1967,7 +1915,7 @@ u_ms = 1.923076923 m/s
 
 <a id="transport_travel_time_reliability"></a>
 
-#### Travel-time reliability indices (buffer, planning time, travel time index) — `transport_travel_time_reliability`
+#### Travel-time reliability indices (buffer, planning time, travel time index), `transport_travel_time_reliability`
 
 The buffer index (T95 - mean)/mean, the planning time index T95/T_free and the travel time index mean/T_free of observed travel times on a route (T95 the 95th percentile by linear interpolation). Times in minutes.
 
@@ -1977,13 +1925,13 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `times` | in | observed travel times in min | — |
-| `t_free` | in | free-flow travel time in min | — |
-| `mean` | out | mean travel time (min) | — |
-| `t95` | out | 95th-percentile travel time (min) | — |
-| `buffer_index` | out | buffer index (T95 - mean)/mean | — |
-| `planning_time_index` | out | planning time index T95/T_free | — |
-| `travel_time_index` | out | travel time index mean/T_free | — |
+| `times` | in | observed travel times in min | - |
+| `t_free` | in | free-flow travel time in min | - |
+| `mean` | out | mean travel time (min) | - |
+| `t95` | out | 95th-percentile travel time (min) | - |
+| `buffer_index` | out | buffer index (T95 - mean)/mean | - |
+| `planning_time_index` | out | planning time index T95/T_free | - |
+| `travel_time_index` | out | travel time index mean/T_free | - |
 
 **Applies when:** at least five positive travel times; T95 by linear interpolation (type 7).
 
@@ -2003,7 +1951,7 @@ travel_time_index = 1.466666667
 
 <a id="transport_underwood_capacity"></a>
 
-#### Underwood model: capacity and speed at capacity — `transport_underwood_capacity`
+#### Underwood model: capacity and speed at capacity, `transport_underwood_capacity`
 
 Capacity of a traffic stream following Underwood's model v = vf exp(-k / k0), with the speed and density at capacity.
 
@@ -2038,7 +1986,7 @@ k_m = 50 1/km
 
 <a id="transport_signal_green_splits"></a>
 
-#### Green splits by equal degree of saturation (flow-ratio method) — `transport_signal_green_splits`
+#### Green splits by equal degree of saturation (flow-ratio method), `transport_signal_green_splits`
 
 Effective green time of each critical phase for a given cycle C and total lost time L, shared in proportion to the critical flow ratios y_i = v_i / s_i (equal degree of saturation), and the critical degree of saturation X_c. Greens in s.
 
@@ -2050,9 +1998,9 @@ $$
 |---|---|---|---|
 | `C` | in | cycle length | s |
 | `L` | in | total lost time per cycle | s |
-| `y` | in | critical flow ratio v/s of each phase | — |
-| `g` | out | effective green of each phase (s) | — |
-| `X_c` | out | critical degree of saturation | — |
+| `y` | in | critical flow ratio v/s of each phase | - |
+| `g` | out | effective green of each phase (s) | - |
+| `X_c` | out | critical degree of saturation | - |
 
 **Applies when:** C > L; sum of y < 1.
 
@@ -2070,7 +2018,7 @@ X_c = 0.7875
 
 <a id="transport_webster_optimum_cycle"></a>
 
-#### Optimum cycle length by Webster's formula — `transport_webster_optimum_cycle`
+#### Optimum cycle length by Webster's formula: `transport_webster_optimum_cycle`
 
 Webster's optimum cycle length C0 = (1.5 L + 5)/(1 - Y) of a fixed-time signal from the total lost time L (s) and the critical flow ratios y_i = v_i/s_i (Y = sum y_i), with the minimum cycle L/(1 - Y) and the total effective green. Times in s.
 
@@ -2081,9 +2029,9 @@ $$
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
 | `L` | in | total lost time per cycle | s |
-| `y` | in | critical flow ratio v/s of each phase | — |
+| `y` | in | critical flow ratio v/s of each phase | - |
 | `C0` | out | Webster optimum cycle length (s) | s |
-| `Y` | out | sum of the critical flow ratios | — |
+| `Y` | out | sum of the critical flow ratios | - |
 | `C_min` | out | minimum cycle length L/(1 - Y) (s) | s |
 | `green_total` | out | total effective green C0 - L (s) | s |
 
@@ -2104,7 +2052,7 @@ green_total = 64.66666667 s
 
 <a id="transport_signal_queue_uniform_delay"></a>
 
-#### Queue and uniform delay at a signal (deterministic D/D/1) — `transport_signal_queue_uniform_delay`
+#### Queue and uniform delay at a signal (deterministic D/D/1), `transport_signal_queue_uniform_delay`
 
 Uniform arrivals at a fixed-time signal with saturation flow s, effective red r and effective green g (undersaturated): the largest queue, the time after the start of green until it clears, the total delay per cycle, the average (uniform) delay per vehicle and the share of vehicles that stop.
 
@@ -2118,11 +2066,11 @@ $$
 | `s` | in | saturation flow (veh/h in questions; veh/s in solve(), or a string such as '600 1/h') | 1/s |
 | `r` | in | effective red | s |
 | `g` | in | effective green | s |
-| `Q_max` | out | largest queue (veh) | — |
+| `Q_max` | out | largest queue (veh) | - |
 | `t_clear` | out | time after the start of green to clear the queue (s) | s |
 | `D_total` | out | total delay per cycle (veh s) | s |
 | `d_uniform` | out | average delay per vehicle (s) | s |
-| `P_stopped` | out | share of vehicles that stop | — |
+| `P_stopped` | out | share of vehicles that stop | - |
 
 **Applies when:** lam < s; the queue clears within the green (lam C <= s g).
 
@@ -2145,7 +2093,7 @@ P_stopped = 0.8571428571
 
 <a id="transport_signal_queue_shockwave"></a>
 
-#### Queue at a signal by shockwave analysis — `transport_signal_queue_shockwave`
+#### Queue at a signal by shockwave analysis: `transport_signal_queue_shockwave`
 
 Kinematic-wave analysis of a signal: the queue grows upstream during the red at the shock speed between the arrival state (q_a, k_a) and jam density k_j, and from the start of green the discharge wave (saturation state q_s, k_s) chases it. The longest queue, the time it is reached (from the start of red) and both wave speeds.
 
@@ -2188,7 +2136,7 @@ w_discharge = -20 km/h
 
 <a id="transport_yellow_change_interval"></a>
 
-#### Yellow change interval (kinematic, ITE) — `transport_yellow_change_interval`
+#### Yellow change interval (kinematic, ITE): `transport_yellow_change_interval`
 
 Minimum yellow change interval Y = t_r + v / (2a + 2gG) so that a driver who is just too close to stop can clear at the approach speed, and the critical stopping distance from the stop line.
 
@@ -2201,7 +2149,7 @@ $$
 | `v` | in | approach speed | m/s |
 | `t_r` | in | perception-reaction time | s |
 | `a` | in | comfortable deceleration rate | m/s^2 |
-| `G` | in | grade, decimal (positive uphill) (optional) | — |
+| `G` | in | grade, decimal (positive uphill) (optional) | - |
 | `Y` | out | yellow change interval (s) | s |
 | `x_c` | out | critical stopping distance (m) | m |
 
@@ -2224,7 +2172,7 @@ x_c = 45.5120421 m
 
 <a id="transport_spot_speed_percentiles"></a>
 
-#### 85th, 50th and 15th percentile spot speeds — `transport_spot_speed_percentiles`
+#### 85th, 50th and 15th percentile spot speeds, `transport_spot_speed_percentiles`
 
 Percentile speeds of a spot-speed sample (85th percentile for speed limits and design, median, 15th) by linear interpolation between ranks (position (n - 1) p / 100, as Excel PERCENTILE.INC). Speeds in km/h.
 
@@ -2234,7 +2182,7 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `speeds` | in | spot speeds in km/h | — |
+| `speeds` | in | spot speeds in km/h | - |
 | `p85` | out | 85th percentile speed (km/h) | km/h |
 | `p50` | out | median speed (km/h) | km/h |
 | `p15` | out | 15th percentile speed (km/h) | km/h |
@@ -2254,7 +2202,7 @@ p15 = 50.05 km/h
 
 <a id="transport_time_and_space_mean_speed"></a>
 
-#### Time-mean and space-mean speed of spot speeds — `transport_time_and_space_mean_speed`
+#### Time-mean and space-mean speed of spot speeds, `transport_time_and_space_mean_speed`
 
 From spot speeds measured at a point: the time-mean speed (arithmetic mean), the space-mean speed (harmonic mean, the speed that matches travel times over a fixed length) and the sample standard deviation. Speeds in km/h.
 
@@ -2264,7 +2212,7 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `speeds` | in | spot speeds in km/h | — |
+| `speeds` | in | spot speeds in km/h | - |
 | `TMS` | out | time-mean speed (km/h) | km/h |
 | `SMS` | out | space-mean speed (km/h) | km/h |
 | `s` | out | sample standard deviation (km/h) | km/h |
@@ -2286,7 +2234,7 @@ s = 8.035338616 km/h
 
 <a id="transport_all_or_nothing_assignment"></a>
 
-#### All-or-nothing traffic assignment — `transport_all_or_nothing_assignment`
+#### All-or-nothing traffic assignment: `transport_all_or_nothing_assignment`
 
 Loads every origin-destination demand onto its fastest path through a network of one-way links with travel times (min): the flow on each link (in the order given) and the total vehicle-hours travelled.
 
@@ -2296,9 +2244,9 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `network` | in | one-way links as 'A-B time' with travel times in min | — |
-| `od` | in | trip demands as 'origin-destination trips' (veh) | — |
-| `flows` | out | flow on each link in the order given (veh) | — |
+| `network` | in | one-way links as 'A-B time' with travel times in min | - |
+| `od` | in | trip demands as 'origin-destination trips' (veh) | - |
+| `flows` | out | flow on each link in the order given (veh) | - |
 | `VHT` | out | vehicle-hours travelled (veh h) | h |
 
 **Applies when:** positive link times; every trip pair connected.
@@ -2315,7 +2263,7 @@ In the worked example, network = A-B (5), B-A (5), A-C (3), C-A (3), B-D (4), D-
 
 <a id="transport_gravity_model"></a>
 
-#### Doubly constrained gravity model of trip distribution — `transport_gravity_model`
+#### Doubly constrained gravity model of trip distribution, `transport_gravity_model`
 
 Trips between zones T_ij = A_i O_i B_j D_j f(c_ij) that match both the productions O_i and the attractions D_j, with deterrence f(c) = exp(-beta c) or c^-beta, balanced by Furness iterations until every total matches to 1e-13.
 
@@ -2325,12 +2273,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `O` | in | trip productions of the origin zones | — |
-| `D` | in | trip attractions of the destination zones | — |
-| `costs` | in | travel cost (time) matrix, rows origins, in min | — |
-| `beta` | in | deterrence parameter | — |
-| `deterrence` | in | exponential (default) or power (optional) | — |
-| `trips` | out | trip matrix (rows origins, columns destinations) | — |
+| `O` | in | trip productions of the origin zones | - |
+| `D` | in | trip attractions of the destination zones | - |
+| `costs` | in | travel cost (time) matrix, rows origins, in min | - |
+| `beta` | in | deterrence parameter | - |
+| `deterrence` | in | exponential (default) or power (optional) | - |
+| `trips` | out | trip matrix (rows origins, columns destinations) | - |
 
 **Applies when:** sum of productions = sum of attractions; beta >= 0; power deterrence: positive costs.
 
@@ -2346,7 +2294,7 @@ trips = [[585.291609215,216.598390059,198.110000726],[494.749778142,550.03770888
 
 <a id="transport_furness_balancing"></a>
 
-#### Growth-factor (Furness) balancing of a trip matrix — `transport_furness_balancing`
+#### Growth-factor (Furness) balancing of a trip matrix, `transport_furness_balancing`
 
 Scales a base-year trip matrix to future row totals (productions) and column totals (attractions) by the Furness (biproportional) method, iterated until every total matches to 1e-13.
 
@@ -2356,10 +2304,10 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `base` | in | base-year trip matrix (rows origins) | — |
-| `O` | in | target row totals (productions) | — |
-| `D` | in | target column totals (attractions) | — |
-| `trips` | out | balanced trip matrix | — |
+| `base` | in | base-year trip matrix (rows origins) | - |
+| `O` | in | target row totals (productions) | - |
+| `D` | in | target column totals (attractions) | - |
+| `trips` | out | balanced trip matrix | - |
 
 **Applies when:** sum of row totals = sum of column totals; non-negative base matrix with a positive entry in every row and column.
 
@@ -2374,7 +2322,7 @@ trips = [[128.005362822,275.799789296,196.194847882],[361.892088736,129.95518263
 
 <a id="transport_trip_generation_regression"></a>
 
-#### Trip generation by multiple linear regression — `transport_trip_generation_regression`
+#### Trip generation by multiple linear regression, `transport_trip_generation_regression`
 
 Least-squares trip-generation model trips = b0 + b1 x1 + ... fitted to zonal data (rows of X: zones; columns: households, employment, cars, ...), its coefficient of determination, and optionally the trips predicted for a new zone.
 
@@ -2384,12 +2332,12 @@ $$
 
 | symbol |  | meaning | SI unit |
 |---|---|---|---|
-| `X` | in | zonal predictors: one row per zone | — |
-| `y` | in | observed trips of each zone | — |
-| `x_new` | in | predictors of a zone to forecast (optional) (optional) | — |
-| `coef` | out | coefficients b0 (intercept), b1, ... | — |
-| `r2` | out | coefficient of determination | — |
-| `y_new` | out | forecast trips of the new zone | — |
+| `X` | in | zonal predictors: one row per zone | - |
+| `y` | in | observed trips of each zone | - |
+| `x_new` | in | predictors of a zone to forecast (optional) (optional) | - |
+| `coef` | out | coefficients b0 (intercept), b1, ... | - |
+| `r2` | out | coefficient of determination | - |
+| `y_new` | out | forecast trips of the new zone | - |
 
 **Applies when:** more zones than coefficients; predictors not collinear.
 
@@ -2408,7 +2356,7 @@ y_new = 2953.288886
 
 <a id="transport_gap_acceptance_capacity"></a>
 
-#### Capacity of a minor stream by gap acceptance — `transport_gap_acceptance_capacity`
+#### Capacity of a minor stream by gap acceptance, `transport_gap_acceptance_capacity`
 
 Capacity of a minor (stop- or yield-controlled) movement crossing a random major stream of flow q, with critical gap t_c and follow-up time t_f: Harders' formula (as in the HCM) or Siegloch's.
 
@@ -2421,7 +2369,7 @@ $$
 | `q` | in | major-stream flow (veh/h in questions; veh/s in solve(), or a string such as '600 1/h') | 1/s |
 | `t_c` | in | critical gap | s |
 | `t_f` | in | follow-up time | s |
-| `model` | in | harders (HCM, default) or siegloch (optional) | — |
+| `model` | in | harders (HCM, default) or siegloch (optional) | - |
 | `c` | out | capacity of the minor movement (veh/h) | 1/h |
 
 **Applies when:** q, t_c, t_f > 0; Siegloch: t_c > t_f / 2.
@@ -2442,7 +2390,7 @@ c = 363.1010029 1/h
 
 <a id="transport_lateral_load_transfer"></a>
 
-#### Lateral load transfer in a steady turn — `transport_lateral_load_transfer`
+#### Lateral load transfer in a steady turn: `transport_lateral_load_transfer`
 
 Outer and inner wheel loads of a rigid vehicle (no suspension roll) cornering at lateral acceleration a_y, and the load transferred to the outer wheels.
 
@@ -2479,7 +2427,7 @@ dW = 319.3548387 N
 
 <a id="transport_braking_weight_transfer"></a>
 
-#### Longitudinal weight transfer under braking and ideal brake proportioning — `transport_braking_weight_transfer`
+#### Longitudinal weight transfer under braking and ideal brake proportioning, `transport_braking_weight_transfer`
 
 Dynamic front and rear axle loads of a vehicle decelerating at a, the load transferred to the front axle, and the ideal front share of the braking force (both axles at the same friction use).
 
@@ -2497,7 +2445,7 @@ $$
 | `W_f` | out | front axle load (N) | N |
 | `W_r` | out | rear axle load (N) | N |
 | `dW` | out | load transferred to the front axle (N) | N |
-| `front_share` | out | ideal front brake share | — |
+| `front_share` | out | ideal front brake share | - |
 
 **Applies when:** a > 0 (deceleration); 0 < l_f < L; the rear axle keeps contact.
 
@@ -2520,7 +2468,7 @@ front_share = 0.7009098803
 
 <a id="transport_quarter_car_frequencies"></a>
 
-#### Quarter-car model: body and wheel-hop natural frequencies — `transport_quarter_car_frequencies`
+#### Quarter-car model: body and wheel-hop natural frequencies, `transport_quarter_car_frequencies`
 
 Undamped natural frequencies of the two-degree-of-freedom quarter-car ride model: the body (bounce) mode and the wheel-hop mode, from the sprung and unsprung masses, suspension and tyre stiffnesses.
 
@@ -2555,7 +2503,7 @@ f_wheel = 11.26185411 Hz
 
 <a id="transport_quarter_car_transmissibility"></a>
 
-#### Quarter-car model: road-to-body transmissibility at a frequency — `transport_quarter_car_transmissibility`
+#### Quarter-car model: road-to-body transmissibility at a frequency, `transport_quarter_car_transmissibility`
 
 Amplitude ratio between body (sprung-mass) motion and road displacement, and between wheel motion and road displacement, of the damped quarter-car model for a sinusoidal road input of frequency f.
 
@@ -2571,8 +2519,8 @@ $$
 | `c_s` | in | suspension damping coefficient | kg/s |
 | `k_t` | in | tyre vertical stiffness | N/m |
 | `f` | in | road input frequency | Hz |
-| `T_body` | out | body displacement / road displacement | — |
-| `T_wheel` | out | wheel displacement / road displacement | — |
+| `T_body` | out | body displacement / road displacement | - |
+| `T_wheel` | out | wheel displacement / road displacement | - |
 
 **Applies when:** masses and stiffnesses positive; c_s >= 0.
 
@@ -2594,7 +2542,7 @@ T_wheel = 1.159037238
 
 <a id="transport_rollover_threshold"></a>
 
-#### Rollover threshold: static stability factor and rollover speed on a curve — `transport_rollover_threshold`
+#### Rollover threshold: static stability factor and rollover speed on a curve, `transport_rollover_threshold`
 
 Static stability factor SSF = t / (2h) of a rigid vehicle and the speed at which it would tip over on a curve of radius R with superelevation e (enough friction assumed for the tyres not to slide).
 
@@ -2607,8 +2555,8 @@ $$
 | `t_w` | in | track width | m |
 | `h` | in | height of the centre of gravity | m |
 | `R` | in | curve radius | m |
-| `e` | in | superelevation rate, decimal (optional) | — |
-| `SSF` | out | static stability factor t / (2h) (rollover threshold in g) | — |
+| `e` | in | superelevation rate, decimal (optional) | - |
+| `SSF` | out | static stability factor t / (2h) (rollover threshold in g) | - |
 | `v_roll` | out | rollover speed on the curve (m/s) | m/s |
 | `v_roll_kmh` | out | rollover speed (km/h) | km/h |
 
@@ -2630,7 +2578,7 @@ v_roll_kmh = 128.1481174 km/h
 
 <a id="transport_steady_state_cornering"></a>
 
-#### Steady-state cornering: yaw rate, lateral acceleration, radius, sideslip — `transport_steady_state_cornering`
+#### Steady-state cornering: yaw rate, lateral acceleration, radius, sideslip, `transport_steady_state_cornering`
 
 Steady turning response of the linear bicycle model at speed u to a front-wheel steer angle delta: yaw rate, lateral acceleration, turn radius and the sideslip angle at the centre of gravity (small angles).
 
@@ -2675,7 +2623,7 @@ beta = -1.002467818 deg
 
 <a id="transport_steer_angle_for_radius"></a>
 
-#### Steer angle needed for a turn of given radius (bicycle model) — `transport_steer_angle_for_radius`
+#### Steer angle needed for a turn of given radius (bicycle model), `transport_steer_angle_for_radius`
 
 Front-wheel steer angle the linear bicycle model needs to hold a turn of radius R at speed u (Ackermann angle L/R plus the understeer term K u^2 / R).
 
@@ -2714,7 +2662,7 @@ delta = 1.247691536 deg
 
 <a id="transport_understeer_gradient"></a>
 
-#### Understeer gradient and characteristic or critical speed (bicycle model) — `transport_understeer_gradient`
+#### Understeer gradient and characteristic or critical speed (bicycle model), `transport_understeer_gradient`
 
 Understeer gradient K of the linear single-track model from axle cornering stiffnesses and the centre-of-gravity position, in rad/(m/s^2) and deg/g, whether the vehicle understeers or oversteers, and its characteristic speed (understeer: the steer angle is twice the Ackermann angle) or critical speed (oversteer: it becomes unstable).
 
@@ -2731,7 +2679,7 @@ $$
 | `C_r` | in | cornering stiffness of the rear axle | N/rad |
 | `K` | out | understeer gradient (rad s^2/m) | rad*s^2/m |
 | `K_deg_per_g` | out | understeer gradient (deg/g) | deg |
-| `behaviour` | out | understeer or oversteer | — |
+| `behaviour` | out | understeer or oversteer | - |
 | `v_c` | out | characteristic or critical speed (m/s) | m/s |
 | `v_c_kmh` | out | characteristic or critical speed (km/h) | km/h |
 
@@ -2757,7 +2705,7 @@ v_c_kmh = 157.1933058 km/h
 
 <a id="transport_yaw_natural_frequency"></a>
 
-#### Yaw natural frequency and damping of the bicycle model — `transport_yaw_natural_frequency`
+#### Yaw natural frequency and damping of the bicycle model, `transport_yaw_natural_frequency`
 
 Undamped natural frequency and damping ratio of the lateral-yaw motion of the linear bicycle model at speed u (from the characteristic equation of its two states), below the critical speed.
 
@@ -2775,7 +2723,7 @@ $$
 | `C_r` | in | cornering stiffness of the rear axle | N/rad |
 | `u` | in | forward speed | m/s |
 | `wn` | out | undamped natural frequency (rad/s) | rad/s |
-| `zeta` | out | damping ratio | — |
+| `zeta` | out | damping ratio | - |
 | `f_n` | out | undamped natural frequency (Hz) | Hz |
 
 **Applies when:** below the critical speed.
@@ -2802,7 +2750,7 @@ f_n = 1.067394669 Hz
 
 <a id="transport_acceleration_under_power"></a>
 
-#### Acceleration time and distance under constant engine power — `transport_acceleration_under_power`
+#### Acceleration time and distance under constant engine power, `transport_acceleration_under_power`
 
 Time and distance for a vehicle of mass m to change speed from v1 to v2 with constant power P at the wheels (tractive force eta P / v) against rolling, aerodynamic and grade resistance. A truck slowing on an upgrade towards its crawl speed is covered too (v2 < v1); both speeds must lie on the same side of the speed at which the power balances the resistance.
 
@@ -2816,13 +2764,13 @@ $$
 | `P` | in | engine power | W |
 | `v1` | in | initial speed | m/s |
 | `v2` | in | final speed | m/s |
-| `C_D` | in | drag coefficient | — |
+| `C_D` | in | drag coefficient | - |
 | `A` | in | frontal area | m^2 |
 | `rho` | in | air density (default 1.2 kg/m^3) (optional) | kg/m^3 |
-| `f_r` | in | rolling resistance coefficient (default 0.015) (optional) | — |
-| `G` | in | grade, decimal (positive uphill) (optional) | — |
-| `eta` | in | drivetrain efficiency (default 1) (optional) | — |
-| `gamma` | in | mass factor for rotating parts (default 1) (optional) | — |
+| `f_r` | in | rolling resistance coefficient (default 0.015) (optional) | - |
+| `G` | in | grade, decimal (positive uphill) (optional) | - |
+| `eta` | in | drivetrain efficiency (default 1) (optional) | - |
+| `gamma` | in | mass factor for rotating parts (default 1) (optional) | - |
 | `t` | out | time to change speed (s) | s |
 | `d` | out | distance travelled (m) | m |
 
@@ -2846,7 +2794,7 @@ d = 162.0537102 m
 
 <a id="transport_coast_down"></a>
 
-#### Coast-down time and distance (rolling and aerodynamic resistance) — `transport_coast_down`
+#### Coast-down time and distance (rolling and aerodynamic resistance), `transport_coast_down`
 
 Time and distance for a vehicle coasting in neutral to slow from v1 to v2 under rolling resistance f_r, the grade and aerodynamic drag rho C_D A v^2 / 2.
 
@@ -2859,12 +2807,12 @@ $$
 | `m` | in | vehicle mass | kg |
 | `v1` | in | initial speed | m/s |
 | `v2` | in | final speed | m/s |
-| `C_D` | in | drag coefficient | — |
+| `C_D` | in | drag coefficient | - |
 | `A` | in | frontal area | m^2 |
 | `rho` | in | air density (default 1.2 kg/m^3) (optional) | kg/m^3 |
-| `f_r` | in | rolling resistance coefficient (default 0.012) (optional) | — |
-| `G` | in | grade, decimal (positive uphill) (optional) | — |
-| `gamma` | in | mass factor (default 1) (optional) | — |
+| `f_r` | in | rolling resistance coefficient (default 0.012) (optional) | - |
+| `G` | in | grade, decimal (positive uphill) (optional) | - |
+| `gamma` | in | mass factor (default 1) (optional) | - |
 | `t` | out | coast-down time (s) | s |
 | `d` | out | coast-down distance (m) | m |
 
@@ -2887,7 +2835,7 @@ d = 917.2484984 m
 
 <a id="transport_acceleration_distance"></a>
 
-#### Distance and time to accelerate (acceleration lane length) — `transport_acceleration_distance`
+#### Distance and time to accelerate (acceleration lane length), `transport_acceleration_distance`
 
 Distance and time for a vehicle to accelerate from v1 to v2 at a constant acceleration a (for example the length of an acceleration lane).
 
@@ -2920,7 +2868,7 @@ t = 13.88888889 s
 
 <a id="transport_traction_limited_acceleration"></a>
 
-#### Maximum tractive force and acceleration limited by tyre friction — `transport_traction_limited_acceleration`
+#### Maximum tractive force and acceleration limited by tyre friction, `transport_traction_limited_acceleration`
 
 The largest tractive force the road can transmit (rear-, front- or all-wheel drive), the resulting maximum acceleration and the dynamic axle loads, with weight transfer from a centre of gravity at height h and rolling resistance f_r (aerodynamic drag neglected, level road).
 
@@ -2934,9 +2882,9 @@ $$
 | `L` | in | wheelbase | m |
 | `l_f` | in | distance from the front axle to the centre of gravity | m |
 | `h` | in | height of the centre of gravity | m |
-| `mu` | in | tyre-road friction coefficient | — |
-| `f_r` | in | rolling resistance coefficient (default 0) (optional) | — |
-| `drive` | in | driven axles: rear, front or all (optional) | — |
+| `mu` | in | tyre-road friction coefficient | - |
+| `f_r` | in | rolling resistance coefficient (default 0) (optional) | - |
+| `drive` | in | driven axles: rear, front or all (optional) | - |
 | `F_max` | out | maximum tractive force (N) | N |
 | `a_max` | out | maximum acceleration (m/s^2) | m/s^2 |
 | `W_f` | out | front axle load (N) | N |
@@ -2965,7 +2913,7 @@ W_r = 7119.195133 N
 
 <a id="transport_safe_following_gap"></a>
 
-#### Minimum safe following gap when the leader brakes — `transport_safe_following_gap`
+#### Minimum safe following gap when the leader brakes, `transport_safe_following_gap`
 
 Smallest initial gap that avoids a rear-end collision when a leader brakes at a_l and the follower, at the same initial speed, reacts after t_r and brakes at a_f (the closest approach can happen while both still move).
 
@@ -2998,7 +2946,7 @@ gap = 43.85288066 m
 
 <a id="transport_overtaking_manoeuvre"></a>
 
-#### Overtaking manoeuvre: time and distance with constant acceleration — `transport_overtaking_manoeuvre`
+#### Overtaking manoeuvre: time and distance with constant acceleration, `transport_overtaking_manoeuvre`
 
 A vehicle that starts at the speed v of the vehicle it passes accelerates at a until it has gained the relative distance s (initial gap + both lengths + final gap): the time, its distance travelled and its final speed.
 
@@ -3033,7 +2981,7 @@ v_f = 32.86085231 m/s
 
 <a id="transport_top_speed"></a>
 
-#### Top speed of a road vehicle — `transport_top_speed`
+#### Top speed of a road vehicle: `transport_top_speed`
 
 The steady top speed at which the power at the wheels eta P equals the power absorbed by rolling, aerodynamic and grade resistance: rho C_D A v^3/2 + m g (f_r cos(theta) + sin(theta)) v = eta P.
 
@@ -3045,14 +2993,14 @@ $$
 |---|---|---|---|
 | `m` | in | vehicle mass | kg |
 | `P` | in | engine power | W |
-| `C_D` | in | drag coefficient | — |
+| `C_D` | in | drag coefficient | - |
 | `A` | in | frontal area | m^2 |
 | `rho` | in | air density (default 1.2 kg/m^3) (optional) | kg/m^3 |
-| `f_r` | in | rolling resistance coefficient (default 0.015) (optional) | — |
-| `G` | in | grade, decimal (positive uphill) (optional) | — |
-| `eta` | in | drivetrain efficiency (default 1) (optional) | — |
+| `f_r` | in | rolling resistance coefficient (default 0.015) (optional) | - |
+| `G` | in | grade, decimal (positive uphill) (optional) | - |
+| `eta` | in | drivetrain efficiency (default 1) (optional) | - |
 | `v_max` | out | top speed (m/s) | m/s |
-| `v_max_kmh` | out | top speed (km/h) | — |
+| `v_max_kmh` | out | top speed (km/h) | - |
 
 **Applies when:** m, P, C_D, A, rho > 0; 0 <= f_r <= 0.1; |G| <= 0.3; 0 < eta <= 1; power-limited (no gearing or traction limit).
 
@@ -3072,7 +3020,7 @@ v_max_kmh = 216.9727652
 
 <a id="transport_vehicle_resistance"></a>
 
-#### Vehicle resistance forces and power at a speed — `transport_vehicle_resistance`
+#### Vehicle resistance forces and power at a speed, `transport_vehicle_resistance`
 
 Rolling resistance f_r m g cos(theta), aerodynamic drag rho C_D A v^2/2 and grade resistance m g sin(theta) (tan theta = G) of a road vehicle at a speed, their sum and the power needed to overcome them.
 
@@ -3084,17 +3032,17 @@ $$
 |---|---|---|---|
 | `m` | in | vehicle mass | kg |
 | `v` | in | speed | m/s |
-| `C_D` | in | drag coefficient | — |
+| `C_D` | in | drag coefficient | - |
 | `A` | in | frontal area | m^2 |
 | `rho` | in | air density (default 1.2 kg/m^3) (optional) | kg/m^3 |
-| `f_r` | in | rolling resistance coefficient (default 0.015) (optional) | — |
-| `G` | in | grade, decimal (positive uphill) (optional) | — |
+| `f_r` | in | rolling resistance coefficient (default 0.015) (optional) | - |
+| `G` | in | grade, decimal (positive uphill) (optional) | - |
 | `F_roll` | out | rolling resistance (N) | N |
 | `F_aero` | out | aerodynamic drag (N) | N |
 | `F_grade` | out | grade resistance (N) | N |
 | `F_total` | out | total resistance (N) | N |
 | `P` | out | power to overcome the resistance (W) | W |
-| `P_kW` | out | power (kW) | — |
+| `P_kW` | out | power (kW) | - |
 
 **Applies when:** m, C_D, A, rho > 0; v >= 0; 0 <= f_r <= 0.1; |G| <= 0.3; still air.
 
@@ -3116,4 +3064,4 @@ P_kW = 14.61890432
 
 **What the worked example means:** This calculation determines the forces opposing a vehicle's motion at speed 27.7778 m/s. It sums rolling resistance of 220.725 N, aerodynamic drag of 305.556 N, and grade resistance of 0 N to find the total force of 526.281 N. The power needed to overcome these forces is then calculated as 14618.9 W. This result helps in understanding the energy demand for maintaining steady speed on a specific grade.
 
-Questions and reports: support@ai999x.com. AI999X — The Future Is Self-Improving.
+Questions and reports: support@ai999x.com. AI999X, The Future Is Self-Improving.

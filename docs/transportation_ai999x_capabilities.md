@@ -150,7 +150,7 @@ Call `solve("<id>", **inputs)` with plain numbers; the result's `values` holds e
 
 <a id="transport_braking_distance"></a>
 
-### Braking distance from speed and deceleration — `transport_braking_distance`
+### Braking distance from speed and deceleration, `transport_braking_distance`
 
 Distance and time for a vehicle to stop from speed v at a constant deceleration a (no reaction time).
 
@@ -202,7 +202,7 @@ transportation_ai999x.solve('transport_braking_distance', v=13.88888888888889, a
 
 <a id="transport_stopping_sight_distance"></a>
 
-### Stopping sight distance (reaction plus braking, with grade) — `transport_stopping_sight_distance`
+### Stopping sight distance (reaction plus braking, with grade), `transport_stopping_sight_distance`
 
 Stopping sight distance = perception-reaction distance + braking distance on a grade, with either the longitudinal friction coefficient f (braking deceleration g (f + G)) or a deceleration rate a (AASHTO: a + g G, design value 3.4 m/s^2).
 
@@ -262,7 +262,7 @@ transportation_ai999x.solve('transport_stopping_sight_distance', v=22.2222222222
 
 <a id="transport_skid_speed"></a>
 
-### Speed estimate from skid-mark length — `transport_skid_speed`
+### Speed estimate from skid-mark length: `transport_skid_speed`
 
 Initial speed of a vehicle that skidded to rest over a length d with friction coefficient f on a grade G.
 
@@ -315,7 +315,7 @@ transportation_ai999x.solve('transport_skid_speed', d=45.0, f=0.5, G=-0.02)
 
 <a id="transport_speed_reduction_distance"></a>
 
-### Distance to slow from one speed to another (friction and grade) — `transport_speed_reduction_distance`
+### Distance to slow from one speed to another (friction and grade), `transport_speed_reduction_distance`
 
 Braking distance and time to slow from v1 to v2 with friction coefficient f on a grade G (deceleration g (f + G)).
 
@@ -365,7 +365,7 @@ transportation_ai999x.solve('transport_speed_reduction_distance', v1=33.33333333
 
 <a id="transport_impact_speed"></a>
 
-### Impact speed with an obstacle after reaction and braking — `transport_impact_speed`
+### Impact speed with an obstacle after reaction and braking, `transport_impact_speed`
 
 A driver at speed v sees an obstacle at distance D, reacts after t_r and brakes with friction f on grade G: the speed at the obstacle (0 if the vehicle stops in time) and the full stopping distance.
 
@@ -417,7 +417,7 @@ transportation_ai999x.solve('transport_impact_speed', v=16.666666666666668, D=30
 
 <a id="transport_acceleration_distance"></a>
 
-### Distance and time to accelerate (acceleration lane length) — `transport_acceleration_distance`
+### Distance and time to accelerate (acceleration lane length), `transport_acceleration_distance`
 
 Distance and time for a vehicle to accelerate from v1 to v2 at a constant acceleration a (for example the length of an acceleration lane).
 
@@ -466,7 +466,7 @@ transportation_ai999x.solve('transport_acceleration_distance', v1=0.0, v2=13.888
 
 <a id="transport_yellow_change_interval"></a>
 
-### Yellow change interval (kinematic, ITE) — `transport_yellow_change_interval`
+### Yellow change interval (kinematic, ITE): `transport_yellow_change_interval`
 
 Minimum yellow change interval $Y = t_r + v / (2a + 2gG)$ so that a driver who is just too close to stop can clear at the approach speed, and the critical stopping distance from the stop line.
 
@@ -520,7 +520,7 @@ transportation_ai999x.solve('transport_yellow_change_interval', v=16.66666666666
 
 <a id="transport_overtaking_manoeuvre"></a>
 
-### Overtaking manoeuvre: time and distance with constant acceleration — `transport_overtaking_manoeuvre`
+### Overtaking manoeuvre: time and distance with constant acceleration, `transport_overtaking_manoeuvre`
 
 A vehicle that starts at the speed v of the vehicle it passes accelerates at a until it has gained the relative distance s (initial gap + both lengths + final gap): the time, its distance travelled and its final speed.
 
@@ -570,7 +570,7 @@ transportation_ai999x.solve('transport_overtaking_manoeuvre', v=13.8888888888888
 
 <a id="transport_braking_with_air_resistance"></a>
 
-### Theoretical stopping distance with aerodynamic and rolling resistance — `transport_braking_with_air_resistance`
+### Theoretical stopping distance with aerodynamic and rolling resistance, `transport_braking_with_air_resistance`
 
 Stopping (or slowing) distance and time of a road vehicle braking with tyre-road friction mu and braking efficiency eta, helped by aerodynamic drag (rho C_D A v^2 / 2), rolling resistance f_r and the grade; gamma is the mass factor for rotating parts (1.04 for braking).
 
@@ -627,7 +627,7 @@ transportation_ai999x.solve('transport_braking_with_air_resistance', m=2000.0, v
 
 <a id="transport_coast_down"></a>
 
-### Coast-down time and distance (rolling and aerodynamic resistance) — `transport_coast_down`
+### Coast-down time and distance (rolling and aerodynamic resistance), `transport_coast_down`
 
 Time and distance for a vehicle coasting in neutral to slow from v1 to v2 under rolling resistance f_r, the grade and aerodynamic drag rho C_D A $v^{2} / 2.$
 
@@ -682,7 +682,7 @@ transportation_ai999x.solve('transport_coast_down', m=1800.0, v1=22.222222222222
 
 <a id="transport_acceleration_under_power"></a>
 
-### Acceleration time and distance under constant engine power — `transport_acceleration_under_power`
+### Acceleration time and distance under constant engine power, `transport_acceleration_under_power`
 
 Time and distance for a vehicle of mass m to change speed from v1 to v2 with constant power P at the wheels (tractive force eta P / v) against rolling, aerodynamic and grade resistance. A truck slowing on an upgrade towards its crawl speed is covered too $(v_{2} < v_{1})$; both speeds must lie on the same side of the speed at which the power balances the resistance.
 
@@ -739,7 +739,7 @@ transportation_ai999x.solve('transport_acceleration_under_power', m=25000.0, P=2
 
 <a id="transport_traction_limited_acceleration"></a>
 
-### Maximum tractive force and acceleration limited by tyre friction — `transport_traction_limited_acceleration`
+### Maximum tractive force and acceleration limited by tyre friction, `transport_traction_limited_acceleration`
 
 The largest tractive force the road can transmit (rear-, front- or all-wheel drive), the resulting maximum acceleration and the dynamic axle loads, with weight transfer from a centre of gravity at height h and rolling resistance f_r (aerodynamic drag neglected, level road).
 
@@ -798,7 +798,7 @@ transportation_ai999x.solve('transport_traction_limited_acceleration', m=1200.0,
 
 <a id="transport_braking_weight_transfer"></a>
 
-### Longitudinal weight transfer under braking and ideal brake proportioning — `transport_braking_weight_transfer`
+### Longitudinal weight transfer under braking and ideal brake proportioning, `transport_braking_weight_transfer`
 
 Dynamic front and rear axle loads of a vehicle decelerating at a, the load transferred to the front axle, and the ideal front share of the braking force (both axles at the same friction use).
 
@@ -855,7 +855,7 @@ transportation_ai999x.solve('transport_braking_weight_transfer', m=2000.0, a=4.0
 
 <a id="transport_lateral_load_transfer"></a>
 
-### Lateral load transfer in a steady turn — `transport_lateral_load_transfer`
+### Lateral load transfer in a steady turn: `transport_lateral_load_transfer`
 
 Outer and inner wheel loads of a rigid vehicle (no suspension roll) cornering at lateral acceleration a_y, and the load transferred to the outer wheels.
 
@@ -910,7 +910,7 @@ transportation_ai999x.solve('transport_lateral_load_transfer', m=2200.0, a_y=4.0
 
 <a id="transport_rollover_threshold"></a>
 
-### Rollover threshold: static stability factor and rollover speed on a curve — `transport_rollover_threshold`
+### Rollover threshold: static stability factor and rollover speed on a curve, `transport_rollover_threshold`
 
 Static stability factor SSF = t / (2h) of a rigid vehicle and the speed at which it would tip over on a curve of radius R with superelevation e (enough friction assumed for the tyres not to slide).
 
@@ -965,7 +965,7 @@ transportation_ai999x.solve('transport_rollover_threshold', t_w=1.8, h=1.9, R=20
 
 <a id="transport_curve_safe_speed"></a>
 
-### Maximum safe speed on a superelevated horizontal curve — `transport_curve_safe_speed`
+### Maximum safe speed on a superelevated horizontal curve, `transport_curve_safe_speed`
 
 The highest speed at which a vehicle (point mass) can hold a curve of radius R with superelevation e and side friction factor f.
 
@@ -1018,7 +1018,7 @@ transportation_ai999x.solve('transport_curve_safe_speed', R=150.0, e=0.08, f=0.1
 
 <a id="transport_minimum_curve_radius"></a>
 
-### Minimum radius of a horizontal curve — `transport_minimum_curve_radius`
+### Minimum radius of a horizontal curve: `transport_minimum_curve_radius`
 
 The smallest curve radius for a design speed v, maximum superelevation e and side friction factor f.
 
@@ -1066,7 +1066,7 @@ transportation_ai999x.solve('transport_minimum_curve_radius', v=16.6666666666666
 
 <a id="transport_side_friction_demand"></a>
 
-### Side friction demanded on a superelevated curve — `transport_side_friction_demand`
+### Side friction demanded on a superelevated curve, `transport_side_friction_demand`
 
 The side friction factor a vehicle needs at speed v on a curve of radius R with superelevation e (negative: the superelevation alone exceeds the demand and friction acts up the slope).
 
@@ -1114,7 +1114,7 @@ transportation_ai999x.solve('transport_side_friction_demand', v=13.8888888888888
 
 <a id="transport_superelevation_required"></a>
 
-### Superelevation required on a horizontal curve — `transport_superelevation_required`
+### Superelevation required on a horizontal curve, `transport_superelevation_required`
 
 The superelevation rate needed at speed v on a curve of radius R when the side friction factor f is used.
 
@@ -1167,7 +1167,7 @@ transportation_ai999x.solve('transport_superelevation_required', v=19.4444444444
 
 <a id="transport_crest_curve_length"></a>
 
-### Minimum length of a crest vertical curve for a sight distance — `transport_crest_curve_length`
+### Minimum length of a crest vertical curve for a sight distance, `transport_crest_curve_length`
 
 The shortest crest vertical curve between grades g1 and g2 that provides the sight distance S (AASHTO: eye height 1.08 m, object height 0.60 m unless stated), choosing the $S < L$ or $S > L$ form.
 
@@ -1198,7 +1198,7 @@ $$
 
 ![S < L, S > L or no curve needed (case) over S (required sight distance) from 18](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-crest-curve-length-decision)
 
-*S < L, S > L or no curve needed (case) over S (required sight distance) from 18.5 m to 1850 m and g1 (grade before the curve, decimal (positive uphill)) from 0.003 to 0.3 (logarithmic axes): each of the 31 × 21 cells is one run of transportation-ai999x, coloured by the verdict it returned — S < L: 401 cells, S > L: 87 cells, no curve needed: 163 cells. Other inputs as in the worked example: g2 = -0.02. Marked: the worked example, S = 185 m, g1 = 0.03 → S < L.*
+*S < L, S > L or no curve needed (case) over S (required sight distance) from 18.5 m to 1850 m and g1 (grade before the curve, decimal (positive uphill)) from 0.003 to 0.3 (logarithmic axes): each of the 31 × 21 cells is one run of transportation-ai999x, coloured by the verdict it returned, S < L: 401 cells, S > L: 87 cells, no curve needed: 163 cells. Other inputs as in the worked example: g2 = -0.02. Marked: the worked example, S = 185 m, g1 = 0.03 → S < L.*
 
 ```python
 transportation_ai999x.solve('transport_crest_curve_length', g1=0.03, g2=-0.02, S=185.0)
@@ -1222,7 +1222,7 @@ transportation_ai999x.solve('transport_crest_curve_length', g1=0.01, g2=-0.015, 
 
 <a id="transport_crest_curve_sight_distance"></a>
 
-### Sight distance available over a crest vertical curve — `transport_crest_curve_sight_distance`
+### Sight distance available over a crest vertical curve, `transport_crest_curve_sight_distance`
 
 The sight distance a crest vertical curve of length L between grades g1 and g2 provides (eye height 1.08 m, object height 0.60 m unless stated).
 
@@ -1253,7 +1253,7 @@ $$
 
 ![S < L or S > L (case) over L (curve length) from 30 m to 3000 m and g1 (grade before the curve, decimal (positive uphill)) from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-crest-curve-sight-distance-decision)
 
-*S < L or S > L (case) over L (curve length) from 30 m to 3000 m and g1 (grade before the curve, decimal (positive uphill)) from 0.003 to 0.3 (logarithmic axes): each of the 31 × 21 cells is one run of transportation-ai999x, coloured by the verdict it returned — S < L: 465 cells, S > L: 186 cells. Other inputs as in the worked example: g2 = -0.02. Marked: the worked example, L = 300 m, g1 = 0.03 → S < L.*
+*S < L or S > L (case) over L (curve length) from 30 m to 3000 m and g1 (grade before the curve, decimal (positive uphill)) from 0.003 to 0.3 (logarithmic axes): each of the 31 × 21 cells is one run of transportation-ai999x, coloured by the verdict it returned, S < L: 465 cells, S > L: 186 cells. Other inputs as in the worked example: g2 = -0.02. Marked: the worked example, L = 300 m, g1 = 0.03 → S < L.*
 
 ```python
 transportation_ai999x.solve('transport_crest_curve_sight_distance', g1=0.03, g2=-0.02, L=300.0)
@@ -1277,7 +1277,7 @@ transportation_ai999x.solve('transport_crest_curve_sight_distance', g1=0.02, g2=
 
 <a id="transport_horizontal_sight_offset"></a>
 
-### Horizontal sightline offset on a circular curve — `transport_horizontal_sight_offset`
+### Horizontal sightline offset on a circular curve, `transport_horizontal_sight_offset`
 
 The clearance M needed from the centre of the inside lane to an obstruction (middle ordinate) so that a driver on a curve of radius R sees the sight distance S, both driver and object on the curve.
 
@@ -1328,7 +1328,7 @@ transportation_ai999x.solve('transport_horizontal_sight_offset', R=150.0, S=110.
 
 <a id="transport_sight_distance_from_offset"></a>
 
-### Sight distance available on a curve with a roadside obstruction — `transport_sight_distance_from_offset`
+### Sight distance available on a curve with a roadside obstruction, `transport_sight_distance_from_offset`
 
 The sight distance available on a curve of radius R (inside lane centreline) when an obstruction stands at the offset M from that centreline.
 
@@ -1379,7 +1379,7 @@ transportation_ai999x.solve('transport_sight_distance_from_offset', R=200.0, M=6
 
 <a id="transport_clothoid_coordinates"></a>
 
-### Clothoid (spiral) transition curve coordinates — `transport_clothoid_coordinates`
+### Clothoid (spiral) transition curve coordinates, `transport_clothoid_coordinates`
 
 Coordinates along the tangent (x) and offset from it (y), and the tangent deflection angle, at distance s along a clothoid transition of length L_s that ends at a circular curve of radius R (A^2 = R L_s).
 
@@ -1433,7 +1433,7 @@ transportation_ai999x.solve('transport_clothoid_coordinates', R=500.0, L_s=120.0
 
 <a id="transport_greenshields_capacity"></a>
 
-### Greenshields model: capacity, optimum speed and density — `transport_greenshields_capacity`
+### Greenshields model: capacity, optimum speed and density, `transport_greenshields_capacity`
 
 Capacity (maximum flow) of a traffic stream following Greenshields' linear speed-density model $v = vf$ $(1 - k/kj)$, with the density and speed at which it occurs.
 
@@ -1490,7 +1490,7 @@ transportation_ai999x.solve('transport_greenshields_capacity', vf=16.66666666666
 
 <a id="transport_greenshields_speed_at_flow"></a>
 
-### Greenshields model: densities and speeds at a given flow — `transport_greenshields_speed_at_flow`
+### Greenshields model: densities and speeds at a given flow, `transport_greenshields_speed_at_flow`
 
 The two traffic states (uncongested and congested) of a Greenshields stream that carry the flow q: their densities and speeds.
 
@@ -1545,7 +1545,7 @@ transportation_ai999x.solve('transport_greenshields_speed_at_flow', vf=22.222222
 
 <a id="transport_greenshields_fit"></a>
 
-### Fit the Greenshields model to speed-density observations — `transport_greenshields_fit`
+### Fit the Greenshields model to speed-density observations, `transport_greenshields_fit`
 
 Least-squares fit of Greenshields' line $v = vf - (vf/kj)$ k to observed speeds (km/h) and densities (veh/km): the free-flow speed, jam density, capacity and the coefficient of determination of the line.
 
@@ -1599,7 +1599,7 @@ transportation_ai999x.solve('transport_greenshields_fit', speeds=[61.5, 48.2, 39
 
 <a id="transport_greenberg_fit"></a>
 
-### Fit the Greenberg (logarithmic) model to speed-density observations — `transport_greenberg_fit`
+### Fit the Greenberg (logarithmic) model to speed-density observations, `transport_greenberg_fit`
 
 Least-squares fit of Greenberg's model $v = v_{0}$ ln(kj / k) (v against ln k) to observed speeds (km/h) and densities (veh/km): the optimum speed v0, jam density, capacity v0 kj / e and the coefficient of determination.
 
@@ -1649,7 +1649,7 @@ transportation_ai999x.solve('transport_greenberg_fit', speeds=[61.5, 48.2, 39.0,
 
 <a id="transport_underwood_fit"></a>
 
-### Fit the Underwood (exponential) model to speed-density observations — `transport_underwood_fit`
+### Fit the Underwood (exponential) model to speed-density observations, `transport_underwood_fit`
 
 Least-squares fit of Underwood's model $v = vf$ exp(-k / k0) (ln v against k) to observed speeds (km/h) and densities (veh/km): the free-flow speed, the optimum density k0, capacity vf $k_{0} / e$ and the coefficient of determination.
 
@@ -1699,7 +1699,7 @@ transportation_ai999x.solve('transport_underwood_fit', speeds=[61.5, 48.2, 39.0,
 
 <a id="transport_greenberg_capacity"></a>
 
-### Greenberg model: capacity and density at capacity — `transport_greenberg_capacity`
+### Greenberg model: capacity and density at capacity, `transport_greenberg_capacity`
 
 Capacity of a traffic stream following Greenberg's model $v = v_{0}$ ln(kj / k) and the density at which it occurs (the speed there is v0).
 
@@ -1751,7 +1751,7 @@ transportation_ai999x.solve('transport_greenberg_capacity', v0=6.944444444444445
 
 <a id="transport_underwood_capacity"></a>
 
-### Underwood model: capacity and speed at capacity — `transport_underwood_capacity`
+### Underwood model: capacity and speed at capacity, `transport_underwood_capacity`
 
 Capacity of a traffic stream following Underwood's model $v = vf$ exp(-k / k0), with the speed and density at capacity.
 
@@ -1804,7 +1804,7 @@ transportation_ai999x.solve('transport_underwood_capacity', vf=22.22222222222222
 
 <a id="transport_shockwave_speed"></a>
 
-### Shockwave speed between two traffic states — `transport_shockwave_speed`
+### Shockwave speed between two traffic states, `transport_shockwave_speed`
 
 Speed of the boundary (shockwave) between an upstream traffic state (q1, k1) and a downstream state (q2, k2): $u = (q_{2} - q_{1}) / (k_{2} - k_{1})$, negative when it moves upstream (for example the back of a queue).
 
@@ -1835,7 +1835,7 @@ $$
 
 ![upstream, downstream or stationary (direction) over q1 (upstream flow (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')) from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-shockwave-speed-decision)
 
-*upstream, downstream or stationary (direction) over q1 (upstream flow (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')) from 0.05 1/s to 5 1/s and k1 (upstream density (veh/km in questions; veh/m in solve(), or '25 1/km')) from 0.0025 1/m to 0.25 1/m (logarithmic axes): each of the 31 × 21 cells is one run of transportation-ai999x, coloured by the verdict it returned — downstream: 168 cells, upstream: 353 cells; blank cells: inputs the capability refuses. Other inputs as in the worked example: q2 = 0.3333333333333333 1/s, k2 = 0.08 1/m. Marked: the worked example, q1 = 0.5 1/s, k1 = 0.025 1/m → upstream.*
+*upstream, downstream or stationary (direction) over q1 (upstream flow (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')) from 0.05 1/s to 5 1/s and k1 (upstream density (veh/km in questions; veh/m in solve(), or '25 1/km')) from 0.0025 1/m to 0.25 1/m (logarithmic axes): each of the 31 × 21 cells is one run of transportation-ai999x, coloured by the verdict it returned, downstream: 168 cells, upstream: 353 cells; blank cells: inputs the capability refuses. Other inputs as in the worked example: q2 = 0.3333333333333333 1/s, k2 = 0.08 1/m. Marked: the worked example, q1 = 0.5 1/s, k1 = 0.025 1/m → upstream.*
 
 ```python
 transportation_ai999x.solve('transport_shockwave_speed', q1=0.5, k1=0.025, q2=0.3333333333333333, k2=0.08)
@@ -1859,7 +1859,7 @@ transportation_ai999x.solve('transport_shockwave_speed', q1=0.0, k1=0.15, q2=0.5
 
 <a id="transport_greenshields_shockwave"></a>
 
-### Shockwave speed in a Greenshields traffic stream — `transport_greenshields_shockwave`
+### Shockwave speed in a Greenshields traffic stream, `transport_greenshields_shockwave`
 
 Speed of the shockwave between two states of a Greenshields stream with densities k1 (upstream) < k2 (downstream): $u = vf$ $(1 - (k_{1} + k_{2}) / kj)$.
 
@@ -1913,7 +1913,7 @@ transportation_ai999x.solve('transport_greenshields_shockwave', vf=27.7777777777
 
 <a id="transport_signal_queue_shockwave"></a>
 
-### Queue at a signal by shockwave analysis — `transport_signal_queue_shockwave`
+### Queue at a signal by shockwave analysis: `transport_signal_queue_shockwave`
 
 Kinematic-wave analysis of a signal: the queue grows upstream during the red at the shock speed between the arrival state (q_a, k_a) and jam density k_j, and from the start of green the discharge wave (saturation state q_s, k_s) chases it. The longest queue, the time it is reached (from the start of red) and both wave speeds.
 
@@ -1971,7 +1971,7 @@ transportation_ai999x.solve('transport_signal_queue_shockwave', q_a=0.1944444444
 
 <a id="transport_signal_queue_uniform_delay"></a>
 
-### Queue and uniform delay at a signal (deterministic D/D/1) — `transport_signal_queue_uniform_delay`
+### Queue and uniform delay at a signal (deterministic D/D/1), `transport_signal_queue_uniform_delay`
 
 Uniform arrivals at a fixed-time signal with saturation flow s, effective red r and effective green g (undersaturated): the largest queue, the time after the start of green until it clears, the total delay per cycle, the average (uniform) delay per vehicle and the share of vehicles that stop.
 
@@ -2028,7 +2028,7 @@ transportation_ai999x.solve('transport_signal_queue_uniform_delay', lam=0.222222
 
 <a id="transport_bottleneck_queue"></a>
 
-### Queue and delay at a temporary bottleneck (incident, lane closure) — `transport_bottleneck_queue`
+### Queue and delay at a temporary bottleneck (incident, lane closure), `transport_bottleneck_queue`
 
 Deterministic queue when the capacity of a road falls from mu to mu_r for a time t_r (an incident or a work zone) while vehicles arrive at lam: the longest queue, how long the queue lasts and the total delay.
 
@@ -2084,7 +2084,7 @@ transportation_ai999x.solve('transport_bottleneck_queue', lam=0.4166666666666667
 
 <a id="transport_interval_queue"></a>
 
-### Queue from arrival counts and capacity per interval — `transport_interval_queue`
+### Queue from arrival counts and capacity per interval, `transport_interval_queue`
 
 Vehicles queued at the end of each counting interval when the arrivals per interval are served up to the capacity per interval (deterministic queue, first in first out), the longest queue and the vehicles served per interval.
 
@@ -2133,7 +2133,7 @@ transportation_ai999x.solve('transport_interval_queue', arrivals=[30, 55, 70, 40
 
 <a id="transport_signal_green_splits"></a>
 
-### Green splits by equal degree of saturation (flow-ratio method) — `transport_signal_green_splits`
+### Green splits by equal degree of saturation (flow-ratio method), `transport_signal_green_splits`
 
 Effective green time of each critical phase for a given cycle C and total lost time L, shared in proportion to the critical flow ratios $y_i = v_i / s_i$ (equal degree of saturation), and the critical degree of saturation X_c. Greens in s.
 
@@ -2186,7 +2186,7 @@ transportation_ai999x.solve('transport_signal_green_splits', C=60.0, L=8.0, y=[0
 
 <a id="transport_poisson_arrivals"></a>
 
-### Probability of n vehicle arrivals in an interval (Poisson) — `transport_poisson_arrivals`
+### Probability of n vehicle arrivals in an interval (Poisson), `transport_poisson_arrivals`
 
 Probability that exactly n, at most n and at least n vehicles arrive in an interval t when arrivals are random (Poisson) at the flow q.
 
@@ -2236,7 +2236,7 @@ transportation_ai999x.solve('transport_poisson_arrivals', q=0.25, t=60.0, n=10)
 
 <a id="transport_headway_probability"></a>
 
-### Probability of a headway longer than h (negative exponential) — `transport_headway_probability`
+### Probability of a headway longer than h (negative exponential), `transport_headway_probability`
 
 Probability that the time headway between random vehicles at flow q is at least h (and shorter than h), for the negative exponential distribution or the shifted one with a minimum headway tau.
 
@@ -2289,7 +2289,7 @@ transportation_ai999x.solve('transport_headway_probability', q=0.333333333333333
 
 <a id="transport_gap_acceptance_capacity"></a>
 
-### Capacity of a minor stream by gap acceptance — `transport_gap_acceptance_capacity`
+### Capacity of a minor stream by gap acceptance, `transport_gap_acceptance_capacity`
 
 Capacity of a minor (stop- or yield-controlled) movement crossing a random major stream of flow q, with critical gap t_c and follow-up time t_f: Harders' formula (as in the HCM) or Siegloch's.
 
@@ -2338,7 +2338,7 @@ transportation_ai999x.solve('transport_gap_acceptance_capacity', q=0.16666666666
 
 <a id="transport_time_and_space_mean_speed"></a>
 
-### Time-mean and space-mean speed of spot speeds — `transport_time_and_space_mean_speed`
+### Time-mean and space-mean speed of spot speeds, `transport_time_and_space_mean_speed`
 
 From spot speeds measured at a point: the time-mean speed (arithmetic mean), the space-mean speed (harmonic mean, the speed that matches travel times over a fixed length) and the sample standard deviation. Speeds in km/h.
 
@@ -2385,7 +2385,7 @@ transportation_ai999x.solve('transport_time_and_space_mean_speed', speeds=[88, 9
 
 <a id="transport_spot_speed_percentiles"></a>
 
-### 85th, 50th and 15th percentile spot speeds — `transport_spot_speed_percentiles`
+### 85th, 50th and 15th percentile spot speeds, `transport_spot_speed_percentiles`
 
 Percentile speeds of a spot-speed sample (85th percentile for speed limits and design, median, 15th) by linear interpolation between ranks (position $(n - 1)$ $p / 100$, as Excel PERCENTILE.INC). Speeds in km/h.
 
@@ -2432,7 +2432,7 @@ transportation_ai999x.solve('transport_spot_speed_percentiles', speeds=[88, 95, 
 
 <a id="transport_safe_following_gap"></a>
 
-### Minimum safe following gap when the leader brakes — `transport_safe_following_gap`
+### Minimum safe following gap when the leader brakes, `transport_safe_following_gap`
 
 Smallest initial gap that avoids a rear-end collision when a leader brakes at a_l and the follower, at the same initial speed, reacts after t_r and brakes at a_f (the closest approach can happen while both still move).
 
@@ -2481,7 +2481,7 @@ transportation_ai999x.solve('transport_safe_following_gap', v=22.22222222222222,
 
 <a id="transport_mm1_queue"></a>
 
-### Single-server random queue (M/M/1), e.g. a toll booth — `transport_mm1_queue`
+### Single-server random queue (M/M/1), e.g. a toll booth, `transport_mm1_queue`
 
 Poisson arrivals at lam and exponential service at mu at one server (a toll booth, a ramp meter): utilisation, mean number in the system and in the queue, mean time in the system and waiting, and the probability that the server is idle. Rates in veh/h.
 
@@ -2537,7 +2537,7 @@ transportation_ai999x.solve('transport_mm1_queue', lam=0.08333333333333333, mu=0
 
 <a id="transport_mmc_queue"></a>
 
-### Multi-server random queue (M/M/c, Erlang C), e.g. a toll plaza — `transport_mmc_queue`
+### Multi-server random queue (M/M/c, Erlang C), e.g. a toll plaza, `transport_mmc_queue`
 
 Poisson arrivals at lam served by c parallel exponential servers at mu each (toll lanes, loading bays, ticket windows): probability of waiting (Erlang C), mean queue, mean wait, mean time in the system and mean number in the system. Rates in veh/h.
 
@@ -2589,7 +2589,7 @@ transportation_ai999x.solve('transport_mmc_queue', lam=0.25, mu=0.09722222222222
 
 <a id="transport_md1_queue"></a>
 
-### Single server with constant service time (M/D/1) — `transport_md1_queue`
+### Single server with constant service time (M/D/1), `transport_md1_queue`
 
 Poisson arrivals at lam and a constant service time $1/mu$ (an automated toll gate, a ramp meter): mean queue, mean wait, mean time in the system and mean number in the system. Rates in veh/h.
 
@@ -2643,7 +2643,7 @@ transportation_ai999x.solve('transport_md1_queue', lam=0.3333333333333333, mu=0.
 
 <a id="transport_erlang_b_blocking"></a>
 
-### Blocking probability with no waiting room (Erlang B), e.g. parking spaces — `transport_erlang_b_blocking`
+### Blocking probability with no waiting room (Erlang B), e.g. parking spaces, `transport_erlang_b_blocking`
 
 Arrivals at lam (veh/h) to c spaces or servers held for a mean time $1/mu$ with no waiting room (a car park, loading bays, taxi ranks): the probability an arrival is turned away (Erlang B), the mean number of occupied spaces and the vehicles lost per hour. Rates in veh/h.
 
@@ -2697,7 +2697,7 @@ transportation_ai999x.solve('transport_erlang_b_blocking', lam=0.011111111111111
 
 <a id="transport_fifo_queue_simulation"></a>
 
-### First-come-first-served queue from arrival and service times — `transport_fifo_queue_simulation`
+### First-come-first-served queue from arrival and service times, `transport_fifo_queue_simulation`
 
 Waiting time of every vehicle (or passenger) at c identical servers in first-come-first-served order from given arrival times and service times (a toll plaza, a bus stop with c berths): mean and longest wait, mean time in the system, when the last one leaves and the longest waiting line. Times in s.
 
@@ -2750,7 +2750,7 @@ transportation_ai999x.solve('transport_fifo_queue_simulation', arrivals=[0, 2, 3
 
 <a id="transport_train_running_time"></a>
 
-### Running time between stations (accelerate, cruise, brake) — `transport_train_running_time`
+### Running time between stations (accelerate, cruise, brake), `transport_train_running_time`
 
 Minimum running time of a train (or bus) between two stops a distance D apart with acceleration a, braking rate b and line speed v_max; when the stops are too close to reach v_max the profile is accelerate-brake.
 
@@ -2781,7 +2781,7 @@ $$
 
 ![accelerate-cruise-brake or accelerate-brake (profile) over D (distance between stops) from 150 m to 15000 m and v_max (maximum (line) speed) from 2](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-train-running-time-decision)
 
-*accelerate-cruise-brake or accelerate-brake (profile) over D (distance between stops) from 150 m to 15000 m and v_max (maximum (line) speed) from 2.22222 m/s to 222.222 m/s (logarithmic axes): each of the 31 × 21 cells is one run of transportation-ai999x, coloured by the verdict it returned — accelerate-brake: 248 cells, accelerate-cruise-brake: 403 cells. Other inputs as in the worked example: a = 1.0 m/s^2, b = 1.2 m/s^2. Marked: the worked example, D = 1500 m, v_max = 22.2222 m/s → accelerate-cruise-brake.*
+*accelerate-cruise-brake or accelerate-brake (profile) over D (distance between stops) from 150 m to 15000 m and v_max (maximum (line) speed) from 2.22222 m/s to 222.222 m/s (logarithmic axes): each of the 31 × 21 cells is one run of transportation-ai999x, coloured by the verdict it returned, accelerate-brake: 248 cells, accelerate-cruise-brake: 403 cells. Other inputs as in the worked example: a = 1.0 m/s^2, b = 1.2 m/s^2. Marked: the worked example, D = 1500 m, v_max = 22.2222 m/s → accelerate-cruise-brake.*
 
 ```python
 transportation_ai999x.solve('transport_train_running_time', D=1500.0, v_max=22.22222222222222, a=1.0, b=1.2)
@@ -2805,7 +2805,7 @@ transportation_ai999x.solve('transport_train_running_time', D=600.0, v_max=27.77
 
 <a id="transport_rail_station_headway"></a>
 
-### Minimum headway of trains at a station stop (moving block) — `transport_rail_station_headway`
+### Minimum headway of trains at a station stop (moving block), `transport_rail_station_headway`
 
 Shortest headway between trains serving a station under a brick-wall (moving-block) separation: the leader dwells t_d, accelerates at a until its rear clears the platform plus the safety margin s_m, while the follower approaches at the line speed v and brakes at b to stop at the platform; and the corresponding line capacity in trains per hour.
 
@@ -2857,7 +2857,7 @@ transportation_ai999x.solve('transport_rail_station_headway', v=16.6666666666666
 
 <a id="transport_train_braking_distance"></a>
 
-### Train braking distance with Davis resistance and gradient — `transport_train_braking_distance`
+### Train braking distance with Davis resistance and gradient, `transport_train_braking_distance`
 
 Braking distance and time of a train of mass m braking with a constant brake force F_b from v1 to v2, helped by the Davis train resistance $R = A + B$ v + C $v^{2}$ and the gradient (positive uphill), with a rotating-mass factor gamma.
 
@@ -2912,7 +2912,7 @@ transportation_ai999x.solve('transport_train_braking_distance', m=1200000.0, v1=
 
 <a id="transport_train_acceleration"></a>
 
-### Train acceleration time and distance (tractive effort curve, Davis resistance) — `transport_train_acceleration`
+### Train acceleration time and distance (tractive effort curve, Davis resistance), `transport_train_acceleration`
 
 Time and distance for a train to accelerate from v1 to v2 with a tractive effort F_max up to the speed P / F_max and constant power P above it, against the Davis resistance A + B v + C $v^{2}$ and the gradient, with a rotating-mass factor gamma.
 
@@ -2968,7 +2968,7 @@ transportation_ai999x.solve('transport_train_acceleration', m=1500000.0, v1=5.55
 
 <a id="transport_fastest_route"></a>
 
-### Fastest route on a road network (link lengths and speeds) — `transport_fastest_route`
+### Fastest route on a road network (link lengths and speeds), `transport_fastest_route`
 
 The quickest route between two places on a road network whose links are given by length (km) and speed (km/h): the route, its travel time in minutes and its length in km. Roads are two-way unless directed = yes.
 
@@ -3020,7 +3020,7 @@ transportation_ai999x.solve('transport_fastest_route', roads='P-Q 3, Q-R 4, P-R 
 
 <a id="transport_travel_time_skim"></a>
 
-### Zone-to-zone travel time matrix (skim) of a road network — `transport_travel_time_skim`
+### Zone-to-zone travel time matrix (skim) of a road network, `transport_travel_time_skim`
 
 The fastest travel time in minutes between every pair of places of a road network given by link lengths (km) and speeds (km/h), as a matrix in alphabetical order of the places (the skim used for trip distribution).
 
@@ -3073,7 +3073,7 @@ transportation_ai999x.solve('transport_travel_time_skim', roads='P-Q 3, Q-R 4, P
 
 <a id="transport_all_or_nothing_assignment"></a>
 
-### All-or-nothing traffic assignment — `transport_all_or_nothing_assignment`
+### All-or-nothing traffic assignment: `transport_all_or_nothing_assignment`
 
 Loads every origin-destination demand onto its fastest path through a network of one-way links with travel times (min): the flow on each link (in the order given) and the total vehicle-hours travelled.
 
@@ -3125,7 +3125,7 @@ transportation_ai999x.solve('transport_all_or_nothing_assignment', network='1-2 
 
 <a id="transport_gravity_model"></a>
 
-### Doubly constrained gravity model of trip distribution — `transport_gravity_model`
+### Doubly constrained gravity model of trip distribution, `transport_gravity_model`
 
 Trips between zones $T_ij = A_i$ O_i B_j D_j f(c_ij) that match both the productions O_i and the attractions D_j, with deterrence f(c) = exp(-beta c) or $c^{-\beta}$, balanced by Furness iterations until every total matches to $1e-13.$
 
@@ -3175,7 +3175,7 @@ transportation_ai999x.solve('transport_gravity_model', O=[500, 700], D=[600, 600
 
 <a id="transport_furness_balancing"></a>
 
-### Growth-factor (Furness) balancing of a trip matrix — `transport_furness_balancing`
+### Growth-factor (Furness) balancing of a trip matrix, `transport_furness_balancing`
 
 Scales a base-year trip matrix to future row totals (productions) and column totals (attractions) by the Furness (biproportional) method, iterated until every total matches to $1e-13.$
 
@@ -3223,7 +3223,7 @@ transportation_ai999x.solve('transport_furness_balancing', base=[[40, 60], [80, 
 
 <a id="transport_logit_mode_shares"></a>
 
-### Multinomial logit mode shares from utilities — `transport_logit_mode_shares`
+### Multinomial logit mode shares from utilities, `transport_logit_mode_shares`
 
 Choice probabilities (mode shares) of a multinomial logit model from the systematic utilities of the alternatives, and the logsum (expected maximum utility).
 
@@ -3269,7 +3269,7 @@ transportation_ai999x.solve('transport_logit_mode_shares', V=[0.5, -0.3])
 
 <a id="transport_logit_from_attributes"></a>
 
-### Logit mode choice from attributes and coefficients — `transport_logit_from_attributes`
+### Logit mode choice from attributes and coefficients, `transport_logit_from_attributes`
 
 Utilities V_i = ASC_i + sum_k beta_k x_ik of each mode from its attributes (rows of X: modes; columns: attributes such as time in min and cost) and the coefficients, and the resulting logit choice probabilities.
 
@@ -3318,7 +3318,7 @@ transportation_ai999x.solve('transport_logit_from_attributes', X=[[25, 4], [40, 
 
 <a id="transport_logit_elasticities"></a>
 
-### Direct and cross elasticities of logit choice probabilities — `transport_logit_elasticities`
+### Direct and cross elasticities of logit choice probabilities, `transport_logit_elasticities`
 
 Point elasticities of logit probabilities with respect to an attribute x (such as cost or time) that enters the utility linearly with coefficient beta: direct $E_ii = \beta$ x_i $(1 - P_i)$ and cross $E_ji = -\beta$ x_i P_i (the same for every other alternative j, the IIA property).
 
@@ -3368,7 +3368,7 @@ transportation_ai999x.solve('transport_logit_elasticities', V=[0.2, -0.4], x=[3.
 
 <a id="transport_nested_logit"></a>
 
-### Nested logit choice probabilities — `transport_nested_logit`
+### Nested logit choice probabilities: `transport_nested_logit`
 
 Choice probabilities of a two-level nested logit model (for example car / public transport nests holding bus and rail): alternatives grouped into nests 1..K with dissimilarity (logsum) parameters lam_k in (0, 1]; also the probability of each nest.
 
@@ -3417,7 +3417,7 @@ transportation_ai999x.solve('transport_nested_logit', V=[0.2, -0.6, -0.4, -1.5],
 
 <a id="transport_logsum_user_benefit"></a>
 
-### User benefit of a change from the logit logsum — `transport_logsum_user_benefit`
+### User benefit of a change from the logit logsum, `transport_logsum_user_benefit`
 
 Change in consumer surplus per trip (in money units) when the utilities of the alternatives change from V0 to V1, from the difference of the logsums divided by the (negative) cost coefficient.
 
@@ -3467,7 +3467,7 @@ transportation_ai999x.solve('transport_logsum_user_benefit', V0=[0.3, -0.7], V1=
 
 <a id="transport_trip_generation_regression"></a>
 
-### Trip generation by multiple linear regression — `transport_trip_generation_regression`
+### Trip generation by multiple linear regression, `transport_trip_generation_regression`
 
 Least-squares trip-generation model trips = b0 + b1 $x_{1} + ...$ fitted to zonal data (rows of X: zones; columns: households, employment, cars, ...), its coefficient of determination, and optionally the trips predicted for a new zone.
 
@@ -3517,7 +3517,7 @@ transportation_ai999x.solve('transport_trip_generation_regression', X=[[800], [1
 
 <a id="transport_understeer_gradient"></a>
 
-### Understeer gradient and characteristic or critical speed (bicycle model) — `transport_understeer_gradient`
+### Understeer gradient and characteristic or critical speed (bicycle model), `transport_understeer_gradient`
 
 Understeer gradient K of the linear single-track model from axle cornering stiffnesses and the centre-of-gravity position, in rad/(m/s^2) and deg/g, whether the vehicle understeers or oversteers, and its characteristic speed (understeer: the steer angle is twice the Ackermann angle) or critical speed (oversteer: it becomes unstable).
 
@@ -3547,7 +3547,7 @@ $$
 
 ![understeer or oversteer (behaviour) over L (wheelbase) from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-understeer-gradient-decision)
 
-*understeer or oversteer (behaviour) over L (wheelbase) from 0.27 m to 27 m and l_f (distance from the front axle to the centre of gravity) from 0.12 m to 12 m (logarithmic axes): each of the 31 × 21 cells is one run of transportation-ai999x, coloured by the verdict it returned — oversteer: 85 cells, understeer: 341 cells; blank cells: inputs the capability refuses. Other inputs as in the worked example: m = 1500.0 kg, C_f = 90000.0 N/rad, C_r = 85000.0 N/rad. Marked: the worked example, L = 2.7 m, l_f = 1.2 m → understeer.*
+*understeer or oversteer (behaviour) over L (wheelbase) from 0.27 m to 27 m and l_f (distance from the front axle to the centre of gravity) from 0.12 m to 12 m (logarithmic axes): each of the 31 × 21 cells is one run of transportation-ai999x, coloured by the verdict it returned, oversteer: 85 cells, understeer: 341 cells; blank cells: inputs the capability refuses. Other inputs as in the worked example: m = 1500.0 kg, C_f = 90000.0 N/rad, C_r = 85000.0 N/rad. Marked: the worked example, L = 2.7 m, l_f = 1.2 m → understeer.*
 
 ![K (understeer gradient (rad s^2/m)) against C_f (cornering stiffness of the front axle) from 9000 N/rad to 900000 N/rad on a logarithmic axis](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-understeer-gradient-curve)
 
@@ -3575,7 +3575,7 @@ transportation_ai999x.solve('transport_understeer_gradient', m=1300.0, L=2.5, l_
 
 <a id="transport_steady_state_cornering"></a>
 
-### Steady-state cornering: yaw rate, lateral acceleration, radius, sideslip — `transport_steady_state_cornering`
+### Steady-state cornering: yaw rate, lateral acceleration, radius, sideslip, `transport_steady_state_cornering`
 
 Steady turning response of the linear bicycle model at speed u to a front-wheel steer angle delta: yaw rate, lateral acceleration, turn radius and the sideslip angle at the centre of gravity (small angles).
 
@@ -3634,7 +3634,7 @@ transportation_ai999x.solve('transport_steady_state_cornering', m=1300.0, L=2.5,
 
 <a id="transport_steer_angle_for_radius"></a>
 
-### Steer angle needed for a turn of given radius (bicycle model) — `transport_steer_angle_for_radius`
+### Steer angle needed for a turn of given radius (bicycle model), `transport_steer_angle_for_radius`
 
 Front-wheel steer angle the linear bicycle model needs to hold a turn of radius R at speed u (Ackermann angle L/R plus the understeer term K u^2 / R).
 
@@ -3686,7 +3686,7 @@ transportation_ai999x.solve('transport_steer_angle_for_radius', m=1300.0, L=2.5,
 
 <a id="transport_yaw_natural_frequency"></a>
 
-### Yaw natural frequency and damping of the bicycle model — `transport_yaw_natural_frequency`
+### Yaw natural frequency and damping of the bicycle model, `transport_yaw_natural_frequency`
 
 Undamped natural frequency and damping ratio of the lateral-yaw motion of the linear bicycle model at speed u (from the characteristic equation of its two states), below the critical speed.
 
@@ -3740,7 +3740,7 @@ transportation_ai999x.solve('transport_yaw_natural_frequency', m=1300.0, Iz=1900
 
 <a id="transport_quarter_car_frequencies"></a>
 
-### Quarter-car model: body and wheel-hop natural frequencies — `transport_quarter_car_frequencies`
+### Quarter-car model: body and wheel-hop natural frequencies, `transport_quarter_car_frequencies`
 
 Undamped natural frequencies of the two-degree-of-freedom quarter-car ride model: the body (bounce) mode and the wheel-hop mode, from the sprung and unsprung masses, suspension and tyre stiffnesses.
 
@@ -3794,7 +3794,7 @@ transportation_ai999x.solve('transport_quarter_car_frequencies', m_s=300.0, m_u=
 
 <a id="transport_quarter_car_transmissibility"></a>
 
-### Quarter-car model: road-to-body transmissibility at a frequency — `transport_quarter_car_transmissibility`
+### Quarter-car model: road-to-body transmissibility at a frequency, `transport_quarter_car_transmissibility`
 
 Amplitude ratio between body (sprung-mass) motion and road displacement, and between wheel motion and road displacement, of the damped quarter-car model for a sinusoidal road input of frequency f.
 
@@ -3850,7 +3850,7 @@ transportation_ai999x.solve('transport_quarter_car_transmissibility', m_s=300.0,
 
 <a id="transport_webster_optimum_cycle"></a>
 
-### Optimum cycle length by Webster's formula — `transport_webster_optimum_cycle`
+### Optimum cycle length by Webster's formula: `transport_webster_optimum_cycle`
 
 Webster's optimum cycle length C0 = (1.5 L + 5)/(1 - Y) of a fixed-time signal from the total lost time L (s) and the critical flow ratios $y_i = v_i/s_i$ (Y = sum y_i), with the minimum cycle $L/(1 - Y)$ and the total effective green. Times in s.
 
@@ -3904,7 +3904,7 @@ transportation_ai999x.solve('transport_webster_optimum_cycle', L=8.0, y=[0.4, 0.
 
 <a id="transport_simplified_curve_formula"></a>
 
-### Curve radius or speed by the simplified e + f formula — `transport_simplified_curve_formula`
+### Curve radius or speed by the simplified e + f formula, `transport_simplified_curve_formula`
 
 The minimum radius R = v^2/(g (e + f)) for a speed, or the maximum speed sqrt(g R (e + f)) on a radius, by the simplified (small-angle) point-mass formula of horizontal curves (the exact form is minimum curve radius).
 
@@ -3955,7 +3955,7 @@ transportation_ai999x.solve('transport_simplified_curve_formula', e=0.0008, f=0.
 
 <a id="transport_sag_curve_headlight"></a>
 
-### Sag vertical curve length for headlight sight distance — `transport_sag_curve_headlight`
+### Sag vertical curve length for headlight sight distance, `transport_sag_curve_headlight`
 
 The minimum length of a sag vertical curve for the headlight sight distance S by the AASHTO formulas (headlight 0.6 m high, beam rising 1 degree): $L = A$ S^2/(120 + 3.5 S) when $S < L$, L = 2S - (120 + 3.5 S)/A when $S > L$, $A = g_{2} - g_{1}$ in percent.
 
@@ -3986,7 +3986,7 @@ $$
 
 ![S < L or S > L (case) over g1 (entering grade, decimal) from -0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-sag-curve-headlight-decision)
 
-*S < L or S > L (case) over g1 (entering grade, decimal) from -0.045 to -0.015 and g2 (leaving grade, decimal) from 0.002 to 0.2 (logarithmic vertical axis): each of the 31 × 21 cells is one run of transportation-ai999x, coloured by the verdict it returned — S < L: 442 cells, S > L: 209 cells. Other inputs as in the worked example: S = 185.0 m. Marked: the worked example, g1 = -0.03, g2 = 0.02 → S < L.*
+*S < L or S > L (case) over g1 (entering grade, decimal) from -0.045 to -0.015 and g2 (leaving grade, decimal) from 0.002 to 0.2 (logarithmic vertical axis): each of the 31 × 21 cells is one run of transportation-ai999x, coloured by the verdict it returned, S < L: 442 cells, S > L: 209 cells. Other inputs as in the worked example: S = 185.0 m. Marked: the worked example, g1 = -0.03, g2 = 0.02 → S < L.*
 
 ```python
 transportation_ai999x.solve('transport_sag_curve_headlight', g1=-0.03, g2=0.02, S=185.0)
@@ -4010,7 +4010,7 @@ transportation_ai999x.solve('transport_sag_curve_headlight', g1=-0.02, g2=0.02, 
 
 <a id="transport_vehicle_resistance"></a>
 
-### Vehicle resistance forces and power at a speed — `transport_vehicle_resistance`
+### Vehicle resistance forces and power at a speed, `transport_vehicle_resistance`
 
 Rolling resistance f_r m g cos(theta), aerodynamic drag rho C_D A $v^{2}/2$ and grade resistance m g sin(theta) (tan theta = G) of a road vehicle at a speed, their sum and the power needed to overcome them.
 
@@ -4071,7 +4071,7 @@ transportation_ai999x.solve('transport_vehicle_resistance', m=20000.0, v=22.2222
 
 <a id="transport_top_speed"></a>
 
-### Top speed of a road vehicle — `transport_top_speed`
+### Top speed of a road vehicle: `transport_top_speed`
 
 The steady top speed at which the power at the wheels eta P equals the power absorbed by rolling, aerodynamic and grade resistance: rho C_D A $v^{3}/2 + m$ g (f_r cos(theta) + sin(theta)) $v = \eta$ P.
 
@@ -4125,7 +4125,7 @@ transportation_ai999x.solve('transport_top_speed', m=20000.0, P=300000.0, C_D=0.
 
 <a id="transport_passing_sight_distance"></a>
 
-### Passing sight distance (four-component method) — `transport_passing_sight_distance`
+### Passing sight distance (four-component method), `transport_passing_sight_distance`
 
 The passing sight distance on a two-lane road as $d_{1} + d_{2} + d_{3} + d_{4}$: the initial manoeuvre $d_{1} = t_{1}$ (v - m + a t1/2), the time in the left lane $d_{2} = v$ t2, the clearance d3 and the opposing vehicle's travel $d_{4} = 2$ $d_{2}/3$ (AASHTO 2001).
 
@@ -4184,7 +4184,7 @@ transportation_ai999x.solve('transport_passing_sight_distance', v=16.66666666666
 
 <a id="transport_travel_time_reliability"></a>
 
-### Travel-time reliability indices (buffer, planning time, travel time index) — `transport_travel_time_reliability`
+### Travel-time reliability indices (buffer, planning time, travel time index), `transport_travel_time_reliability`
 
 The buffer index (T95 - mean)/mean, the planning time index T95/T_free and the travel time index mean/T_free of observed travel times on a route (T95 the 95th percentile by linear interpolation). Times in minutes.
 
