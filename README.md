@@ -2,7 +2,7 @@
 
 [![tests](https://github.com/AI999X/transportation-ai999x/actions/workflows/ci.yml/badge.svg)](https://github.com/AI999X/transportation-ai999x/actions/workflows/ci.yml) [![PyPI](https://img.shields.io/pypi/v/transportation-ai999x)](https://pypi.org/project/transportation-ai999x/) [![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97-Hugging%20Face-yellow)](https://huggingface.co/AI999X/transportation-ai999x)
 
-**[Install](https://pypi.org/project/transportation-ai999x/)** · **[Capability guide](https://huggingface.co/AI999X/transportation-ai999x/tree/main/docs)** · **[Evaluation](https://huggingface.co/AI999X/transportation-ai999x/tree/main/evaluation)** · **[AI999X on Hugging Face](https://huggingface.co/AI999X)** · **[Website](https://ai999x.com)** · **[Support: Buy Me a Coffee](https://buymeacoffee.com/ibnuljaiffarabi)**
+**[Desktop app & command line](https://www.ai999x.com/desktop-cli/)** · **[Compute in your browser](https://www.ai999x.com/models/transportation-ai999x/#try)** · **[Install (Python)](https://pypi.org/project/transportation-ai999x/)** · **[Guides](https://huggingface.co/AI999X/transportation-ai999x/tree/main/docs)** · **[Evaluation](https://huggingface.co/AI999X/transportation-ai999x/tree/main/evaluation)** · **[AI999X on Hugging Face](https://huggingface.co/AI999X)** · **[Website](https://ai999x.com)** · **[Support: Buy Me a Coffee](https://buymeacoffee.com/ibnuljaiffarabi)**
 
 License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.0.3
 
@@ -12,7 +12,306 @@ transportation-ai999x is an offline, deterministic Python solver that answers tr
 
 **transportation-ai999x** is a compact, deterministic transportation engine for Python. It reads a question in plain English (or a typed call), picks a certified transportation capability, computes the answer exactly, checks it, and returns the result with its steps, units, LaTeX and assumptions — or an honest refusal that says what is missing. It runs fully offline on any CPU, needs no GPU, no API key and no internet, and is built to give **zero wrong answers**: when it is not sure, it refuses instead of guessing.
 
-[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-support%20development-FFDD00?logo=buymeacoffee&logoColor=black)](https://buymeacoffee.com/ibnuljaiffarabi) ![License](https://img.shields.io/badge/license-Apache--2.0-blue) ![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12%20%7C%203.13%20%7C%203.14-blue) ![Offline](https://img.shields.io/badge/runs-offline%20on%20CPU-green)
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-support%20development-FFDD00?logo=buymeacoffee&logoColor=black)](https://buymeacoffee.com/ibnuljaiffarabi) ![License](https://img.shields.io/badge/license-Apache--2.0-blue) ![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12%20%7C%203.13%20%7C%203.14-blue) ![Offline](https://img.shields.io/badge/runs-offline%20on%20CPU-green) ![Rust](https://img.shields.io/badge/Rust-Windows%20%7C%20Linux%20%7C%20WebAssembly-orange)
+
+**Run it your way.** transportation-ai999x comes as the AI999X desktop app and as the command-line program `transportation` for Windows and Linux, runs in your browser as WebAssembly, and installs as a Python package. The desktop app, the command line and the browser run the same compiled Rust program on your own device: offline, no Python needed.
+
+## Get it
+
+| Way to run it | For | Get it |
+|---|---|---|
+| **AI999X Transportation desktop app** 1.2.0 | Windows, Linux — this model in its own app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-transportation-1.2.0-windows-x86_64.zip) · [Linux (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-transportation-1.2.0-linux-x86_64.tar.gz) |
+| **AI999X desktop app** 1.2.0 | Windows, Linux — every AI999X model in one app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-1.2.0-windows-x86_64.zip) · [Linux (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-1.2.0-linux-x86_64.tar.gz) |
+| **Command line** (`transportation`) | Windows, Linux — one program per model, offline, no Python | [Windows (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-cli-1.2.0-windows-x86_64.zip) · [Linux (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-cli-1.2.0-linux-x86_64.tar.gz) |
+| **In your browser** | any device — nothing to install | [Compute on the model page](https://www.ai999x.com/models/transportation-ai999x/#try) |
+| **Python** | Python 3.10+ | `pip install transportation-ai999x` |
+
+Checksums: [SHA256SUMS](https://www.ai999x.com/downloads/desktop/1.2.0/SHA256SUMS) · every version: [https://www.ai999x.com/downloads/desktop/latest/](https://www.ai999x.com/downloads/desktop/latest/) · install guide: [desktop & command line](https://www.ai999x.com/desktop-cli/)
+
+## Rust versions
+
+Transportation also comes as native programs compiled from Rust, version 1.2.0 of the AI999X desktop app and command line: they run offline on your computer and need no Python. Each file is in this repository's `rust/` folder, on the [GitHub release v1.0.3](https://github.com/AI999X/transportation-ai999x/releases/tag/v1.0.3) and on the website.
+
+| Program | System | File | Size | Download | Use |
+|---|---|---|---|---|---|
+| Desktop app (Transportation) | Windows x86-64 | `ai999x-transportation-1.2.0-windows-x86_64.zip` | 7.1 MB | [Hub](https://huggingface.co/AI999X/transportation-ai999x/resolve/main/rust/ai999x-transportation-1.2.0-windows-x86_64.zip) · [GitHub](https://github.com/AI999X/transportation-ai999x/releases/download/v1.0.3/ai999x-transportation-1.2.0-windows-x86_64.zip) · [website](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-transportation-1.2.0-windows-x86_64.zip) | unzip, then double-click `ai999x-transportation.exe` (no installer) |
+| Desktop app (Transportation) | Linux x86-64 | `ai999x-transportation-1.2.0-linux-x86_64.tar.gz` | 8.0 MB | [Hub](https://huggingface.co/AI999X/transportation-ai999x/resolve/main/rust/ai999x-transportation-1.2.0-linux-x86_64.tar.gz) · [GitHub](https://github.com/AI999X/transportation-ai999x/releases/download/v1.0.3/ai999x-transportation-1.2.0-linux-x86_64.tar.gz) · [website](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-transportation-1.2.0-linux-x86_64.tar.gz) | extract, then run `./ai999x-transportation` (X11 or Wayland desktop) |
+| Command line (`transportation`) | Windows x86-64 | `ai999x-transportation-cli-1.2.0-windows-x86_64.zip` | 2.8 MB | [Hub](https://huggingface.co/AI999X/transportation-ai999x/resolve/main/rust/ai999x-transportation-cli-1.2.0-windows-x86_64.zip) · [GitHub](https://github.com/AI999X/transportation-ai999x/releases/download/v1.0.3/ai999x-transportation-cli-1.2.0-windows-x86_64.zip) · [website (all models)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-cli-1.2.0-windows-x86_64.zip) | unzip, then `transportation.exe ask "<question>"` or `transportation.exe solve <capability> name=value` |
+| Command line (`transportation`) | Linux x86-64 | `ai999x-transportation-cli-1.2.0-linux-x86_64.tar.gz` | 2.8 MB | [Hub](https://huggingface.co/AI999X/transportation-ai999x/resolve/main/rust/ai999x-transportation-cli-1.2.0-linux-x86_64.tar.gz) · [GitHub](https://github.com/AI999X/transportation-ai999x/releases/download/v1.0.3/ai999x-transportation-cli-1.2.0-linux-x86_64.tar.gz) · [website (all models)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-cli-1.2.0-linux-x86_64.tar.gz) | extract, then `./transportation ask "<question>"` or `./transportation solve <capability> name=value` |
+
+The command-line archive holds `transportation` with a README of its commands and examples, the licence and the notice. Checksums: [`rust/SHA256SUMS`](https://huggingface.co/AI999X/transportation-ai999x/resolve/main/rust/SHA256SUMS) (`sha256sum -c SHA256SUMS`).
+
+## Quick start
+
+### Desktop app
+
+Download **AI999X Transportation** for your system (above), unpack it and start it; type a question in words or pick a capability, fill in the form and press Compute. Figures and an explanation of the answer appear beside it. The AI999X desktop app has the same, with Transportation among all AI999X models.
+
+Linux, from a terminal:
+
+```bash
+curl -LO https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-transportation-1.2.0-linux-x86_64.tar.gz
+curl -LO https://www.ai999x.com/downloads/desktop/1.2.0/SHA256SUMS
+sha256sum -c --ignore-missing SHA256SUMS
+tar xzf ai999x-transportation-1.2.0-linux-x86_64.tar.gz
+./ai999x-transportation-1.2.0-linux-x86_64/ai999x-transportation
+```
+
+### Command line
+
+Linux:
+
+```bash
+curl -LO https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-cli-1.2.0-linux-x86_64.tar.gz
+curl -LO https://www.ai999x.com/downloads/desktop/1.2.0/SHA256SUMS
+sha256sum -c --ignore-missing SHA256SUMS
+mkdir -p ~/.local/share && tar xzf ai999x-cli-1.2.0-linux-x86_64.tar.gz -C ~/.local/share
+echo 'export PATH="$HOME/.local/share/ai999x-cli-1.2.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
+transportation --version
+```
+
+Windows (PowerShell):
+
+```powershell
+$F = "ai999x-cli-1.2.0-windows-x86_64.zip"
+Invoke-WebRequest "https://www.ai999x.com/downloads/desktop/1.2.0/$F" -OutFile $F
+Invoke-WebRequest "https://www.ai999x.com/downloads/desktop/1.2.0/SHA256SUMS" -OutFile SHA256SUMS
+(Get-FileHash $F -Algorithm SHA256).Hash.ToLower() -eq ((Select-String -SimpleMatch $F SHA256SUMS).Line -split ' ')[0]
+Expand-Archive $F -DestinationPath "$env:LOCALAPPDATA\AI999X" -Force
+$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.2.0-windows-x86_64"; $env:Path += ";$D"
+[Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";$D", "User")
+transportation --version
+```
+
+Every command below was run as shown; the text under it is what the program printed.
+
+**Ask in words** — Write the question as you would say it: the program reads the quantities and their units, picks the capability and answers.
+
+```console
+$ transportation ask "Stopping sight distance with speed = 100 km/h, reaction time = 2.5 s and deceleration = 3.4 m/s^2."
+Read as: Stopping sight distance (reaction plus braking, with grade)
+SSD = 182.9157589 m
+d_r = 69.44444444 m
+d_b = 113.4713145 m
+  by: Stopping sight distance (reaction plus braking, with grade)  (SSD = v t_r + v^2 / (2 g (f + G)), or with a deceleration rate v t_r + v^2 / (2 (a + g G)))
+  a = 3.4 m/s^2
+  t_r = 2.5 s
+  v = 27.77777778 m/s
+  assumes: v > 0; t_r >= 0; exactly one of f, a; f + G > 0 (or a + g G > 0)
+```
+
+**What a capability needs** — The equation or method, every input and output with its SI unit. Read this before solve: it tells you the input names.
+
+```console
+$ transportation info transport_signal_queue_uniform_delay
+Queue and uniform delay at a signal (deterministic D/D/1)
+  Q = lam r, t_c = lam r/(s - lam), D = lam r^2 / (2(1 - lam/s)), d = r^2 / (2C (1 - lam/s))
+  in   lam      arrival flow (veh/h in questions; veh/s in solve(), or a string such as '600 1/h') [1/s]
+  in   s        saturation flow (veh/h in questions; veh/s in solve(), or a string such as '600 1/h') [1/s]
+  in   r        effective red [s]
+  in   g        effective green [s]
+  out  Q_max    largest queue (veh) []
+  out  t_clear  time after the start of green to clear the queue (s) [s]
+  out  D_total  total delay per cycle (veh s) [s]
+  out  d_uniform average delay per vehicle (s) [s]
+  out  P_stopped share of vehicles that stop []
+```
+
+**Solve** — Inputs as name=value, each with any unit of the right kind. The answer lists every output, the method used, each input converted to SI, and the conditions the answer assumes.
+
+```console
+$ transportation solve transport_signal_queue_uniform_delay "lam=600 1/h" "s=1800 1/h" "r=40 s" "g=30 s"
+Q_max = 6.666666667
+t_clear = 20 s
+D_total = 200 s
+d_uniform = 17.14285714 s
+P_stopped = 0.8571428571
+  by: Queue and uniform delay at a signal (deterministic D/D/1)  (Q = lam r, t_c = lam r/(s - lam), D = lam r^2 / (2(1 - lam/s)), d = r^2 / (2C (1 - lam/s)))
+  lam = 0.1666666667 1/s
+  s = 0.5 1/s
+  r = 40 s
+  g = 30 s
+  assumes: lam < s; the queue clears within the green (lam C <= s g)
+```
+
+**Draw the figures** — The live figures for your own inputs, written as SVG files into the folder given with --out (here the current folder); open them in any browser. Without --out the SVG text comes back as JSON.
+
+```console
+$ transportation figures transport_signal_queue_uniform_delay "lam=600 1/h" "s=1800 1/h" "r=40 s" "g=30 s" --out .
+[
+  {
+    "slug": "transport-signal-queue-uniform-delay-live-1",
+    "title": "Largest queue as effective red varies",
+    "caption": "Largest queue as r runs from 10 to 59.5 s, every other input as you entered it (34 solutions). Marked: your r = 40 s gives Q_max = 6.667. Your inputs: lam = 600 1/h, s = 1800 1/h, r = 40 s, g = 30 s.",
+    "file": "./transport-signal-queue-uniform-delay-live-1.svg"
+  },
+  {
+    "slug": "transport-signal-queue-uniform-delay-live-2",
+    "title": "Largest queue as arrival flow (veh/h in questions; veh/s in solv... varies",
+    "caption": "Largest queue as lam runs from 150 to 760.7 1/h, every other input as you entered it (20 solutions). Marked: your lam = 600 1/h gives Q_max = 6.667. Your inputs: lam = 600 1/h, s = 1800 1/h, r = 40 s, g = 30 s.",
+    "file": "./transport-signal-queue-uniform-delay-live-2.svg"
+  }
+]
+```
+
+**Many questions at once** — One JSON request per line in, one JSON answer per line out, in order: for scripts, notebooks and agents (the program starts once). In PowerShell: Get-Content cases.jsonl | transportation batch
+
+`cases.jsonl`:
+
+```json
+{"key": "transport_signal_queue_uniform_delay", "inputs": {"lam": "600 1/h", "s": "1800 1/h", "r": "40 s", "g": "30 s"}}
+{"key": "transport_curve_safe_speed", "inputs": {"R": "300 m", "e": "0.06 1", "f": "0.12 1"}}
+```
+
+```console
+$ transportation batch < cases.jsonl
+{"outcome":"SOLVED","message":"","value":6.66666666667,"unit":"","solved_for":"Q_max","si":[["lam",0.16666666666666666],["s",0.5],["r",40.0],["g",30.0]],"values":[["Q_max",6.66666666667,""],["t_clear",20.0,"s"],["D_total",200.0,"s"],["d_uniform",17.1428571429,"s"],["P_stopped",0.857142857143,""]],"target":"Q_max","phrase":"largest queue (veh)","assumptions":["lam < s","the queue clears within the green (lam C <= s g)"],"name":"Queue and uniform delay at a signal (deterministic D/D/1)","equation":"Q = lam r, t_c = lam r/(s - lam), D = lam r^2 / (2(1 - lam/s)), d = r^2 / (2C (1 - lam/s))"}
+{"outcome":"SOLVED","message":"","value":23.0993893616,"unit":"m/s","solved_for":"v","si":[["R",300.0],["e",0.06],["f",0.12]],"values":[["v",23.0993893616,"m/s"],["v_kmh",83.1578017018,"km/h"]],"target":"v","phrase":"maximum safe speed (m/s)","assumptions":["R > 0","f > 0","e f < 1"],"name":"Maximum safe speed on a superelevated horizontal curve","equation":"v = sqrt(g R (e + f) / (1 - e f)) (point-mass equilibrium)"}
+```
+
+### In your browser
+
+Open [Transportation on ai999x.com](https://www.ai999x.com/models/transportation-ai999x/#try), choose a capability and press **Compute**: the model runs on your own device as WebAssembly; nothing is sent anywhere. Change any input (any unit of the right kind) and the answer, its explanation and the figures follow.
+
+In your own page: `transportation_ai999x.wasm` and the loader `ax-wasm.js` (https://www.ai999x.com/compute/rust/ax-wasm.js).
+
+### Python
+
+```bash
+pip install transportation-ai999x
+```
+
+## Worked examples in every form
+
+The same worked example from the command line, from Python and in the browser. Each command-line output is what the program printed.
+
+### Braking distance from speed and deceleration
+
+Distance and time for a vehicle to stop from speed v at a constant deceleration a (no reaction time).
+
+Command line:
+
+```console
+$ transportation solve transport_braking_distance "v=27.77777778 m/s" "a=3.4 m/s^2"
+d = 113.4713145 m
+t = 8.169934641 s
+  by: Braking distance from speed and deceleration  (d = v^2 / (2a), t = v / a)
+  v = 27.77777778 m/s
+  a = 3.4 m/s^2
+  assumes: v > 0; a > 0
+```
+
+Python:
+
+```python
+import transportation_ai999x as m
+
+a = m.solve("transport_braking_distance", v="27.77777778 m/s", a="3.4 m/s^2")
+print(a.values or (a.value, a.unit))
+```
+
+Browser: [open this capability on the model page](https://www.ai999x.com/models/transportation-ai999x/#cap-transport_braking_distance) and press **Compute in your browser**.
+
+_What this means:_ This calculation determines the distance a vehicle travels to stop completely from an initial speed of 27.7778 m/s under a constant deceleration of 3.4 m/s^2. The resulting braking distance is 113.471 m, and the time required to reach a full stop is 8.16993 s. These values assume no driver reaction time and level ground.
+
+### Distance to slow from one speed to another (friction and grade)
+
+Braking distance and time to slow from v1 to v2 with friction coefficient f on a grade G (deceleration g (f + G)).
+
+Command line:
+
+```console
+$ transportation solve transport_speed_reduction_distance "v1=25 m/s" "v2=11.11111111 m/s" "f=0.4 1" "G=0.03 1"
+d = 59.44849938 m
+t = 3.292532274 s
+  by: Distance to slow from one speed to another (friction and grade)  (d = (v1^2 - v2^2) / (2 g (f + G)))
+  v1 = 25 m/s
+  v2 = 11.11111111 m/s
+  f = 0.4
+  G = 0.03
+  assumes: v1 > v2 >= 0; f + G > 0
+```
+
+Python:
+
+```python
+import transportation_ai999x as m
+
+a = m.solve("transport_speed_reduction_distance", v1="25 m/s", v2="11.11111111 m/s", f="0.4 1", G="0.03 1")
+print(a.values or (a.value, a.unit))
+```
+
+Browser: [open this capability on the model page](https://www.ai999x.com/models/transportation-ai999x/#cap-transport_speed_reduction_distance) and press **Compute in your browser**.
+
+_What this means:_ This calculation determines the distance and time required for a vehicle to decelerate from an initial speed of 25 m/s to a final speed of 11.1111 m/s. The result assumes a constant deceleration governed by the friction coefficient 0.4 and the road grade 0.03. The computed stopping distance is 59.4485 m, which represents the length of road needed to reduce speed under these specific conditions, while the duration of this maneuver is 3.29253 s.
+
+### Impact speed with an obstacle after reaction and braking
+
+A driver at speed v sees an obstacle at distance D, reacts after t_r and brakes with friction f on grade G: the speed at the obstacle (0 if the vehicle stops in time) and the full stopping distance.
+
+Command line:
+
+```console
+$ transportation solve transport_impact_speed "v=25 m/s" "D=60 m" "t_r=1 s" "f=0.6 1"
+v_impact = 14.59383431 m/s
+v_impact_kmh = 52.53780353 km/h
+d_stop = 78.09208291 m
+  by: Impact speed with an obstacle after reaction and braking  (v_i = sqrt(v^2 - 2 g (f + G) (D - v t_r)) when the obstacle lies within the braking phase)
+  v = 25 m/s
+  D = 60 m
+  t_r = 1 s
+  f = 0.6
+  assumes: v > 0; D > 0; t_r >= 0; f + G > 0
+```
+
+Python:
+
+```python
+import transportation_ai999x as m
+
+a = m.solve("transport_impact_speed", v="25 m/s", D="60 m", t_r="1 s", f="0.6 1")
+print(a.values or (a.value, a.unit))
+```
+
+Browser: [open this capability on the model page](https://www.ai999x.com/models/transportation-ai999x/#cap-transport_impact_speed) and press **Compute in your browser**.
+
+_What this means:_ The impact speed is 14.5938 m/s (52.5378 km/h), with a total stopping distance of 78.0921 m.
+
+### Speed estimate from skid-mark length
+
+Initial speed of a vehicle that skidded to rest over a length d with friction coefficient f on a grade G.
+
+Command line:
+
+```console
+$ transportation solve transport_skid_speed "d=30 m" "f=0.6 1"
+v = 18.79255172 m/s
+v_kmh = 67.65318618 km/h
+  by: Speed estimate from skid-mark length  (v = sqrt(2 g (f + G) d))
+  d = 30 m
+  f = 0.6
+  assumes: d > 0; f > 0; f + G > 0
+```
+
+Python:
+
+```python
+import transportation_ai999x as m
+
+a = m.solve("transport_skid_speed", d="30 m", f="0.6 1")
+print(a.values or (a.value, a.unit))
+```
+
+Browser: [open this capability on the model page](https://www.ai999x.com/models/transportation-ai999x/#cap-transport_skid_speed) and press **Compute in your browser**.
+
+_What this means:_ The estimated initial speed is 18.7926 m/s which converts to 67.6532 km/h.
+
+## Documentation
+
+- **Rust user guide** — the command line, every capability with a command and what it printed: [PDF](https://huggingface.co/AI999X/transportation-ai999x/blob/main/docs/transportation_ai999x_rust_guide.pdf) · [Markdown](https://huggingface.co/AI999X/transportation-ai999x/blob/main/docs/transportation_ai999x_rust_guide.md)
+- **Python guide** — every capability with a Python example: [PDF](https://huggingface.co/AI999X/transportation-ai999x/blob/main/docs/transportation_ai999x_capabilities.pdf) · [Markdown](https://huggingface.co/AI999X/transportation-ai999x/blob/main/docs/transportation_ai999x_capabilities.md)
+- **Desktop app & command line** — downloads, install, ask and search, figures, offline use, checksums: https://www.ai999x.com/desktop-cli/
+- **Model page** — compute in your browser, every capability explained: https://www.ai999x.com/models/transportation-ai999x/
 
 ## Highlights
 
@@ -20,6 +319,7 @@ transportation-ai999x is an offline, deterministic Python solver that answers tr
 - **Zero wrong answers by design.** Seven explicit outcomes — SOLVED, NEEDS_INPUT, AMBIGUOUS, INVALID_INPUT, OUT_OF_SCOPE, UNRECOGNIZED_FORMAT, INTERNAL_ERROR — never a silent guess. Every one of its 536 documented answers is reproduced exactly on every tested platform.
 - **Plain-English questions and a guaranteed typed interface.** `ask()` reads documented question forms; `solve(capability_id, **inputs)` always solves a supported task with valid inputs.
 - **Explains itself.** Steps, formulas in LaTeX, units, assumptions and the model used, ready for notebooks, tutoring apps and homework checkers.
+- **Native and in the browser.** Every capability also computes natively in Rust: the desktop app and the `transportation` command line for Windows and Linux, and WebAssembly on the model page — no Python, no network.
 - **Small and portable.** Pure Python (sympy, mpmath); identical answers on Windows and Linux (Python 3.10, 3.11, 3.12, 3.13, 3.14).
 - **Coverage:** vehicle dynamics, braking and stopping distances, traffic flow, highway geometry, railway operations, route planning and transit capacity.
 
@@ -38,7 +338,7 @@ transportation-ai999x is an offline, deterministic Python solver that answers tr
 | Creator / engineer | Ibnul Jaif Farabi |
 | Organization | AI999X |
 
-## Quickstart
+## Python quick start
 
 ```bash
 pip install transportation-ai999x
@@ -61,7 +361,7 @@ transportation.ask("Who created you?").message
 # -> transportation-ai999x was created and engineered by Ibnul Jaif Farabi at AI999X.
 ```
 
-Command line: `transportation-ai999x "<question>"`, `transportation-ai999x --capabilities`. The outputs above were produced by running this exact code on transportation-ai999x 1.0.3.
+The Python package also installs a Python command, `transportation-ai999x "<question>"`; for the native program use `transportation` (above). The outputs above were produced by running this exact code on transportation-ai999x 1.0.3.
 
 ## Find the right capability, and draw it
 
@@ -83,7 +383,7 @@ transportation.search("Solve x^2 - 5x + 6 = 0", k=2)
 
 Capabilities are certified before they ship: each must reproduce hand-worked reference cases, reject a deliberately wrong variant (a control), and leave every benchmark answer unchanged.
 
-## Worked examples
+## Python worked examples, with their steps
 
 Each question was put to `transportation-ai999x`; the answer is the one it returned, with the steps it took.
 
