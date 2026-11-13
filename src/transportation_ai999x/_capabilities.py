@@ -15,7 +15,7 @@ def _bind(product) -> None:
     _P = product
 
 
-CapabilityId = Literal["transport_acceleration_distance", "transport_acceleration_under_power", "transport_all_or_nothing_assignment", "transport_bottleneck_queue", "transport_braking_distance", "transport_braking_weight_transfer", "transport_braking_with_air_resistance", "transport_clothoid_coordinates", "transport_coast_down", "transport_crest_curve_length", "transport_crest_curve_sight_distance", "transport_curve_safe_speed", "transport_erlang_b_blocking", "transport_fastest_route", "transport_fifo_queue_simulation", "transport_furness_balancing", "transport_gap_acceptance_capacity", "transport_gravity_model", "transport_greenberg_capacity", "transport_greenberg_fit", "transport_greenshields_capacity", "transport_greenshields_fit", "transport_greenshields_shockwave", "transport_greenshields_speed_at_flow", "transport_headway_probability", "transport_horizontal_sight_offset", "transport_impact_speed", "transport_interval_queue", "transport_lateral_load_transfer", "transport_logit_elasticities", "transport_logit_from_attributes", "transport_logit_mode_shares", "transport_logsum_user_benefit", "transport_md1_queue", "transport_minimum_curve_radius", "transport_mm1_queue", "transport_mmc_queue", "transport_nested_logit", "transport_overtaking_manoeuvre", "transport_passing_sight_distance", "transport_poisson_arrivals", "transport_quarter_car_frequencies", "transport_quarter_car_transmissibility", "transport_rail_station_headway", "transport_rollover_threshold", "transport_safe_following_gap", "transport_sag_curve_headlight", "transport_shockwave_speed", "transport_side_friction_demand", "transport_sight_distance_from_offset", "transport_signal_green_splits", "transport_signal_queue_shockwave", "transport_signal_queue_uniform_delay", "transport_simplified_curve_formula", "transport_skid_speed", "transport_speed_reduction_distance", "transport_spot_speed_percentiles", "transport_steady_state_cornering", "transport_steer_angle_for_radius", "transport_stopping_sight_distance", "transport_superelevation_required", "transport_time_and_space_mean_speed", "transport_top_speed", "transport_traction_limited_acceleration", "transport_train_acceleration", "transport_train_braking_distance", "transport_train_running_time", "transport_travel_time_reliability", "transport_travel_time_skim", "transport_trip_generation_regression", "transport_understeer_gradient", "transport_underwood_capacity", "transport_underwood_fit", "transport_vehicle_resistance", "transport_webster_optimum_cycle", "transport_yaw_natural_frequency", "transport_yellow_change_interval"]
+CapabilityId = Literal["transport_acceleration_distance", "transport_acceleration_under_power", "transport_all_or_nothing_assignment", "transport_bottleneck_queue", "transport_braking_distance", "transport_braking_weight_transfer", "transport_braking_with_air_resistance", "transport_clothoid_coordinates", "transport_coast_down", "transport_crest_curve_length", "transport_crest_curve_sight_distance", "transport_curve_safe_speed", "transport_design_hourly_volume", "transport_equivalent_single_axle_loads", "transport_erlang_b_blocking", "transport_fastest_route", "transport_fifo_queue_simulation", "transport_freeway_level_of_service", "transport_furness_balancing", "transport_gap_acceptance_capacity", "transport_gravity_model", "transport_greenberg_capacity", "transport_greenberg_fit", "transport_greenshields_capacity", "transport_greenshields_fit", "transport_greenshields_shockwave", "transport_greenshields_speed_at_flow", "transport_headway_probability", "transport_horizontal_sight_offset", "transport_impact_speed", "transport_interval_queue", "transport_lateral_load_transfer", "transport_logit_elasticities", "transport_logit_from_attributes", "transport_logit_mode_shares", "transport_logsum_user_benefit", "transport_md1_queue", "transport_minimum_curve_radius", "transport_mm1_queue", "transport_mmc_queue", "transport_nested_logit", "transport_overtaking_manoeuvre", "transport_passing_sight_distance", "transport_peak_hour_factor", "transport_poisson_arrivals", "transport_quarter_car_frequencies", "transport_quarter_car_transmissibility", "transport_rail_station_headway", "transport_rollover_threshold", "transport_safe_following_gap", "transport_sag_curve_headlight", "transport_shockwave_speed", "transport_side_friction_demand", "transport_sight_distance_from_offset", "transport_signal_green_splits", "transport_signal_queue_shockwave", "transport_signal_queue_uniform_delay", "transport_simplified_curve_formula", "transport_skid_speed", "transport_speed_reduction_distance", "transport_spot_speed_percentiles", "transport_steady_state_cornering", "transport_steer_angle_for_radius", "transport_stopping_sight_distance", "transport_superelevation_required", "transport_time_and_space_mean_speed", "transport_top_speed", "transport_traction_limited_acceleration", "transport_train_acceleration", "transport_train_braking_distance", "transport_train_running_time", "transport_travel_time_reliability", "transport_travel_time_skim", "transport_trip_generation_regression", "transport_understeer_gradient", "transport_underwood_capacity", "transport_underwood_fit", "transport_vehicle_resistance", "transport_webster_optimum_cycle", "transport_yaw_natural_frequency", "transport_yellow_change_interval"]
 
 
 def solve(find: CapabilityId | str, given: dict | None = None, conditions=(), *, target: str | None = None, **inputs):
@@ -213,6 +213,36 @@ def transport_curve_safe_speed(R=None, e=None, f=None):
     given = {k: v for k, v in dict(R=R, e=e, f=f).items() if v is not None}
     return _P.solve("transport_curve_safe_speed", **given)
 
+def transport_design_hourly_volume(AADT=None, K=None, D=None):
+    """Design hourly volume from AADT, K and D factors. The design hourly volume DHV = K AADT (both directions) and the directional design hourly volume DDHV = D K AADT from the annual average daily traffic, the design-hour factor K and the directional factor D.
+    Formula: DHV = K \\cdot AADT,\\quad DDHV = D \\cdot K \\cdot AADT
+    Inputs:
+        AADT: annual average daily traffic (veh/day)
+        K: design-hour factor K (share of the AADT in the design hour)
+        D: directional factor D (share of the peak direction)
+    Outputs: DHV (design hourly volume, both directions (veh/h)), DDHV (directional design hourly volume (veh/h))
+    See also: help("transport_design_hourly_volume")
+    """
+    given = {k: v for k, v in dict(AADT=AADT, K=K, D=D).items() if v is not None}
+    return _P.solve("transport_design_hourly_volume", **given)
+
+def transport_equivalent_single_axle_loads(loads=None, counts=None, Y=None, P_s=None, n=None, g=None, f_d=None):
+    """Equivalent single-axle loads by the fourth-power law. Load equivalency factors (P/P_s)^n of single axles (generalized fourth-power law, standard axle 80 kN, n = 4 unless stated), the daily ESALs sum(count_i LEF_i), the growth factor ((1 + g)^Y - 1)/g (Y when g = 0) and the design-period ESALs = daily ESALs x 365 x growth factor x design-lane factor.
+    Formula: ESAL = 365\\,f_d\\,\\frac{(1+g)^Y - 1}{g}\\sum_i N_i\\left(\\frac{P_i}{P_s}\\right)^{4}
+    Inputs:
+        loads: single-axle loads in kN
+        counts: daily number of axles at each load
+        Y: design period in years (whole number)
+        P_s: standard axle load (default 80 kN) (optional)
+        n: load-equivalency exponent (default 4) (optional)
+        g: annual traffic growth rate (default 0) (optional)
+        f_d: design-lane factor: directional times lane distribution (default 1) (optional)
+    Outputs: LEF (load equivalency factor of each axle load), ESAL_day (ESALs per day), GF (growth factor (equivalent years)), ESAL (design-period ESALs)
+    See also: help("transport_equivalent_single_axle_loads")
+    """
+    given = {k: v for k, v in dict(loads=loads, counts=counts, Y=Y, P_s=P_s, n=n, g=g, f_d=f_d).items() if v is not None}
+    return _P.solve("transport_equivalent_single_axle_loads", **given)
+
 def transport_erlang_b_blocking(lam=None, mu=None, c=None):
     """Blocking probability with no waiting room (Erlang B), e.g. parking spaces. Arrivals at lam (veh/h) to c spaces or servers held for a mean time 1/mu with no waiting room (a car park, loading bays, taxi ranks): the probability an arrival is turned away (Erlang B), the mean number of occupied spaces and the vehicles lost per hour. Rates in veh/h.
     Formula: B(c, a) = \\frac{a^c/c!}{\\sum_{k=0}^{c} a^k/k!}
@@ -253,6 +283,23 @@ def transport_fifo_queue_simulation(arrivals=None, service=None, c=None):
     """
     given = {k: v for k, v in dict(arrivals=arrivals, service=service, c=c).items() if v is not None}
     return _P.solve("transport_fifo_queue_simulation", **given)
+
+def transport_freeway_level_of_service(V=None, PHF=None, N=None, P_T=None, E_T=None, S=None, f_p=None):
+    """Freeway level of service from density (basic segment). The peak 15-minute passenger-car flow rate per lane v_p = V / (PHF N f_HV f_p) with f_HV = 1/(1 + P_T (E_T - 1)), the density D = v_p / S at the mean passenger-car speed S, and the level of service of a basic freeway segment from the density (A <= 11, B <= 18, C <= 26, D <= 35, E <= 45 pc/mi/ln, F above).
+    Formula: v_p = \\frac{V}{PHF\\,N\\,f_{HV}\\,f_p},\\quad f_{HV} = \\frac{1}{1 + P_T(E_T - 1)},\\quad D = \\frac{v_p}{S}
+    Inputs:
+        V: hourly volume, one direction (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')
+        PHF: peak-hour factor
+        N: number of lanes in one direction
+        P_T: share of heavy vehicles
+        E_T: passenger-car equivalent of a heavy vehicle
+        S: mean passenger-car speed
+        f_p: driver-population factor (default 1) (optional)
+    Outputs: f_HV (heavy-vehicle adjustment factor), v_p (peak 15-minute passenger-car flow rate per lane (pc/h/ln)), D (density (pc/km/ln)), D_mi (density (pc/mi/ln)), LOS (level of service (A to F))
+    See also: help("transport_freeway_level_of_service")
+    """
+    given = {k: v for k, v in dict(V=V, PHF=PHF, N=N, P_T=P_T, E_T=E_T, S=S, f_p=f_p).items() if v is not None}
+    return _P.solve("transport_freeway_level_of_service", **given)
 
 def transport_furness_balancing(base=None, O=None, D=None):
     """Growth-factor (Furness) balancing of a trip matrix. Scales a base-year trip matrix to future row totals (productions) and column totals (attractions) by the Furness (biproportional) method, iterated until every total matches to 1e-13.
@@ -578,6 +625,17 @@ def transport_passing_sight_distance(v=None, m_diff=None, a=None, t1=None, t2=No
     """
     given = {k: v for k, v in dict(v=v, m_diff=m_diff, a=a, t1=t1, t2=t2, d3=d3).items() if v is not None}
     return _P.solve("transport_passing_sight_distance", **given)
+
+def transport_peak_hour_factor(counts=None):
+    """Peak-hour factor from 15-minute counts. The peak-hour volume (the largest sum of four consecutive 15-minute counts, the earliest if two are equal), the largest 15-minute count within that hour, the peak 15-minute flow rate (4 times it) and the peak-hour factor PHF = V / (4 V15).
+    Formula: PHF = \\frac{V}{4\\,V_{15}}
+    Inputs:
+        counts: consecutive 15-minute vehicle counts (vehicles per 15 min), at least four
+    Outputs: V (peak-hour volume (veh/h)), V15 (largest 15-minute count in the peak hour (veh)), v15 (peak 15-minute flow rate (veh/h)), PHF (peak-hour factor), start (first 15-minute interval of the peak hour (1 = the first count))
+    See also: help("transport_peak_hour_factor")
+    """
+    given = {k: v for k, v in dict(counts=counts).items() if v is not None}
+    return _P.solve("transport_peak_hour_factor", **given)
 
 def transport_poisson_arrivals(q=None, t=None, n=None):
     """Probability of n vehicle arrivals in an interval (Poisson). Probability that exactly n, at most n and at least n vehicles arrive in an interval t when arrivals are random (Poisson) at the flow q.
@@ -1112,4 +1170,4 @@ def transport_yellow_change_interval(v=None, t_r=None, a=None, G=None):
     return _P.solve("transport_yellow_change_interval", **given)
 
 
-__all__ = ["CapabilityId", "solve", "help", "transport_acceleration_distance", "transport_acceleration_under_power", "transport_all_or_nothing_assignment", "transport_bottleneck_queue", "transport_braking_distance", "transport_braking_weight_transfer", "transport_braking_with_air_resistance", "transport_clothoid_coordinates", "transport_coast_down", "transport_crest_curve_length", "transport_crest_curve_sight_distance", "transport_curve_safe_speed", "transport_erlang_b_blocking", "transport_fastest_route", "transport_fifo_queue_simulation", "transport_furness_balancing", "transport_gap_acceptance_capacity", "transport_gravity_model", "transport_greenberg_capacity", "transport_greenberg_fit", "transport_greenshields_capacity", "transport_greenshields_fit", "transport_greenshields_shockwave", "transport_greenshields_speed_at_flow", "transport_headway_probability", "transport_horizontal_sight_offset", "transport_impact_speed", "transport_interval_queue", "transport_lateral_load_transfer", "transport_logit_elasticities", "transport_logit_from_attributes", "transport_logit_mode_shares", "transport_logsum_user_benefit", "transport_md1_queue", "transport_minimum_curve_radius", "transport_mm1_queue", "transport_mmc_queue", "transport_nested_logit", "transport_overtaking_manoeuvre", "transport_passing_sight_distance", "transport_poisson_arrivals", "transport_quarter_car_frequencies", "transport_quarter_car_transmissibility", "transport_rail_station_headway", "transport_rollover_threshold", "transport_safe_following_gap", "transport_sag_curve_headlight", "transport_shockwave_speed", "transport_side_friction_demand", "transport_sight_distance_from_offset", "transport_signal_green_splits", "transport_signal_queue_shockwave", "transport_signal_queue_uniform_delay", "transport_simplified_curve_formula", "transport_skid_speed", "transport_speed_reduction_distance", "transport_spot_speed_percentiles", "transport_steady_state_cornering", "transport_steer_angle_for_radius", "transport_stopping_sight_distance", "transport_superelevation_required", "transport_time_and_space_mean_speed", "transport_top_speed", "transport_traction_limited_acceleration", "transport_train_acceleration", "transport_train_braking_distance", "transport_train_running_time", "transport_travel_time_reliability", "transport_travel_time_skim", "transport_trip_generation_regression", "transport_understeer_gradient", "transport_underwood_capacity", "transport_underwood_fit", "transport_vehicle_resistance", "transport_webster_optimum_cycle", "transport_yaw_natural_frequency", "transport_yellow_change_interval"]
+__all__ = ["CapabilityId", "solve", "help", "transport_acceleration_distance", "transport_acceleration_under_power", "transport_all_or_nothing_assignment", "transport_bottleneck_queue", "transport_braking_distance", "transport_braking_weight_transfer", "transport_braking_with_air_resistance", "transport_clothoid_coordinates", "transport_coast_down", "transport_crest_curve_length", "transport_crest_curve_sight_distance", "transport_curve_safe_speed", "transport_design_hourly_volume", "transport_equivalent_single_axle_loads", "transport_erlang_b_blocking", "transport_fastest_route", "transport_fifo_queue_simulation", "transport_freeway_level_of_service", "transport_furness_balancing", "transport_gap_acceptance_capacity", "transport_gravity_model", "transport_greenberg_capacity", "transport_greenberg_fit", "transport_greenshields_capacity", "transport_greenshields_fit", "transport_greenshields_shockwave", "transport_greenshields_speed_at_flow", "transport_headway_probability", "transport_horizontal_sight_offset", "transport_impact_speed", "transport_interval_queue", "transport_lateral_load_transfer", "transport_logit_elasticities", "transport_logit_from_attributes", "transport_logit_mode_shares", "transport_logsum_user_benefit", "transport_md1_queue", "transport_minimum_curve_radius", "transport_mm1_queue", "transport_mmc_queue", "transport_nested_logit", "transport_overtaking_manoeuvre", "transport_passing_sight_distance", "transport_peak_hour_factor", "transport_poisson_arrivals", "transport_quarter_car_frequencies", "transport_quarter_car_transmissibility", "transport_rail_station_headway", "transport_rollover_threshold", "transport_safe_following_gap", "transport_sag_curve_headlight", "transport_shockwave_speed", "transport_side_friction_demand", "transport_sight_distance_from_offset", "transport_signal_green_splits", "transport_signal_queue_shockwave", "transport_signal_queue_uniform_delay", "transport_simplified_curve_formula", "transport_skid_speed", "transport_speed_reduction_distance", "transport_spot_speed_percentiles", "transport_steady_state_cornering", "transport_steer_angle_for_radius", "transport_stopping_sight_distance", "transport_superelevation_required", "transport_time_and_space_mean_speed", "transport_top_speed", "transport_traction_limited_acceleration", "transport_train_acceleration", "transport_train_braking_distance", "transport_train_running_time", "transport_travel_time_reliability", "transport_travel_time_skim", "transport_trip_generation_regression", "transport_understeer_gradient", "transport_underwood_capacity", "transport_underwood_fit", "transport_vehicle_resistance", "transport_webster_optimum_cycle", "transport_yaw_natural_frequency", "transport_yellow_change_interval"]

@@ -76,9 +76,13 @@
   "transport_vehicle_resistance",
   "transport_top_speed",
   "transport_passing_sight_distance",
-  "transport_travel_time_reliability"
+  "transport_travel_time_reliability",
+  "transport_peak_hour_factor",
+  "transport_design_hourly_volume",
+  "transport_equivalent_single_axle_loads",
+  "transport_freeway_level_of_service"
  ],
- "generated": "2026-10-24",
+ "generated": "2026-11-13",
  "tool": "tools/certify_procedures.py",
  "report": "release/procedure_certification.json",
  "weak_references": {

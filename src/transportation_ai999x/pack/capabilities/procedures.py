@@ -4525,3 +4525,277 @@ proc("transport_travel_time_reliability", "Travel-time reliability indices (buff
      conditions=["at least five positive travel times", "T95 by linear interpolation (type 7)"], invalid=[{"times": [22, 25, -24, 30, 27], "t_free": 18}],
      method="BI = (T95 - mean)/mean; PTI = T95/T_free; TTI = mean/T_free",
      latex=r"BI = \frac{T_{95} - \bar T}{\bar T},\quad PTI = \frac{T_{95}}{T_{free}},\quad TTI = \frac{\bar T}{T_{free}}")
+
+
+# =============================================================================================== core curriculum gaps
+# (2026-11-12) peak-hour factor, design hourly volume, equivalent single-axle loads (fourth-power law) and the level of
+# service of a basic freeway segment from density. Example outputs below were worked by hand (exact decimals).
+_UNITS["daily_volume"] = {"": 1, "veh/day": 1, "veh/d": 1, "vpd": 1, "/day": 1, "1/day": 1, "per day": 1}
+_UNITS["years"] = {"": 1, "years": 1, "year": 1, "yr": 1, "yrs": 1, "y": 1}
+
+EXAMPLE_OUTPUTS.update({
+    "transport_peak_hour_factor": [{"V": 2060.0, "V15": 610.0, "v15": 2440.0, "PHF": 0.844262295082, "start": 1},
+                                   {"V": 1800.0, "V15": 510.0, "v15": 2040.0, "PHF": 0.882352941176, "start": 3}],
+    "transport_design_hourly_volume": [{"DHV": 4000.0, "DDHV": 2400.0}, {"DHV": 3000.0, "DDHV": 1650.0}],
+    "transport_equivalent_single_axle_loads": [
+        {"LEF": [1.0, 2.44140625, 5.0625], "ESAL_day": 1494.53125, "GF": 20.0, "ESAL": 10910078.125},
+        {"LEF": [0.31640625, 1.601806640625], "ESAL_day": 796.9482421875, "GF": 12.5778925355, "ESAL": 1646430.39518}],
+    "transport_freeway_level_of_service": [
+        {"f_HV": 0.909090909091, "v_p": 1594.20289855, "D": 15.9420289855, "D_mi": 25.6562086957, "LOS": "C"},
+        {"f_HV": 0.93023255814, "v_p": 1517.64705882, "D": 16.862745098, "D_mi": 27.1379576471, "LOS": "D"}],
+})
+
+
+# --- peak-hour factor -------------------------------------------------------------------------------------------------
+def peak_hour_factor(counts):
+    _need(isinstance(counts, (list, tuple)) and 4 <= len(counts) <= 96,
+          "give between 4 and 96 consecutive 15-minute counts")
+    c = []
+    for x in counts:
+        _need(isinstance(x, (int, float)) and not isinstance(x, bool) and math.isfinite(x) and x >= 0,
+              "every 15-minute count must be zero or positive")
+        c.append(float(x))
+    best = -1.0
+    start = 0
+    for i in range(len(c) - 3):
+        s = c[i] + c[i + 1] + c[i + 2] + c[i + 3]
+        if s > best:
+            best = s
+            start = i
+    _need(best > 0, "the peak hour carries no vehicles")
+    peak = max(c[start], c[start + 1], c[start + 2], c[start + 3])
+    return {"V": _r(best), "V15": _r(peak), "v15": _r(4 * peak), "PHF": _r(best / (4 * peak)), "start": start + 1}
+
+
+def _ref_peak_hour_factor(counts):
+    # rolling hourly volumes by a NumPy convolution with a window of four intervals; the first largest hour (argmax)
+    import numpy as np
+    c = np.asarray(counts, float)
+    sums = np.convolve(c, np.ones(4), mode="valid")
+    i = int(np.argmax(sums))
+    pk = float(c[i:i + 4].max())
+    V = float(sums[i])
+    return {"V": V, "V15": pk, "v15": 4 * pk, "PHF": V / (4 * pk), "start": i + 1}
+
+
+proc("transport_peak_hour_factor", "Peak-hour factor from 15-minute counts", "traffic characteristics",
+     "The peak-hour volume (the largest sum of four consecutive 15-minute counts, the earliest if two are equal), the "
+     "largest 15-minute count within that hour, the peak 15-minute flow rate (4 times it) and the peak-hour factor "
+     "PHF = V / (4 V15).",
+     [_VEC("counts", "consecutive 15-minute vehicle counts (vehicles per 15 min), at least four", ("counts", "fifteen minute counts"),
+           min_length=4)],
+     [_o("V", "traffic_flow", "peak-hour volume (veh/h)"), _o("V15", "number", "largest 15-minute count in the peak hour (veh)"),
+      _o("v15", "traffic_flow", "peak 15-minute flow rate (veh/h)"), _o("PHF", "number", "peak-hour factor"),
+      _o("start", "number", "first 15-minute interval of the peak hour (1 = the first count)")],
+     peak_hour_factor, _ref_peak_hour_factor,
+     _guard(lambda counts: (lambda o: dict(o, PHF=_r(o["v15"] / o["V"])))(peak_hour_factor(counts))),
+     lambda rng: (lambda base: {"counts": [rng.randint(int(0.6 * base), int(1.4 * base)) for _ in range(rng.randint(4, 12))]})(
+         rng.randint(80, 900)),
+     [{"counts": [450, 520, 610, 480]}, {"counts": [300, 350, 420, 510, 480, 390]}],
+     ["peak hour factor", "peak-hour factor"],
+     conditions=["at least four consecutive 15-minute counts, none negative", "the peak hour carries vehicles",
+                 "the earliest hour is taken when two hours carry the same volume"],
+     invalid=[{"counts": [450, -520, 610, 480]}],
+     method="V = max over i of (c_i + c_i+1 + c_i+2 + c_i+3); PHF = V / (4 V15), V15 the largest count in that hour",
+     latex=r"PHF = \frac{V}{4\,V_{15}}")
+
+
+# --- design hourly volume ---------------------------------------------------------------------------------------------
+def design_hourly_volume(AADT, K, D):
+    _pos(AADT=AADT, K=K, D=D)
+    _need(K <= 0.3, "the K factor (share of the AADT in the design hour) must lie in (0, 0.3]")
+    _need(0.5 <= D <= 1, "the directional factor (share of the peak direction) must lie between 0.5 and 1")
+    dhv = K * AADT
+    return {"DHV": _r(dhv), "DDHV": _r(D * dhv)}
+
+
+def _ref_design_hourly_volume(AADT, K, D):
+    # exact rational arithmetic (sympy) from the inputs as written (a definition: a restated reference)
+    import sympy as sp
+    a, k, d = sp.Rational(repr(AADT)), sp.Rational(repr(K)), sp.Rational(repr(D))
+    return {"DHV": float(k * a), "DDHV": float(d * k * a)}
+
+
+proc("transport_design_hourly_volume", "Design hourly volume from AADT, K and D factors", "traffic characteristics",
+     "The design hourly volume DHV = K AADT (both directions) and the directional design hourly volume DDHV = D K AADT "
+     "from the annual average daily traffic, the design-hour factor K and the directional factor D.",
+     [_in("AADT", "number", "daily_volume", "annual average daily traffic (veh/day)", ("AADT", "annual average daily traffic"),
+          "veh/day"),
+      _in("K", "number", "fraction", "design-hour factor K (share of the AADT in the design hour)", ("K", "K factor"), "%"),
+      _in("D", "number", "fraction", "directional factor D (share of the peak direction)", ("D", "directional factor"), "%")],
+     [_o("DHV", "traffic_flow", "design hourly volume, both directions (veh/h)"),
+      _o("DDHV", "traffic_flow", "directional design hourly volume (veh/h)")],
+     design_hourly_volume, _ref_design_hourly_volume,
+     _guard(lambda AADT, K, D: {"DHV": _r(AADT / 24), "DDHV": _r(D * AADT / 24)}),
+     lambda rng: {"AADT": float(rng.randint(2000, 150000)), "K": round(rng.uniform(0.08, 0.15), 3), "D": round(rng.uniform(0.5, 0.7), 3)},
+     [{"AADT": 40000, "K": 10, "D": 60}, {"AADT": 25000, "K": 12, "D": 55}],
+     ["design hourly volume", "directional design hourly volume"],
+     conditions=["AADT > 0", "0 < K <= 0.3", "0.5 <= D <= 1"], invalid=[{"AADT": 40000, "K": 10, "D": 40}],
+     method="DHV = K AADT; DDHV = D K AADT", latex=r"DHV = K \cdot AADT,\quad DDHV = D \cdot K \cdot AADT")
+
+
+# --- equivalent single-axle loads (fourth-power law) ------------------------------------------------------------------
+def esal(loads, counts, Y, P_s=80000.0, n=4.0, g=0.0, f_d=1.0):
+    L = _vec("axle loads", loads, positive=True)
+    C = _vec("daily counts", counts, nonneg=True)
+    _need(len(L) == len(C), "give one daily count for each axle load")
+    _finite(Y=Y)
+    _need(1 <= Y <= 50 and Y == math.floor(Y), "the design period must be a whole number of years from 1 to 50")
+    _pos(P_s=P_s, n=n, f_d=f_d)
+    _finite(g=g)
+    _need(2 <= n <= 6, "the load-equivalency exponent must lie between 2 and 6")
+    _need(0 <= g <= 0.2, "the annual growth rate must lie between 0 and 20%")
+    _need(f_d <= 1, "the design-lane factor must lie in (0, 1]")
+    ps = P_s / 1000.0
+    lef = []
+    day = 0.0
+    for i in range(len(L)):
+        e = (L[i] / ps) ** n
+        lef.append(e)
+        day += C[i] * e
+    _need(day > 0, "the traffic carries no axle loads")
+    if g == 0:
+        gf = float(Y)
+    else:
+        gf = math.expm1(Y * math.log1p(g)) / g
+    return {"LEF": _r(lef), "ESAL_day": _r(day), "GF": _r(gf), "ESAL": _r(day * 365 * gf * f_d)}
+
+
+def _ref_esal(loads, counts, Y, P_s=80000.0, n=4.0, g=0.0, f_d=1.0):
+    # factors as a NumPy power of the load ratios, daily ESALs as a dot product, and the design-period total as the
+    # sum of each year's traffic grown year by year (no closed-form growth factor)
+    import numpy as np
+    lef = np.power(np.asarray(loads, float) / (P_s / 1000.0), n)
+    day = float(np.dot(np.asarray(counts, float), lef))
+    years = np.power(1.0 + g, np.arange(int(round(Y)), dtype=float))
+    gf = float(np.sum(years))
+    return {"LEF": [float(x) for x in lef], "ESAL_day": day, "GF": gf, "ESAL": float(np.sum(day * 365.0 * f_d * years))}
+
+
+def _wrong_esal(loads, counts, Y, P_s=80000.0, n=4.0, g=0.0, f_d=1.0):
+    # the load ratio taken linearly (the fourth power forgotten)
+    o = esal(loads, counts, Y, P_s, n, g, f_d)
+    lef = [x / (P_s / 1000.0) for x in loads]
+    day = sum(c * e for c, e in zip(counts, lef))
+    return dict(o, LEF=_r(lef), ESAL_day=_r(day), ESAL=_r(day * 365 * o["GF"] * f_d))
+
+
+def _rand_esal(rng):
+    k = rng.randint(2, 6)
+    x = {"loads": [round(rng.uniform(20, 180), 1) for _ in range(k)], "counts": [rng.randint(1, 2000) for _ in range(k)],
+         "Y": float(rng.randint(5, 30))}
+    if rng.random() < 0.6:
+        x["g"] = round(rng.uniform(0.01, 0.07), 4)
+    if rng.random() < 0.3:
+        x["P_s"] = rng.choice([80000.0, 82000.0])
+    if rng.random() < 0.3:
+        x["n"] = round(rng.uniform(3.8, 4.5), 2)
+    if rng.random() < 0.5:
+        x["f_d"] = round(rng.uniform(0.3, 1.0), 2)
+    return x
+
+
+proc("transport_equivalent_single_axle_loads", "Equivalent single-axle loads by the fourth-power law", "pavement design",
+     "Load equivalency factors (P/P_s)^n of single axles (generalized fourth-power law, standard axle 80 kN, n = 4 "
+     "unless stated), the daily ESALs sum(count_i LEF_i), the growth factor ((1 + g)^Y - 1)/g (Y when g = 0) and the "
+     "design-period ESALs = daily ESALs x 365 x growth factor x design-lane factor.",
+     [_VEC("loads", "single-axle loads in kN", ("axle loads", "loads")),
+      _VEC("counts", "daily number of axles at each load", ("daily counts", "counts")),
+      _in("Y", "number", "years", "design period in years (whole number)", ("design period", "years"), "years"),
+      _F("P_s", "standard axle load (default 80 kN)", ("standard axle load", "standard axle"), show="kN", required=False),
+      _N("n", "load-equivalency exponent (default 4)", ("exponent",), required=False),
+      _in("g", "number", "fraction", "annual traffic growth rate (default 0)", ("growth rate", "growth"), "%", required=False),
+      _in("f_d", "number", "fraction", "design-lane factor: directional times lane distribution (default 1)",
+          ("design lane factor", "lane factor"), "", required=False)],
+     [_o("LEF", "number", "load equivalency factor of each axle load"), _o("ESAL_day", "number", "ESALs per day"),
+      _o("GF", "number", "growth factor (equivalent years)"), _o("ESAL", "number", "design-period ESALs")],
+     esal, _ref_esal, _guard(_wrong_esal), _rand_esal,
+     [{"loads": [80, 100, 120], "counts": [500, 200, 100], "Y": 20},
+      {"loads": [60, 90], "counts": [1000, 300], "Y": 10, "g": 5, "f_d": 0.45}],
+     ["equivalent single axle loads", "equivalent single-axle loads", "esal", "esals", "fourth power law"],
+     conditions=["axle loads > 0, counts >= 0, one count per load", "Y a whole number of years, 1 to 50", "2 <= n <= 6",
+                 "0 <= g <= 0.2", "0 < f_d <= 1", "single axles only (tandem and tridem groups need their own standard loads)"],
+     invalid=[{"loads": [80, 100], "counts": [500, 200], "Y": 20, "g": 50}],
+     primary="ESAL",
+     method="LEF_i = (P_i/P_s)^n; ESAL_day = sum count_i LEF_i; GF = ((1+g)^Y - 1)/g; ESAL = ESAL_day x 365 x GF x f_d",
+     latex=r"ESAL = 365\,f_d\,\frac{(1+g)^Y - 1}{g}\sum_i N_i\left(\frac{P_i}{P_s}\right)^{4}")
+
+
+# --- basic freeway segment: density and level of service --------------------------------------------------------------
+_LOS_NAMES = ["A", "B", "C", "D", "E"]
+_LOS_LIMITS_MI = [11.0, 18.0, 26.0, 35.0, 45.0]      # pc/mi/ln, upper limit of each level (basic freeway segment)
+
+
+def freeway_los(V, PHF, N, P_T, E_T, S, f_p=1.0):
+    _pos(V=V, PHF=PHF, E_T=E_T, S=S, f_p=f_p)
+    _finite(P_T=P_T)
+    _need(isinstance(N, int) and not isinstance(N, bool) and 1 <= N <= 8,
+          "the number of lanes in one direction must be a whole number from 1 to 8")
+    _need(0.25 <= PHF <= 1, "the peak-hour factor must lie between 0.25 and 1")
+    _need(0 <= P_T < 1, "the heavy-vehicle share must lie in [0, 1)")
+    _need(1 <= E_T <= 8, "the passenger-car equivalent of a heavy vehicle must lie between 1 and 8")
+    _need(0.7 <= f_p <= 1, "the driver-population factor must lie between 0.7 and 1")
+    _need(30 / 3.6 <= S <= 140 / 3.6, "the mean passenger-car speed must lie between 30 and 140 km/h")
+    f_hv = 1 / (1 + P_T * (E_T - 1))
+    vp = V * 3600 / (PHF * N * f_hv * f_p)
+    d_km = vp / (S * 3.6)
+    d_mi = d_km * 1.609344
+    los = "F"
+    for i in range(5):
+        if d_mi <= _LOS_LIMITS_MI[i]:
+            los = _LOS_NAMES[i]
+            break
+    return {"f_HV": _r(f_hv), "v_p": _r(vp), "D": _r(d_km), "D_mi": _r(d_mi), "LOS": los}
+
+
+def _ref_freeway_los(V, PHF, N, P_T, E_T, S, f_p=1.0):
+    # passenger-car equivalents counted vehicle class by vehicle class (cars + E_T x heavy vehicles), density in pc per
+    # metre from the flow in pc/s and the speed in m/s, and the level looked up by bisection on the limits
+    import bisect as _bs
+    hourly = V * 3600 / PHF
+    pce = hourly * (1 - P_T) + hourly * P_T * E_T
+    vp = pce / (N * f_p)
+    k = (vp / 3600) / S
+    d_mi = k * 1609.344
+    return {"f_HV": hourly / pce, "v_p": vp, "D": k * 1000, "D_mi": d_mi,
+            "LOS": "ABCDEF"[_bs.bisect_left([11.0, 18.0, 26.0, 35.0, 45.0], d_mi)]}
+
+
+def _rand_freeway_los(rng):
+    x = {"V": rng.uniform(500, 9000) / 3600, "PHF": round(rng.uniform(0.8, 0.98), 2), "N": rng.randint(2, 5),
+         "P_T": round(rng.uniform(0.0, 0.25), 3), "E_T": round(rng.uniform(1.5, 4.5), 1), "S": rng.uniform(60, 120) / 3.6}
+    if rng.random() < 0.3:
+        x["f_p"] = round(rng.uniform(0.85, 1.0), 2)
+    return x
+
+
+proc("transport_freeway_level_of_service", "Freeway level of service from density (basic segment)",
+     "capacity and level of service",
+     "The peak 15-minute passenger-car flow rate per lane v_p = V / (PHF N f_HV f_p) with f_HV = 1/(1 + P_T (E_T - 1)), "
+     "the density D = v_p / S at the mean passenger-car speed S, and the level of service of a basic freeway segment "
+     "from the density (A <= 11, B <= 18, C <= 26, D <= 35, E <= 45 pc/mi/ln, F above).",
+     [_Q("V", "hourly volume, one direction", ("volume", "hourly volume")),
+      _N("PHF", "peak-hour factor", ("PHF", "peak hour factor")),
+      _in("N", "number", "number", "number of lanes in one direction", ("lanes", "number of lanes"), "", typ="integer"),
+      _in("P_T", "number", "fraction", "share of heavy vehicles", ("heavy vehicles", "trucks"), "%"),
+      _N("E_T", "passenger-car equivalent of a heavy vehicle", ("E_T", "passenger car equivalent")),
+      _V("S", "mean passenger-car speed", ("speed", "mean speed")),
+      _N("f_p", "driver-population factor (default 1)", ("driver population factor",), required=False)],
+     [_o("f_HV", "number", "heavy-vehicle adjustment factor"),
+      _o("v_p", "traffic_flow", "peak 15-minute passenger-car flow rate per lane (pc/h/ln)"),
+      _o("D", "traffic_density", "density (pc/km/ln)"), _o("D_mi", "number", "density (pc/mi/ln)"),
+      {"symbol": "LOS", "kind": "number", "meaning": "level of service (A to F)"}],
+     freeway_los, _ref_freeway_los,
+     _guard(lambda V, PHF, N, P_T, E_T, S, f_p=1.0: freeway_los(V, 1.0, N, P_T, E_T, S, f_p)),
+     _rand_freeway_los,
+     [{"V": 4000, "PHF": 0.92, "N": 3, "P_T": 10, "E_T": 2, "S": 100},
+      {"V": 2400, "PHF": 0.85, "N": 2, "P_T": 5, "E_T": 2.5, "S": 90}],
+     ["freeway level of service", "level of service of a freeway", "basic freeway segment level of service",
+      "freeway density"],
+     conditions=["0.25 <= PHF <= 1", "N a whole number of lanes, 1 to 8", "0 <= P_T < 1", "1 <= E_T <= 8",
+                 "0.7 <= f_p <= 1", "30 <= S <= 140 km/h",
+                 "LOS from density only (demand above capacity, also F, is not checked: the capacity is not an input)"],
+     invalid=[{"V": 4000, "PHF": 1.2, "N": 3, "P_T": 10, "E_T": 2, "S": 100}],
+     primary="D",
+     method="f_HV = 1/(1 + P_T (E_T - 1)); v_p = V/(PHF N f_HV f_p); D = v_p/S; LOS from D in pc/mi/ln",
+     latex=r"v_p = \frac{V}{PHF\,N\,f_{HV}\,f_p},\quad f_{HV} = \frac{1}{1 + P_T(E_T - 1)},\quad D = \frac{v_p}{S}")

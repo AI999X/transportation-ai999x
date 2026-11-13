@@ -4,11 +4,11 @@
 
 **[Desktop app & command line](https://www.ai999x.com/desktop-cli/)** · **[Compute in your browser](https://www.ai999x.com/models/transportation-ai999x/#try)** · **[Install (Python)](https://pypi.org/project/transportation-ai999x/)** · **[Guides](https://huggingface.co/AI999X/transportation-ai999x/tree/main/docs)** · **[Evaluation](https://huggingface.co/AI999X/transportation-ai999x/tree/main/evaluation)** · **[AI999X on Hugging Face](https://huggingface.co/AI999X)** · **[Website](https://ai999x.com)** · **[Support: Buy Me a Coffee](https://buymeacoffee.com/ibnuljaiffarabi)**
 
-License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.5.0
+License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.6.0
 
 Field: **Engineering** · Tasks: Question Answering
 
-transportation-ai999x is an offline, deterministic transportation solver written in Rust: a desktop app, a command-line program, a browser module and a Python package. It answers transportation questions with verified results from 77 certified capabilities, gives 536 documented answers identically on Windows and Linux, and refuses rather than guesses when an answer cannot be verified.
+transportation-ai999x is an offline, deterministic transportation solver written in Rust: a desktop app, a command-line program, a browser module and a Python package. It answers transportation questions with verified results from 81 certified capabilities, gives 563 documented answers identically on Windows and Linux, and refuses rather than guesses when an answer cannot be verified.
 
 **transportation-ai999x** reads a question in plain English (or a typed call), picks a certified transportation capability, computes the answer exactly, checks it, and returns the result with its steps, units, LaTeX and assumptions, or a refusal that says what is missing. It runs fully offline on any CPU, needs no GPU, no API key and no internet, and is built to give **zero wrong answers**: when it is not sure, it refuses instead of guessing.
 
@@ -20,13 +20,13 @@ transportation-ai999x is an offline, deterministic transportation solver written
 
 | Way to run it | For | Get it |
 |---|---|---|
-| **AI999X Transportation desktop app** 1.5.0 | Windows, Linux. This model in its own app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.5.0/ai999x-transportation-1.5.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.5.0/ai999x-transportation-1.5.0-linux-x86_64.tar.gz) |
-| **AI999X desktop app** 1.5.0 | Windows, Linux. Every AI999X model in one app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-linux-x86_64.tar.gz) |
-| **Command line** (`transportation`) | Windows, Linux. One program per model, offline, no Python | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz) |
+| **AI999X Transportation desktop app** 1.6.0 | Windows, Linux. This model in its own app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.6.0/ai999x-transportation-1.6.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.6.0/ai999x-transportation-1.6.0-linux-x86_64.tar.gz) |
+| **AI999X desktop app** 1.6.0 | Windows, Linux. Every AI999X model in one app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.6.0/ai999x-1.6.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.6.0/ai999x-1.6.0-linux-x86_64.tar.gz) |
+| **Command line** (`transportation`) | Windows, Linux. One program per model, offline, no Python | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.6.0/ai999x-cli-1.6.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.6.0/ai999x-cli-1.6.0-linux-x86_64.tar.gz) |
 | **In your browser** | any device. Nothing to install | [Compute on the model page](https://www.ai999x.com/models/transportation-ai999x/#try) |
 | **Python** | Python 3.10+ | `pip install transportation-ai999x` |
 
-Checksums: [SHA256SUMS](https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS) · every version: [https://downloads.ai999x.com/desktop/latest/](https://downloads.ai999x.com/desktop/latest/) · install guide: [desktop & command line](https://www.ai999x.com/desktop-cli/)
+Checksums: [SHA256SUMS](https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS) · every version: [https://downloads.ai999x.com/desktop/latest/](https://downloads.ai999x.com/desktop/latest/) · install guide: [desktop & command line](https://www.ai999x.com/desktop-cli/)
 
 ## Quick start
 
@@ -37,11 +37,11 @@ Download **AI999X Transportation** for your system (above), unpack it and start 
 Linux, from a terminal:
 
 ```bash
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-transportation-1.5.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/ai999x-transportation-1.6.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-transportation-1.5.0-linux-x86_64.tar.gz
-./ai999x-transportation-1.5.0-linux-x86_64/ai999x-transportation
+tar xzf ai999x-transportation-1.6.0-linux-x86_64.tar.gz
+./ai999x-transportation-1.6.0-linux-x86_64/ai999x-transportation
 ```
 
 ### Command line
@@ -49,23 +49,23 @@ tar xzf ai999x-transportation-1.5.0-linux-x86_64.tar.gz
 Linux:
 
 ```bash
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/ai999x-cli-1.6.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-mkdir -p ~/.local/share && tar xzf ai999x-cli-1.5.0-linux-x86_64.tar.gz -C ~/.local/share
-echo 'export PATH="$HOME/.local/share/ai999x-cli-1.5.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
+mkdir -p ~/.local/share && tar xzf ai999x-cli-1.6.0-linux-x86_64.tar.gz -C ~/.local/share
+echo 'export PATH="$HOME/.local/share/ai999x-cli-1.6.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
 transportation --version
 ```
 
 Windows (PowerShell):
 
 ```powershell
-$F = "ai999x-cli-1.5.0-windows-x86_64.zip"
-Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.5.0/$F" -OutFile $F
-Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS" -OutFile SHA256SUMS
+$F = "ai999x-cli-1.6.0-windows-x86_64.zip"
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.6.0/$F" -OutFile $F
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS" -OutFile SHA256SUMS
 (Get-FileHash $F -Algorithm SHA256).Hash.ToLower() -eq ((Select-String -SimpleMatch $F SHA256SUMS).Line -split ' ')[0]
 Expand-Archive $F -DestinationPath "$env:LOCALAPPDATA\AI999X" -Force
-$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.5.0-windows-x86_64"; $env:Path += ";$D"
+$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.6.0-windows-x86_64"; $env:Path += ";$D"
 [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";$D", "User")
 transportation --version
 ```
@@ -283,7 +283,7 @@ _What this means:_ The estimated initial speed is 18.7926 m/s which converts to 
 ## Highlights
 
 - **Verified, not generated.** Every answer is computed by a certified transportation capability and checked (substituted back, dimension-checked or compared with an independent computation) before it is returned.
-- **Zero wrong answers by design.** Seven explicit outcomes (SOLVED, NEEDS_INPUT, AMBIGUOUS, INVALID_INPUT, OUT_OF_SCOPE, UNRECOGNIZED_FORMAT, INTERNAL_ERROR), never a silent guess. Every one of its 536 documented answers is reproduced exactly on every tested platform.
+- **Zero wrong answers by design.** Seven explicit outcomes (SOLVED, NEEDS_INPUT, AMBIGUOUS, INVALID_INPUT, OUT_OF_SCOPE, UNRECOGNIZED_FORMAT, INTERNAL_ERROR), never a silent guess. Every one of its 563 documented answers is reproduced exactly on every tested platform.
 - **Plain-English questions and a guaranteed typed interface.** `ask()` reads documented question forms; `solve(capability_id, **inputs)` always solves a supported task with valid inputs.
 - **Explains itself.** Steps, formulas in LaTeX, units, assumptions and the model used, ready for notebooks, tutoring apps and homework checkers.
 - **Native and in the browser.** Every capability also computes natively in Rust: the desktop app and the `transportation` command line for Windows and Linux, and WebAssembly on the model page, no Python, no network.
@@ -294,11 +294,11 @@ _What this means:_ The estimated initial speed is 18.7926 m/s which converts to 
 
 | Property | Value |
 |---|---|
-| Package | `transportation-ai999x` 1.5.0 (import `transportation_ai999x`) |
+| Package | `transportation-ai999x` 1.6.0 (import `transportation_ai999x`) |
 | Type | Deterministic neuro-symbolic transportation engine (rule-based reading + certified symbolic capabilities) |
-| Capabilities | 77 certified procedures |
+| Capabilities | 81 certified procedures |
 | Knowledge pack | version 1.0.0 |
-| Golden answers | 536 documented answers, identical on every tested platform |
+| Golden answers | 563 documented answers, identical on every tested platform |
 | Platforms tested | Windows (Python 3.13), Linux x86-64 (Python 3.10, 3.11, 3.12, 3.13, 3.14) |
 | Runtime | CPU only, offline; no GPU, no network, no API key |
 | License | Apache-2.0 |
@@ -328,7 +328,7 @@ transportation.ask("Who created you?").message
 # -> transportation-ai999x was created and engineered by Ibnul Jaif Farabi at AI999X.
 ```
 
-The Python package also installs a Python command, `transportation-ai999x "<question>"`; for the native program use `transportation` (above). The outputs above were produced by running this exact code on transportation-ai999x 1.5.0.
+The Python package also installs a Python command, `transportation-ai999x "<question>"`; for the native program use `transportation` (above). The outputs above were produced by running this exact code on transportation-ai999x 1.6.0.
 
 ## How every answer is verified
 
@@ -403,15 +403,15 @@ Each question was put to `transportation-ai999x`; the answer is the one it retur
 
 </details>
 
-**Direct and cross elasticities of logit choice probabilities** · _Mode choice_
+**Freeway level of service from density (basic segment)** · _Capacity and level of service_
 
-> Logit elasticities with utilities = [-1.2, -0.8, -2.1], attribute = [30, 45, 20] and beta = -0.04.
+> Freeway level of service with volume = 4000 veh/h, PHF = 0.92, lanes = 3, heavy vehicles = 10 %, E_T = 2 and speed = 100 km/h.
 
-→ **P = [0.3450186126, 0.5147072874, 0.1402740999], direct = [-0.7859776649, -0.8735268826, -0.6877807201], cross = [0.4140223351, 0.9264731174, 0.1122192799]**
+→ **f_HV = 0.9090909091, v_p = 1594.202899 1/h, D = 15.94202899 1/km, D_mi = 25.6562087, LOS = C**
 
 <details><summary>Steps</summary>
 
-- Direct and cross elasticities of logit choice probabilities: V = [-1.2, -0.8, -2.1], x = [30, 45, 20], beta = -0.04 → P = [0.3450186126, 0.5147072874, 0.1402740999], direct = [-0.7859776649, -0.8735268826, -0.6877807201], cross = [0.4140223351, 0.9264731174, 0.1122192799]
+- Freeway level of service from density (basic segment): V = 4000 1/h, PHF = 0.92, N = 3, P_T = 0.1, E_T = 2, S = 27.77777778 m/s → f_HV = 0.9090909091 1/km, v_p = 1594.202899 1/h, D = 15.94202899 1/km, D_mi = 25.6562087 1/km, LOS = C 1/km
 
 </details>
 
@@ -451,9 +451,9 @@ _Time–space diagram of the queue at a signal (arrivals 1000 veh/h at 20 veh/km
 
 ## Capabilities
 
-77 certified procedures. A few of them:
+81 certified procedures. A few of them:
 
-- **Procedures:** 85th, 50th and 15th percentile spot speeds; Acceleration time and distance under constant engine power; All-or-nothing traffic assignment; Blocking probability with no waiting room (Erlang B), e.g. parking spaces; Braking distance from speed and deceleration; Capacity of a minor stream by gap acceptance; Clothoid (spiral) transition curve coordinates; Coast-down time and distance (rolling and aerodynamic resistance); Curve radius or speed by the simplified e + f formula; Direct and cross elasticities of logit choice probabilities; Distance and time to accelerate (acceleration lane length); Distance to slow from one speed to another (friction and grade); Doubly constrained gravity model of trip distribution; Fastest route on a road network (link lengths and speeds); First-come-first-served queue from arrival and service times; Fit the Greenberg (logarithmic) model to speed-density observations; Fit the Greenshields model to speed-density observations; Fit the Underwood (exponential) model to speed-density observations; Green splits by equal degree of saturation (flow-ratio method); Greenberg model: capacity and density at capacity; Greenshields model: capacity, optimum speed and density; Greenshields model: densities and speeds at a given flow; Growth-factor (Furness) balancing of a trip matrix; Horizontal sightline offset on a circular curve …
+- **Procedures:** 85th, 50th and 15th percentile spot speeds; Acceleration time and distance under constant engine power; All-or-nothing traffic assignment; Blocking probability with no waiting room (Erlang B), e.g. parking spaces; Braking distance from speed and deceleration; Capacity of a minor stream by gap acceptance; Clothoid (spiral) transition curve coordinates; Coast-down time and distance (rolling and aerodynamic resistance); Curve radius or speed by the simplified e + f formula; Design hourly volume from AADT, K and D factors; Direct and cross elasticities of logit choice probabilities; Distance and time to accelerate (acceleration lane length); Distance to slow from one speed to another (friction and grade); Doubly constrained gravity model of trip distribution; Equivalent single-axle loads by the fourth-power law; Fastest route on a road network (link lengths and speeds); First-come-first-served queue from arrival and service times; Fit the Greenberg (logarithmic) model to speed-density observations; Fit the Greenshields model to speed-density observations; Fit the Underwood (exponential) model to speed-density observations; Freeway level of service from density (basic segment); Green splits by equal degree of saturation (flow-ratio method); Greenberg model: capacity and density at capacity; Greenshields model: capacity, optimum speed and density …
 
 `transportation_ai999x.templates()` lists every question form `ask()` reads; the capability guide (PDF, every example executed) is included in this repository.
 
@@ -472,10 +472,10 @@ _Time–space diagram of the queue at a signal (arrivals 1000 veh/h at 20 veh/km
 ## Citation
 
 ```bibtex
-@software{transportation_ai999x_1_5_0,
+@software{transportation_ai999x_1_6_0,
   title  = {transportation-ai999x: an offline, verified transportation solver},
   author = {Farabi, Ibnul Jaif}, organization = {AI999X},
-  year   = {2026}, version = {1.5.0},
+  year   = {2026}, version = {1.6.0},
   url    = {https://huggingface.co/AI999X/transportation-ai999x}
 }
 ```
@@ -492,7 +492,7 @@ Created and engineered by **Ibnul Jaif Farabi** · **[AI999X](https://huggingfac
 
 ## Source and releases
 
-This repository holds the installable source of each release, exactly as published on [PyPI](https://pypi.org/project/transportation-ai999x/) (`pip install .` builds it). Releases are tagged `v1.5.0`; the [GitHub release](https://github.com/AI999X/transportation-ai999x/releases/tag/v1.5.0) carries the wheel, the desktop app and the command-line program for Windows and Linux, and their checksums.
+This repository holds the installable source of each release, exactly as published on [PyPI](https://pypi.org/project/transportation-ai999x/) (`pip install .` builds it). Releases are tagged `v1.6.0`; the [GitHub release](https://github.com/AI999X/transportation-ai999x/releases/tag/v1.6.0) carries the wheel, the desktop app and the command-line program for Windows and Linux, and their checksums.
 
 ## Build the program from source
 

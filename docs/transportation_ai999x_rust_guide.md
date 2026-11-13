@@ -1,8 +1,8 @@
 # transportation: the Transportation program, user guide
 
-**transportation-ai999x 1.1.0**, Rust build: command line, desktop app and browser. **Creator / engineer:** Ibnul Jaif Farabi · **Company:** AI999X · support@ai999x.com
+**transportation-ai999x 1.6.0**, Rust build: command line, desktop app and browser. **Creator / engineer:** Ibnul Jaif Farabi · **Company:** AI999X · support@ai999x.com
 
-Transportation covers vehicle dynamics, braking and stopping distances, traffic flow, highway geometry, railway operations, route planning and transit capacity. This guide is about `transportation`, the model as a self-contained program for Windows and Linux: 77 capabilities in 13 topics, answered on your own computer with no network, no Python and nothing else to install. The same compiled model runs in the AI999X desktop app and in the browser on the model's page (https://www.ai999x.com/models/transportation-ai999x/); the Python package (`pip install transportation-ai999x`) has its own guide. Every command output printed here is what the program printed.
+Transportation covers vehicle dynamics, braking and stopping distances, traffic flow, highway geometry, railway operations, route planning and transit capacity. This guide is about `transportation`, the model as a self-contained program for Windows and Linux: 81 capabilities in 16 topics, answered on your own computer with no network, no Python and nothing else to install. The same compiled model runs in the AI999X desktop app and in the browser on the model's page (https://www.ai999x.com/models/transportation-ai999x/); the Python package (`pip install transportation-ai999x`) has its own guide. Every command output printed here is what the program printed.
 
 ## Contents
 
@@ -17,37 +17,37 @@ Transportation covers vehicle dynamics, braking and stopping distances, traffic 
 
 ## 1. Get it
 
-Version 1.5.0 of the AI999X desktop app and of the command-line bundle. Checksums for every file: https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS; the newest version is always under https://downloads.ai999x.com/desktop/latest/. Full instructions: https://www.ai999x.com/desktop-cli/
+Version 1.6.0 of the AI999X desktop app and of the command-line bundle. Checksums for every file: https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS; the newest version is always under https://downloads.ai999x.com/desktop/latest/. Full instructions: https://www.ai999x.com/desktop-cli/
 
 | what | system | download |
 |---|---|---|
-| Desktop app: Transportation | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-transportation-1.5.0-windows-x86_64.zip |
-| Desktop app: Transportation | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-transportation-1.5.0-linux-x86_64.tar.gz |
-| Desktop app: all models | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-windows-x86_64.zip |
-| Desktop app: all models | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-linux-x86_64.tar.gz |
-| Command line | Windows x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-windows-x86_64.zip |
-| Command line | Linux x86-64 | https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz |
+| Desktop app: Transportation | Windows x86-64 | https://downloads.ai999x.com/desktop/1.6.0/ai999x-transportation-1.6.0-windows-x86_64.zip |
+| Desktop app: Transportation | Linux x86-64 | https://downloads.ai999x.com/desktop/1.6.0/ai999x-transportation-1.6.0-linux-x86_64.tar.gz |
+| Desktop app: all models | Windows x86-64 | https://downloads.ai999x.com/desktop/1.6.0/ai999x-1.6.0-windows-x86_64.zip |
+| Desktop app: all models | Linux x86-64 | https://downloads.ai999x.com/desktop/1.6.0/ai999x-1.6.0-linux-x86_64.tar.gz |
+| Command line | Windows x86-64 | https://downloads.ai999x.com/desktop/1.6.0/ai999x-cli-1.6.0-windows-x86_64.zip |
+| Command line | Linux x86-64 | https://downloads.ai999x.com/desktop/1.6.0/ai999x-cli-1.6.0-linux-x86_64.tar.gz |
 
 ### Desktop app
 
-Transportation in its own app: search, questions in words, input forms, live figures and explanations. Windows: Download ai999x-transportation-1.5.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x-transportation.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
+Transportation in its own app: search, questions in words, input forms, live figures and explanations. Windows: Download ai999x-transportation-1.6.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x-transportation.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-transportation-1.5.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/ai999x-transportation-1.6.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-transportation-1.5.0-linux-x86_64.tar.gz
-./ai999x-transportation-1.5.0-linux-x86_64/ai999x-transportation
+tar xzf ai999x-transportation-1.6.0-linux-x86_64.tar.gz
+./ai999x-transportation-1.6.0-linux-x86_64/ai999x-transportation
 ```
 
-It opens on this model: type a question or pick a capability, fill in the form and press Compute. The AI999X desktop app with every model works the same way (choose the model first). Windows: Download ai999x-1.5.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
+It opens on this model: type a question or pick a capability, fill in the form and press Compute. The AI999X desktop app with every model works the same way (choose the model first). Windows: Download ai999x-1.6.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-1.5.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/ai999x-1.6.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-1.5.0-linux-x86_64.tar.gz
-./ai999x-1.5.0-linux-x86_64/ai999x
+tar xzf ai999x-1.6.0-linux-x86_64.tar.gz
+./ai999x-1.6.0-linux-x86_64/ai999x
 ```
 
 ### Command line: Linux
@@ -55,11 +55,11 @@ tar xzf ai999x-1.5.0-linux-x86_64.tar.gz
 The bundle holds one program per model; `transportation` is this one. The checksum line should print OK.
 
 ```shell
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/ai999x-cli-1.5.0-linux-x86_64.tar.gz
-curl -LO https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/ai999x-cli-1.6.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-mkdir -p ~/.local/share && tar xzf ai999x-cli-1.5.0-linux-x86_64.tar.gz -C ~/.local/share
-echo 'export PATH="$HOME/.local/share/ai999x-cli-1.5.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
+mkdir -p ~/.local/share && tar xzf ai999x-cli-1.6.0-linux-x86_64.tar.gz -C ~/.local/share
+echo 'export PATH="$HOME/.local/share/ai999x-cli-1.6.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
 transportation --version
 ```
 
@@ -68,12 +68,12 @@ transportation --version
 The fourth line should print True.
 
 ```powershell
-$F = "ai999x-cli-1.5.0-windows-x86_64.zip"
-Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.5.0/$F" -OutFile $F
-Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.5.0/SHA256SUMS" -OutFile SHA256SUMS
+$F = "ai999x-cli-1.6.0-windows-x86_64.zip"
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.6.0/$F" -OutFile $F
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.6.0/SHA256SUMS" -OutFile SHA256SUMS
 (Get-FileHash $F -Algorithm SHA256).Hash.ToLower() -eq ((Select-String -SimpleMatch $F SHA256SUMS).Line -split ' ')[0]
 Expand-Archive $F -DestinationPath "$env:LOCALAPPDATA\AI999X" -Force
-$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.5.0-windows-x86_64"; $env:Path += ";$D"
+$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.6.0-windows-x86_64"; $env:Path += ";$D"
 [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";$D", "User")
 transportation --version
 ```
@@ -96,7 +96,7 @@ Prints the model, its version and that this is the Rust build.
 
 ```shell
 $ transportation --version
-transportation-ai999x 1.5.0 (Rust build, ax-engine 1.5.0)
+transportation-ai999x 1.6.0 (Rust build, ax-engine 1.6.0)
 ```
 
 ### 2.2 Ask in words
@@ -126,10 +126,10 @@ transport_signal_queue_uniform_delay Queue and uniform delay at a signal (determ
 transport_md1_queue                  Single server with constant service time (M/D/1)  (queueing)
 transport_bottleneck_queue           Queue and delay at a temporary bottleneck (incident, lane closure)  (traffic flow)
 transport_signal_queue_shockwave     Queue at a signal by shockwave analysis  (traffic signals)
+transport_design_hourly_volume       Design hourly volume from AADT, K and D factors  (traffic characteristics)
 transport_interval_queue             Queue from arrival counts and capacity per interval  (traffic flow)
 transport_fifo_queue_simulation      First-come-first-served queue from arrival and service times  (queueing)
 transport_mm1_queue                  Single-server random queue (M/M/1), e.g. a toll booth  (queueing)
-transport_mmc_queue                  Multi-server random queue (M/M/c, Erlang C), e.g. a toll plaza  (queueing)
 … 12 more
 ```
 
@@ -147,7 +147,7 @@ transport_braking_distance               Braking distance from speed and deceler
 transport_braking_weight_transfer        Longitudinal weight transfer under braking and ideal brake proportioning
 transport_braking_with_air_resistance    Theoretical stopping distance with aerodynamic and rolling resistance
 transport_clothoid_coordinates           Clothoid (spiral) transition curve coordinates
-… 69 more
+… 73 more
 ```
 
 ### 2.5 What a capability needs
@@ -517,6 +517,53 @@ t = 5.132823511 s
 ```
 
 **What the worked example means:** The braking distance is 84.8295 m and the time is 5.13282 s.
+
+### Capacity and level of service (1)
+
+<a id="transport_freeway_level_of_service"></a>
+
+#### Freeway level of service from density (basic segment), `transport_freeway_level_of_service`
+
+The peak 15-minute passenger-car flow rate per lane v_p = V / (PHF N f_HV f_p) with f_HV = 1/(1 + P_T (E_T - 1)), the density D = v_p / S at the mean passenger-car speed S, and the level of service of a basic freeway segment from the density (A <= 11, B <= 18, C <= 26, D <= 35, E <= 45 pc/mi/ln, F above).
+
+$$
+v_p = \frac{V}{PHF\,N\,f_{HV}\,f_p},\quad f_{HV} = \frac{1}{1 + P_T(E_T - 1)},\quad D = \frac{v_p}{S}
+$$
+
+| symbol |  | meaning | SI unit |
+|---|---|---|---|
+| `V` | in | hourly volume, one direction (veh/h in questions; veh/s in solve(), or a string such as '600 1/h') | 1/s |
+| `PHF` | in | peak-hour factor | - |
+| `N` | in | number of lanes in one direction | - |
+| `P_T` | in | share of heavy vehicles | - |
+| `E_T` | in | passenger-car equivalent of a heavy vehicle | - |
+| `S` | in | mean passenger-car speed | m/s |
+| `f_p` | in | driver-population factor (default 1) (optional) | - |
+| `f_HV` | out | heavy-vehicle adjustment factor | - |
+| `v_p` | out | peak 15-minute passenger-car flow rate per lane (pc/h/ln) | 1/h |
+| `D` | out | density (pc/km/ln) | 1/km |
+| `D_mi` | out | density (pc/mi/ln) | - |
+| `LOS` | out | level of service (A to F) | - |
+
+**Applies when:** 0.25 <= PHF <= 1; N a whole number of lanes, 1 to 8; 0 <= P_T < 1; 1 <= E_T <= 8; 0.7 <= f_p <= 1; 30 <= S <= 140 km/h; LOS from density only (demand above capacity, also F, is not checked: the capacity is not an input).
+
+```shell
+$ transportation solve transport_freeway_level_of_service "V=4000 1/h" PHF=0.92 N=3 P_T=0.1 E_T=2 "S=27.77777778 m/s"
+f_HV = 0.9090909091
+v_p = 1594.202899 1/h
+D = 15.94202898 1/km
+D_mi = 25.65620869
+LOS = C
+  by: Freeway level of service from density (basic segment)  (f_HV = 1/(1 + P_T (E_T - 1)); v_p = V/(PHF N f_HV f_p); D = v_p/S; LOS from D in pc/mi/ln)
+  V = 1.111111111 1/s
+  PHF = 0.92
+  P_T = 0.1
+  E_T = 2
+  S = 27.77777778 m/s
+  assumes: 0.25 <= PHF <= 1; N a whole number of lanes, 1 to 8; 0 <= P_T < 1; 1 <= E_T <= 8; 0.7 <= f_p <= 1; 30 <= S <= 140 km/h; LOS from density only (demand above capacity, also F, is not checked: the capacity is not an input)
+```
+
+In the worked example, V = 4000 1/h, PHF = 0.92, N = 3, P_T = 0.1, E_T = 2, S = 27.77777778 m/s go through the equation above and give f_HV = 0.9090909091, v_p = 1594.202899 1/h, D = 15.94202899 1/km, D_mi = 25.6562087. It applies only when 0.25 <= PHF <= 1; N a whole number of lanes, 1 to 8; 0 <= P_T < 1; 1 <= E_T <= 8; 0.7 <= f_p <= 1; 30 <= S <= 140 km/h; LOS from density only (demand above capacity, also F, is not checked: the capacity is not an input): outside that it says what is wrong instead of returning a number.
 
 ### Highway geometry (12)
 
@@ -1084,6 +1131,47 @@ logsum1 = 0.1040188667
 
 **What the worked example means:** This calculation determines the monetary value of the welfare change for a traveler when utilities shift from their initial state to a new one. It compares the logsum of utilities before the change, which is -0.135843, with the logsum after the change, valued at 0.104019. The difference between these two values is divided by the negative cost coefficient, represented here as -0.25, to convert utility differences into money units. The resulting figure, 0.959448, indicates how much better or worse off the average user is due to the policy or infrastructure change.
 
+### Pavement design (1)
+
+<a id="transport_equivalent_single_axle_loads"></a>
+
+#### Equivalent single-axle loads by the fourth-power law, `transport_equivalent_single_axle_loads`
+
+Load equivalency factors (P/P_s)^n of single axles (generalized fourth-power law, standard axle 80 kN, n = 4 unless stated), the daily ESALs sum(count_i LEF_i), the growth factor ((1 + g)^Y - 1)/g (Y when g = 0) and the design-period ESALs = daily ESALs x 365 x growth factor x design-lane factor.
+
+$$
+ESAL = 365\,f_d\,\frac{(1+g)^Y - 1}{g}\sum_i N_i\left(\frac{P_i}{P_s}\right)^{4}
+$$
+
+| symbol |  | meaning | SI unit |
+|---|---|---|---|
+| `loads` | in | single-axle loads in kN | - |
+| `counts` | in | daily number of axles at each load | - |
+| `Y` | in | design period in years (whole number) | - |
+| `P_s` | in | standard axle load (default 80 kN) (optional) | N |
+| `n` | in | load-equivalency exponent (default 4) (optional) | - |
+| `g` | in | annual traffic growth rate (default 0) (optional) | - |
+| `f_d` | in | design-lane factor: directional times lane distribution (default 1) (optional) | - |
+| `LEF` | out | load equivalency factor of each axle load | - |
+| `ESAL_day` | out | ESALs per day | - |
+| `GF` | out | growth factor (equivalent years) | - |
+| `ESAL` | out | design-period ESALs | - |
+
+**Applies when:** axle loads > 0, counts >= 0, one count per load; Y a whole number of years, 1 to 50; 2 <= n <= 6; 0 <= g <= 0.2; 0 < f_d <= 1; single axles only (tandem and tridem groups need their own standard loads).
+
+```shell
+$ transportation solve transport_equivalent_single_axle_loads "loads=[80, 100, 120]" "counts=[500, 200, 100]" Y=20
+LEF = [1.0,2.44140625,5.0625]
+ESAL_day = 1494.53125
+GF = 20
+ESAL = 10910078.12
+  by: Equivalent single-axle loads by the fourth-power law  (LEF_i = (P_i/P_s)^n; ESAL_day = sum count_i LEF_i; GF = ((1+g)^Y - 1)/g; ESAL = ESAL_day x 365 x GF x f_d)
+  Y = 20
+  assumes: axle loads > 0, counts >= 0, one count per load; Y a whole number of years, 1 to 50; 2 <= n <= 6; 0 <= g <= 0.2; 0 < f_d <= 1; single axles only (tandem and tridem groups need their own standard loads)
+```
+
+In the worked example, loads = [80, 100, 120], counts = [500, 200, 100], Y = 20 go through the equation above and give LEF = [1, 2.44140625, 5.0625], ESAL_day = 1494.53125, GF = 20, ESAL = 10910078.12. It applies only when axle loads > 0, counts >= 0, one count per load; Y a whole number of years, 1 to 50; 2 <= n <= 6; 0 <= g <= 0.2; 0 < f_d <= 1; single axles only (tandem and tridem groups need their own standard loads): outside that it says what is wrong instead of returning a number.
+
 ### Queueing (5)
 
 <a id="transport_erlang_b_blocking"></a>
@@ -1502,6 +1590,75 @@ times = [[0.0,4.0,3.0,7.75,9.66666666667],[4.0,0.0,1.8,3.75,6.15],[3.0,1.8,0.0,4
 ```
 
 **What the worked example means:** This calculation produces a zone-to-zone travel time matrix by applying Dijkstra's algorithm to every node in the road network. It uses link lengths provided in A-B (4), A-C (2.5), B-C (1.2), B-D (5), C-D (8), C-E (10), D-E (2) and speeds in [60, 50, 40, 80, 100, 90, 50] to determine the fastest route between each pair of locations. The resulting matrix, labeled with places in alphabetical order such as A, B, C, D, E, contains the minimum travel times in [[0, 4, 3, 7.75, 9.66667], [4, 0, 1.8, 3.75, 6.15], [3, 1.8, 0, 4.8, 6.66667], [7.75, 3.75, 4.8, 0, 2.4], [9.66667, 6.15, 6.66667, 2.4, 0]] minutes, which serves as essential input for trip distribution models.
+
+### Traffic characteristics (2)
+
+<a id="transport_design_hourly_volume"></a>
+
+#### Design hourly volume from AADT, K and D factors, `transport_design_hourly_volume`
+
+The design hourly volume DHV = K AADT (both directions) and the directional design hourly volume DDHV = D K AADT from the annual average daily traffic, the design-hour factor K and the directional factor D.
+
+$$
+DHV = K \cdot AADT,\quad DDHV = D \cdot K \cdot AADT
+$$
+
+| symbol |  | meaning | SI unit |
+|---|---|---|---|
+| `AADT` | in | annual average daily traffic (veh/day) | - |
+| `K` | in | design-hour factor K (share of the AADT in the design hour) | - |
+| `D` | in | directional factor D (share of the peak direction) | - |
+| `DHV` | out | design hourly volume, both directions (veh/h) | 1/h |
+| `DDHV` | out | directional design hourly volume (veh/h) | 1/h |
+
+**Applies when:** AADT > 0; 0 < K <= 0.3; 0.5 <= D <= 1.
+
+```shell
+$ transportation solve transport_design_hourly_volume AADT=40000 K=0.1 D=0.6
+DHV = 4000 1/h
+DDHV = 2400 1/h
+  by: Design hourly volume from AADT, K and D factors  (DHV = K AADT; DDHV = D K AADT)
+  AADT = 40000
+  K = 0.1
+  D = 0.6
+  assumes: AADT > 0; 0 < K <= 0.3; 0.5 <= D <= 1
+```
+
+In the worked example, AADT = 40000, K = 0.1, D = 0.6 go through the equation above and give DHV = 4000 1/h, DDHV = 2400 1/h. It applies only when AADT > 0; 0 < K <= 0.3; 0.5 <= D <= 1: outside that it says what is wrong instead of returning a number.
+
+<a id="transport_peak_hour_factor"></a>
+
+#### Peak-hour factor from 15-minute counts: `transport_peak_hour_factor`
+
+The peak-hour volume (the largest sum of four consecutive 15-minute counts, the earliest if two are equal), the largest 15-minute count within that hour, the peak 15-minute flow rate (4 times it) and the peak-hour factor PHF = V / (4 V15).
+
+$$
+PHF = \frac{V}{4\,V_{15}}
+$$
+
+| symbol |  | meaning | SI unit |
+|---|---|---|---|
+| `counts` | in | consecutive 15-minute vehicle counts (vehicles per 15 min), at least four | - |
+| `V` | out | peak-hour volume (veh/h) | 1/h |
+| `V15` | out | largest 15-minute count in the peak hour (veh) | - |
+| `v15` | out | peak 15-minute flow rate (veh/h) | 1/h |
+| `PHF` | out | peak-hour factor | - |
+| `start` | out | first 15-minute interval of the peak hour (1 = the first count) | - |
+
+**Applies when:** at least four consecutive 15-minute counts, none negative; the peak hour carries vehicles; the earliest hour is taken when two hours carry the same volume.
+
+```shell
+$ transportation solve transport_peak_hour_factor "counts=[450, 520, 610, 480]"
+V = 2060 1/h
+V15 = 610
+v15 = 2440 1/h
+PHF = 0.8442622951
+start = 1
+  by: Peak-hour factor from 15-minute counts  (V = max over i of (c_i + c_i+1 + c_i+2 + c_i+3); PHF = V / (4 V15), V15 the largest count in that hour)
+  assumes: at least four consecutive 15-minute counts, none negative; the peak hour carries vehicles; the earliest hour is taken when two hours carry the same volume
+```
+
+In the worked example, counts = [450, 520, 610, 480] go through the equation above and give V = 2060 1/h, V15 = 610, v15 = 2440 1/h, PHF = 0.8442622951. It applies only when at least four consecutive 15-minute counts, none negative; the peak hour carries vehicles; the earliest hour is taken when two hours carry the same volume: outside that it says what is wrong instead of returning a number.
 
 ### Traffic flow (14)
 

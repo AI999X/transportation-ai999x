@@ -1,5 +1,5 @@
 {
- "package": "1.5.0",
+ "package": "1.6.0",
  "pack": "1.0.0",
  "knowledge_db": null,
  "files": {
@@ -7,8 +7,8 @@
   "dictionary/terms.json": "3781eac9e78cc74a52dfbb7f7c6ecd5f218e2a208be5aad6dabd1094f82ddc60",
   "knowledge/relations.json": "e38e3e041a9fa4d4ec675940e635cd777eff6188c7e1aa15e65ef0c39c40aad6",
   "knowledge/reference_cases.json": "7414a14e2c4202a7fae8cdd14e1a2ef7267f35a9665b0633001349c698d4e4e7",
-  "capabilities/procedures.py": "24b8a3313a7019569a35efba6a77efb7b7cac643027afe664656550f8ff0177e",
-  "capabilities/procedures_certified.json": "2e210610770228f00881129368c5eafd720080c2bbb4f8c378e33015d3caf4db",
+  "capabilities/procedures.py": "cab337465a55f87d072cddfbbf94df80e8f1dd0f78a2d7e10f22cd09ab7628ce",
+  "capabilities/procedures_certified.json": "6a9393794707e44c95e225c97e9b23464a4204a4f3fd31c9847ecd15df1ed256",
   "transportation_knowledge_public.sqlite": "d7f5e839d0cf7a41dd32b66e94e307d10cad25c3bc4fe71202e5a94021c9eaa7"
  },
  "engine": [

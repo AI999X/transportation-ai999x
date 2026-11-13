@@ -19,11 +19,14 @@ result.show()
 | topic | capabilities |
 |---|---|
 | Braking and stopping | [Braking distance from speed and deceleration](#transport_braking_distance), [Stopping sight distance (reaction plus braking, with grade)](#transport_stopping_sight_distance), [Speed estimate from skid-mark length](#transport_skid_speed), [Distance to slow from one speed to another (friction and grade)](#transport_speed_reduction_distance), [Impact speed with an obstacle after reaction and braking](#transport_impact_speed), [Theoretical stopping distance with aerodynamic and rolling resistance](#transport_braking_with_air_resistance) |
+| Capacity and level of service | [Freeway level of service from density (basic segment)](#transport_freeway_level_of_service) |
 | Highway geometry | [Maximum safe speed on a superelevated horizontal curve](#transport_curve_safe_speed), [Minimum radius of a horizontal curve](#transport_minimum_curve_radius), [Side friction demanded on a superelevated curve](#transport_side_friction_demand), [Superelevation required on a horizontal curve](#transport_superelevation_required), [Minimum length of a crest vertical curve for a sight distance](#transport_crest_curve_length), [Sight distance available over a crest vertical curve](#transport_crest_curve_sight_distance), [Horizontal sightline offset on a circular curve](#transport_horizontal_sight_offset), [Sight distance available on a curve with a roadside obstruction](#transport_sight_distance_from_offset), [Clothoid (spiral) transition curve coordinates](#transport_clothoid_coordinates), [Curve radius or speed by the simplified e + f formula](#transport_simplified_curve_formula), [Sag vertical curve length for headlight sight distance](#transport_sag_curve_headlight), [Passing sight distance (four-component method)](#transport_passing_sight_distance) |
 | Mode choice | [Multinomial logit mode shares from utilities](#transport_logit_mode_shares), [Logit mode choice from attributes and coefficients](#transport_logit_from_attributes), [Direct and cross elasticities of logit choice probabilities](#transport_logit_elasticities), [Nested logit choice probabilities](#transport_nested_logit), [User benefit of a change from the logit logsum](#transport_logsum_user_benefit) |
+| Pavement design | [Equivalent single-axle loads by the fourth-power law](#transport_equivalent_single_axle_loads) |
 | Queueing | [Single-server random queue (M/M/1), e.g. a toll booth](#transport_mm1_queue), [Multi-server random queue (M/M/c, Erlang C), e.g. a toll plaza](#transport_mmc_queue), [Single server with constant service time (M/D/1)](#transport_md1_queue), [Blocking probability with no waiting room (Erlang B), e.g. parking spaces](#transport_erlang_b_blocking), [First-come-first-served queue from arrival and service times](#transport_fifo_queue_simulation) |
 | Railway operations | [Running time between stations (accelerate, cruise, brake)](#transport_train_running_time), [Minimum headway of trains at a station stop (moving block)](#transport_rail_station_headway), [Train braking distance with Davis resistance and gradient](#transport_train_braking_distance), [Train acceleration time and distance (tractive effort curve, Davis resistance)](#transport_train_acceleration) |
 | Route planning | [Fastest route on a road network (link lengths and speeds)](#transport_fastest_route), [Zone-to-zone travel time matrix (skim) of a road network](#transport_travel_time_skim) |
+| Traffic characteristics | [Peak-hour factor from 15-minute counts](#transport_peak_hour_factor), [Design hourly volume from AADT, K and D factors](#transport_design_hourly_volume) |
 | Traffic flow | [Greenshields model: capacity, optimum speed and density](#transport_greenshields_capacity), [Greenshields model: densities and speeds at a given flow](#transport_greenshields_speed_at_flow), [Fit the Greenshields model to speed-density observations](#transport_greenshields_fit), [Fit the Greenberg (logarithmic) model to speed-density observations](#transport_greenberg_fit), [Fit the Underwood (exponential) model to speed-density observations](#transport_underwood_fit), [Greenberg model: capacity and density at capacity](#transport_greenberg_capacity), [Underwood model: capacity and speed at capacity](#transport_underwood_capacity), [Shockwave speed between two traffic states](#transport_shockwave_speed), [Shockwave speed in a Greenshields traffic stream](#transport_greenshields_shockwave), [Queue and delay at a temporary bottleneck (incident, lane closure)](#transport_bottleneck_queue), [Queue from arrival counts and capacity per interval](#transport_interval_queue), [Probability of n vehicle arrivals in an interval (Poisson)](#transport_poisson_arrivals), [Probability of a headway longer than h (negative exponential)](#transport_headway_probability), [Travel-time reliability indices (buffer, planning time, travel time index)](#transport_travel_time_reliability) |
 | Traffic signals | [Yellow change interval (kinematic, ITE)](#transport_yellow_change_interval), [Queue at a signal by shockwave analysis](#transport_signal_queue_shockwave), [Queue and uniform delay at a signal (deterministic D/D/1)](#transport_signal_queue_uniform_delay), [Green splits by equal degree of saturation (flow-ratio method)](#transport_signal_green_splits), [Optimum cycle length by Webster's formula](#transport_webster_optimum_cycle) |
 | Traffic studies | [Time-mean and space-mean speed of spot speeds](#transport_time_and_space_mean_speed), [85th, 50th and 15th percentile spot speeds](#transport_spot_speed_percentiles) |
@@ -147,6 +150,10 @@ Call `solve("<id>", **inputs)` with plain numbers; the result's `values` holds e
 | transport_top_speed | Top speed of a road vehicle | m, P, C_D, A, rho, f_r, G, eta | v_max, v_max_kmh |
 | transport_passing_sight_distance | Passing sight distance (four-component method) | v, m_diff, a, t1, t2, d3 | PSD, d1, d2, d3, d4 |
 | transport_travel_time_reliability | Travel-time reliability indices (buffer, planning time, travel time index) | times, t_free | mean, t95, buffer_index, planning_time_index, travel_time_index |
+| transport_peak_hour_factor | Peak-hour factor from 15-minute counts | counts | V, V15, v15, PHF, start |
+| transport_design_hourly_volume | Design hourly volume from AADT, K and D factors | AADT, K, D | DHV, DDHV |
+| transport_equivalent_single_axle_loads | Equivalent single-axle loads by the fourth-power law | loads, counts, Y, P_s, n, g, f_d | LEF, ESAL_day, GF, ESAL |
+| transport_freeway_level_of_service | Freeway level of service from density (basic segment) | V, PHF, N, P_T, E_T, S, f_p | f_HV, v_p, D, D_mi, LOS |
 
 <a id="transport_braking_distance"></a>
 
@@ -4232,3 +4239,220 @@ transportation_ai999x.solve('transport_travel_time_reliability', times=[12, 14, 
 | Travel time reliability indices with travel times = [22, 25, 24, 30, 27, 23, 35, 26, 24, 28]. | NEEDS_INPUT | transport_travel_time_reliability needs t_free (free-flow travel time in min). Example: solve('transport_travel_time_rel |
 | Travel time reliability indices with travel times = [22, 25, 24, 30, 27, 23, 35, 26, 24, 28] and free flow time = 18 min and colour = 3. | UNRECOGNIZED_FORMAT | I could not match this question to a documented form, so I will not guess. Every form: transportation_ai999x.templates() |
 | Travel time reliability indices with travel times = [22, 25, -24, 30, 27] and free flow time = 18 min. | INVALID_INPUT | Travel-time reliability indices (buffer, planning time, travel time index): every travel time must be positive. |
+
+<a id="transport_peak_hour_factor"></a>
+
+### Peak-hour factor from 15-minute counts: `transport_peak_hour_factor`
+
+The peak-hour volume (the largest sum of four consecutive 15-minute counts, the earliest if two are equal), the largest 15-minute count within that hour, the peak 15-minute flow rate (4 times it) and the peak-hour factor PHF = V / (4 V15).
+
+$$
+PHF = \frac{V}{4\,V_{15}}
+$$
+
+| input | meaning | condition |
+|---|---|---|
+| `counts` | consecutive 15-minute vehicle counts (vehicles per 15 min), at least four |  |
+
+| output | meaning |
+|---|---|
+| `V` | peak-hour volume (veh/h) |
+| `V15` | largest 15-minute count in the peak hour (veh) |
+| `v15` | peak 15-minute flow rate (veh/h) |
+| `PHF` | peak-hour factor |
+| `start` | first 15-minute interval of the peak hour (1 = the first count) |
+
+- **Method:** V = max over i of $(c_i + c_i+1 + c_i+2 + c_i+3)$; PHF = V / (4 V15), V15 the largest count in that hour
+- **Assumes:** at least four consecutive 15-minute counts, none negative; the peak hour carries vehicles; the earliest hour is taken when two hours carry the same volume
+- **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![V (peak-hour volume (veh/h)) as value 4 of counts (consecutive 15-minute vehicle counts (vehicles per 15 min), at least four) moves from 370 to 690, the other values as given ([450, 520, 610, 480]); 41 runs of transportation-ai999x](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-peak-hour-factor-sensitivity)
+
+*V (peak-hour volume (veh/h)) as value 4 of counts (consecutive 15-minute vehicle counts (vehicles per 15 min), at least four) moves from 370 to 690, the other values as given ([450, 520, 610, 480]); 41 runs of transportation-ai999x. Marked: the worked example, counts[4] = 480, V = 2060 1/h.*
+
+```python
+transportation_ai999x.solve('transport_peak_hour_factor', counts=[450, 520, 610, 480])
+# -> V = 2060 1/h, V15 = 610, v15 = 2440 1/h, PHF = 0.844262, start = 1   (SOLVED)
+```
+
+```python
+transportation_ai999x.solve('transport_peak_hour_factor', counts=[300, 350, 420, 510, 480, 390])
+# -> V = 1800 1/h, V15 = 510, v15 = 2040 1/h, PHF = 0.882353, start = 3   (SOLVED)
+```
+
+**Questions in words (documented forms), as executed:**
+
+| question | outcome | result |
+|---|---|---|
+| Peak hour factor with counts = [450, 520, 610, 480]. | SOLVED | V = 2060 1/h, V15 = 610, v15 = 2440 1/h, PHF = 0.844262, start = 1 |
+| Peak hour factor with counts = [300, 350, 420, 510, 480, 390]. | SOLVED | V = 1800 1/h, V15 = 510, v15 = 2040 1/h, PHF = 0.882353, start = 3 |
+| Peak hour factor with counts = [450, 520, 610, 480] and colour = 3. | UNRECOGNIZED_FORMAT | I could not match this question to a documented form, so I will not guess. Every form: transportation_ai999x.templates() |
+| Peak hour factor with counts = [450, -520, 610, 480]. | INVALID_INPUT | Peak-hour factor from 15-minute counts: every 15-minute count must be zero or positive. |
+
+<a id="transport_design_hourly_volume"></a>
+
+### Design hourly volume from AADT, K and D factors, `transport_design_hourly_volume`
+
+The design hourly volume DHV = K AADT (both directions) and the directional design hourly volume DDHV = D K AADT from the annual average daily traffic, the design-hour factor K and the directional factor D.
+
+$$
+DHV = K \cdot AADT,\quad DDHV = D \cdot K \cdot AADT
+$$
+
+| input | meaning | condition |
+|---|---|---|
+| `AADT` | annual average daily traffic (veh/day) |  |
+| `K` | design-hour factor K (share of the AADT in the design hour) |  |
+| `D` | directional factor D (share of the peak direction) |  |
+
+| output | meaning |
+|---|---|
+| `DHV` | design hourly volume, both directions (veh/h) |
+| `DDHV` | directional design hourly volume (veh/h) |
+
+- **Method:** DHV = K AADT; DDHV = D K AADT
+- **Assumes:** AADT > 0; $0 < K  \leq  0.3$; $0.5  \leq  D  \leq  1$
+- **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![DHV (design hourly volume, both directions (veh/h)) against AADT (annual average daily traffic (veh/day)) from 20000 to 60000](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-design-hourly-volume-curve)
+
+*DHV (design hourly volume, both directions (veh/h)) against AADT (annual average daily traffic (veh/day)) from 20000 to 60000. One curve for each value of K (design-hour factor K (share of the AADT in the design hour)): 0.1, 0.26. Other inputs as in the worked example: D = 0.6. 31 points per curve computed by transportation-ai999x; marked: the worked example, AADT = 40000, DHV = 4000 1/h.*
+
+```python
+transportation_ai999x.solve('transport_design_hourly_volume', AADT=40000.0, K=0.1, D=0.6)
+# -> DHV = 4000 1/h, DDHV = 2400 1/h   (SOLVED)
+```
+
+```python
+transportation_ai999x.solve('transport_design_hourly_volume', AADT=25000.0, K=0.12, D=0.55)
+# -> DHV = 3000 1/h, DDHV = 1650 1/h   (SOLVED)
+```
+
+**Questions in words (documented forms), as executed:**
+
+| question | outcome | result |
+|---|---|---|
+| Design hourly volume with AADT = 40000 veh/day, K = 10 % and D = 60 %. | SOLVED | DHV = 4000 1/h, DDHV = 2400 1/h |
+| Design hourly volume with AADT = 25000 veh/day, K = 12 % and D = 55 %. | SOLVED | DHV = 3000 1/h, DDHV = 1650 1/h |
+| Design hourly volume with AADT = 40000 veh/day and K = 10 %. | NEEDS_INPUT | transport_design_hourly_volume needs D (directional factor D (share of the peak direction)). Example: solve('transport_d |
+| Design hourly volume with AADT = 40000 veh/day, K = 10 % and D = 60 % and colour = 3. | UNRECOGNIZED_FORMAT | I could not match this question to a documented form, so I will not guess. Every form: transportation_ai999x.templates() |
+| Design hourly volume with AADT = 40000 veh/day, K = 10 % and D = 40 %. | INVALID_INPUT | Design hourly volume from AADT, K and D factors: the directional factor (share of the peak direction) must lie between 0 |
+
+<a id="transport_equivalent_single_axle_loads"></a>
+
+### Equivalent single-axle loads by the fourth-power law, `transport_equivalent_single_axle_loads`
+
+Load equivalency factors $(P/P_s)^{n}$ of single axles (generalized fourth-power law, standard axle 80 kN, $n = 4$ unless stated), the daily ESALs sum(count_i LEF_i), the growth factor ((1 + g)^Y - 1)/g (Y when g = 0) and the design-period ESALs = daily ESALs x 365 x growth factor x design-lane factor.
+
+$$
+ESAL = 365\,f_d\,\frac{(1+g)^Y - 1}{g}\sum_i N_i\left(\frac{P_i}{P_s}\right)^{4}
+$$
+
+| input | meaning | condition |
+|---|---|---|
+| `loads` | single-axle loads in kN |  |
+| `counts` | daily number of axles at each load |  |
+| `Y` | design period in years (whole number) |  |
+| `P_s` | standard axle load (default 80 kN) |  |
+| `n` | load-equivalency exponent (default 4) |  |
+| `g` | annual traffic growth rate (default 0) |  |
+| `f_d` | design-lane factor: directional times lane distribution (default 1) |  |
+
+| output | meaning |
+|---|---|
+| `LEF` | load equivalency factor of each axle load |
+| `ESAL_day` | ESALs per day |
+| `GF` | growth factor (equivalent years) |
+| `ESAL` | design-period ESALs |
+
+- **Method:** LEF_i = (P_i/P_s)^n; ESAL_day = sum count_i LEF_i; GF = ((1+g)^Y - 1)/g; ESAL = ESAL_day x 365 x GF x f_d
+- **Assumes:** axle loads > 0, counts >= 0, one count per load; Y a whole number of years, 1 to 50; $2  \leq  n  \leq  6$; $0  \leq  g  \leq  0.2$; $0 < f_d  \leq  1$; single axles only (tandem and tridem groups need their own standard loads)
+- **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![load equivalency factor of each axle load (LEF) returned by transportation-ai999x for the worked example, one value for each loads (single-axle loads in kN) (3 values, first 1, last 5](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-equivalent-single-axle-loads-series)
+
+*load equivalency factor of each axle load (LEF) returned by transportation-ai999x for the worked example, one value for each loads (single-axle loads in kN) (3 values, first 1, last 5.0625, largest 5.0625). Inputs: loads = [80, 100, 120], counts = [500, 200, 100], Y = 20.0.*
+
+![The data counts (daily number of axles at each load) against loads (single-axle loads in kN) as given in the worked example (3 points); drawn on it from what transportation-ai999x returned: the returned LEF](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-equivalent-single-axle-loads-xy)
+
+*The data counts (daily number of axles at each load) against loads (single-axle loads in kN) as given in the worked example (3 points); drawn on it from what transportation-ai999x returned: the returned LEF. Also returned: ESAL_day = 1494.53, GF = 20, ESAL = 1.0910e+07. Other inputs: Y = 20.0.*
+
+```python
+transportation_ai999x.solve('transport_equivalent_single_axle_loads', loads=[80, 100, 120], counts=[500, 200, 100], Y=20.0)
+# -> LEF = [1.0, 2.44140625, 5.0625], ESAL_day = 1494.53, GF = 20, ESAL = 1.09101e+07   (SOLVED)
+```
+
+```python
+transportation_ai999x.solve('transport_equivalent_single_axle_loads', loads=[60, 90], counts=[1000, 300], Y=10.0, g=0.05, f_d=0.45)
+# -> LEF = [0.31640625, 1.60180664062], ESAL_day = 796.948, GF = 12.5779, ESAL = 1.64643e+06   (SOLVED)
+```
+
+**Questions in words (documented forms), as executed:**
+
+| question | outcome | result |
+|---|---|---|
+| Equivalent single axle loads with axle loads = [80, 100, 120], daily counts = [500, 200, 100] and design period = 20 years. | SOLVED | LEF = [1.0, 2.44140625, 5.0625], ESAL_day = 1494.53, GF = 20, ESAL = 1.09101e+07 |
+| Equivalent single axle loads with axle loads = [60, 90], daily counts = [1000, 300], design period = 10 years, growth rate = 5 % and design lane factor = 0.45. | SOLVED | LEF = [0.31640625, 1.60180664062], ESAL_day = 796.948, GF = 12.5779, ESAL = 1.64643e+06 |
+| Equivalent single axle loads with axle loads = [80, 100, 120] and daily counts = [500, 200, 100]. | NEEDS_INPUT | transport_equivalent_single_axle_loads needs Y (design period in years (whole number)). Example: solve('transport_equiva |
+| Equivalent single axle loads with axle loads = [80, 100, 120], daily counts = [500, 200, 100] and design period = 20 years and colour = 3. | UNRECOGNIZED_FORMAT | I could not match this question to a documented form, so I will not guess. Every form: transportation_ai999x.templates() |
+| Equivalent single axle loads with axle loads = [80, 100], daily counts = [500, 200], design period = 20 years and growth rate = 50 %. | INVALID_INPUT | Equivalent single-axle loads by the fourth-power law: the annual growth rate must lie between 0 and 20%. |
+
+<a id="transport_freeway_level_of_service"></a>
+
+### Freeway level of service from density (basic segment), `transport_freeway_level_of_service`
+
+The peak 15-minute passenger-car flow rate per lane v_p = V / (PHF N f_HV f_p) with f_HV = 1/(1 + P_T $(E_T - 1)$), the density $D = v_p / S$ at the mean passenger-car speed S, and the level of service of a basic freeway segment from the density (A <= 11, $B  \leq  18$, $C  \leq  26$, $D  \leq  35$, $E  \leq  45$ pc/mi/ln, F above).
+
+$$
+v_p = \frac{V}{PHF\,N\,f_{HV}\,f_p},\quad f_{HV} = \frac{1}{1 + P_T(E_T - 1)},\quad D = \frac{v_p}{S}
+$$
+
+| input | meaning | condition |
+|---|---|---|
+| `V` | hourly volume, one direction (veh/h in questions; veh/s in solve(), or a string such as '600 $1/h$') |  |
+| `PHF` | peak-hour factor |  |
+| `N` | number of lanes in one direction |  |
+| `P_T` | share of heavy vehicles |  |
+| `E_T` | passenger-car equivalent of a heavy vehicle |  |
+| `S` | mean passenger-car speed |  |
+| `f_p` | driver-population factor (default 1) |  |
+
+| output | meaning |
+|---|---|
+| `f_HV` | heavy-vehicle adjustment factor |
+| `v_p` | peak 15-minute passenger-car flow rate per lane (pc/h/ln) |
+| `D` | density (pc/km/ln) |
+| `D_mi` | density (pc/mi/ln) |
+| `LOS` | level of service (A to F) |
+
+- **Method:** f_HV = 1/(1 + P_T $(E_T - 1)$); v_p = V/(PHF N f_HV f_p); $D = v_p/S$; LOS from D in pc/mi/ln
+- **Assumes:** 0.25 <= PHF <= 1; N a whole number of lanes, 1 to 8; $0  \leq  P_T < 1$; $1  \leq  E_T  \leq  8$; $0.7  \leq  f_p  \leq  1$; $30  \leq  S  \leq  140$ km/h; LOS from density only (demand above capacity, also F, is not checked: the capacity is not an input)
+- **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![level of service (A to F) (LOS) over V (hourly volume, one direction (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')) from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-freeway-level-of-service-decision)
+
+*level of service (A to F) (LOS) over V (hourly volume, one direction (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')) from 0.111111 1/s to 11.1111 1/s and N (number of lanes in one direction) from 1 to 11 (logarithmic horizontal axis): each of the 31 × 11 cells is one run of transportation-ai999x, coloured by the verdict it returned, A: 91 cells, B: 28 cells, C: 17 cells, D: 16 cells, E: 14 cells, F: 82 cells; blank cells: inputs the capability refuses. Other inputs as in the worked example: PHF = 0.92, P_T = 0.1, E_T = 2.0, S = 27.77777777777778 m/s. Marked: the worked example, V = 1.11111 1/s, N = 3 → C.*
+
+![D (density (pc/km/ln)) against N (number of lanes in one direction) from 1 to 11](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-freeway-level-of-service-curve)
+
+*D (density (pc/km/ln)) against N (number of lanes in one direction) from 1 to 11. One curve for each value of V (hourly volume, one direction (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')): 1.11111 1/s, 0.555556 1/s, 2.22222 1/s. Other inputs as in the worked example: PHF = 0.92, P_T = 0.1, E_T = 2.0, S = 27.77777777777778 m/s. 8 points per curve computed by transportation-ai999x; marked: the worked example, N = 3, D = 15.942 1/km.*
+
+```python
+transportation_ai999x.solve('transport_freeway_level_of_service', V=1.1111111111111112, PHF=0.92, N=3, P_T=0.1, E_T=2.0, S=27.77777777777778)
+# -> f_HV = 0.909091, v_p = 1594.2 1/h, D = 15.942 1/km, D_mi = 25.6562, LOS = C   (SOLVED)
+```
+
+```python
+transportation_ai999x.solve('transport_freeway_level_of_service', V=0.6666666666666666, PHF=0.85, N=2, P_T=0.05, E_T=2.5, S=25.0)
+# -> f_HV = 0.930233, v_p = 1517.65 1/h, D = 16.8627 1/km, D_mi = 27.138, LOS = D   (SOLVED)
+```
+
+**Questions in words (documented forms), as executed:**
+
+| question | outcome | result |
+|---|---|---|
+| Freeway level of service with volume = 4000 veh/h, PHF = 0.92, lanes = 3, heavy vehicles = 10 %, E_T = 2 and speed = 100 km/h. | SOLVED | f_HV = 0.909091, v_p = 1594.2 1/h, D = 15.942 1/km, D_mi = 25.6562, LOS = C |
+| Freeway level of service with volume = 2400 veh/h, PHF = 0.85, lanes = 2, heavy vehicles = 5 %, E_T = 2.5 and speed = 90 km/h. | SOLVED | f_HV = 0.930233, v_p = 1517.65 1/h, D = 16.8627 1/km, D_mi = 27.138, LOS = D |
+| Freeway level of service with volume = 4000 veh/h, PHF = 0.92, lanes = 3, heavy vehicles = 10 % and E_T = 2. | NEEDS_INPUT | transport_freeway_level_of_service needs S (mean passenger-car speed). Example: solve('transport_freeway_level_of_servic |
+| Freeway level of service with volume = 4000 veh/h, PHF = 0.92, lanes = 3, heavy vehicles = 10 %, E_T = 2 and speed = 100 km/h and colour = 3. | UNRECOGNIZED_FORMAT | I could not match this question to a documented form, so I will not guess. Every form: transportation_ai999x.templates() |
+| Freeway level of service with volume = 4000 veh/h, PHF = 1.2, lanes = 3, heavy vehicles = 10 %, E_T = 2 and speed = 100 km/h. | INVALID_INPUT | Freeway level of service from density (basic segment): the peak-hour factor must lie between 0.25 and 1. |
