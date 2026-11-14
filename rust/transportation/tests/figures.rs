@@ -55,7 +55,7 @@ const KINDS: &[(&str, &[&str])] = &[
     ("transport_superelevation_required", &["fbd"]),
     ("transport_time_and_space_mean_speed", &["distribution"]),
     ("transport_traction_limited_acceleration", &["fbd"]),
-    ("transport_train_running_time", &["decision", "profile"]),
+    ("transport_train_running_time", &["profile"]),
     ("transport_travel_time_reliability", &["data"]),
     ("transport_travel_time_skim", &["graph", "matrix"]),
     ("transport_trip_generation_regression", &["fit"]),
