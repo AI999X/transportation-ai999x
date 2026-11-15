@@ -2786,10 +2786,6 @@ $$
 
 *Speed–distance profile between stations 1500 m apart (line speed 80 km/h, acceleration 1 m/s², braking 1.2 m/s²), drawn from these inputs with the returned peak speed 80 km/h; the running time it implies agrees with the returned T = 87.8704 s (accelerate-cruise-brake).*
 
-![accelerate-cruise-brake or accelerate-brake (profile) over D (distance between stops) from 150 m to 15000 m and v_max (maximum (line) speed) from 2](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-train-running-time-decision)
-
-*accelerate-cruise-brake or accelerate-brake (profile) over D (distance between stops) from 150 m to 15000 m and v_max (maximum (line) speed) from 2.22222 m/s to 222.222 m/s (logarithmic axes): each of the 31 × 21 cells is one run of transportation-ai999x, coloured by the verdict it returned, accelerate-brake: 248 cells, accelerate-cruise-brake: 403 cells. Other inputs as in the worked example: a = 1.0 m/s^2, b = 1.2 m/s^2. Marked: the worked example, D = 1500 m, v_max = 22.2222 m/s → accelerate-cruise-brake.*
-
 ```python
 transportation_ai999x.solve('transport_train_running_time', D=1500.0, v_max=22.22222222222222, a=1.0, b=1.2)
 # -> T = 87.8704 s, v_peak = 22.2222 m/s, profile = accelerate-cruise-brake   (SOLVED)
