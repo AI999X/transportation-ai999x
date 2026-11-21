@@ -179,17 +179,13 @@ $$
 - **Assumes:** $v > 0$; $a > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![braking distance (m) (d) over v from 13](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-braking-distance-field)
+![d (braking distance (m)) against a (deceleration (magnitude)) from 1](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-braking-distance-curve)
 
-*braking distance (m) (d) over v from 13.89 to 41.67 and a from 1.7 to 5.1: each of the 143 cells is one computation of the model, shaded by its value (darker is larger; a blank cell: inputs the model refuses). Marked: the inputs given, d = 113.5. Your inputs: v = 27.77777777777778 m/s, a = 3.4 m/s^2.*
+*d (braking distance (m)) against a (deceleration (magnitude)) from 1.7 m/s^2 to 5.1 m/s^2. One curve for each value of v (initial speed): 27.7778 m/s, 13.8889 m/s, 55.5556 m/s. 31 points per curve computed by transportation-ai999x; marked: the worked example, a = 3.4 m/s^2, d = 113.471 m.*
 
-![Braking distance as v runs from 16](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-braking-distance-live-1)
+![d (braking distance (m)) over v (initial speed) from 13](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-braking-distance-field)
 
-*Braking distance as v runs from 16.67 to 38.89 m/s, every other input as you entered it (41 solutions). Marked: your v = 27.78 m/s gives d = 113.5. Your inputs: v = 27.77777777777778 m/s, a = 3.4 m/s^2.*
-
-![Braking distance as a runs from 2](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-braking-distance-live-2)
-
-*Braking distance as a runs from 2.04 to 4.76 m/s^2, every other input as you entered it (29 solutions). Marked: your a = 3.4 m/s^2 gives d = 113.5. Your inputs: v = 27.77777777777778 m/s, a = 3.4 m/s^2.*
+*d (braking distance (m)) over v (initial speed) from 13.8889 m/s to 41.6667 m/s and a (deceleration (magnitude)) from 1.7 m/s^2 to 5.1 m/s^2: each of the 21 × 15 cells is one run of transportation-ai999x, shaded by its value (light 18.9119 m to dark 510.621 m); iso-lines at d = 100, 200, 300, 400 m. Marked: the worked example, v = 27.7778 m/s, a = 3.4 m/s^2, d = 113.471 m.*
 
 ```python
 transportation_ai999x.solve('transport_braking_distance', v=27.77777777777778, a=3.4)
@@ -239,21 +235,17 @@ $$
 - **Assumes:** $v > 0$; $t_r  \geq  0$; exactly one of f, a; $f + G > 0$ (or a + g G > 0)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Stopping sight distance at 100 km/h: the reaction and braking distances the model returned, to scale](https://huggingface.co/AI999X/transportation-ai999x/resolve/main/figures/transport-stopping-sight-distance-breakdown.svg)
+![Stopping sight distance against design speed (reaction time 2](https://huggingface.co/AI999X/transportation-ai999x/resolve/main/figures/transport-stopping-sight-distance-diagram.svg)
 
-*Stopping sight distance at 100 km/h: the reaction and braking distances the model returned, to scale. Marked: 69.44 m + 113.5 m = SSD 182.9 m. Your inputs: v = 27.77777777777778 m/s, t_r = 2.5 s, a = 3.4 m/s^2.*
+*Stopping sight distance against design speed (reaction time 2.5 s, deceleration 3.4 m/s², level road), 25 speeds computed by the package: the lower band is the distance travelled during the reaction time, the upper band the braking distance. Marked: v = 100 km/h, SSD = 182.916 m (reaction 69.4444 m + braking 113.471 m).*
 
-![Stopping sight distance against design speed, 25 speeds computed by the model: the lower band is the distance travelled during the reaction time, the upper band the braking distance](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-stopping-sight-distance-diagram)
+![Stopping sight distance at v = 100 km/h (reaction time 2](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-stopping-sight-distance-breakdown)
 
-*Stopping sight distance against design speed, 25 speeds computed by the model: the lower band is the distance travelled during the reaction time, the upper band the braking distance. Marked: v = 100 km/h, SSD = 182.9 m (reaction 69.44 m + braking 113.5 m). Your inputs: v = 27.77777777777778 m/s, t_r = 2.5 s, a = 3.4 m/s^2.*
+*Stopping sight distance at v = 100 km/h (reaction time 2.5 s, deceleration 3.4 m/s²): the reaction and braking distances as returned, to scale. Marked: 69.4444 m + 113.471 m = SSD 182.916 m.*
 
-![Stopping sight distance as v runs from 16](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-stopping-sight-distance-live-1)
+![SSD (stopping sight distance (m)) against a (deceleration rate) from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-stopping-sight-distance-curve)
 
-*Stopping sight distance as v runs from 16.67 to 38.89 m/s, every other input as you entered it (41 solutions). Marked: your v = 27.78 m/s gives SSD = 182.9. Your inputs: v = 27.77777777777778 m/s, t_r = 2.5 s, a = 3.4 m/s^2.*
-
-![Stopping sight distance and braking distance as a runs from 2](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-stopping-sight-distance-live-2)
-
-*Stopping sight distance and braking distance as a runs from 2.04 to 4.76 m/s^2, every other input as you entered it (29 solutions). Marked: your a = 3.4 m/s^2 gives SSD = 182.9. Your inputs: v = 27.77777777777778 m/s, t_r = 2.5 s, a = 3.4 m/s^2.*
+*SSD (stopping sight distance (m)) against a (deceleration rate) from 0.34 m/s^2 to 34 m/s^2 on a logarithmic axis. One curve for each value of v (design speed): 27.7778 m/s, 13.8889 m/s, 55.5556 m/s. Other inputs as in the worked example: t_r = 2.5 s. 41 points per curve computed by transportation-ai999x; marked: the worked example, a = 3.4 m/s^2, SSD = 182.916 m.*
 
 ```python
 transportation_ai999x.solve('transport_stopping_sight_distance', v=27.77777777777778, t_r=2.5, a=3.4)
@@ -300,17 +292,13 @@ $$
 - **Assumes:** $d > 0$; $f > 0$; $f + G > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![initial speed (m/s) (v) over d from 15 to 45 and f from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-skid-speed-field)
+![v (initial speed (m/s)) against d (skid-mark length) from 15 m to 45 m](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-skid-speed-curve)
 
-*initial speed (m/s) (v) over d from 15 to 45 and f from 0.3 to 0.9: each of the 143 cells is one computation of the model, shaded by its value (darker is larger; a blank cell: inputs the model refuses). Marked: the inputs given, v = 18.79. Your inputs: d = 30 m, f = 0.6.*
+*v (initial speed (m/s)) against d (skid-mark length) from 15 m to 45 m. One curve for each value of f (friction coefficient): 0.6, 0.26, 0.74. 31 points per curve computed by transportation-ai999x; marked: the worked example, d = 30 m, v = 18.7926 m/s.*
 
-![Initial speed as d runs from 18 to 42 m, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-skid-speed-live-1)
+![v (initial speed (m/s)) over d (skid-mark length) from 15 m to 45 m and f (friction coefficient) from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-skid-speed-field)
 
-*Initial speed as d runs from 18 to 42 m, every other input as you entered it (41 solutions). Marked: your d = 30 m gives v = 18.79. Your inputs: d = 30 m, f = 0.6.*
-
-![Initial speed as f runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-skid-speed-live-2)
-
-*Initial speed as f runs from 0.15 to 1.05, every other input as you entered it (29 solutions). Marked: your f = 0.6 gives v = 18.79. Your inputs: d = 30 m, f = 0.6.*
+*v (initial speed (m/s)) over d (skid-mark length) from 15 m to 45 m and f (friction coefficient) from 0.02 to 0.98: each of the 21 × 15 cells is one run of transportation-ai999x, shaded by its value (light 2.42611 m/s to dark 29.415 m/s); iso-lines at v = 5, 10, 15, 20, 25 m/s. Marked: the worked example, d = 30 m, f = 0.6, v = 18.7926 m/s.*
 
 ```python
 transportation_ai999x.solve('transport_skid_speed', d=30.0, f=0.6)
@@ -358,13 +346,9 @@ $$
 - **Assumes:** $v_{1} > v_{2}  \geq  0$; $f + G > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Braking distance as v1 runs from 15 to 35 m/s, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-speed-reduction-distance-live-1)
+![d (braking distance (m)) against f (friction coefficient) from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-speed-reduction-distance-curve)
 
-*Braking distance as v1 runs from 15 to 35 m/s, every other input as you entered it (41 solutions). Marked: your v1 = 25 m/s gives d = 59.45. Your inputs: v1 = 25 m/s, v2 = 11.11111111111111 m/s, f = 0.4, G = 0.03.*
-
-![Braking distance as f runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-speed-reduction-distance-live-2)
-
-*Braking distance as f runs from 0.1 to 0.7, every other input as you entered it (29 solutions). Marked: your f = 0.4 gives d = 59.45. Your inputs: v1 = 25 m/s, v2 = 11.11111111111111 m/s, f = 0.4, G = 0.03.*
+*d (braking distance (m)) against f (friction coefficient) from 0.02 to 0.98. One curve for each value of v1 (initial speed): 25 m/s, 12.5 m/s, 50 m/s. Other inputs as in the worked example: v2 = 11.11111111111111 m/s, G = 0.03. 41 points per curve computed by transportation-ai999x; marked: the worked example, f = 0.4, d = 59.4485 m.*
 
 ```python
 transportation_ai999x.solve('transport_speed_reduction_distance', v1=25.0, v2=11.11111111111111, f=0.4, G=0.03)
@@ -414,13 +398,9 @@ $$
 - **Assumes:** $v > 0$; $D > 0$; $t_r  \geq  0$; $f + G > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Speed at the obstacle (m/s), 0 if the](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-impact-speed-live-1)
+![v_impact (speed at the obstacle (m/s), 0 if the vehicle stops before it) against D (distance to the obstacle) from 6 m to 600 m on a logarithmic axis](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-impact-speed-curve)
 
-*Speed at the obstacle (m/s), 0 if the... as v runs from 15 to 35 m/s, every other input as you entered it (41 solutions). Marked: your v = 25 m/s gives v_impact = 14.59. Your inputs: v = 25 m/s, D = 60 m, t_r = 1 s, f = 0.6.*
-
-![Speed at the obstacle (m/s), 0 if the](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-impact-speed-live-2)
-
-*Speed at the obstacle (m/s), 0 if the... as D runs from 36 to 84 m, every other input as you entered it (29 solutions). Marked: your D = 60 m gives v_impact = 14.59. Your inputs: v = 25 m/s, D = 60 m, t_r = 1 s, f = 0.6.*
+*v_impact (speed at the obstacle (m/s), 0 if the vehicle stops before it) against D (distance to the obstacle) from 6 m to 600 m on a logarithmic axis. One curve for each value of v (initial speed): 25 m/s, 12.5 m/s, 50 m/s. Other inputs as in the worked example: t_r = 1.0 s, f = 0.6. 41 points per curve computed by transportation-ai999x; marked: the worked example, D = 60 m, v_impact = 14.5938 m/s.*
 
 ```python
 transportation_ai999x.solve('transport_impact_speed', v=25.0, D=60.0, t_r=1.0, f=0.6)
@@ -467,13 +447,9 @@ $$
 - **Assumes:** $v_{2} > v_{1}  \geq  0$; $a > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Distance travelled while accelerating as v2 runs from 16](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-acceleration-distance-live-1)
+![d (distance travelled while accelerating (m)) against a (acceleration) from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-acceleration-distance-curve)
 
-*Distance travelled while accelerating as v2 runs from 16.67 to 38.89 m/s, every other input as you entered it (41 solutions). Marked: your v2 = 27.78 m/s gives d = 270.1. Your inputs: v1 = 11.11111111111111 m/s, v2 = 27.77777777777778 m/s, a = 1.2 m/s^2.*
-
-![Distance travelled while accelerating as a runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-acceleration-distance-live-2)
-
-*Distance travelled while accelerating as a runs from 0.72 to 1.68 m/s^2, every other input as you entered it (29 solutions). Marked: your a = 1.2 m/s^2 gives d = 270.1. Your inputs: v1 = 11.11111111111111 m/s, v2 = 27.77777777777778 m/s, a = 1.2 m/s^2.*
+*d (distance travelled while accelerating (m)) against a (acceleration) from 0.6 m/s^2 to 1.8 m/s^2. One curve for each value of v2 (final speed): 27.7778 m/s, 13.8889 m/s, 55.5556 m/s. Other inputs as in the worked example: v1 = 11.11111111111111 m/s. 31 points per curve computed by transportation-ai999x; marked: the worked example, a = 1.2 m/s^2, d = 270.062 m.*
 
 ```python
 transportation_ai999x.solve('transport_acceleration_distance', v1=11.11111111111111, v2=27.77777777777778, a=1.2)
@@ -521,17 +497,13 @@ $$
 - **Assumes:** $v > 0$; a + g $G > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![A vehicle approaching a signal at 50 km/h: from the critical distance the model returned, x_c = 45](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-yellow-change-interval-schematic)
+![A vehicle approaching a signal at v = 50 km/h (reaction time 1](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-yellow-change-interval-schematic)
 
-*A vehicle approaching a signal at 50 km/h: from the critical distance the model returned, x_c = 45.51 m, it can just stop at the line; the yellow change interval returned is Y = 3.277 s. Your inputs: v = 13.88888888888889 m/s, t_r = 1 s, a = 3.05 m/s^2.*
+*A vehicle approaching a signal at v = 50 km/h (reaction time 1.0 s, deceleration 3.05 m/s²): from the returned critical distance x_c = 45.512 m it can just stop; the returned yellow change interval is Y = 3.27687 s. Distances to scale.*
 
-![Yellow change interval as v runs from 8](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-yellow-change-interval-live-1)
+![Y (yellow change interval (s)) against a (comfortable deceleration rate) from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-yellow-change-interval-curve)
 
-*Yellow change interval as v runs from 8.333 to 19.44 m/s, every other input as you entered it (41 solutions). Marked: your v = 13.89 m/s gives Y = 3.277. Your inputs: v = 13.88888888888889 m/s, t_r = 1 s, a = 3.05 m/s^2.*
-
-![Yellow change interval as a runs from 1](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-yellow-change-interval-live-2)
-
-*Yellow change interval as a runs from 1.83 to 4.27 m/s^2, every other input as you entered it (29 solutions). Marked: your a = 3.05 m/s^2 gives Y = 3.277. Your inputs: v = 13.88888888888889 m/s, t_r = 1 s, a = 3.05 m/s^2.*
+*Y (yellow change interval (s)) against a (comfortable deceleration rate) from 0.305 m/s^2 to 30.5 m/s^2 on a logarithmic axis. One curve for each value of v (approach speed): 13.8889 m/s, 6.94444 m/s, 27.7778 m/s. Other inputs as in the worked example: t_r = 1.0 s. 41 points per curve computed by transportation-ai999x; marked: the worked example, a = 3.05 m/s^2, Y = 3.27687 s.*
 
 ```python
 transportation_ai999x.solve('transport_yellow_change_interval', v=13.88888888888889, t_r=1.0, a=3.05)
@@ -579,13 +551,9 @@ $$
 - **Assumes:** $v  \geq  0$; $a > 0$; $s > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Distance travelled by the passing vehicle as v runs from 11](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-overtaking-manoeuvre-live-1)
+![t (time to complete the overtaking (s)) against a (acceleration of the passing vehicle) from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-overtaking-manoeuvre-curve)
 
-*Distance travelled by the passing vehicle as v runs from 11.67 to 27.22 m/s, every other input as you entered it (41 solutions). Marked: your v = 19.44 m/s gives d = 233.9. Your inputs: v = 19.444444444444446 m/s, a = 1.5 m/s^2, s = 60 m.*
-
-![Time to complete the overtaking as s runs from 36 to 84 m, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-overtaking-manoeuvre-live-2)
-
-*Time to complete the overtaking as s runs from 36 to 84 m, every other input as you entered it (29 solutions). Marked: your s = 60 m gives t = 8.944. Your inputs: v = 19.444444444444446 m/s, a = 1.5 m/s^2, s = 60 m.*
+*t (time to complete the overtaking (s)) against a (acceleration of the passing vehicle) from 0.75 m/s^2 to 2.25 m/s^2. One curve for each value of s (relative distance to gain): 60 m, 30 m, 120 m. Other inputs as in the worked example: v = 19.444444444444446 m/s. 31 points per curve computed by transportation-ai999x; marked: the worked example, a = 1.5 m/s^2, t = 8.94427 s.*
 
 ```python
 transportation_ai999x.solve('transport_overtaking_manoeuvre', v=19.444444444444446, a=1.5, s=60.0)
@@ -640,13 +608,9 @@ $$
 - **Assumes:** m, v1, mu, C_D, $A > 0$; $0 < \eta  \leq  1$; $v_{2} < v_{1}$; a positive constant retarding force
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Braking distance as v1 runs from 20 to 46](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-braking-with-air-resistance-live-1)
+![S (braking distance (m)) against mu (tyre-road friction coefficient) from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-braking-with-air-resistance-curve)
 
-*Braking distance as v1 runs from 20 to 46.67 m/s, every other input as you entered it (41 solutions). Marked: your v1 = 33.33 m/s gives S = 84.83. Your inputs: m = 1500 kg, v1 = 33.333333333333336 m/s, mu = 0.7, C_D = 0.35, A = 2.2 m^2, f_r = 0.012, eta = 0.95.*
-
-![Braking distance as μ runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-braking-with-air-resistance-live-2)
-
-*Braking distance as μ runs from 0.175 to 1.225, every other input as you entered it (29 solutions). Marked: your μ = 0.7 gives S = 84.83. Your inputs: m = 1500 kg, v1 = 33.333333333333336 m/s, mu = 0.7, C_D = 0.35, A = 2.2 m^2, f_r = 0.012, eta = 0.95.*
+*S (braking distance (m)) against mu (tyre-road friction coefficient) from 0.02 to 0.98. One curve for each value of v1 (initial speed): 33.3333 m/s, 16.6667 m/s, 66.6667 m/s. Other inputs as in the worked example: m = 1500.0 kg, C_D = 0.35, A = 2.2 m^2, f_r = 0.012, eta = 0.95. 41 points per curve computed by transportation-ai999x; marked: the worked example, mu = 0.7, S = 84.8295 m.*
 
 ```python
 transportation_ai999x.solve('transport_braking_with_air_resistance', m=1500.0, v1=33.333333333333336, mu=0.7, C_D=0.35, A=2.2, f_r=0.012, eta=0.95)
@@ -699,13 +663,9 @@ $$
 - **Assumes:** $v_{2} < v_{1}$; $F_{0} = W$ (f_r cos(theta) + sin(theta)) > 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Coast-down time as v2 runs from 10 to 23](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-coast-down-live-1)
+![t (coast-down time (s)) against C_D (drag coefficient) from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-coast-down-curve)
 
-*Coast-down time as v2 runs from 10 to 23.33 m/s, every other input as you entered it (41 solutions). Marked: your v2 = 16.67 m/s gives t = 42.25. Your inputs: m = 1400 kg, v1 = 27.77777777777778 m/s, v2 = 16.666666666666668 m/s, C_D = 0.32, A = 2.2 m^2.*
-
-![Coast-down time as v1 runs from 17](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-coast-down-live-2)
-
-*Coast-down time as v1 runs from 17.46 to 38.89 m/s, every other input as you entered it (28 solutions). Marked: your v1 = 27.78 m/s gives t = 42.25. Your inputs: m = 1400 kg, v1 = 27.77777777777778 m/s, v2 = 16.666666666666668 m/s, C_D = 0.32, A = 2.2 m^2.*
+*t (coast-down time (s)) against C_D (drag coefficient) from 0.02 to 0.98. One curve for each value of v2 (final speed): 16.6667 m/s, 8.33333 m/s. Other inputs as in the worked example: m = 1400.0 kg, v1 = 27.77777777777778 m/s, A = 2.2 m^2. 41 points per curve computed by transportation-ai999x; marked: the worked example, C_D = 0.32, t = 42.2501 s.*
 
 ```python
 transportation_ai999x.solve('transport_coast_down', m=1400.0, v1=27.77777777777778, v2=16.666666666666668, C_D=0.32, A=2.2)
@@ -760,13 +720,9 @@ $$
 - **Assumes:** v1, $v_{2} > 0$ on the same side of the equilibrium speed; $\eta  \leq  1$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Time to change speed as v2 runs from 16](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-acceleration-under-power-live-1)
+![t (time to change speed (s)) against m (vehicle mass) from 150 kg to 15000 kg on a logarithmic axis](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-acceleration-under-power-curve)
 
-*Time to change speed as v2 runs from 16.67 to 38.89 m/s, every other input as you entered it (41 solutions). Marked: your v2 = 27.78 m/s gives t = 8.32. Your inputs: m = 1500 kg, P = 75000 W, v1 = 5.555555555555555 m/s, v2 = 27.77777777777778 m/s, C_D = 0.32, A = 2.2 m^2.*
-
-![Time to change speed as P runs from 4](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-acceleration-under-power-live-2)
-
-*Time to change speed as P runs from 4.5e+04 to 1.05e+05 W, every other input as you entered it (29 solutions). Marked: your P = 7.5e+04 W gives t = 8.32. Your inputs: m = 1500 kg, P = 75000 W, v1 = 5.555555555555555 m/s, v2 = 27.77777777777778 m/s, C_D = 0.32, A = 2.2 m^2.*
+*t (time to change speed (s)) against m (vehicle mass) from 150 kg to 15000 kg on a logarithmic axis. One curve for each value of v2 (final speed): 27.7778 m/s, 13.8889 m/s. Other inputs as in the worked example: P = 75000.0 W, v1 = 5.555555555555555 m/s, C_D = 0.32, A = 2.2 m^2. 41 points per curve computed by transportation-ai999x; marked: the worked example, m = 1500 kg, t = 8.32025 s.*
 
 ```python
 transportation_ai999x.solve('transport_acceleration_under_power', m=1500.0, P=75000.0, v1=5.555555555555555, v2=27.77777777777778, C_D=0.32, A=2.2)
@@ -819,21 +775,13 @@ $$
 - **Assumes:** $0 < l_f < L$; mu $h < L$ for rear-wheel drive; both axles keep contact
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Side view of a rear-drive vehicle (wheelbase 2](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-traction-limited-acceleration-fbd)
+![Side view of a rear-wheel-drive vehicle (m = 1500 kg, wheelbase 2](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-traction-limited-acceleration-fbd)
 
-*Side view of a rear-drive vehicle (wheelbase 2.7 m, CG 1.1 m behind the front axle and 0.55 m high, drawn to scale) accelerating to the left at its traction limit. Marked: the largest tractive force the model returned, 5.695 kN, acceleration 3.679 m/s² and axle loads front 7.596 kN, rear 7.119 kN. In SI units: F_max = 5695 N. Your inputs: m = 1500 kg, L = 2.7 m, l_f = 1.1 m, h = 0.55 m, mu = 0.8, f_r = 0.012, drive = rear.*
+*Side view of a rear-wheel-drive vehicle (m = 1500 kg, wheelbase 2.7 m, CG 1.1 m behind the front axle, 0.55 m high, μ = 0.8, rolling resistance 0.012) accelerating to the left at its traction limit. Marked: the returned largest tractive force 5.69536 kN at the driven wheels, acceleration 3.67918 m/s² and axle loads front 7.5958 kN, rear 7.1192 kN.*
 
-![Maximum tractive force, front axle load and rear axle load as L runs from 1](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-traction-limited-acceleration-live-1)
+![F_max (maximum tractive force (N)) against h (height of the centre of gravity) from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-traction-limited-acceleration-curve)
 
-*Maximum tractive force, front axle load and rear axle load as L runs from 1.62 to 3.78 m, every other input as you entered it (41 solutions). Marked: your L = 2.7 m gives F_max = 5695. Your inputs: m = 1500 kg, L = 2.7 m, l_f = 1.1 m, h = 0.55 m, mu = 0.8, f_r = 0.012, drive = rear.*
-
-![Maximum tractive force for every choice of drive, every other input as you entered it (highlighted: your choice)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-traction-limited-acceleration-live-2)
-
-*Maximum tractive force for every choice of drive, every other input as you entered it (highlighted: your choice). rear: 5695; front: 6023; all: 1.177e+04. Your inputs: m = 1500 kg, L = 2.7 m, l_f = 1.1 m, h = 0.55 m, mu = 0.8, f_r = 0.012, drive = rear.*
-
-![Maximum tractive force, front axle load and rear axle load as μ runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-traction-limited-acceleration-live-3)
-
-*Maximum tractive force, front axle load and rear axle load as μ runs from 0.2 to 1.4, every other input as you entered it (29 solutions). Marked: your μ = 0.8 gives F_max = 5695. Your inputs: m = 1500 kg, L = 2.7 m, l_f = 1.1 m, h = 0.55 m, mu = 0.8, f_r = 0.012, drive = rear.*
+*F_max (maximum tractive force (N)) against h (height of the centre of gravity) from 0.055 m to 5.5 m on a logarithmic axis. One curve for each value of m (vehicle mass): 1500 kg, 750 kg, 3000 kg. Other inputs as in the worked example: L = 2.7 m, l_f = 1.1 m, mu = 0.8, f_r = 0.012, drive = rear. 32 points per curve computed by transportation-ai999x; marked: the worked example, h = 0.55 m, F_max = 5695.36 N.*
 
 ```python
 transportation_ai999x.solve('transport_traction_limited_acceleration', m=1500.0, L=2.7, l_f=1.1, h=0.55, mu=0.8, f_r=0.012, drive='rear')
@@ -884,17 +832,13 @@ $$
 - **Assumes:** $a > 0$ (deceleration); $0 < l_f < L$; the rear axle keeps contact
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Side view of a vehicle (wheelbase 2](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-braking-weight-transfer-fbd)
+![Side view of a vehicle (m = 1500 kg, wheelbase 2](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-braking-weight-transfer-fbd)
 
-*Side view of a vehicle (wheelbase 2.7 m, CG 1.2 m behind the front axle and 0.55 m high, drawn to scale) braking at 7 m/s² towards the left. Marked: the dynamic axle loads the model returned, front 10.31 kN and rear 4.401 kN (arrows to one scale), the load transferred 2.139 kN and the ideal front brake share 0.7009. In SI units: W_f = 1.031e+04 N. Your inputs: m = 1500 kg, a = 7 m/s^2, h = 0.55 m, L = 2.7 m, l_f = 1.2 m.*
+*Side view of a vehicle (m = 1500 kg, wheelbase 2.7 m, CG 1.2 m behind the front axle and 0.55 m high, drawn to scale) braking at 7 m/s² towards the left. Marked: the returned dynamic axle loads front 10.3139 kN and rear 4.40111 kN (arrows to one scale), the load transferred 2.13889 kN and the ideal front brake share 0.70091; the inertia force m·a is drawn at the CG.*
 
-![Front axle load and rear axle load as l_f runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-braking-weight-transfer-live-1)
+![W_f (front axle load (N)) against L (wheelbase) from 1](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-braking-weight-transfer-curve)
 
-*Front axle load and rear axle load as l_f runs from 0.72 to 1.68 m, every other input as you entered it (41 solutions). Marked: your l_f = 1.2 m gives W_f = 1.031e+04. Your inputs: m = 1500 kg, a = 7 m/s^2, h = 0.55 m, L = 2.7 m, l_f = 1.2 m.*
-
-![Front axle load as m runs from 900 to 2100 kg, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-braking-weight-transfer-live-2)
-
-*Front axle load as m runs from 900 to 2100 kg, every other input as you entered it (29 solutions). Marked: your m = 1500 kg gives W_f = 1.031e+04. Your inputs: m = 1500 kg, a = 7 m/s^2, h = 0.55 m, L = 2.7 m, l_f = 1.2 m.*
+*W_f (front axle load (N)) against L (wheelbase) from 1.35 m to 4.05 m. One curve for each value of m (vehicle mass): 1500 kg, 750 kg, 3000 kg. Other inputs as in the worked example: a = 7.0 m/s^2, h = 0.55 m, l_f = 1.2 m. 31 points per curve computed by transportation-ai999x; marked: the worked example, L = 2.7 m, W_f = 10313.9 N.*
 
 ```python
 transportation_ai999x.solve('transport_braking_weight_transfer', m=1500.0, a=7.0, h=0.55, L=2.7, l_f=1.2)
@@ -943,17 +887,13 @@ $$
 - **Assumes:** all inputs positive; the inner wheels keep contact
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Rear view of a vehicle (track 1](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-lateral-load-transfer-fbd)
+![Rear view of a vehicle (m = 1500 kg, track 1](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-lateral-load-transfer-fbd)
 
-*Rear view of a vehicle (track 1.55 m, CG 0.55 m high, drawn to scale) turning left at a lateral acceleration of 0.6 m/s²: the outward inertia force at the CG and the wheel loads the model returned, outer 7.677 kN and inner 7.038 kN (arrows to one scale); load transferred 319.4 N. In SI units: W_out = 7677 N. Your inputs: m = 1500 kg, a_y = 0.6 m/s^2, h = 0.55 m, t_w = 1.55 m.*
+*Rear view of a vehicle (m = 1500 kg, track 1.55 m, CG 0.55 m high, drawn to scale) turning left at a lateral acceleration a_y = 0.6 m/s²: the outward inertia force at the CG and the returned wheel loads outer 7.67685 kN and inner 7.03815 kN (arrows to one scale); load transferred 0.319355 kN.*
 
-![Load on the outer wheels and load on the inner wheels as m runs from 900 to 2100 kg, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-lateral-load-transfer-live-1)
+![W_out (load on the outer wheels (N)) against t_w (track width) from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-lateral-load-transfer-curve)
 
-*Load on the outer wheels and load on the inner wheels as m runs from 900 to 2100 kg, every other input as you entered it (41 solutions). Marked: your m = 1500 kg gives W_out = 7677. Your inputs: m = 1500 kg, a_y = 0.6 m/s^2, h = 0.55 m, t_w = 1.55 m.*
-
-![Load on the outer wheels as a_y runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-lateral-load-transfer-live-2)
-
-*Load on the outer wheels as a_y runs from 0.36 to 0.84 m/s^2, every other input as you entered it (29 solutions). Marked: your a_y = 0.6 m/s^2 gives W_out = 7677. Your inputs: m = 1500 kg, a_y = 0.6 m/s^2, h = 0.55 m, t_w = 1.55 m.*
+*W_out (load on the outer wheels (N)) against t_w (track width) from 0.155 m to 15.5 m on a logarithmic axis. One curve for each value of m (vehicle mass): 1500 kg, 750 kg, 3000 kg. Other inputs as in the worked example: a_y = 0.6 m/s^2, h = 0.55 m. 41 points per curve computed by transportation-ai999x; marked: the worked example, t_w = 1.55 m, W_out = 7676.85 N.*
 
 ```python
 transportation_ai999x.solve('transport_lateral_load_transfer', m=1500.0, a_y=0.6, h=0.55, t_w=1.55)
@@ -1004,15 +944,11 @@ $$
 
 ![Rear view of a vehicle with track 1](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-rollover-threshold-fbd)
 
-*Rear view of a vehicle with track 1.55 m and CG height 0.6 m (to scale); the green line from the CG to the outer wheel's contact shows the tipping geometry. Marked: the static stability factor the model returned, 1.292, and the rollover speed 128.1 km/h on a curve of radius 100 m. Your inputs: t_w = 1.55 m, h = 0.6 m, R = 100 m.*
+*Rear view of a vehicle with track 1.55 m and CG height 0.6 m (to scale); the green line from the CG to the outer wheel's contact shows the tipping geometry. Marked: the returned static stability factor 1.29167 and the rollover speed 128.148 km/h on a curve of radius 100.0 m.*
 
-![SSF as t_w runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-rollover-threshold-live-1)
+![SSF (static stability factor t / (2h) (rollover threshold in g)) against h (height of the centre of gravity) from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-rollover-threshold-curve)
 
-*SSF as t_w runs from 0.93 to 2.17 m, every other input as you entered it (41 solutions). Marked: your t_w = 1.55 m gives SSF = 1.292. Your inputs: t_w = 1.55 m, h = 0.6 m, R = 100 m.*
-
-![SSF as h runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-rollover-threshold-live-2)
-
-*SSF as h runs from 0.36 to 0.84 m, every other input as you entered it (29 solutions). Marked: your h = 0.6 m gives SSF = 1.292. Your inputs: t_w = 1.55 m, h = 0.6 m, R = 100 m.*
+*SSF (static stability factor t / (2h) (rollover threshold in g)) against h (height of the centre of gravity) from 0.3 m to 0.9 m. One curve for each value of t_w (track width): 1.55 m, 0.775 m, 3.1 m. Other inputs as in the worked example: R = 100.0 m. 31 points per curve computed by transportation-ai999x; marked: the worked example, h = 0.6 m, SSF = 1.29167.*
 
 ```python
 transportation_ai999x.solve('transport_rollover_threshold', t_w=1.55, h=0.6, R=100.0)
@@ -1059,17 +995,13 @@ $$
 - **Assumes:** $R > 0$; $f > 0$; e $f < 1$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![A banked carriageway with superelevation e = 0](https://huggingface.co/AI999X/transportation-ai999x/resolve/main/figures/transport-curve-safe-speed-fbd.svg)
+![A banked carriageway with superelevation e = 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-curve-safe-speed-fbd)
 
-*A banked carriageway with superelevation e = 0.06 (cross-slope to scale) on a radius R = 300 m with side friction f = 0.12: weight, normal reaction and the centripetal direction. Marked: the safe speed the model returned, 83.16 km/h. In SI units: v = 23.1 m/s. Your inputs: R = 300 m, e = 0.06, f = 0.12.*
+*A banked carriageway with superelevation e = 0.06 (cross-slope to scale) on a radius R = 300.0 m with side friction f = 0.12: weight, normal reaction and the centripetal direction. Marked: the returned safe speed 83.1578 km/h (23.0994 m/s).*
 
-![Maximum safe speed as R runs from 180 to 420 m, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-curve-safe-speed-live-1)
+![v (maximum safe speed (m/s)) against e (superelevation rate, decimal) from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-curve-safe-speed-curve)
 
-*Maximum safe speed as R runs from 180 to 420 m, every other input as you entered it (41 solutions). Marked: your R = 300 m gives v = 23.1. Your inputs: R = 300 m, e = 0.06, f = 0.12.*
-
-![Maximum safe speed as f runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-curve-safe-speed-live-2)
-
-*Maximum safe speed as f runs from 0.03 to 0.21, every other input as you entered it (29 solutions). Marked: your f = 0.12 gives v = 23.1. Your inputs: R = 300 m, e = 0.06, f = 0.12.*
+*v (maximum safe speed (m/s)) against e (superelevation rate, decimal) from 0.006 to 0.6 on a logarithmic axis. One curve for each value of R (curve radius): 300 m, 150 m, 600 m. Other inputs as in the worked example: f = 0.12. 41 points per curve computed by transportation-ai999x; marked: the worked example, e = 0.06, v = 23.0994 m/s.*
 
 ```python
 transportation_ai999x.solve('transport_curve_safe_speed', R=300.0, e=0.06, f=0.12)
@@ -1115,13 +1047,9 @@ $$
 - **Assumes:** $v > 0$; $f > 0$; e $f < 1$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Minimum curve radius as v runs from 16](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-minimum-curve-radius-live-1)
+![R_min (minimum curve radius (m)) against f (side friction factor) from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-minimum-curve-radius-curve)
 
-*Minimum curve radius as v runs from 16.67 to 38.89 m/s, every other input as you entered it (41 solutions). Marked: your v = 27.78 m/s gives R_min = 389.5. Your inputs: v = 27.77777777777778 m/s, e = 0.08, f = 0.12.*
-
-![Minimum curve radius as f runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-minimum-curve-radius-live-2)
-
-*Minimum curve radius as f runs from 0.03 to 0.21, every other input as you entered it (29 solutions). Marked: your f = 0.12 gives R_min = 389.5. Your inputs: v = 27.77777777777778 m/s, e = 0.08, f = 0.12.*
+*R_min (minimum curve radius (m)) against f (side friction factor) from 0.02 to 0.98. One curve for each value of v (design speed): 27.7778 m/s, 13.8889 m/s, 55.5556 m/s. Other inputs as in the worked example: e = 0.08. 41 points per curve computed by transportation-ai999x; marked: the worked example, f = 0.12, R_min = 389.499 m.*
 
 ```python
 transportation_ai999x.solve('transport_minimum_curve_radius', v=27.77777777777778, e=0.08, f=0.12)
@@ -1167,13 +1095,9 @@ $$
 - **Assumes:** $v > 0$; $R > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Side friction factor demanded as v runs from 15 to 35 m/s, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-side-friction-demand-live-1)
+![f (side friction factor demanded) against v (design speed) from 2](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-side-friction-demand-curve)
 
-*Side friction factor demanded as v runs from 15 to 35 m/s, every other input as you entered it (41 solutions). Marked: your v = 25 m/s gives f = 0.1919. Your inputs: v = 25 m/s, R = 250 m, e = 0.06.*
-
-![Side friction factor demanded as R runs from 150 to 350 m, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-side-friction-demand-live-2)
-
-*Side friction factor demanded as R runs from 150 to 350 m, every other input as you entered it (29 solutions). Marked: your R = 250 m gives f = 0.1919. Your inputs: v = 25 m/s, R = 250 m, e = 0.06.*
+*f (side friction factor demanded) against v (design speed) from 2.5 m/s to 250 m/s on a logarithmic axis. One curve for each value of R (curve radius): 250 m, 125 m, 500 m. Other inputs as in the worked example: e = 0.06. 41 points per curve computed by transportation-ai999x; marked: the worked example, v = 25 m/s, f = 0.191908.*
 
 ```python
 transportation_ai999x.solve('transport_side_friction_demand', v=25.0, R=250.0, e=0.06)
@@ -1220,17 +1144,13 @@ $$
 - **Assumes:** $v > 0$; $R > 0$; $f  \geq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![A banked carriageway (cross-slope to scale) for a speed of 100 km/h on a radius R = 450 m with side friction f = 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-superelevation-required-fbd)
+![A banked carriageway (cross-slope to scale, exaggerated vehicle) for a speed v = 100 km/h on a radius R = 450](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-superelevation-required-fbd)
 
-*A banked carriageway (cross-slope to scale) for a speed of 100 km/h on a radius R = 450 m with side friction f = 0.12: weight, normal reaction and the centripetal direction. Marked: the superelevation the model returned, e = 5.366 %. In SI units: e = 0.05366. Your inputs: v = 27.77777777777778 m/s, R = 450 m, f = 0.12.*
+*A banked carriageway (cross-slope to scale, exaggerated vehicle) for a speed v = 100 km/h on a radius R = 450.0 m with side friction f = 0.12: weight, normal reaction and the centripetal direction. Marked: the returned superelevation e = 5.36632 %.*
 
-![Superelevation rate as v runs from 16](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-superelevation-required-live-1)
+![e (superelevation rate (decimal)) against R (curve radius) from 45 m to 4500 m on a logarithmic axis](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-superelevation-required-curve)
 
-*Superelevation rate as v runs from 16.67 to 38.89 m/s, every other input as you entered it (41 solutions). Marked: your v = 27.78 m/s gives e = 0.05366. Your inputs: v = 27.77777777777778 m/s, R = 450 m, f = 0.12.*
-
-![Superelevation rate as R runs from 270 to 630 m, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-superelevation-required-live-2)
-
-*Superelevation rate as R runs from 270 to 630 m, every other input as you entered it (29 solutions). Marked: your R = 450 m gives e = 0.05366. Your inputs: v = 27.77777777777778 m/s, R = 450 m, f = 0.12.*
+*e (superelevation rate (decimal)) against R (curve radius) from 45 m to 4500 m on a logarithmic axis. One curve for each value of f (side friction factor): 0.12, 0.26, 0.74. Other inputs as in the worked example: v = 27.77777777777778 m/s. 38 points per curve computed by transportation-ai999x; marked: the worked example, R = 450 m, e = 0.0536632.*
 
 ```python
 transportation_ai999x.solve('transport_superelevation_required', v=27.77777777777778, R=450.0, f=0.12)
@@ -1279,21 +1199,13 @@ $$
 - **Assumes:** $g_{1} > g_{2}$; $S > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Road profile between grades g1 = 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-crest-curve-length-profile)
+![The shortest crest vertical curve between grades g1 = 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-crest-curve-length-profile)
 
-*Road profile between grades g1 = 0.03 and g2 = -0.02 with the shortest crest curve the model returned for a sight distance S = 185 m, L = 260.1 m (case S < L), drawn from the grades and that length (PVI at station 0; heights exaggerated by the axes); the sight distance is shown as a length centred on the crest. Your inputs: g1 = 0.03, g2 = -0.02, S = 185 m.*
+*The shortest crest vertical curve between grades g1 = 0.03 and g2 = -0.02 that gives a sight distance S = 185 m (eye 1.08 m, object 0.6 m): the returned length L = 260.071 m, case S < L. The road profile is drawn from the stated grades and the length L = 260.071 m (PVI at station 0); the sight line from the eye (1.08 m) to the object (0.6 m) touches the curve at its crest and is 185 m long, as returned. Heights are exaggerated by the axes.*
 
-![Minimum curve length as S runs from 111 to 259 m, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-crest-curve-length-live-1)
+![S < L, S > L or no curve needed (case) over S (required sight distance) from 18](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-crest-curve-length-decision)
 
-*Minimum curve length as S runs from 111 to 259 m, every other input as you entered it (41 solutions). Marked: your S = 185 m gives L = 260.1. Shaded by S < L, S > L or no curve needed: S > L, S < L. Your inputs: g1 = 0.03, g2 = -0.02, S = 185 m.*
-
-![S < L, S > L or no curve needed for 25 5 x 5 combinations of S and g1 around your inputs (the other inputs as entered); the ring marks your inputs, which give S < L](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-crest-curve-length-live-2)
-
-*S < L, S > L or no curve needed for 25 5 x 5 combinations of S and g1 around your inputs (the other inputs as entered); the ring marks your inputs, which give S < L. Blank cells admit no answer. Your inputs: g1 = 0.03, g2 = -0.02, S = 185 m.*
-
-![Minimum curve length as g1 runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-crest-curve-length-live-3)
-
-*Minimum curve length as g1 runs from 0.0075 to 0.0525, every other input as you entered it (27 solutions). Marked: your g1 = 0.03 gives L = 260.1. Shaded by S < L, S > L or no curve needed: S > L, S < L. Your inputs: g1 = 0.03, g2 = -0.02, S = 185 m.*
+*S < L, S > L or no curve needed (case) over S (required sight distance) from 18.5 m to 1850 m and g1 (grade before the curve, decimal (positive uphill)) from 0.003 to 0.3 (logarithmic axes): each of the 31 × 21 cells is one run of transportation-ai999x, coloured by the verdict it returned, S < L: 401 cells, S > L: 87 cells, no curve needed: 163 cells. Other inputs as in the worked example: g2 = -0.02. Marked: the worked example, S = 185 m, g1 = 0.03 → S < L.*
 
 ```python
 transportation_ai999x.solve('transport_crest_curve_length', g1=0.03, g2=-0.02, S=185.0)
@@ -1342,21 +1254,13 @@ $$
 - **Assumes:** $g_{1} > g_{2}$; $L  \geq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Road profile between grades g1 = 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-crest-curve-sight-distance-profile)
+![A crest vertical curve between grades g1 = 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-crest-curve-sight-distance-profile)
 
-*Road profile between grades g1 = 0.03 and g2 = -0.02 with a crest curve of length L = 300 m and the sight distance the model returned, S = 198.7 m (case S < L), drawn from the grades and that length (PVI at station 0; heights exaggerated by the axes); the sight distance is shown as a length centred on the crest. Your inputs: g1 = 0.03, g2 = -0.02, L = 300 m.*
+*A crest vertical curve between grades g1 = 0.03 and g2 = -0.02, length L = 300 m (eye height 1.08 m, object height 0.6 m). Marked: the returned sight distance S = 198.695 m, case S < L. The road profile is drawn from the stated grades and the length L = 300 m (PVI at station 0); the sight line from the eye (1.08 m) to the object (0.6 m) touches the curve at its crest and is 198.695 m long, as returned. Heights are exaggerated by the axes.*
 
-![Available sight distance as L runs from 180 to 420 m, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-crest-curve-sight-distance-live-1)
+![S < L or S > L (case) over L (curve length) from 30 m to 3000 m and g1 (grade before the curve, decimal (positive uphill)) from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-crest-curve-sight-distance-decision)
 
-*Available sight distance as L runs from 180 to 420 m, every other input as you entered it (41 solutions). Marked: your L = 300 m gives S = 198.7. Your inputs: g1 = 0.03, g2 = -0.02, L = 300 m.*
-
-![S < L or S > L for 25 5 x 5 combinations of L and g1 around your inputs (the other inputs as entered); the ring marks your inputs, which give S < L](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-crest-curve-sight-distance-live-2)
-
-*S < L or S > L for 25 5 x 5 combinations of L and g1 around your inputs (the other inputs as entered); the ring marks your inputs, which give S < L. Blank cells admit no answer. Your inputs: g1 = 0.03, g2 = -0.02, L = 300 m.*
-
-![Available sight distance as g1 runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-crest-curve-sight-distance-live-3)
-
-*Available sight distance as g1 runs from 0.0075 to 0.0525, every other input as you entered it (27 solutions). Marked: your g1 = 0.03 gives S = 198.7. Your inputs: g1 = 0.03, g2 = -0.02, L = 300 m.*
+*S < L or S > L (case) over L (curve length) from 30 m to 3000 m and g1 (grade before the curve, decimal (positive uphill)) from 0.003 to 0.3 (logarithmic axes): each of the 31 × 21 cells is one run of transportation-ai999x, coloured by the verdict it returned, S < L: 465 cells, S > L: 186 cells. Other inputs as in the worked example: g2 = -0.02. Marked: the worked example, L = 300 m, g1 = 0.03 → S < L.*
 
 ```python
 transportation_ai999x.solve('transport_crest_curve_sight_distance', g1=0.03, g2=-0.02, L=300.0)
@@ -1401,17 +1305,13 @@ $$
 - **Assumes:** $R > 0$; $0 < S < pi$ R
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Plan of the inside lane of a curve of radius R = 300 m with a sight distance S = 160 m along the lane: the sight line is the chord between driver and object, and the clearance it needs to the obstruction is the middle ordinate the model returned, M = 10](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-horizontal-sight-offset-geometry)
+![Plan of the inside lane of a curve of radius R = 300 m with a sight distance S = 160 m measured along the lane: the sight line is the chord between driver and object, and the clear distance it needs to the obstruction is the returned middle ordinate M = 10](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-horizontal-sight-offset-geometry)
 
-*Plan of the inside lane of a curve of radius R = 300 m with a sight distance S = 160 m along the lane: the sight line is the chord between driver and object, and the clearance it needs to the obstruction is the middle ordinate the model returned, M = 10.6 m (geometry to scale). Your inputs: R = 300 m, S = 160 m.*
+*Plan of the inside lane of a curve of radius R = 300 m with a sight distance S = 160 m measured along the lane: the sight line is the chord between driver and object, and the clear distance it needs to the obstruction is the returned middle ordinate M = 10.6036 m (geometry to scale).*
 
-![Horizontal sightline offset as S runs from 96 to 224 m, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-horizontal-sight-offset-live-1)
+![M (horizontal sightline offset (m)) against R (radius of the inside lane centreline) from 150 m to 450 m](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-horizontal-sight-offset-curve)
 
-*Horizontal sightline offset as S runs from 96 to 224 m, every other input as you entered it (41 solutions). Marked: your S = 160 m gives M = 10.6. Your inputs: R = 300 m, S = 160 m.*
-
-![Horizontal sightline offset as R runs from 180 to 420 m, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-horizontal-sight-offset-live-2)
-
-*Horizontal sightline offset as R runs from 180 to 420 m, every other input as you entered it (29 solutions). Marked: your R = 300 m gives M = 10.6. Your inputs: R = 300 m, S = 160 m.*
+*M (horizontal sightline offset (m)) against R (radius of the inside lane centreline) from 150 m to 450 m. One curve for each value of S (sight distance): 160 m, 80 m, 320 m. 31 points per curve computed by transportation-ai999x; marked: the worked example, R = 300 m, M = 10.6036 m.*
 
 ```python
 transportation_ai999x.solve('transport_horizontal_sight_offset', R=300.0, S=160.0)
@@ -1456,17 +1356,13 @@ $$
 - **Assumes:** $0 < M < R$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Plan of the inside lane of a curve of radius R = 300 m with an obstruction M = 9 m from the lane centre: the sight distance the model returned, S = 147](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-sight-distance-from-offset-geometry)
+![Plan of the inside lane of a curve of radius R = 300 m with an obstruction M = 9 m from the lane centre: the returned sight distance S = 147](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-sight-distance-from-offset-geometry)
 
-*Plan of the inside lane of a curve of radius R = 300 m with an obstruction M = 9 m from the lane centre: the sight distance the model returned, S = 147.3 m, is the length along the lane whose chord just clears the obstruction (geometry to scale). Your inputs: R = 300 m, M = 9 m.*
+*Plan of the inside lane of a curve of radius R = 300 m with an obstruction M = 9 m from the lane centre: the returned sight distance S = 147.339 m is the length along the lane whose chord just clears the obstruction (geometry to scale).*
 
-![Available sight distance as M runs from 5](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-sight-distance-from-offset-live-1)
+![S (available sight distance (m)) against R (radius of the inside lane centreline) from 150 m to 450 m](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-sight-distance-from-offset-curve)
 
-*Available sight distance as M runs from 5.4 to 12.6 m, every other input as you entered it (41 solutions). Marked: your M = 9 m gives S = 147.3. Your inputs: R = 300 m, M = 9 m.*
-
-![Available sight distance as R runs from 180 to 420 m, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-sight-distance-from-offset-live-2)
-
-*Available sight distance as R runs from 180 to 420 m, every other input as you entered it (29 solutions). Marked: your R = 300 m gives S = 147.3. Your inputs: R = 300 m, M = 9 m.*
+*S (available sight distance (m)) against R (radius of the inside lane centreline) from 150 m to 450 m. One curve for each value of M (offset to the obstruction): 9 m, 4.5 m, 18 m. 31 points per curve computed by transportation-ai999x; marked: the worked example, R = 300 m, S = 147.339 m.*
 
 ```python
 transportation_ai999x.solve('transport_sight_distance_from_offset', R=300.0, M=9.0)
@@ -1514,17 +1410,13 @@ $$
 - **Assumes:** $0 < s  \leq  L_s$; tangent angle <= 90 degrees
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![A clothoid transition of length Ls = 80 m into a circular curve of radius R = 300 m: 41 points (x, y) along it, each computed by the model (the offset axis is stretched)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-clothoid-coordinates-geometry)
+![A clothoid transition of length Ls = 80 m into a circular curve of radius R = 300 m: 41 points (x, y) along it, each computed by the package (the offset axis is stretched)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-clothoid-coordinates-geometry)
 
-*A clothoid transition of length Ls = 80 m into a circular curve of radius R = 300 m: 41 points (x, y) along it, each computed by the model (the offset axis is stretched). Marked: the returned point x = 79.86 m, y = 3.551 m and tangent deflection θ = 7.639° at s = 80 m. Your inputs: R = 300 m, L_s = 80 m.*
+*A clothoid transition of length Ls = 80 m into a circular curve of radius R = 300 m: 41 points (x, y) along it, each computed by the package (the offset axis is stretched). Marked: the returned end point x = 79.8579 m, y = 3.55104 m and tangent deflection θ = 7.63944° at s = 80 m.*
 
-![Distance along the initial tangent as L_s runs from 48 to 112 m, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-clothoid-coordinates-live-1)
+![x (distance along the initial tangent (m)) against R (radius of the circular curve) from 30 m to 3000 m on a logarithmic axis](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-clothoid-coordinates-curve)
 
-*Distance along the initial tangent as L_s runs from 48 to 112 m, every other input as you entered it (41 solutions). Marked: your L_s = 80 m gives x = 79.86. Your inputs: R = 300 m, L_s = 80 m.*
-
-![Distance along the initial tangent as R runs from 180 to 420 m, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-clothoid-coordinates-live-2)
-
-*Distance along the initial tangent as R runs from 180 to 420 m, every other input as you entered it (29 solutions). Marked: your R = 300 m gives x = 79.86. Your inputs: R = 300 m, L_s = 80 m.*
+*x (distance along the initial tangent (m)) against R (radius of the circular curve) from 30 m to 3000 m on a logarithmic axis. One curve for each value of L_s (spiral length): 80 m, 40 m, 160 m. 41 points per curve computed by transportation-ai999x; marked: the worked example, R = 300 m, x = 79.8579 m.*
 
 ```python
 transportation_ai999x.solve('transport_clothoid_coordinates', R=300.0, L_s=80.0)
@@ -1571,21 +1463,17 @@ $$
 - **Assumes:** $vf > 0$; $kj > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Greenshields fundamental diagram for free-flow speed 100 km/h and jam density 120 veh/km: for 24 flows up to the capacity the model returns the two densities that carry each flow (uncongested left, congested right)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-greenshields-capacity-diagram)
+![Fundamental diagram for free-flow speed 100 km/h and jam density 120 veh/km: for each of 40 flows the package returns the two densities that carry it (uncongested left, congested right)](https://huggingface.co/AI999X/transportation-ai999x/resolve/main/figures/transport-greenshields-capacity-diagram.svg)
 
-*Greenshields fundamental diagram for free-flow speed 100 km/h and jam density 120 veh/km: for 24 flows up to the capacity the model returns the two densities that carry each flow (uncongested left, congested right). Marked: the capacity it returned, q = 3000 veh/h at the optimum density k = 60 veh/km. Your inputs: vf = 27.77777777777778 m/s, kj = 0.12 1/m.*
+*Fundamental diagram for free-flow speed 100 km/h and jam density 120 veh/km: for each of 40 flows the package returns the two densities that carry it (uncongested left, congested right). Marked: the capacity it returned, q = 3000 veh/h at the optimum density k = 60 veh/km and speed 50 km/h.*
 
-![capacity (veh/h) (q_max) over vf from 13](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-greenshields-capacity-field)
+![q_max (capacity (veh/h)) against vf (free-flow speed) from 13](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-greenshields-capacity-curve)
 
-*capacity (veh/h) (q_max) over vf from 13.89 to 41.67 and kj from 0.06 to 0.18: each of the 143 cells is one computation of the model, shaded by its value (darker is larger; a blank cell: inputs the model refuses). Marked: the inputs given, q_max = 3000. Your inputs: vf = 27.77777777777778 m/s, kj = 0.12 1/m.*
+*q_max (capacity (veh/h)) against vf (free-flow speed) from 13.8889 m/s to 41.6667 m/s. One curve for each value of kj (jam density (veh/km in questions; veh/m in solve(), or '25 1/km')): 0.12 1/m, 0.06 1/m, 0.24 1/m. 31 points per curve computed by transportation-ai999x; marked: the worked example, vf = 27.7778 m/s, q_max = 3000 1/h.*
 
-![Capacity as vf runs from 16](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-greenshields-capacity-live-1)
+![q_max (capacity (veh/h)) over vf (free-flow speed) from 13](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-greenshields-capacity-field)
 
-*Capacity as vf runs from 16.67 to 38.89 m/s, every other input as you entered it (41 solutions). Marked: your vf = 27.78 m/s gives q_max = 3000. Your inputs: vf = 27.77777777777778 m/s, kj = 0.12 1/m.*
-
-![Capacity as kj runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-greenshields-capacity-live-2)
-
-*Capacity as kj runs from 0.072 to 0.168 1/m, every other input as you entered it (29 solutions). Marked: your kj = 0.12 1/m gives q_max = 3000. Your inputs: vf = 27.77777777777778 m/s, kj = 0.12 1/m.*
+*q_max (capacity (veh/h)) over vf (free-flow speed) from 13.8889 m/s to 41.6667 m/s and kj (jam density (veh/km in questions; veh/m in solve(), or '25 1/km')) from 0.06 1/m to 0.18 1/m: each of the 21 × 15 cells is one run of transportation-ai999x, shaded by its value (light 750 1/h to dark 6750 1/h); iso-lines at q_max = 2000, 4000, 6000 1/h. Marked: the worked example, vf = 27.7778 m/s, kj = 0.12 1/m, q_max = 3000 1/h.*
 
 ```python
 transportation_ai999x.solve('transport_greenshields_capacity', vf=27.77777777777778, kj=0.12)
@@ -1634,17 +1522,13 @@ $$
 - **Assumes:** $0 < q  \leq  vf$ $kj / 4$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Greenshields flow-density curve (vf = 100 km/h, kj = 120 veh/km), each point solved by the model, cut by the flow q = 2000 veh/h: the two states it returned, k1 = 25](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-greenshields-speed-at-flow-diagram)
+![Greenshields flow–density curve (vf = 100 km/h, kj = 120 veh/km, from these stated parameters) cut by the flow q = 2000 veh/h: the two states the package returned, k1 = 25](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-greenshields-speed-at-flow-diagram)
 
-*Greenshields flow-density curve (vf = 100 km/h, kj = 120 veh/km), each point solved by the model, cut by the flow q = 2000 veh/h: the two states it returned, k1 = 25.36 veh/km at 78.87 km/h (uncongested) and k2 = 94.64 veh/km at 21.13 km/h (congested). Your inputs: vf = 27.77777777777778 m/s, kj = 0.12 1/m, q = 0.5555555555555556 1/s.*
+*Greenshields flow–density curve (vf = 100 km/h, kj = 120 veh/km, from these stated parameters) cut by the flow q = 2000 veh/h: the two states the package returned, k1 = 25.359 veh/km at 78.8675 km/h (uncongested) and k2 = 94.641 veh/km at 21.1325 km/h (congested).*
 
-![Uncongested density and congested density as q runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-greenshields-speed-at-flow-live-1)
+![k_1 (uncongested density (veh/km)) against q (traffic flow (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')) from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-greenshields-speed-at-flow-curve)
 
-*Uncongested density and congested density as q runs from 0.3333 to 0.7778 1/s, every other input as you entered it (41 solutions). Marked: your q = 0.5556 1/s gives k_1 = 25.36. Your inputs: vf = 27.77777777777778 m/s, kj = 0.12 1/m, q = 0.5555555555555556 1/s.*
-
-![Uncongested density and congested density as vf runs from 19](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-greenshields-speed-at-flow-live-2)
-
-*Uncongested density and congested density as vf runs from 19.05 to 38.89 m/s, every other input as you entered it (26 solutions). Marked: your vf = 27.78 m/s gives k_1 = 25.36. Your inputs: vf = 27.77777777777778 m/s, kj = 0.12 1/m, q = 0.5555555555555556 1/s.*
+*k_1 (uncongested density (veh/km)) against q (traffic flow (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')) from 0.277778 1/s to 0.833333 1/s. One curve for each value of vf (free-flow speed): 27.7778 m/s, 13.8889 m/s, 55.5556 m/s. Other inputs as in the worked example: kj = 0.12 1/m. 31 points per curve computed by transportation-ai999x; marked: the worked example, q = 0.555556 1/s, k_1 = 25.359 1/km.*
 
 ```python
 transportation_ai999x.solve('transport_greenshields_speed_at_flow', vf=27.77777777777778, kj=0.12, q=0.5555555555555556)
@@ -1692,13 +1576,13 @@ $$
 - **Assumes:** at least three observations; speeds fall with density
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![6 observed speed-density pairs and the linear speed-density model fitted to them: free-flow speed vf = 95](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-greenshields-fit-fit)
+![Six observed speed–density pairs and the linear speed–density model fitted to them by the package: free-flow speed vf = 95](https://huggingface.co/AI999X/transportation-ai999x/resolve/main/figures/transport-greenshields-fit-fit.svg)
 
-*6 observed speed-density pairs and the linear speed-density model fitted to them: free-flow speed vf = 95.35 km/h, jam density kj = 120.1 veh/km, R² = 0.9987; the line is traced by the model's two speeds at 30 flows up to the capacity 2864 veh/h (marked near the capacity state). Your inputs: speeds = 82, 70, 58, 47, 33, 21, densities = 18, 32, 46, 60, 78, 95.*
+*Six observed speed–density pairs and the linear speed–density model fitted to them by the package: free-flow speed vf = 95.3537 km/h, jam density kj = 120.141 veh/km, R² = 0.99869; the line is traced by the package's speeds at 80 flows up to the capacity 2863.96 veh/h. Marked: k = 0, v = vf.*
 
-![The speeds against the densities as given (6 points)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-greenshields-fit-xy)
+![The data speeds (observed space-mean speeds in km/h) against densities (observed densities in veh/km, in the same order) as given in the worked example (6 points)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-greenshields-fit-xy)
 
-*The speeds against the densities as given (6 points). Returned: vf = 95.35, kj = 120.1, q_max = 2864, r2 = 0.9987. Your inputs: speeds = 82, 70, 58, 47, 33, 21, densities = 18, 32, 46, 60, 78, 95.*
+*The data speeds (observed space-mean speeds in km/h) against densities (observed densities in veh/km, in the same order) as given in the worked example (6 points). Also returned: vf = 95.3537 km/h, kj = 120.141 1/km, q_max = 2863.96 1/h, r2 = 0.99869.*
 
 ```python
 transportation_ai999x.solve('transport_greenshields_fit', speeds=[82, 70, 58, 47, 33, 21], densities=[18, 32, 46, 60, 78, 95])
@@ -1746,9 +1630,9 @@ $$
 - **Assumes:** at least three observations; speeds fall with density
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Speed-density observations (6 pairs) and the states of the fitted Greenberg model: v0 = 36](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-greenberg-fit-fit)
+![Speed–density observations (speeds [82, 70, 58, 47, 33, 21] km/h at densities [18, 32, 46, 60, 78, 95] veh/km) and the Greenberg model with the returned parameters v0 = 36](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-greenberg-fit-fit)
 
-*Speed-density observations (6 pairs) and the states of the fitted Greenberg model: v0 = 36.44 km/h, kj = 197.8 veh/km (r² = 0.9573), capacity 2652 veh/h; the capacity state is the one the model's capacity capability returns for the fitted parameters. Your inputs: speeds = 82, 70, 58, 47, 33, 21, densities = 18, 32, 46, 60, 78, 95.*
+*Speed–density observations (speeds [82, 70, 58, 47, 33, 21] km/h at densities [18, 32, 46, 60, 78, 95] veh/km) and the Greenberg model with the returned parameters v0 = 36.4384 km/h, kj = 197.836 veh/km (r² = 0.957329); below, the same as flow–density, observed flow k·v. Marked: the returned capacity 2651.98 veh/h (at the peak of the fitted curve).*
 
 ```python
 transportation_ai999x.solve('transport_greenberg_fit', speeds=[82, 70, 58, 47, 33, 21], densities=[18, 32, 46, 60, 78, 95])
@@ -1796,9 +1680,9 @@ $$
 - **Assumes:** at least three observations; speeds fall with density
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Speed-density observations (6 pairs) and the states of the fitted Underwood model: vf = 122](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-underwood-fit-fit)
+![Speed–density observations (speeds [82, 70, 58, 47, 33, 21] km/h at densities [18, 32, 46, 60, 78, 95] veh/km) and the Underwood model with the returned parameters vf = 122](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-underwood-fit-fit)
 
-*Speed-density observations (6 pairs) and the states of the fitted Underwood model: vf = 122.3 km/h, k0 = 57.4 veh/km (r² = 0.975), capacity 2582 veh/h; the capacity state is the one the model's capacity capability returns for the fitted parameters. Your inputs: speeds = 82, 70, 58, 47, 33, 21, densities = 18, 32, 46, 60, 78, 95.*
+*Speed–density observations (speeds [82, 70, 58, 47, 33, 21] km/h at densities [18, 32, 46, 60, 78, 95] veh/km) and the Underwood model with the returned parameters vf = 122.302 km/h, k0 = 57.396 veh/km (r² = 0.974956); below, the same as flow–density, observed flow k·v. Marked: the returned capacity 2582.38 veh/h (at the peak of the fitted curve).*
 
 ```python
 transportation_ai999x.solve('transport_underwood_fit', speeds=[82, 70, 58, 47, 33, 21], densities=[18, 32, 46, 60, 78, 95])
@@ -1844,17 +1728,13 @@ $$
 - **Assumes:** $v_{0} > 0$; $kj > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Capacity of the Greenberg model in the flow-density plane: the capacity and the density at capacity the model returns for kj from half to twice the given value (one curve) and for v0 from half to twice the given value (the other), 32 solves](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-greenberg-capacity-diagram)
+![Flow–density curve of Greenberg's model with optimum speed v0 = 30 km/h and jam density kj = 140 veh/km (the curve from these stated parameters)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-greenberg-capacity-diagram)
 
-*Capacity of the Greenberg model in the flow-density plane: the capacity and the density at capacity the model returns for kj from half to twice the given value (one curve) and for v0 from half to twice the given value (the other), 32 solves. Marked: the given parameters, capacity 1545 veh/h at 51.5 veh/km. Your inputs: v0 = 8.333333333333334 m/s, kj = 0.14 1/m.*
+*Flow–density curve of Greenberg's model with optimum speed v0 = 30 km/h and jam density kj = 140 veh/km (the curve from these stated parameters). Marked: the returned capacity 1545.09 veh/h at density 51.5031 veh/km.*
 
-![Capacity as v0 runs from 5 to 11](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-greenberg-capacity-live-1)
+![q_max (capacity (veh/h)) against v0 (optimum speed v0) from 4](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-greenberg-capacity-curve)
 
-*Capacity as v0 runs from 5 to 11.67 m/s, every other input as you entered it (41 solutions). Marked: your v0 = 8.333 m/s gives q_max = 1545. Your inputs: v0 = 8.333333333333334 m/s, kj = 0.14 1/m.*
-
-![Capacity as kj runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-greenberg-capacity-live-2)
-
-*Capacity as kj runs from 0.084 to 0.196 1/m, every other input as you entered it (29 solutions). Marked: your kj = 0.14 1/m gives q_max = 1545. Your inputs: v0 = 8.333333333333334 m/s, kj = 0.14 1/m.*
+*q_max (capacity (veh/h)) against v0 (optimum speed v0) from 4.16667 m/s to 12.5 m/s. One curve for each value of kj (jam density (veh/km in questions; veh/m in solve(), or '25 1/km')): 0.14 1/m, 0.07 1/m, 0.28 1/m. 31 points per curve computed by transportation-ai999x; marked: the worked example, v0 = 8.33333 m/s, q_max = 1545.09 1/h.*
 
 ```python
 transportation_ai999x.solve('transport_greenberg_capacity', v0=8.333333333333334, kj=0.14)
@@ -1901,17 +1781,13 @@ $$
 - **Assumes:** $vf > 0$; $k_{0} > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Capacity of the Underwood model in the flow-density plane: the capacity and the density at capacity the model returns for k0 from half to twice the given value (one curve) and for vf from half to twice the given value (the other), 32 solves](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-underwood-capacity-diagram)
+![Flow–density curve of Underwood's model with free-flow speed vf = 100 km/h and optimum density k0 = 50 veh/km (the curve from these stated parameters)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-underwood-capacity-diagram)
 
-*Capacity of the Underwood model in the flow-density plane: the capacity and the density at capacity the model returns for k0 from half to twice the given value (one curve) and for vf from half to twice the given value (the other), 32 solves. Marked: the given parameters, capacity 1839 veh/h at 50 veh/km. Your inputs: vf = 27.77777777777778 m/s, k0 = 0.05 1/m.*
+*Flow–density curve of Underwood's model with free-flow speed vf = 100 km/h and optimum density k0 = 50 veh/km (the curve from these stated parameters). Marked: the returned capacity 1839.4 veh/h at 50 veh/km, speed there 36.7879 km/h.*
 
-![Capacity as vf runs from 16](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-underwood-capacity-live-1)
+![q_max (capacity (veh/h)) against vf (free-flow speed) from 13](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-underwood-capacity-curve)
 
-*Capacity as vf runs from 16.67 to 38.89 m/s, every other input as you entered it (41 solutions). Marked: your vf = 27.78 m/s gives q_max = 1839. Your inputs: vf = 27.77777777777778 m/s, k0 = 0.05 1/m.*
-
-![Capacity as k0 runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-underwood-capacity-live-2)
-
-*Capacity as k0 runs from 0.03 to 0.07 1/m, every other input as you entered it (29 solutions). Marked: your k0 = 0.05 1/m gives q_max = 1839. Your inputs: vf = 27.77777777777778 m/s, k0 = 0.05 1/m.*
+*q_max (capacity (veh/h)) against vf (free-flow speed) from 13.8889 m/s to 41.6667 m/s. One curve for each value of k0 (optimum density k0 (veh/km in questions; veh/m in solve(), or '25 1/km')): 0.05 1/m, 0.025 1/m, 0.1 1/m. 31 points per curve computed by transportation-ai999x; marked: the worked example, vf = 27.7778 m/s, q_max = 1839.4 1/h.*
 
 ```python
 transportation_ai999x.solve('transport_underwood_capacity', vf=27.77777777777778, k0=0.05)
@@ -1960,21 +1836,13 @@ $$
 - **Assumes:** k1, $k_{2} > 0$, q1, $q_{2}  \geq  0$; the denser state is the slower one
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Two traffic states on flow-density axes: upstream q1 = 1800 veh/h at k1 = 25 veh/km and downstream q2 = 1200 veh/h at k2 = 80 veh/km (dashed rays: their speeds)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-shockwave-speed-diagram)
+![Two traffic states on flow–density axes: upstream q1 = 1800 veh/h at k1 = 25 veh/km and downstream q2 = 1200 veh/h at k2 = 80 veh/km (dashed rays: their speeds)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-shockwave-speed-diagram)
 
-*Two traffic states on flow-density axes: upstream q1 = 1800 veh/h at k1 = 25 veh/km and downstream q2 = 1200 veh/h at k2 = 80 veh/km (dashed rays: their speeds). The chord between them has the slope of the returned shockwave speed u = -10.91 km/h, moving upstream. Your inputs: q1 = 0.5 1/s, k1 = 0.025 1/m, q2 = 0.3333333333333333 1/s, k2 = 0.08 1/m.*
+*Two traffic states on flow–density axes: upstream q1 = 1800 veh/h at k1 = 25 veh/km and downstream q2 = 1200 veh/h at k2 = 80 veh/km (dashed rays: their speeds). The chord between them has the slope of the returned shockwave speed u = -10.9091 km/h (-3.0303 m/s), moving upstream.*
 
-![Shockwave speed (km/h), positive downstream as q1 runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-shockwave-speed-live-1)
+![upstream, downstream or stationary (direction) over q1 (upstream flow (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')) from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-shockwave-speed-decision)
 
-*Shockwave speed (km/h), positive downstream as q1 runs from 0.3 to 0.7 1/s, every other input as you entered it (41 solutions). Marked: your q1 = 0.5 1/s gives u = -10.91. Shaded by upstream, downstream or stationary: downstream, upstream. Your inputs: q1 = 0.5 1/s, k1 = 0.025 1/m, q2 = 0.3333333333333333 1/s, k2 = 0.08 1/m.*
-
-![Upstream, downstream or stationary for 25 5 x 5 combinations of q1 and q2 around your inputs (the other inputs as entered); the ring marks your inputs, which give upstream](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-shockwave-speed-live-2)
-
-*Upstream, downstream or stationary for 25 5 x 5 combinations of q1 and q2 around your inputs (the other inputs as entered); the ring marks your inputs, which give upstream. Blank cells admit no answer. Your inputs: q1 = 0.5 1/s, k1 = 0.025 1/m, q2 = 0.3333333333333333 1/s, k2 = 0.08 1/m.*
-
-![Shockwave speed (km/h), positive downstream as q2 runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-shockwave-speed-live-3)
-
-*Shockwave speed (km/h), positive downstream as q2 runs from 0.2 to 0.4667 1/s, every other input as you entered it (27 solutions). Marked: your q2 = 0.3333 1/s gives u = -10.91. Your inputs: q1 = 0.5 1/s, k1 = 0.025 1/m, q2 = 0.3333333333333333 1/s, k2 = 0.08 1/m.*
+*upstream, downstream or stationary (direction) over q1 (upstream flow (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')) from 0.05 1/s to 5 1/s and k1 (upstream density (veh/km in questions; veh/m in solve(), or '25 1/km')) from 0.0025 1/m to 0.25 1/m (logarithmic axes): each of the 31 × 21 cells is one run of transportation-ai999x, coloured by the verdict it returned, downstream: 168 cells, upstream: 353 cells; blank cells: inputs the capability refuses. Other inputs as in the worked example: q2 = 0.3333333333333333 1/s, k2 = 0.08 1/m. Marked: the worked example, q1 = 0.5 1/s, k1 = 0.025 1/m → upstream.*
 
 ```python
 transportation_ai999x.solve('transport_shockwave_speed', q1=0.5, k1=0.025, q2=0.3333333333333333, k2=0.08)
@@ -2022,17 +1890,13 @@ $$
 - **Assumes:** $0 < k_{1} < k_{2} < kj$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Greenshields flow-density curve (vf = 90 km/h, kj = 130 veh/km), each point solved by the model, with the upstream state k1 = 30 and the downstream state k2 = 90 veh/km (their flows: density times the speed the model returns for each state): the chord joining them has the slope of the returned shockwave speed u = 6](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-greenshields-shockwave-diagram)
+![Greenshields flow–density curve (vf = 90 km/h, kj = 130 veh/km, from these stated parameters) with the upstream state k1 = 30 and the downstream state k2 = 90 veh/km: the chord joining them has the slope of the returned shockwave speed u = 6](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-greenshields-shockwave-diagram)
 
-*Greenshields flow-density curve (vf = 90 km/h, kj = 130 veh/km), each point solved by the model, with the upstream state k1 = 30 and the downstream state k2 = 90 veh/km (their flows: density times the speed the model returns for each state): the chord joining them has the slope of the returned shockwave speed u = 6.923 km/h. Your inputs: vf = 25 m/s, kj = 0.13 1/m, k1 = 0.03 1/m, k2 = 0.09 1/m.*
+*Greenshields flow–density curve (vf = 90 km/h, kj = 130 veh/km, from these stated parameters) with the upstream state k1 = 30 and the downstream state k2 = 90 veh/km: the chord joining them has the slope of the returned shockwave speed u = 6.92308 km/h (1.92308 m/s).*
 
-![Shockwave speed (km/h), positive downstream as k1 runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-greenshields-shockwave-live-1)
+![u (shockwave speed (km/h), positive downstream) against kj (jam density (veh/km in questions; veh/m in solve(), or '25 1/km')) from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-greenshields-shockwave-curve)
 
-*Shockwave speed (km/h), positive downstream as k1 runs from 0.018 to 0.042 1/m, every other input as you entered it (41 solutions). Marked: your k1 = 0.03 1/m gives u = 6.923. Your inputs: vf = 25 m/s, kj = 0.13 1/m, k1 = 0.03 1/m, k2 = 0.09 1/m.*
-
-![Shockwave speed (km/h), positive downstream as k2 runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-greenshields-shockwave-live-2)
-
-*Shockwave speed (km/h), positive downstream as k2 runs from 0.054 to 0.126 1/m, every other input as you entered it (29 solutions). Marked: your k2 = 0.09 1/m gives u = 6.923. Your inputs: vf = 25 m/s, kj = 0.13 1/m, k1 = 0.03 1/m, k2 = 0.09 1/m.*
+*u (shockwave speed (km/h), positive downstream) against kj (jam density (veh/km in questions; veh/m in solve(), or '25 1/km')) from 0.065 1/m to 0.195 1/m. One curve for each value of vf (free-flow speed): 25 m/s, 12.5 m/s, 50 m/s. Other inputs as in the worked example: k1 = 0.03 1/m, k2 = 0.09 1/m. 25 points per curve computed by transportation-ai999x; marked: the worked example, kj = 0.13 1/m, u = 6.92308 km/h.*
 
 ```python
 transportation_ai999x.solve('transport_greenshields_shockwave', vf=25.0, kj=0.13, k1=0.03, k2=0.09)
@@ -2084,17 +1948,13 @@ $$
 - **Assumes:** k_a, $k_s < k_j$; the discharge wave is faster than the queue growth
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Time-space diagram of the queue at a signal (red 40 s): the queue tail moves upstream at 8](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-signal-queue-shockwave-timespace)
+![Time–space diagram of the queue at a signal (arrivals 1000 veh/h at 20 veh/km, jam density 140 veh/km, discharge 1800 veh/h at 50 veh/km, red 40 s): the queue tail moves upstream at 8](https://huggingface.co/AI999X/transportation-ai999x/resolve/main/figures/transport-signal-queue-shockwave-timespace.svg)
 
-*Time-space diagram of the queue at a signal (red 40 s): the queue tail moves upstream at 8.333 km/h and the discharge wave from the start of green at 20 km/h, both returned by the model; where they meet the queue is longest. Marked: t = 68.57 s, longest queue 158.7 m. Your inputs: q_a = 0.2777777777777778 1/s, k_a = 0.02 1/m, k_j = 0.14 1/m, q_s = 0.5 1/s, k_s = 0.05 1/m, r = 40 s.*
+*Time–space diagram of the queue at a signal (arrivals 1000 veh/h at 20 veh/km, jam density 140 veh/km, discharge 1800 veh/h at 50 veh/km, red 40 s): the queue tail moves upstream at 8.33333 km/h, the discharge wave from the start of green at 20 km/h (both returned by the package); where they meet the queue is longest. Marked: t = 68.5714 s, maximum queue 158.73 m.*
 
-![Longest queue as k_j runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-signal-queue-shockwave-live-1)
+![L_max (longest queue (m)) against q_s (saturation (discharge) flow (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')) from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-signal-queue-shockwave-curve)
 
-*Longest queue as k_j runs from 0.084 to 0.196 1/m, every other input as you entered it (41 solutions). Marked: your k_j = 0.14 1/m gives L_max = 158.7. Your inputs: q_a = 0.2777777777777778 1/s, k_a = 0.02 1/m, k_j = 0.14 1/m, q_s = 0.5 1/s, k_s = 0.05 1/m, r = 40 s.*
-
-![Longest queue as q_a runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-signal-queue-shockwave-live-2)
-
-*Longest queue as q_a runs from 0.1667 to 0.3889 1/s, every other input as you entered it (29 solutions). Marked: your q_a = 0.2778 1/s gives L_max = 158.7. Your inputs: q_a = 0.2777777777777778 1/s, k_a = 0.02 1/m, k_j = 0.14 1/m, q_s = 0.5 1/s, k_s = 0.05 1/m, r = 40 s.*
+*L_max (longest queue (m)) against q_s (saturation (discharge) flow (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')) from 0.25 1/s to 0.75 1/s. One curve for each value of r (red time): 40 s, 20 s, 80 s. Other inputs as in the worked example: q_a = 0.2777777777777778 1/s, k_a = 0.02 1/m, k_j = 0.14 1/m, k_s = 0.05 1/m. 31 points per curve computed by transportation-ai999x; marked: the worked example, q_s = 0.5 1/s, L_max = 158.73 m.*
 
 ```python
 transportation_ai999x.solve('transport_signal_queue_shockwave', q_a=0.2777777777777778, k_a=0.02, k_j=0.14, q_s=0.5, k_s=0.05, r=40.0)
@@ -2145,17 +2005,13 @@ $$
 - **Assumes:** lam < s; the queue clears within the green (lam $C  \leq  s$ g)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Queue at a signal over one cycle (red 40 s, green 30 s): it grows during red to the largest queue the model returned, 6](https://huggingface.co/AI999X/transportation-ai999x/resolve/main/figures/transport-signal-queue-uniform-delay-queue.svg)
+![Queue at a signal over one cycle (arrivals 600 veh/h, saturation flow 1800 veh/h, red 40 s, green 30 s): it grows during red to the maximum the package returned, 6](https://huggingface.co/AI999X/transportation-ai999x/resolve/main/figures/transport-signal-queue-uniform-delay-queue.svg)
 
-*Queue at a signal over one cycle (red 40 s, green 30 s): it grows during red to the largest queue the model returned, 6.667 vehicles, and clears 20 s into green; the shaded area is the total delay 200 veh·s (17.14 s per vehicle, 85.71 % stopped). Your inputs: lam = 0.16666666666666666 1/s, s = 0.5 1/s, r = 40 s, g = 30 s.*
+*Queue at a signal over one cycle (arrivals 600 veh/h, saturation flow 1800 veh/h, red 40 s, green 30 s): it grows during red to the maximum the package returned, 6.66667 vehicles, and clears 20 s into green; the shaded area is the total delay 200 veh·s (17.1429 s per vehicle, 85.7143 % stopped). Marked: t = 40 s, queue = 6.66667 vehicles.*
 
-![Largest queue as r runs from 24 to 56 s, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-signal-queue-uniform-delay-live-1)
+![Q_max (largest queue (veh)) against r (effective red) from 20 s to 60 s](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-signal-queue-uniform-delay-curve)
 
-*Largest queue as r runs from 24 to 56 s, every other input as you entered it (41 solutions). Marked: your r = 40 s gives Q_max = 6.667. Your inputs: lam = 0.16666666666666666 1/s, s = 0.5 1/s, r = 40 s, g = 30 s.*
-
-![Largest queue as λ runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-signal-queue-uniform-delay-live-2)
-
-*Largest queue as λ runs from 0.1 to 0.2143 1/s, every other input as you entered it (25 solutions). Marked: your λ = 0.1667 1/s gives Q_max = 6.667. Your inputs: lam = 0.16666666666666666 1/s, s = 0.5 1/s, r = 40 s, g = 30 s.*
+*Q_max (largest queue (veh)) against r (effective red) from 20 s to 60 s. One curve for each value of lam (arrival flow (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')): 0.166667 1/s, 0.0833333 1/s. Other inputs as in the worked example: s = 0.5 1/s, g = 30.0 s. 31 points per curve computed by transportation-ai999x; marked: the worked example, r = 40 s, Q_max = 6.66667.*
 
 ```python
 transportation_ai999x.solve('transport_signal_queue_uniform_delay', lam=0.16666666666666666, s=0.5, r=40.0, g=30.0)
@@ -2205,17 +2061,13 @@ $$
 - **Assumes:** mu_r < lam < mu
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Queue at a bottleneck whose capacity is reduced for 30 min: the queue at each moment of the reduction is the longest queue the model returns for a reduction ending then (16 solves); it then dissipates until the returned end of the queue, 82](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-bottleneck-queue-queue)
+![Cumulative arrivals and departures at a bottleneck: arrivals at λ = 3200 veh/h, capacity cut from μ = 4000 to μr = 1800 veh/h for 30 min (the curves are drawn from these inputs)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-bottleneck-queue-queue)
 
-*Queue at a bottleneck whose capacity is reduced for 30 min: the queue at each moment of the reduction is the longest queue the model returns for a reduction ending then (16 solves); it then dissipates until the returned end of the queue, 82.5 min. Marked: the longest queue 700 veh; the shaded area is the total delay, 481.2 veh·h. Your inputs: lam = 0.8888888888888888 1/s, mu = 1.1111111111111112 1/s, mu_r = 0.5 1/s, t_r = 1800 s.*
+*Cumulative arrivals and departures at a bottleneck: arrivals at λ = 3200 veh/h, capacity cut from μ = 4000 to μr = 1800 veh/h for 30 min (the curves are drawn from these inputs). The vertical gap is the queue, the shaded area the delay. Marked: the returned longest queue 700 veh, queue duration 82.5 min and total delay 481.25 veh·h.*
 
-![Longest queue as λ runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-bottleneck-queue-live-1)
+![Q_max (longest queue (veh)) against t_r (duration of the reduction) from 900 s to 2700 s](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-bottleneck-queue-curve)
 
-*Longest queue as λ runs from 0.5333 to 1.102 1/s, every other input as you entered it (33 solutions). Marked: your λ = 0.8889 1/s gives Q_max = 700. Your inputs: lam = 0.8888888888888888 1/s, mu = 1.1111111111111112 1/s, mu_r = 0.5 1/s, t_r = 1800 s.*
-
-![Longest queue as μ_r runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-bottleneck-queue-live-2)
-
-*Longest queue as μ_r runs from 0.3 to 0.7 1/s, every other input as you entered it (29 solutions). Marked: your μ_r = 0.5 1/s gives Q_max = 700. Your inputs: lam = 0.8888888888888888 1/s, mu = 1.1111111111111112 1/s, mu_r = 0.5 1/s, t_r = 1800 s.*
+*Q_max (longest queue (veh)) against t_r (duration of the reduction) from 900 s to 2700 s. One curve for each value of mu_r (reduced capacity (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')): 0.5 1/s, 0.25 1/s. Other inputs as in the worked example: lam = 0.8888888888888888 1/s, mu = 1.1111111111111112 1/s. 31 points per curve computed by transportation-ai999x; marked: the worked example, t_r = 1800 s, Q_max = 700.*
 
 ```python
 transportation_ai999x.solve('transport_bottleneck_queue', lam=0.8888888888888888, mu=1.1111111111111112, mu_r=0.5, t_r=1800.0)
@@ -2262,21 +2114,9 @@ $$
 - **Assumes:** counts >= 0; capacity: one value or one per interval
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Arrivals per interval (input) against a capacity of [100] per interval: the vehicles served and the queue left at the end of each interval as the model returned them](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-interval-queue-queue)
+![Arrivals [90, 120, 140, 110, 80, 60] per interval against a capacity of [100] per interval: the vehicles served and the queue left at the end of each interval as returned](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-interval-queue-queue)
 
-*Arrivals per interval (input) against a capacity of [100] per interval: the vehicles served and the queue left at the end of each interval as the model returned them. Longest queue 70 vehicles. Your inputs: arrivals = 90, 120, 140, 110, 80, 60, capacity = 100.*
-
-![Longest queue as capacity[1] runs from 50 to 149, every other input as you entered it (35 solutions)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-interval-queue-live-1)
-
-*Longest queue as capacity[1] runs from 50 to 149, every other input as you entered it (35 solutions). Marked: your capacity[1] = 100 gives Q_max = 70. Your inputs: arrivals = 90, 120, 140, 110, 80, 60, capacity = 100.*
-
-![Every entry of queue as computed for your inputs (6 entries: 0, 20, 60, 70, 50, 10)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-interval-queue-live-2)
-
-*Every entry of queue as computed for your inputs (6 entries: 0, 20, 60, 70, 50, 10). Your inputs: arrivals = 90, 120, 140, 110, 80, 60, capacity = 100.*
-
-![Longest queue as arrivals[3] runs from 70 to 210, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-interval-queue-live-3)
-
-*Longest queue as arrivals[3] runs from 70 to 210, every other input as you entered it (29 solutions). Marked: your arrivals[3] = 140 gives Q_max = 70. Your inputs: arrivals = 90, 120, 140, 110, 80, 60, capacity = 100.*
+*Arrivals [90, 120, 140, 110, 80, 60] per interval against a capacity of [100] per interval: the vehicles served and the queue left at the end of each interval as returned. Marked: the longest queue 70 vehicles.*
 
 ```python
 transportation_ai999x.solve('transport_interval_queue', arrivals=[90, 120, 140, 110, 80, 60], capacity=[100])
@@ -2323,21 +2163,13 @@ $$
 - **Assumes:** $C > L$; sum of $y < 1$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Green splits of a 3-phase signal with cycle C = 90 s and total lost time L = 10 s: the effective greens the model returned (34](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-signal-green-splits-timing)
+![Green splits of a 3-phase signal with cycle C = 90 s, total lost time L = 10 s and critical flow ratios [0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-signal-green-splits-timing)
 
-*Green splits of a 3-phase signal with cycle C = 90 s and total lost time L = 10 s: the effective greens the model returned (34.29, 28.57, 17.14 s) laid end to end in green, then the lost time. Critical degree of saturation Xc = 0.7875. Your inputs: C = 90 s, L = 10 s, y = 0.3, 0.25, 0.15.*
+*Green splits of a 3-phase signal with cycle C = 90 s, total lost time L = 10 s and critical flow ratios [0.3, 0.25, 0.15]: the returned effective greens 34.2857, 28.5714, 17.1429 s in sequence (green), each followed by an equal share of the lost time (grey, an even split chosen for the drawing). Marked: critical volume-to-capacity ratio Xc = 0.7875.*
 
-![Critical degree of saturation as y[1] runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-signal-green-splits-live-1)
+![X_c (critical degree of saturation) against C (cycle length) from 45 s to 135 s](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-signal-green-splits-curve)
 
-*Critical degree of saturation as y[1] runs from 0.075 to 0.525, every other input as you entered it (41 solutions). Marked: your y[1] = 0.3 gives X_c = 0.7875. Your inputs: C = 90 s, L = 10 s, y = 0.3, 0.25, 0.15.*
-
-![Every entry of g as computed for your inputs (3 entries: 34](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-signal-green-splits-live-2)
-
-*Every entry of g as computed for your inputs (3 entries: 34.29, 28.57, 17.14). Your inputs: C = 90 s, L = 10 s, y = 0.3, 0.25, 0.15.*
-
-![Critical degree of saturation as y[2] runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-signal-green-splits-live-3)
-
-*Critical degree of saturation as y[2] runs from 0.0625 to 0.4375, every other input as you entered it (29 solutions). Marked: your y[2] = 0.25 gives X_c = 0.7875. Your inputs: C = 90 s, L = 10 s, y = 0.3, 0.25, 0.15.*
+*X_c (critical degree of saturation) against C (cycle length) from 45 s to 135 s. One curve for each value of L (total lost time per cycle): 10 s, 5 s, 20 s. Other inputs as in the worked example: y = [0.3, 0.25, 0.15]. 31 points per curve computed by transportation-ai999x; marked: the worked example, C = 90 s, X_c = 0.7875.*
 
 ```python
 transportation_ai999x.solve('transport_signal_green_splits', C=90.0, L=10.0, y=[0.3, 0.25, 0.15])
@@ -2385,13 +2217,9 @@ $$
 - **Assumes:** $q > 0$; $t > 0$; n a whole number >= 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![P(exactly n arrivals) as n runs from 0 to 6, every other input as you entered it (7 solutions)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-poisson-arrivals-live-1)
+![P_n (P(exactly n arrivals)) against q (traffic flow (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')) from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-poisson-arrivals-curve)
 
-*P(exactly n arrivals) as n runs from 0 to 6, every other input as you entered it (7 solutions). Marked: your n = 2 gives P_n = 0.224. Your inputs: q = 0.1 1/s, t = 30 s, n = 2.*
-
-![P(exactly n arrivals) as q runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-poisson-arrivals-live-2)
-
-*P(exactly n arrivals) as q runs from 0.06 to 0.14 1/s, every other input as you entered it (29 solutions). Marked: your q = 0.1 1/s gives P_n = 0.224. Your inputs: q = 0.1 1/s, t = 30 s, n = 2.*
+*P_n (P(exactly n arrivals)) against q (traffic flow (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')) from 0.01 1/s to 1 1/s on a logarithmic axis. One curve for each value of t (interval length): 30 s, 15 s, 60 s. Other inputs as in the worked example: n = 2. 41 points per curve computed by transportation-ai999x; marked: the worked example, q = 0.1 1/s, P_n = 0.224042.*
 
 ```python
 transportation_ai999x.solve('transport_poisson_arrivals', q=0.1, t=30.0, n=2)
@@ -2438,17 +2266,13 @@ $$
 - **Assumes:** $q > 0$; $\tau < 1/q$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![P(headway >= h) (P_ge) over q from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-headway-probability-field)
+![P_ge (P(headway >= h)) against q (traffic flow (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')) from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-headway-probability-curve)
 
-*P(headway >= h) (P_ge) over q from 0.01667 to 1.667 and h from 0.8 to 80 (logarithmic axes): each of the 143 cells is one computation of the model, shaded by its value (darker is larger; a blank cell: inputs the model refuses). Marked: the inputs given, P_ge = 0.2636. Your inputs: q = 0.16666666666666666 1/s, h = 8 s.*
+*P_ge (P(headway >= h)) against q (traffic flow (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')) from 0.0166667 1/s to 1.66667 1/s on a logarithmic axis. One curve for each value of h (headway): 8 s, 4 s, 16 s. 41 points per curve computed by transportation-ai999x; marked: the worked example, q = 0.166667 1/s, P_ge = 0.263597.*
 
-![P ge as q runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-headway-probability-live-1)
+![P_ge (P(headway >= h)) over q (traffic flow (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')) from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-headway-probability-field)
 
-*P ge as q runs from 0.1 to 0.2333 1/s, every other input as you entered it (41 solutions). Marked: your q = 0.1667 1/s gives P_ge = 0.2636. Your inputs: q = 0.16666666666666666 1/s, h = 8 s.*
-
-![P ge as h runs from 4](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-headway-probability-live-2)
-
-*P ge as h runs from 4.8 to 11.2 s, every other input as you entered it (29 solutions). Marked: your h = 8 s gives P_ge = 0.2636. Your inputs: q = 0.16666666666666666 1/s, h = 8 s.*
+*P_ge (P(headway >= h)) over q (traffic flow (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')) from 0.0166667 1/s to 1.66667 1/s and h (headway) from 0.8 s to 80 s (logarithmic axes): each of the 21 × 15 cells is one run of transportation-ai999x, shaded by its value (light 1.2418e-58 to dark 0.986755, logarithmic shading). Marked: the worked example, q = 0.166667 1/s, h = 8 s, P_ge = 0.263597.*
 
 ```python
 transportation_ai999x.solve('transport_headway_probability', q=0.16666666666666666, h=8.0)
@@ -2495,13 +2319,9 @@ $$
 - **Assumes:** q, t_c, $t_f > 0$; Siegloch: $t_c > t_f / 2$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Capacity of the minor movement as t_c runs from 3](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-gap-acceptance-capacity-live-1)
+![c (capacity of the minor movement (veh/h)) against t_f (follow-up time) from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-gap-acceptance-capacity-curve)
 
-*Capacity of the minor movement as t_c runs from 3.9 to 9.1 s, every other input as you entered it (41 solutions). Marked: your t_c = 6.5 s gives c = 363.1. Your inputs: q = 0.2222222222222222 1/s, t_c = 6.5 s, t_f = 3.3 s.*
-
-![Capacity of the minor movement as q runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-gap-acceptance-capacity-live-2)
-
-*Capacity of the minor movement as q runs from 0.1333 to 0.3111 1/s, every other input as you entered it (29 solutions). Marked: your q = 0.2222 1/s gives c = 363.1. Your inputs: q = 0.2222222222222222 1/s, t_c = 6.5 s, t_f = 3.3 s.*
+*c (capacity of the minor movement (veh/h)) against t_f (follow-up time) from 0.33 s to 33 s on a logarithmic axis. One curve for each value of t_c (critical gap): 6.5 s, 3.25 s, 13 s. Other inputs as in the worked example: q = 0.2222222222222222 1/s. 41 points per curve computed by transportation-ai999x; marked: the worked example, t_f = 3.3 s, c = 363.101 1/h.*
 
 ```python
 transportation_ai999x.solve('transport_gap_acceptance_capacity', q=0.2222222222222222, t_c=6.5, t_f=3.3)
@@ -2547,17 +2367,9 @@ $$
 - **Assumes:** at least two positive speeds
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Spot speeds of 6 vehicles (input)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-time-and-space-mean-speed-distribution)
+![Spot speeds of 6 vehicles ([52, 61, 48, 70, 55, 63] km/h)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-time-and-space-mean-speed-distribution)
 
-*Spot speeds of 6 vehicles (input). Marked: the time-mean speed 58.17 km/h (arithmetic mean) and the space-mean speed 57.25 km/h (harmonic mean) the model returned, standard deviation 8.035 km/h. Your inputs: speeds = 52, 61, 48, 70, 55, 63.*
-
-![Time-mean speed as speeds[4] runs from 35 to 105, every other input as you entered it (37 solutions)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-time-and-space-mean-speed-live-1)
-
-*Time-mean speed as speeds[4] runs from 35 to 105, every other input as you entered it (37 solutions). Marked: your speeds[4] = 70 gives TMS = 58.17. Your inputs: speeds = 52, 61, 48, 70, 55, 63.*
-
-![Time-mean speed as speeds[6] runs from 31 to 94, every other input as you entered it (23 solutions)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-time-and-space-mean-speed-live-2)
-
-*Time-mean speed as speeds[6] runs from 31 to 94, every other input as you entered it (23 solutions). Marked: your speeds[6] = 63 gives TMS = 58.17. Your inputs: speeds = 52, 61, 48, 70, 55, 63.*
+*Spot speeds of 6 vehicles ([52, 61, 48, 70, 55, 63] km/h). Marked: the returned time-mean speed 58.1667 km/h (arithmetic mean) and space-mean speed 57.2529 km/h (harmonic mean), standard deviation 8.03534 km/h.*
 
 ```python
 transportation_ai999x.solve('transport_time_and_space_mean_speed', speeds=[52, 61, 48, 70, 55, 63])
@@ -2602,17 +2414,9 @@ $$
 - **Assumes:** at least two positive speeds
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Cumulative distribution of 10 spot speeds (input)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-spot-speed-percentiles-distribution)
+![Cumulative distribution of 10 spot speeds ([52, 61, 48, 70, 55, 63, 58, 66, 49, 72] km/h)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-spot-speed-percentiles-distribution)
 
-*Cumulative distribution of 10 spot speeds (input). Marked: the 15th, 50th and 85th percentile speeds the model returned, 50.05, 59.5 and 68.6 km/h. Your inputs: speeds = 52, 61, 48, 70, 55, 63....*
-
-![85th percentile speed as speeds[3] runs from 24 to 72, every other input as you entered it (25 solutions)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-spot-speed-percentiles-live-1)
-
-*85th percentile speed as speeds[3] runs from 24 to 72, every other input as you entered it (25 solutions). Marked: your speeds[3] = 48 gives p85 = 68.6. Your inputs: speeds = 52, 61, 48, 70, 55, 63....*
-
-![85th percentile speed as speeds[4] runs from 35 to 104, every other input as you entered it (25 solutions)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-spot-speed-percentiles-live-2)
-
-*85th percentile speed as speeds[4] runs from 35 to 104, every other input as you entered it (25 solutions). Marked: your speeds[4] = 70 gives p85 = 68.6. Your inputs: speeds = 52, 61, 48, 70, 55, 63....*
+*Cumulative distribution of 10 spot speeds ([52, 61, 48, 70, 55, 63, 58, 66, 49, 72] km/h). Marked: the returned 15th, 50th and 85th percentile speeds 50.05, 59.5 and 68.6 km/h.*
 
 ```python
 transportation_ai999x.solve('transport_spot_speed_percentiles', speeds=[52, 61, 48, 70, 55, 63, 58, 66, 49, 72])
@@ -2658,13 +2462,9 @@ $$
 - **Assumes:** all inputs positive
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Minimum safe initial gap as a_l runs from 4](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-safe-following-gap-live-1)
+![gap (minimum safe initial gap (m)) against v (initial speed of both vehicles) from 2](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-safe-following-gap-curve)
 
-*Minimum safe initial gap as a_l runs from 4.8 to 11.2 m/s^2, every other input as you entered it (41 solutions). Marked: your a_l = 8 m/s^2 gives gap = 43.85. Your inputs: v = 27.77777777777778 m/s, t_r = 1 s, a_l = 8 m/s^2, a_f = 6 m/s^2.*
-
-![Minimum safe initial gap as a_f runs from 3](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-safe-following-gap-live-2)
-
-*Minimum safe initial gap as a_f runs from 3.6 to 8.4 m/s^2, every other input as you entered it (29 solutions). Marked: your a_f = 6 m/s^2 gives gap = 43.85. Your inputs: v = 27.77777777777778 m/s, t_r = 1 s, a_l = 8 m/s^2, a_f = 6 m/s^2.*
+*gap (minimum safe initial gap (m)) against v (initial speed of both vehicles) from 2.77778 m/s to 277.778 m/s on a logarithmic axis. One curve for each value of a_f (deceleration of the follower): 6 m/s^2, 3 m/s^2, 12 m/s^2. Other inputs as in the worked example: t_r = 1.0 s, a_l = 8.0 m/s^2. 41 points per curve computed by transportation-ai999x; marked: the worked example, v = 27.7778 m/s, gap = 43.8529 m.*
 
 ```python
 transportation_ai999x.solve('transport_safe_following_gap', v=27.77777777777778, t_r=1.0, a_l=8.0, a_f=6.0)
@@ -2714,17 +2514,13 @@ $$
 - **Assumes:** lam < mu
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![utilisation lam / mu (rho) over mu from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-mm1-queue-field)
+![rho (utilisation lam / mu) against mu (service rate per server (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')) from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-mm1-queue-curve)
 
-*utilisation lam / mu (rho) over mu from 0.06944 to 0.2083 and lam from 0.05556 to 0.1667: each of the 98 cells is one computation of the model, shaded by its value (darker is larger; a blank cell: inputs the model refuses). Marked: the inputs given, rho = 0.8. Your inputs: lam = 0.1111111111111111 1/s, mu = 0.1388888888888889 1/s.*
+*rho (utilisation lam / mu) against mu (service rate per server (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')) from 0.0694444 1/s to 0.208333 1/s. One curve for each value of lam (arrival rate (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')): 0.111111 1/s, 0.0555556 1/s. 21 points per curve computed by transportation-ai999x; marked: the worked example, mu = 0.138889 1/s, rho = 0.8.*
 
-![Rho as λ runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-mm1-queue-live-1)
+![rho (utilisation lam / mu) over mu (service rate per server (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')) from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-mm1-queue-field)
 
-*Rho as λ runs from 0.06667 to 0.1378 1/s, every other input as you entered it (33 solutions). Marked: your λ = 0.1111 1/s gives ρ = 0.8. Your inputs: lam = 0.1111111111111111 1/s, mu = 0.1388888888888889 1/s.*
-
-![Rho as μ runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-mm1-queue-live-2)
-
-*Rho as μ runs from 0.1151 to 0.1944 1/s, every other input as you entered it (21 solutions). Marked: your μ = 0.1389 1/s gives ρ = 0.8. Your inputs: lam = 0.1111111111111111 1/s, mu = 0.1388888888888889 1/s.*
+*rho (utilisation lam / mu) over mu (service rate per server (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')) from 0.0694444 1/s to 0.208333 1/s and lam (arrival rate (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')) from 0.0555556 1/s to 0.166667 1/s: each of the 21 × 15 cells is one run of transportation-ai999x, shaded by its value (light 0.266667 to dark 0.993789); iso-lines at rho = 0.4, 0.6, 0.8; blank cells: inputs the capability refuses. Marked: the worked example, mu = 0.138889 1/s, lam = 0.111111 1/s, rho = 0.8.*
 
 ```python
 transportation_ai999x.solve('transport_mm1_queue', lam=0.1111111111111111, mu=0.1388888888888889)
@@ -2774,13 +2570,9 @@ $$
 - **Assumes:** lam < c mu; $1  \leq  c  \leq  200$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Probability an arrival waits as λ runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-mmc-queue-live-1)
+![P_wait (probability an arrival waits (Erlang C)) against mu (service rate per server (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')) from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-mmc-queue-curve)
 
-*Probability an arrival waits as λ runs from 0.25 to 0.55 1/s, every other input as you entered it (37 solutions). Marked: your λ = 0.4167 1/s gives P_wait = 0.4618. Your inputs: lam = 0.4166666666666667 1/s, mu = 0.1111111111111111 1/s, c = 5.*
-
-![Probability an arrival waits as c runs from 4 to 9, every other input as you entered it (6 solutions)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-mmc-queue-live-2)
-
-*Probability an arrival waits as c runs from 4 to 9, every other input as you entered it (6 solutions). Marked: your c = 5 gives P_wait = 0.4618. Your inputs: lam = 0.4166666666666667 1/s, mu = 0.1111111111111111 1/s, c = 5.*
+*P_wait (probability an arrival waits (Erlang C)) against mu (service rate per server (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')) from 0.0555556 1/s to 0.166667 1/s. One curve for each value of c (number of servers (whole number)): 5, 10. Other inputs as in the worked example: lam = 0.4166666666666667 1/s. 23 points per curve computed by transportation-ai999x; marked: the worked example, mu = 0.111111 1/s, P_wait = 0.461789.*
 
 ```python
 transportation_ai999x.solve('transport_mmc_queue', lam=0.4166666666666667, mu=0.1111111111111111, c=5)
@@ -2828,17 +2620,13 @@ $$
 - **Assumes:** lam < mu
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![mean number waiting (veh) (Lq) over mu from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-md1-queue-field)
+![Lq (mean number waiting (veh)) against lam (arrival rate (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')) from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-md1-queue-curve)
 
-*mean number waiting (veh) (Lq) over mu from 0.06944 to 0.2083 and lam from 0.05556 to 0.1667: each of the 98 cells is one computation of the model, shaded by its value (darker is larger; a blank cell: inputs the model refuses). Marked: the inputs given, Lq = 1.6. Your inputs: lam = 0.1111111111111111 1/s, mu = 0.1388888888888889 1/s.*
+*Lq (mean number waiting (veh)) against lam (arrival rate (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')) from 0.0555556 1/s to 0.166667 1/s. One curve for each value of mu (service rate per server (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')): 0.138889 1/s, 0.277778 1/s. 23 points per curve computed by transportation-ai999x; marked: the worked example, lam = 0.111111 1/s, Lq = 1.6.*
 
-![Mean number waiting as λ runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-md1-queue-live-1)
+![Lq (mean number waiting (veh)) over mu (service rate per server (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')) from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-md1-queue-field)
 
-*Mean number waiting as λ runs from 0.06667 to 0.1378 1/s, every other input as you entered it (33 solutions). Marked: your λ = 0.1111 1/s gives Lq = 1.6. Your inputs: lam = 0.1111111111111111 1/s, mu = 0.1388888888888889 1/s.*
-
-![Mean number waiting as μ runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-md1-queue-live-2)
-
-*Mean number waiting as μ runs from 0.1151 to 0.1944 1/s, every other input as you entered it (21 solutions). Marked: your μ = 0.1389 1/s gives Lq = 1.6. Your inputs: lam = 0.1111111111111111 1/s, mu = 0.1388888888888889 1/s.*
+*Lq (mean number waiting (veh)) over mu (service rate per server (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')) from 0.0694444 1/s to 0.208333 1/s and lam (arrival rate (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')) from 0.0555556 1/s to 0.166667 1/s: each of the 21 × 15 cells is one run of transportation-ai999x, shaded by its value (light 0.0484848 to dark 79.5031, logarithmic shading); iso-lines at Lq = 0.1, 1; blank cells: inputs the capability refuses. Marked: the worked example, mu = 0.138889 1/s, lam = 0.111111 1/s, Lq = 1.6.*
 
 ```python
 transportation_ai999x.solve('transport_md1_queue', lam=0.1111111111111111, mu=0.1388888888888889)
@@ -2886,17 +2674,13 @@ $$
 - **Assumes:** $1  \leq  c  \leq  1000$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Probability an arrival is turned away against the arrival rate from 30 to 90 veh/h, one curve for each number of spaces (the one given, half and twice it), 31 points per curve computed by the model; marked: the inputs given, P_block = 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-erlang-b-blocking-curve-2)
+![Erlang-B blocking probability against the number of servers for arrivals at λ = 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-erlang-b-blocking-curve)
 
-*Probability an arrival is turned away against the arrival rate from 30 to 90 veh/h, one curve for each number of spaces (the one given, half and twice it), 31 points per curve computed by the model; marked: the inputs given, P_block = 0.06942. Your inputs: lam = 0.016666666666666666 1/s, mu = 0.0001388888888888889 1/s, c = 120.*
+*Erlang-B blocking probability against the number of servers for arrivals at λ = 0.0166667 /s and service rate μ = 0.000138889 /s (offered load λ/μ = 120 erlang): 80 server counts, each computed by the package. Marked: with c = 120 the returned blocking probability 0.0694188, carried load 111.67 erlang and 4.16513 arrivals lost per hour.*
 
-![Probability an arrival is turned away as λ runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-erlang-b-blocking-live-1)
+![P_block (probability an arrival is turned away) against lam (arrival rate (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')) from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-erlang-b-blocking-curve-2)
 
-*Probability an arrival is turned away as λ runs from 0.01 to 0.02333 1/s, every other input as you entered it (41 solutions). Marked: your λ = 0.01667 1/s gives P_block = 0.06942. Your inputs: lam = 0.016666666666666666 1/s, mu = 0.0001388888888888889 1/s, c = 120.*
-
-![Probability an arrival is turned away as μ runs from 8](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-erlang-b-blocking-live-2)
-
-*Probability an arrival is turned away as μ runs from 8.333e-05 to 0.0001944 1/s, every other input as you entered it (29 solutions). Marked: your μ = 0.0001389 1/s gives P_block = 0.06942. Your inputs: lam = 0.016666666666666666 1/s, mu = 0.0001388888888888889 1/s, c = 120.*
+*P_block (probability an arrival is turned away) against lam (arrival rate (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')) from 0.00833333 1/s to 0.025 1/s, logarithmic output axis. One curve for each value of c (number of spaces or servers (whole number)): 120, 60, 240. Other inputs as in the worked example: mu = 0.0001388888888888889 1/s. 31 points per curve computed by transportation-ai999x; marked: the worked example, lam = 0.0166667 1/s, P_block = 0.0694188.*
 
 ```python
 transportation_ai999x.solve('transport_erlang_b_blocking', lam=0.016666666666666666, mu=0.0001388888888888889, c=120)
@@ -2947,17 +2731,9 @@ $$
 - **Assumes:** arrival times increasing; service times > 0; $c  \geq  1$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![A first-in-first-out queue of 7 customers: each row starts at its arrival time (input), waits for the time the model returned (pale) and is then served for its service time (dark)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-fifo-queue-simulation-queue)
+![A first-in-first-out queue: arrivals at [0, 5, 7, 12, 14, 20, 21] with service times [8, 6, 9, 4, 7, 5, 6]; departure times are arrival + the returned wait + service](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-fifo-queue-simulation-queue)
 
-*A first-in-first-out queue of 7 customers: each row starts at its arrival time (input), waits for the time the model returned (pale) and is then served for its service time (dark). Marked: the longest wait 18; also returned: mean wait 9.429, mean time in the system 15.86, last departure 45, longest queue 4. Your inputs: arrivals = 0, 5, 7, 12, 14, 20, 21, service = 8, 6, 9, 4, 7, 5, 6.*
-
-![Every entry of waits as computed for your inputs (7 entries: 0, 3, 7, 11, 13, 14, 18)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-fifo-queue-simulation-live-1)
-
-*Every entry of waits as computed for your inputs (7 entries: 0, 3, 7, 11, 13, 14, 18). Your inputs: arrivals = 0, 5, 7, 12, 14, 20, 21, service = 8, 6, 9, 4, 7, 5, 6.*
-
-![Every answer of one unit for your inputs: mean_wait (mean waiting time (s)) = 9](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-fifo-queue-simulation-live-2)
-
-*Every answer of one unit for your inputs: mean_wait (mean waiting time (s)) = 9.429; max_wait (longest wait (s)) = 18; mean_time_in_system (mean time in the system (s)) = 15.86; last_departure (time the last one leaves (s)) = 45. Your inputs: arrivals = 0, 5, 7, 12, 14, 20, 21, service = 8, 6, 9, 4, 7, 5, 6.*
+*A first-in-first-out queue: arrivals at [0, 5, 7, 12, 14, 20, 21] with service times [8, 6, 9, 4, 7, 5, 6]; departure times are arrival + the returned wait + service. Marked: the longest wait 18; also returned: mean wait 9.42857, mean time in the system 15.8571, last departure 45, longest queue 4.*
 
 ```python
 transportation_ai999x.solve('transport_fifo_queue_simulation', arrivals=[0, 5, 7, 12, 14, 20, 21], service=[8, 6, 9, 4, 7, 5, 6])
@@ -3006,17 +2782,9 @@ $$
 - **Assumes:** all inputs positive
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Speed-distance profile between stations 1500 m apart: the distance to reach each speed while accelerating at 1 m/s² and while braking at 1](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-train-running-time-profile)
+![Speed–distance profile between stations 1500 m apart (line speed 80 km/h, acceleration 1 m/s², braking 1](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-train-running-time-profile)
 
-*Speed-distance profile between stations 1500 m apart: the distance to reach each speed while accelerating at 1 m/s² and while braking at 1.2 m/s² is computed by the model's acceleration distance capability, up to the returned peak speed 80 km/h. Running time returned: 87.87 s (accelerate-cruise-brake). Your inputs: D = 1500 m, v_max = 22.22222222222222 m/s, a = 1 m/s^2, b = 1.2 m/s^2.*
-
-![Running time stop to stop as v_max runs from 13](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-train-running-time-live-1)
-
-*Running time stop to stop as v_max runs from 13.33 to 31.11 m/s, every other input as you entered it (41 solutions). Marked: your v_max = 22.22 m/s gives T = 1.465 min. Your inputs: D = 1500 m, v_max = 22.22222222222222 m/s, a = 1 m/s^2, b = 1.2 m/s^2.*
-
-![Running time stop to stop as D runs from 900 to 2100 m, every other input as you entered it (27 solutions)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-train-running-time-live-2)
-
-*Running time stop to stop as D runs from 900 to 2100 m, every other input as you entered it (27 solutions). Marked: your D = 1500 m gives T = 1.465 min. Your inputs: D = 1500 m, v_max = 22.22222222222222 m/s, a = 1 m/s^2, b = 1.2 m/s^2.*
+*Speed–distance profile between stations 1500 m apart (line speed 80 km/h, acceleration 1 m/s², braking 1.2 m/s²), drawn from these inputs with the returned peak speed 80 km/h; the running time it implies agrees with the returned T = 87.8704 s (accelerate-cruise-brake).*
 
 ```python
 transportation_ai999x.solve('transport_train_running_time', D=1500.0, v_max=22.22222222222222, a=1.0, b=1.2)
@@ -3066,13 +2834,9 @@ $$
 - **Assumes:** v, a, b, $L_t > 0$; t_d, $s_m  \geq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Minimum headway as t_d runs from 18 to 42 s, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-rail-station-headway-live-1)
+![h (minimum headway (s)) against v (line (approach) speed) from 2](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-rail-station-headway-curve)
 
-*Minimum headway as t_d runs from 18 to 42 s, every other input as you entered it (41 solutions). Marked: your t_d = 30 s gives h = 1.17 min. Your inputs: v = 22.22222222222222 m/s, a = 1 m/s^2, b = 1.1 m/s^2, L_t = 150 m, t_d = 30 s, s_m = 50 m.*
-
-![Minimum headway as b runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-rail-station-headway-live-2)
-
-*Minimum headway as b runs from 0.66 to 1.54 m/s^2, every other input as you entered it (29 solutions). Marked: your b = 1.1 m/s^2 gives h = 1.17 min. Your inputs: v = 22.22222222222222 m/s, a = 1 m/s^2, b = 1.1 m/s^2, L_t = 150 m, t_d = 30 s, s_m = 50 m.*
+*h (minimum headway (s)) against v (line (approach) speed) from 2.22222 m/s to 222.222 m/s on a logarithmic axis. One curve for each value of t_d (dwell time): 30 s, 15 s, 60 s. Other inputs as in the worked example: a = 1.0 m/s^2, b = 1.1 m/s^2, L_t = 150.0 m, s_m = 50.0 m. 41 points per curve computed by transportation-ai999x; marked: the worked example, v = 22.2222 m/s, h = 70.202 s.*
 
 ```python
 transportation_ai999x.solve('transport_rail_station_headway', v=22.22222222222222, a=1.0, b=1.1, L_t=150.0, t_d=30.0, s_m=50.0)
@@ -3125,13 +2889,9 @@ $$
 - **Assumes:** F_b + R(v) + grade force > 0 over the speed range; $v_{2} < v_{1}$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Braking distance as v1 runs from 20 to 46](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-train-braking-distance-live-1)
+![S (braking distance (m)) against F_b (brake force) from 160000 N to 480000 N](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-train-braking-distance-curve)
 
-*Braking distance as v1 runs from 20 to 46.67 m/s, every other input as you entered it (41 solutions). Marked: your v1 = 33.33 m/s gives S = 701.7. Your inputs: m = 400000 kg, v1 = 33.333333333333336 m/s, F_b = 320000 N, A = 6000 N, B = 180 N*s/m, C = 10.368 N*s^2/m^2.*
-
-![Braking distance as m runs from 2](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-train-braking-distance-live-2)
-
-*Braking distance as m runs from 2.4e+05 to 5.6e+05 kg, every other input as you entered it (29 solutions). Marked: your m = 4e+05 kg gives S = 701.7. Your inputs: m = 400000 kg, v1 = 33.333333333333336 m/s, F_b = 320000 N, A = 6000 N, B = 180 N*s/m, C = 10.368 N*s^2/m^2.*
+*S (braking distance (m)) against F_b (brake force) from 160000 N to 480000 N. One curve for each value of v1 (initial speed): 33.3333 m/s, 16.6667 m/s, 66.6667 m/s. Other inputs as in the worked example: m = 400000.0 kg, A = 6000.0 N, B = 180.0 N*s/m, C = 10.368 N*s^2/m^2. 31 points per curve computed by transportation-ai999x; marked: the worked example, F_b = 320000 N, S = 701.698 m.*
 
 ```python
 transportation_ai999x.solve('transport_train_braking_distance', m=400000.0, v1=33.333333333333336, F_b=320000.0, A=6000.0, B=180.0, C=10.368)
@@ -3185,13 +2945,9 @@ $$
 - **Assumes:** tractive effort exceeds resistance up to v2; $v_{2} > v_{1}  \geq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Acceleration time as v2 runs from 16](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-train-acceleration-live-1)
+![t (acceleration time (s)) against P (power at the wheel rim) from 400000 W to 4](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-train-acceleration-curve)
 
-*Acceleration time as v2 runs from 16.67 to 38.89 m/s, every other input as you entered it (41 solutions). Marked: your v2 = 27.78 m/s gives t = 1.443 min. Your inputs: m = 400000 kg, v1 = 0 m/s, v2 = 27.77777777777778 m/s, F_max = 150000 N, P = 4000000 W, A = 6000 N, B = 180 N*s/m, C = 10.368 N*s^2/m^2.*
-
-![Acceleration time as F_max runs from 9e+04 to 2](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-train-acceleration-live-2)
-
-*Acceleration time as F_max runs from 9e+04 to 2.1e+05 N, every other input as you entered it (29 solutions). Marked: your F_max = 1.5e+05 N gives t = 1.443 min. Your inputs: m = 400000 kg, v1 = 0 m/s, v2 = 27.77777777777778 m/s, F_max = 150000 N, P = 4000000 W, A = 6000 N, B = 180 N*s/m, C = 10.368 N*s^2/m^2.*
+*t (acceleration time (s)) against P (power at the wheel rim) from 400000 W to 4.0000e+07 W on a logarithmic axis. One curve for each value of m (train mass): 400000 kg, 200000 kg, 800000 kg. Other inputs as in the worked example: v1 = 0.0 m/s, v2 = 27.77777777777778 m/s, F_max = 150000.0 N, A = 6000.0 N, B = 180.0 N*s/m, C = 10.368 N*s^2/m^2. 38 points per curve computed by transportation-ai999x; marked: the worked example, P = 4e+06 W, t = 86.5875 s.*
 
 ```python
 transportation_ai999x.solve('transport_train_acceleration', m=400000.0, v1=0.0, v2=27.77777777777778, F_max=150000.0, P=4000000.0, A=6000.0, B=180.0, C=10.368)
@@ -3241,17 +2997,9 @@ $$
 - **Assumes:** one positive length and speed per road; the destination is reachable
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Travel time as speeds[6] runs from 45 to 135, every other input as you entered it (31 solutions)](https://huggingface.co/AI999X/transportation-ai999x/resolve/main/figures/transport-fastest-route-live-1.svg)
+![The network roads (roads as 'A-B length' with lengths in km) of the worked example (5 nodes, 7 edges, laid out on a circle); on each edge its stated weight; highlighted: the returned path A → C → E](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-fastest-route-graph)
 
-*Travel time as speeds[6] runs from 45 to 135, every other input as you entered it (31 solutions). Marked: your speeds[6] = 90 gives time = 9.667. Shaded by fastest route (places joined by '-'): A-B-D-E, A-C-E. Your inputs: roads = A-B 4, A-C 2.5, B-C 1.2..., speeds = 60, 50, 40, 80, 100, 90, 50, origin = A, destination = E.*
-
-![The 7 edges as given (weights written on them), drawn with the nodes on a circle](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-fastest-route-live-2)
-
-*The 7 edges as given (weights written on them), drawn with the nodes on a circle. Ringed: nodes named in the inputs (A, E). Your inputs: roads = A-B 4, A-C 2.5, B-C 1.2..., speeds = 60, 50, 40, 80, 100, 90, 50, origin = A, destination = E.*
-
-![Travel time as speeds[1] runs from 30 to 90, every other input as you entered it (21 solutions)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-fastest-route-live-3)
-
-*Travel time as speeds[1] runs from 30 to 90, every other input as you entered it (21 solutions). Marked: your speeds[1] = 60 gives time = 9.667. Shaded by fastest route (places joined by '-'): A-C-E, A-B-D-E. Your inputs: roads = A-B 4, A-C 2.5, B-C 1.2..., speeds = 60, 50, 40, 80, 100, 90, 50, origin = A, destination = E.*
+*The network roads (roads as 'A-B length' with lengths in km) of the worked example (5 nodes, 7 edges, laid out on a circle); on each edge its stated weight; highlighted: the returned path A → C → E. Returned: time = 9.66667 min, distance = 12.5 km. Other inputs: speeds = [60, 50, 40, 80, 100, 90, 50], origin = A, destination = E.*
 
 ```python
 transportation_ai999x.solve('transport_fastest_route', roads='A-B 4, A-C 2.5, B-C 1.2, B-D 5, C-D 8, C-E 10, D-E 2', speeds=[60, 50, 40, 80, 100, 90, 50], origin='A', destination='E')
@@ -3298,13 +3046,13 @@ $$
 - **Assumes:** every place reachable; at most 60 places
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The 7 edges as given (weights written on them), drawn with the nodes on a circle](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-travel-time-skim-live-1)
+![The network roads (roads as 'A-B length' with lengths in km) of the worked example (5 nodes, 7 edges, laid out on a circle); on each edge its stated weight; highlighted: the returned path A → B → C → D → E](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-travel-time-skim-graph)
 
-*The 7 edges as given (weights written on them), drawn with the nodes on a circle. Your inputs: roads = A-B 4, A-C 2.5, B-C 1.2..., speeds = 60, 50, 40, 80, 100, 90, 50.*
+*The network roads (roads as 'A-B length' with lengths in km) of the worked example (5 nodes, 7 edges, laid out on a circle); on each edge its stated weight; highlighted: the returned path A → B → C → D → E. Other inputs: speeds = [60, 50, 40, 80, 100, 90, 50].*
 
-![Each cell is one entry of times for your inputs (row by row; shade by size and sign)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-travel-time-skim-live-2)
+![The matrices of the worked example as heatmaps (rows and columns numbered; each cell shaded by its magnitude, negative values in the second colour; each panel shaded by its own largest magnitude): times (returned)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-travel-time-skim-matrix)
 
-*Each cell is one entry of times for your inputs (row by row; shade by size and sign). Your inputs: roads = A-B 4, A-C 2.5, B-C 1.2..., speeds = 60, 50, 40, 80, 100, 90, 50.*
+*The matrices of the worked example as heatmaps (rows and columns numbered; each cell shaded by its magnitude, negative values in the second colour; each panel shaded by its own largest magnitude): times (returned). Other inputs: roads = A-B 4, A-C 2.5, B-C 1.2, B-D 5, C-D 8, C-E 10…, speeds = [60, 50, 40, 80, 100, 90, 50].*
 
 ```python
 transportation_ai999x.solve('transport_travel_time_skim', roads='A-B 4, A-C 2.5, B-C 1.2, B-D 5, C-D 8, C-E 10, D-E 2', speeds=[60, 50, 40, 80, 100, 90, 50])
@@ -3350,13 +3098,13 @@ $$
 - **Assumes:** positive link times; every trip pair connected
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The 10 edges as given (weights written on them), drawn with the nodes on a circle](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-all-or-nothing-assignment-live-1)
+![flow on each link in the order given (veh) (flows) returned by transportation-ai999x for the worked example, one value for each position in the list (10 values, first 0, last 1000, largest 1000)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-all-or-nothing-assignment-series)
 
-*The 10 edges as given (weights written on them), drawn with the nodes on a circle. Your inputs: network = A-B 5, B-A 5, A-C 3, C-A..., od = A-D 800, C-B 200, D-A 300.*
+*flow on each link in the order given (veh) (flows) returned by transportation-ai999x for the worked example, one value for each position in the list (10 values, first 0, last 1000, largest 1000). Inputs: network = A-B 5, B-A 5, A-C 3, C-A 3, B-D 4, D-B 4, C-D…, od = A-D 800, C-B 200, D-A 300.*
 
-![Every entry of flows as computed for your inputs (10 entries: 0, 0, 800, 300, 800, 300, 0, 0, ](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-all-or-nothing-assignment-live-2)
+![The network network (one-way links as 'A-B time' with travel times in min) of the worked example (4 nodes, 10 edges, laid out on a circle); on each edge the flows returned by transportation-ai999x](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-all-or-nothing-assignment-graph)
 
-*Every entry of flows as computed for your inputs (10 entries: 0, 0, 800, 300, 800, 300, 0, 0, ...). Your inputs: network = A-B 5, B-A 5, A-C 3, C-A..., od = A-D 800, C-B 200, D-A 300.*
+*The network network (one-way links as 'A-B time' with travel times in min) of the worked example (4 nodes, 10 edges, laid out on a circle); on each edge the flows returned by transportation-ai999x. Returned: VHT = 150 h. Other inputs: od = A-D 800, C-B 200, D-A 300.*
 
 ```python
 transportation_ai999x.solve('transport_all_or_nothing_assignment', network='A-B 5, B-A 5, A-C 3, C-A 3, B-D 4, D-B 4, C-D 7, D-C 7, B-C 1, C-B 1', od='A-D 800, C-B 200, D-A 300')
@@ -3404,9 +3152,9 @@ $$
 - **Assumes:** sum of productions = sum of attractions; $\beta  \geq  0$; power deterrence: positive costs
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Each cell is one entry of trips for your inputs (row by row; shade by size and sign)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-gravity-model-live-1)
+![The matrices of the worked example as heatmaps (rows and columns numbered; each cell shaded by its magnitude, negative values in the second colour; each panel shaded by its own largest magnitude): costs (input); trips (returned)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-gravity-model-matrix)
 
-*Each cell is one entry of trips for your inputs (row by row; shade by size and sign). Your inputs: O = 1000, 1500, 800, D = 1200, 900, 1200, costs = 5 12 20; 10 6 15; 18 14 7, beta = 0.1.*
+*The matrices of the worked example as heatmaps (rows and columns numbered; each cell shaded by its magnitude, negative values in the second colour; each panel shaded by its own largest magnitude): costs (input); trips (returned). Other inputs: O = [1000, 1500, 800], D = [1200, 900, 1200], beta = 0.1.*
 
 ```python
 transportation_ai999x.solve('transport_gravity_model', O=[1000, 1500, 800], D=[1200, 900, 1200], costs=[[5, 12, 20], [10, 6, 15], [18, 14, 7]], beta=0.1)
@@ -3452,9 +3200,9 @@ $$
 - **Assumes:** sum of row totals = sum of column totals; non-negative base matrix with a positive entry in every row and column
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Each cell is one entry of trips for your inputs (row by row; shade by size and sign)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-furness-balancing-live-1)
+![The matrices of the worked example as heatmaps (rows and columns numbered; each cell shaded by its magnitude, negative values in the second colour; each panel shaded by its own largest magnitude): base (input); trips (returned)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-furness-balancing-matrix)
 
-*Each cell is one entry of trips for your inputs (row by row; shade by size and sign). Your inputs: base = 100 200 150; 300 100..., O = 600, 800, 500, D = 550, 600, 750.*
+*The matrices of the worked example as heatmaps (rows and columns numbered; each cell shaded by its magnitude, negative values in the second colour; each panel shaded by its own largest magnitude): base (input); trips (returned). Other inputs: O = [600, 800, 500], D = [550, 600, 750].*
 
 ```python
 transportation_ai999x.solve('transport_furness_balancing', base=[[100, 200, 150], [300, 100, 250], [50, 150, 200]], O=[600, 800, 500], D=[550, 600, 750])
@@ -3499,21 +3247,9 @@ $$
 - **Assumes:** at least two alternatives
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Multinomial logit choice among 3 alternatives: the utilities given (above the bars) and the probabilities the model returned (0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-logit-mode-shares-bars)
+![Multinomial logit shares of 3 modes with utilities V = [-1](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-logit-mode-shares-bars)
 
-*Multinomial logit choice among 3 alternatives: the utilities given (above the bars) and the probabilities the model returned (0.345, 0.5147, 0.1403). Your inputs: V = -1.2, -0.8, -2.1.*
-
-![Logsum ln(sum exp V) as V[1] runs from -2](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-logit-mode-shares-live-1)
-
-*Logsum ln(sum exp V) as V[1] runs from -2.1 to -0.3, every other input as you entered it (41 solutions). Marked: your V[1] = -1.2 gives logsum = -0.1358. Your inputs: V = -1.2, -0.8, -2.1.*
-
-![Every entry of P as computed for your inputs (3 entries: 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-logit-mode-shares-live-2)
-
-*Every entry of P as computed for your inputs (3 entries: 0.345, 0.5147, 0.1403). Your inputs: V = -1.2, -0.8, -2.1.*
-
-![Logsum ln(sum exp V) as V[2] runs from -1](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-logit-mode-shares-live-3)
-
-*Logsum ln(sum exp V) as V[2] runs from -1.4 to -0.2, every other input as you entered it (29 solutions). Marked: your V[2] = -0.8 gives logsum = -0.1358. Your inputs: V = -1.2, -0.8, -2.1.*
+*Multinomial logit shares of 3 modes with utilities V = [-1.2, -0.8, -2.1]: the probabilities the package returned (0.345019, 0.514707, 0.140274) and the logsum -0.135843.*
 
 ```python
 transportation_ai999x.solve('transport_logit_mode_shares', V=[-1.2, -0.8, -2.1])
@@ -3559,21 +3295,9 @@ $$
 - **Assumes:** one coefficient per attribute column; at least two modes
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Multinomial logit choice among 3 alternatives: the utilities the model returned (above the bars) and the probabilities the model returned (0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-logit-from-attributes-bars)
+![Logit choice among 3 alternatives with attributes X = [[30, 2](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-logit-from-attributes-bars)
 
-*Multinomial logit choice among 3 alternatives: the utilities the model returned (above the bars) and the probabilities the model returned (0.6292, 0.2689, 0.1019). Your inputs: X = 30 2.5; 45 1.5; 60 0.8, beta = -0.05, -0.4, asc = 0, -0.5, -1.*
-
-![V[1], V[2] and V[3] as β[0] runs from -0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-logit-from-attributes-live-1)
-
-*V[1], V[2] and V[3] as β[0] runs from -0.0875 to -0.0125, every other input as you entered it (41 solutions). Marked: your β[0] = -0.05 gives V[1] = -2.5. Your inputs: X = 30 2.5; 45 1.5; 60 0.8, beta = -0.05, -0.4, asc = 0, -0.5, -1.*
-
-![The 3 rows of X as points (first column across, second up), coloured by V](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-logit-from-attributes-live-2)
-
-*The 3 rows of X as points (first column across, second up), coloured by V. Star: beta = (-0.05, -0.4). Your inputs: X = 30 2.5; 45 1.5; 60 0.8, beta = -0.05, -0.4, asc = 0, -0.5, -1.*
-
-![Every entry of V, P as computed for your inputs (3 entries, V first: -2](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-logit-from-attributes-live-3)
-
-*Every entry of V, P as computed for your inputs (3 entries, V first: -2.5, -3.35, -4.32). Your inputs: X = 30 2.5; 45 1.5; 60 0.8, beta = -0.05, -0.4, asc = 0, -0.5, -1.*
+*Logit choice among 3 alternatives with attributes X = [[30, 2.5], [45, 1.5], [60, 0.8]], coefficients [-0.05, -0.4] and constants [0, -0.5, -1.0]: the returned utilities (-2.5, -3.35, -4.32) under each bar and the returned probabilities (0.629152, 0.268909, 0.101939).*
 
 ```python
 transportation_ai999x.solve('transport_logit_from_attributes', X=[[30, 2.5], [45, 1.5], [60, 0.8]], beta=[-0.05, -0.4], asc=[0, -0.5, -1.0])
@@ -3621,9 +3345,9 @@ $$
 - **Assumes:** one attribute value per alternative
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Every entry of P as computed for your inputs (3 entries: 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-logit-elasticities-live-1)
+![probability of each alternative (P) returned by transportation-ai999x for the worked example, one value for each position in the list (3 values, first 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-logit-elasticities-series)
 
-*Every entry of P as computed for your inputs (3 entries: 0.345, 0.5147, 0.1403). Your inputs: V = -1.2, -0.8, -2.1, x = 30, 45, 20, beta = -0.04.*
+*probability of each alternative (P) returned by transportation-ai999x for the worked example, one value for each position in the list (3 values, first 0.345019, last 0.140274, largest 0.514707); with direct (direct elasticity of each alternative), cross (cross elasticity of the other alternatives with respect to each alternative's attribute). Inputs: V = [-1.2, -0.8, -2.1], x = [30, 45, 20], beta = -0.04.*
 
 ```python
 transportation_ai999x.solve('transport_logit_elasticities', V=[-1.2, -0.8, -2.1], x=[30, 45, 20], beta=-0.04)
@@ -3670,17 +3394,9 @@ $$
 - **Assumes:** nests numbered 1..K, each used; 0 < lam_k <= 1
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![A nested logit tree: 3 alternatives with utilities [-0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-nested-logit-tree)
+![A nested logit tree: alternatives with utilities V = [-0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-nested-logit-tree)
 
-*A nested logit tree: 3 alternatives with utilities [-0.5, -1.2, -1] grouped into nests with dissimilarity parameters [1, 0.5]. Marked: the nest probabilities the model returned (0.5606, 0.4394) and the alternative probabilities (0.5606, 0.1763, 0.2631). Your inputs: V = -0.5, -1.2, -1, nest = 1, 2, 2, lam = 1, 0.5.*
-
-![P[1], P[2] and P[3] as λ[2] runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-nested-logit-live-1)
-
-*P[1], P[2] and P[3] as λ[2] runs from 0.125 to 0.875, every other input as you entered it (41 solutions). Marked: your λ[2] = 0.5 gives P[1] = 0.5606. Your inputs: V = -0.5, -1.2, -1, nest = 1, 2, 2, lam = 1, 0.5.*
-
-![Every entry of P as computed for your inputs (3 entries: 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-nested-logit-live-2)
-
-*Every entry of P as computed for your inputs (3 entries: 0.5606, 0.1763, 0.2631). Your inputs: V = -0.5, -1.2, -1, nest = 1, 2, 2, lam = 1, 0.5.*
+*A nested logit tree: alternatives with utilities V = [-0.5, -1.2, -1.0] grouped into nests [1, 2, 2] with nest parameters λ = [1.0, 0.5]. Marked: the returned nest probabilities 0.560574, 0.439426 and alternative probabilities 0.560574, 0.176347, 0.263079.*
 
 ```python
 transportation_ai999x.solve('transport_nested_logit', V=[-0.5, -1.2, -1.0], nest=[1, 2, 2], lam=[1.0, 0.5])
@@ -3728,9 +3444,9 @@ $$
 - **Assumes:** same alternatives before and after; beta_cost < 0
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Change in consumer surplus per trip (money](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-logsum-user-benefit-live-1)
+![dCS (change in consumer surplus per trip (money units)) against beta_cost (cost coefficient (utility per money unit, negative)) from -0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-logsum-user-benefit-curve)
 
-*Change in consumer surplus per trip (money... as β_cost runs from -0.4375 to -0.0625, every other input as you entered it (41 solutions). Marked: your β_cost = -0.25 gives dCS = 0.9594. Your inputs: V0 = -1.2, -0.8, -2.1, V1 = -1.2, -0.5, -1.6, beta_cost = -0.25.*
+*dCS (change in consumer surplus per trip (money units)) against beta_cost (cost coefficient (utility per money unit, negative)) from -0.375 to -0.125. Other inputs as in the worked example: V0 = [-1.2, -0.8, -2.1], V1 = [-1.2, -0.5, -1.6]. 31 points computed by transportation-ai999x; marked: the worked example, beta_cost = -0.25, dCS = 0.959448.*
 
 ```python
 transportation_ai999x.solve('transport_logsum_user_benefit', V0=[-1.2, -0.8, -2.1], V1=[-1.2, -0.5, -1.6], beta_cost=-0.25)
@@ -3778,21 +3494,9 @@ $$
 - **Assumes:** more zones than coefficients; predictors not collinear
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Trip-generation regression on 7 zones: each zone's observed trips against the trips the model forecasts for that zone's explanatory values (7 solves), with the 1:1 line; r² = 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-trip-generation-regression-fit)
+![Trip-generation regression on 7 zones (explanatory values [[120, 300], [250, 420], [400, 380], [180, 600], [520, 700], [300, 250], [450, 520]], observed trips [1450, 2300, 3100, 2050, 4200, 2200, 3600]): each zone's observed trips against the trips given by the returned coefficients b = 258](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-trip-generation-regression-fit)
 
-*Trip-generation regression on 7 zones: each zone's observed trips against the trips the model forecasts for that zone's explanatory values (7 solves), with the 1:1 line; r² = 0.9944. Marked on the line: the forecast 2953 trips for the new zone. Your inputs: X = 120 300; 250 420; 400..., y = 1450, 2300, 3100, 2050..., x_new = 350, 500.*
-
-![Coefficient of determination as y[5] runs from 2100 to 6220, every other input as you entered it (42 solutions)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-trip-generation-regression-live-1)
-
-*Coefficient of determination as y[5] runs from 2100 to 6220, every other input as you entered it (42 solutions). Marked: your y[5] = 4200 gives r2 = 0.9944. Your inputs: X = 120 300; 250 420; 400..., y = 1450, 2300, 3100, 2050..., x_new = 350, 500.*
-
-![The 7 rows of X as points (first column across, second up), coloured by y](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-trip-generation-regression-live-2)
-
-*The 7 rows of X as points (first column across, second up), coloured by y. Star: x_new = (350, 500). Your inputs: X = 120 300; 250 420; 400..., y = 1450, 2300, 3100, 2050..., x_new = 350, 500.*
-
-![Every entry of coef as computed for your inputs (3 entries: 258](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-trip-generation-regression-live-3)
-
-*Every entry of coef as computed for your inputs (3 entries: 258.2, 5.718, 1.387). Your inputs: X = 120 300; 250 420; 400..., y = 1450, 2300, 3100, 2050..., x_new = 350, 500.*
+*Trip-generation regression on 7 zones (explanatory values [[120, 300], [250, 420], [400, 380], [180, 600], [520, 700], [300, 250], [450, 520]], observed trips [1450, 2300, 3100, 2050, 4200, 2200, 3600]): each zone's observed trips against the trips given by the returned coefficients b = 258.228, 5.7182, 1.38738 (derived, with the 1:1 line); r² = 0.994434. Marked: the returned prediction 2953.29 trips for the new zone [350, 500].*
 
 ```python
 transportation_ai999x.solve('transport_trip_generation_regression', X=[[120, 300], [250, 420], [400, 380], [180, 600], [520, 700], [300, 250], [450, 520]], y=[1450, 2300, 3100, 2050, 4200, 2200, 3600], x_new=[350, 500])
@@ -3844,17 +3548,13 @@ $$
 - **Assumes:** $0 < l_f < L$; positive cornering stiffnesses; not exactly neutral steer
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Understeer gradient (rad s^2/m) as L runs from 1](https://huggingface.co/AI999X/transportation-ai999x/resolve/main/figures/transport-understeer-gradient-live-1.svg)
+![understeer or oversteer (behaviour) over L (wheelbase) from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-understeer-gradient-decision)
 
-*Understeer gradient (rad s^2/m) as L runs from 1.62 to 3.78 m, every other input as you entered it (41 solutions). Marked: your L = 2.7 m gives K = 0.001416. Shaded by understeer or oversteer: oversteer, understeer. Your inputs: m = 1500 kg, L = 2.7 m, l_f = 1.2 m, C_f = 90000 N/rad, C_r = 85000 N/rad.*
+*understeer or oversteer (behaviour) over L (wheelbase) from 0.27 m to 27 m and l_f (distance from the front axle to the centre of gravity) from 0.12 m to 12 m (logarithmic axes): each of the 31 × 21 cells is one run of transportation-ai999x, coloured by the verdict it returned, oversteer: 85 cells, understeer: 341 cells; blank cells: inputs the capability refuses. Other inputs as in the worked example: m = 1500.0 kg, C_f = 90000.0 N/rad, C_r = 85000.0 N/rad. Marked: the worked example, L = 2.7 m, l_f = 1.2 m → understeer.*
 
-![Understeer or oversteer for 24 5 x 5 combinations of L and l_f around your inputs (the other inputs as entered); the ring marks your inputs, which give understeer](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-understeer-gradient-live-2)
+![K (understeer gradient (rad s^2/m)) against C_f (cornering stiffness of the front axle) from 9000 N/rad to 900000 N/rad on a logarithmic axis](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-understeer-gradient-curve)
 
-*Understeer or oversteer for 24 5 x 5 combinations of L and l_f around your inputs (the other inputs as entered); the ring marks your inputs, which give understeer. Blank cells admit no answer. Your inputs: m = 1500 kg, L = 2.7 m, l_f = 1.2 m, C_f = 90000 N/rad, C_r = 85000 N/rad.*
-
-![Understeer gradient (rad s^2/m) as l_f runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-understeer-gradient-live-3)
-
-*Understeer gradient (rad s^2/m) as l_f runs from 0.72 to 1.68 m, every other input as you entered it (25 solutions). Marked: your l_f = 1.2 m gives K = 0.001416. Shaded by understeer or oversteer: understeer, oversteer. Your inputs: m = 1500 kg, L = 2.7 m, l_f = 1.2 m, C_f = 90000 N/rad, C_r = 85000 N/rad.*
+*K (understeer gradient (rad s^2/m)) against C_f (cornering stiffness of the front axle) from 9000 N/rad to 900000 N/rad on a logarithmic axis. One curve for each value of C_r (cornering stiffness of the rear axle): 85000 N/rad, 42500 N/rad, 170000 N/rad. Other inputs as in the worked example: m = 1500.0 kg, L = 2.7 m, l_f = 1.2 m. 41 points per curve computed by transportation-ai999x; marked: the worked example, C_f = 90000 N/rad, K = 0.00141612 rad*s^2/m.*
 
 ```python
 transportation_ai999x.solve('transport_understeer_gradient', m=1500.0, L=2.7, l_f=1.2, C_f=90000.0, C_r=85000.0)
@@ -3907,17 +3607,13 @@ $$
 - **Assumes:** below the critical speed; $\delta  \neq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Plan view of the bicycle model of a vehicle (wheelbase 2](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-steady-state-cornering-schematic)
+![Plan view of the bicycle model of a vehicle (m = 1500](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-steady-state-cornering-schematic)
 
-*Plan view of the bicycle model of a vehicle (wheelbase 2.7 m, CG 1.2 m behind the front axle) at 72 km/h with a front steer angle of 2° (the wheel angle exaggerated six times). Marked: the values the model returned, turn radius 93.58 m, yaw rate 0.2137 rad/s, lateral acceleration 4.275 m/s² and sideslip -1.002°. Your inputs: m = 1500 kg, L = 2.7 m, l_f = 1.2 m, C_f = 90000 N/rad, C_r = 85000 N/rad, u = 20 m/s, delta = 0.03490658503988659 rad.*
+*Plan view of the bicycle model of a vehicle (m = 1500.0 kg, wheelbase 2.7 m, CG 1.2 m behind the front axle, cornering stiffnesses 90000.0 and 85000.0 N/rad) at 72 km/h with a front steer angle δ = 2° (the wheel angle and its arc exaggerated ×6). Marked: the returned turn radius 93.5769 m, yaw rate 0.213728 rad/s, lateral acceleration 4.27456 m/s² and sideslip -1.00247°.*
 
-![Yaw rate as L runs from 1](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-steady-state-cornering-live-1)
+![r (yaw rate (rad/s)) against u (forward speed) from 2 m/s to 200 m/s on a logarithmic axis](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-steady-state-cornering-curve)
 
-*Yaw rate as L runs from 1.944 to 3.78 m, every other input as you entered it (35 solutions). Marked: your L = 2.7 m gives r = 0.2137. Your inputs: m = 1500 kg, L = 2.7 m, l_f = 1.2 m, C_f = 90000 N/rad, C_r = 85000 N/rad, u = 20 m/s, delta = 0.03490658503988659 rad.*
-
-![Yaw rate as l_f runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-steady-state-cornering-live-2)
-
-*Yaw rate as l_f runs from 0.72 to 1.68 m, every other input as you entered it (29 solutions). Marked: your l_f = 1.2 m gives r = 0.2137. Your inputs: m = 1500 kg, L = 2.7 m, l_f = 1.2 m, C_f = 90000 N/rad, C_r = 85000 N/rad, u = 20 m/s, delta = 0.03490658503988659 rad.*
+*r (yaw rate (rad/s)) against u (forward speed) from 2 m/s to 200 m/s on a logarithmic axis. One curve for each value of delta (front-wheel steer angle (degrees in questions; rad in solve(), or '2 deg')): 0.0349066 rad, 0.392699 rad, 1.1781 rad. Other inputs as in the worked example: m = 1500.0 kg, L = 2.7 m, l_f = 1.2 m, C_f = 90000.0 N/rad, C_r = 85000.0 N/rad. 41 points per curve computed by transportation-ai999x; marked: the worked example, u = 20 m/s, r = 0.213728 rad/s.*
 
 ```python
 transportation_ai999x.solve('transport_steady_state_cornering', m=1500.0, L=2.7, l_f=1.2, C_f=90000.0, C_r=85000.0, u=20.0, delta=0.03490658503988659)
@@ -3967,13 +3663,9 @@ $$
 - **Assumes:** below the critical speed
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Front-wheel steer angle (degrees) as l_f runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-steer-angle-for-radius-live-1)
+![delta (front-wheel steer angle (degrees)) against u (forward speed) from 2 m/s to 200 m/s on a logarithmic axis](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-steer-angle-for-radius-curve)
 
-*Front-wheel steer angle (degrees) as l_f runs from 0.72 to 1.68 m, every other input as you entered it (41 solutions). Marked: your l_f = 1.2 m gives δ = 1.248. Your inputs: m = 1500 kg, L = 2.7 m, l_f = 1.2 m, C_f = 90000 N/rad, C_r = 85000 N/rad, u = 20 m/s, R = 150 m.*
-
-![Front-wheel steer angle (degrees) as C_r runs from 5](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-steer-angle-for-radius-live-2)
-
-*Front-wheel steer angle (degrees) as C_r runs from 5.1e+04 to 1.19e+05 N/rad, every other input as you entered it (29 solutions). Marked: your C_r = 8.5e+04 N/rad gives δ = 1.248. Your inputs: m = 1500 kg, L = 2.7 m, l_f = 1.2 m, C_f = 90000 N/rad, C_r = 85000 N/rad, u = 20 m/s, R = 150 m.*
+*delta (front-wheel steer angle (degrees)) against u (forward speed) from 2 m/s to 200 m/s on a logarithmic axis. One curve for each value of C_f (cornering stiffness of the front axle): 90000 N/rad, 45000 N/rad. Other inputs as in the worked example: m = 1500.0 kg, L = 2.7 m, l_f = 1.2 m, C_r = 85000.0 N/rad, R = 150.0 m. 41 points per curve computed by transportation-ai999x; marked: the worked example, u = 20 m/s, delta = 1.24769 deg.*
 
 ```python
 transportation_ai999x.solve('transport_steer_angle_for_radius', m=1500.0, L=2.7, l_f=1.2, C_f=90000.0, C_r=85000.0, u=20.0, R=150.0)
@@ -4025,13 +3717,9 @@ $$
 - **Assumes:** below the critical speed
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Undamped natural frequency as C_r runs from 5](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-yaw-natural-frequency-live-1)
+![wn (undamped natural frequency (rad/s)) against u (forward speed) from 2 m/s to 200 m/s on a logarithmic axis](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-yaw-natural-frequency-curve)
 
-*Undamped natural frequency as C_r runs from 5.1e+04 to 1.19e+05 N/rad, every other input as you entered it (41 solutions). Marked: your C_r = 8.5e+04 N/rad gives wn = 6.707. Your inputs: m = 1500 kg, Iz = 2500 kg*m^2, L = 2.7 m, l_f = 1.2 m, C_f = 90000 N/rad, C_r = 85000 N/rad, u = 20 m/s.*
-
-![Undamped natural frequency as l_f runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-yaw-natural-frequency-live-2)
-
-*Undamped natural frequency as l_f runs from 0.72 to 1.68 m, every other input as you entered it (29 solutions). Marked: your l_f = 1.2 m gives wn = 6.707. Your inputs: m = 1500 kg, Iz = 2500 kg*m^2, L = 2.7 m, l_f = 1.2 m, C_f = 90000 N/rad, C_r = 85000 N/rad, u = 20 m/s.*
+*wn (undamped natural frequency (rad/s)) against u (forward speed) from 2 m/s to 200 m/s on a logarithmic axis. One curve for each value of L (wheelbase): 2.7 m, 1.35 m, 5.4 m. Other inputs as in the worked example: m = 1500.0 kg, Iz = 2500.0 kg*m^2, l_f = 1.2 m, C_f = 90000.0 N/rad, C_r = 85000.0 N/rad. 41 points per curve computed by transportation-ai999x; marked: the worked example, u = 20 m/s, wn = 6.70664 rad/s.*
 
 ```python
 transportation_ai999x.solve('transport_yaw_natural_frequency', m=1500.0, Iz=2500.0, L=2.7, l_f=1.2, C_f=90000.0, C_r=85000.0, u=20.0)
@@ -4079,17 +3767,13 @@ $$
 - **Assumes:** all inputs positive
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![A quarter-car model: sprung mass 400 kg on a suspension spring ks = 2](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-quarter-car-frequencies-schematic)
+![A quarter-car model: sprung mass 400](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-quarter-car-frequencies-schematic)
 
-*A quarter-car model: sprung mass 400 kg on a suspension spring ks = 2.5e+04 N/m, unsprung mass 45 kg on a tyre spring kt = 2e+05 N/m. Marked: the natural frequencies the model returned, body mode 1.185 Hz and wheel hop 11.26 Hz. Your inputs: m_s = 400 kg, m_u = 45 kg, k_s = 25000 N/m, k_t = 200000 N/m.*
+*A quarter-car model: sprung mass 400.0 kg on a suspension spring ks = 25000.0 N/m, unsprung mass 45.0 kg on a tyre spring kt = 200000.0 N/m. Marked: the returned natural frequencies, body mode 1.18544 Hz and wheel hop 11.2619 Hz.*
 
-![Body (bounce) natural frequency as m_u runs from 27 to 63 kg, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-quarter-car-frequencies-live-1)
+![f_body (body (bounce) natural frequency (Hz)) against m_s (sprung mass (a quarter of the body)) from 200 kg to 600 kg](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-quarter-car-frequencies-curve)
 
-*Body (bounce) natural frequency as m_u runs from 27 to 63 kg, every other input as you entered it (41 solutions). Marked: your m_u = 45 kg gives f_body = 1.185. Your inputs: m_s = 400 kg, m_u = 45 kg, k_s = 25000 N/m, k_t = 200000 N/m.*
-
-![Body (bounce) natural frequency as m_s runs from 240 to 560 kg, every other input as you entered it (29 solutions)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-quarter-car-frequencies-live-2)
-
-*Body (bounce) natural frequency as m_s runs from 240 to 560 kg, every other input as you entered it (29 solutions). Marked: your m_s = 400 kg gives f_body = 1.185. Your inputs: m_s = 400 kg, m_u = 45 kg, k_s = 25000 N/m, k_t = 200000 N/m.*
+*f_body (body (bounce) natural frequency (Hz)) against m_s (sprung mass (a quarter of the body)) from 200 kg to 600 kg. One curve for each value of k_s (suspension spring stiffness): 25000 N/m, 12500 N/m, 50000 N/m. Other inputs as in the worked example: m_u = 45.0 kg, k_t = 200000.0 N/m. 31 points per curve computed by transportation-ai999x; marked: the worked example, m_s = 400 kg, f_body = 1.18544 Hz.*
 
 ```python
 transportation_ai999x.solve('transport_quarter_car_frequencies', m_s=400.0, m_u=45.0, k_s=25000.0, k_t=200000.0)
@@ -4139,17 +3823,13 @@ $$
 - **Assumes:** masses and stiffnesses positive; $c_s  \geq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Body and wheel transmissibility from road input to motion at 61 frequencies, each computed by the model (log-log); dashed: the natural frequencies from the model's quarter-car frequency capability, 1](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-quarter-car-transmissibility-response)
+![Body and wheel transmissibility of a quarter car (m_s = 400](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-quarter-car-transmissibility-response)
 
-*Body and wheel transmissibility from road input to motion at 61 frequencies, each computed by the model (log-log); dashed: the natural frequencies from the model's quarter-car frequency capability, 1.185 Hz and 11.26 Hz. Marked: at f = 1.2 Hz the returned body transmissibility 2.396 (wheel 1.159). Your inputs: m_s = 400 kg, m_u = 45 kg, k_s = 25000 N/m, c_s = 1800 kg/s, k_t = 200000 N/m, f = 1.2 Hz.*
+*Body and wheel transmissibility of a quarter car (m_s = 400.0 kg, m_u = 45.0 kg, ks = 25000.0 N/m, cs = 1800.0 N·s/m, kt = 200000.0 N/m) from road input to motion, 121 frequencies each computed by the package (log–log); dashed: the natural frequencies from the package's quarter-car frequency capability. Marked: at f = 1.2 Hz the returned body transmissibility 2.39633 (wheel 1.15904).*
 
-![T body as f runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-quarter-car-transmissibility-live-1)
+![T_body (body displacement / road displacement) against m_s (sprung mass (a quarter of the body)) from 40 kg to 4000 kg on a logarithmic axis](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-quarter-car-transmissibility-curve)
 
-*T body as f runs from 0.72 to 1.68 Hz, every other input as you entered it (41 solutions). Marked: your f = 1.2 Hz gives T_body = 2.396. Your inputs: m_s = 400 kg, m_u = 45 kg, k_s = 25000 N/m, c_s = 1800 kg/s, k_t = 200000 N/m, f = 1.2 Hz.*
-
-![T body as k_s runs from 1](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-quarter-car-transmissibility-live-2)
-
-*T body as k_s runs from 1.5e+04 to 3.5e+04 N/m, every other input as you entered it (29 solutions). Marked: your k_s = 2.5e+04 N/m gives T_body = 2.396. Your inputs: m_s = 400 kg, m_u = 45 kg, k_s = 25000 N/m, c_s = 1800 kg/s, k_t = 200000 N/m, f = 1.2 Hz.*
+*T_body (body displacement / road displacement) against m_s (sprung mass (a quarter of the body)) from 40 kg to 4000 kg on a logarithmic axis. One curve for each value of c_s (suspension damping coefficient): 1800 kg/s, 900 kg/s, 3600 kg/s. Other inputs as in the worked example: m_u = 45.0 kg, k_s = 25000.0 N/m, k_t = 200000.0 N/m, f = 1.2 Hz. 41 points per curve computed by transportation-ai999x; marked: the worked example, m_s = 400 kg, T_body = 2.39633.*
 
 ```python
 transportation_ai999x.solve('transport_quarter_car_transmissibility', m_s=400.0, m_u=45.0, k_s=25000.0, c_s=1800.0, k_t=200000.0, f=1.2)
@@ -4197,17 +3877,13 @@ $$
 - **Assumes:** $0 < y_i < 1$; $Y < 0.95$; fixed-time signal, Webster's delay model
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Webster's optimum cycle for lost time L = 12 s: the returned C0 = 76](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-webster-optimum-cycle-timing)
+![Webster's optimum cycle for lost time L = 12 s and critical flow ratios [0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-webster-optimum-cycle-timing)
 
-*Webster's optimum cycle for lost time L = 12 s: the returned C0 = 76.67 s (Y = 0.7), its effective greens (27.71, 23.1, 13.86 s) as the model's green-split capability returns them for that cycle, then the lost time; marked: the returned minimum cycle 40 s. Your inputs: L = 12 s, y = 0.3, 0.25, 0.15.*
+*Webster's optimum cycle for lost time L = 12 s and critical flow ratios [0.3, 0.25, 0.15]: the returned C0 = 76.6667 s (Y = 0.7), total effective green 64.6667 s shared in proportion to the flow ratios (derived) and the lost time; marked: the returned minimum cycle 40 s.*
 
-![Webster optimum cycle length as y[1] runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-webster-optimum-cycle-live-1)
+![C0 (Webster optimum cycle length (s)) against L (total lost time per cycle) from 6 s to 18 s](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-webster-optimum-cycle-curve)
 
-*Webster optimum cycle length as y[1] runs from 0.075 to 0.525, every other input as you entered it (41 solutions). Marked: your y[1] = 0.3 gives C0 = 1.278 min. Your inputs: L = 12 s, y = 0.3, 0.25, 0.15.*
-
-![Webster optimum cycle length as L runs from 7](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-webster-optimum-cycle-live-2)
-
-*Webster optimum cycle length as L runs from 7.2 to 16.8 s, every other input as you entered it (29 solutions). Marked: your L = 12 s gives C0 = 76.67. Your inputs: L = 12 s, y = 0.3, 0.25, 0.15.*
+*C0 (Webster optimum cycle length (s)) against L (total lost time per cycle) from 6 s to 18 s. Outputs with the same unit drawn together: C_min (minimum cycle length L/(1 - Y) (s)), green_total (total effective green C0 - L (s)). Other inputs as in the worked example: y = [0.3, 0.25, 0.15]. 31 points computed by transportation-ai999x; marked: the worked example, L = 12 s, C0 = 76.6667 s.*
 
 ```python
 transportation_ai999x.solve('transport_webster_optimum_cycle', L=12.0, y=[0.3, 0.25, 0.15])
@@ -4256,13 +3932,9 @@ $$
 - **Assumes:** $-0.1  \leq  e  \leq  0.2$; $0 < f  \leq  0.5$; the speed or the radius (one of them); small-angle (simplified) form
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Curve radius as v runs from 16](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-simplified-curve-formula-live-1)
+![R (curve radius (m)) against f (side friction factor) from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-simplified-curve-formula-curve)
 
-*Curve radius as v runs from 16.67 to 38.89 m/s, every other input as you entered it (41 solutions). Marked: your v = 27.78 m/s gives R = 652.2. Your inputs: e = 0.0006, f = 0.12, v = 27.77777777777778 m/s.*
-
-![Curve radius as f runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-simplified-curve-formula-live-2)
-
-*Curve radius as f runs from 0.03 to 0.21, every other input as you entered it (29 solutions). Marked: your f = 0.12 gives R = 652.2. Your inputs: e = 0.0006, f = 0.12, v = 27.77777777777778 m/s.*
+*R (curve radius (m)) against f (side friction factor) from 0.06 to 0.18. One curve for each value of v (design speed (give v or R)): 27.7778 m/s, 13.8889 m/s, 55.5556 m/s. Other inputs as in the worked example: e = 0.0006. 31 points per curve computed by transportation-ai999x; marked: the worked example, f = 0.12, R = 652.197 m.*
 
 ```python
 transportation_ai999x.solve('transport_simplified_curve_formula', e=0.0006, f=0.12, v=27.77777777777778)
@@ -4313,19 +3985,11 @@ $$
 
 ![A sag vertical curve between grades g1 = -0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-sag-curve-headlight-profile)
 
-*A sag vertical curve between grades g1 = -0.03 and g2 = 0.02 sized for a headlight sight distance S = 185 m: the model returned the length L = 223 m (A = 5 %, K = 44.59 m per %). The profile is drawn from the grades and that length (heights exaggerated by the axes); the headlight sight distance is laid out from the BVC. Your inputs: g1 = -0.03, g2 = 0.02, S = 185 m.*
+*A sag vertical curve between grades g1 = -0.03 and g2 = 0.02 sized for a headlight sight distance S = 185 m: the returned length L = 222.964 m (A = 5 %, K = 44.5928 m per %, case S < L). The profile is drawn from the stated grades and the returned length; the beam from a headlight 0.6 m high at the BVC rising 1° above the entering grade is drawn over the stated S. Heights are exaggerated by the axes.*
 
-![Minimum curve length as g1 runs from -0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-sag-curve-headlight-live-1)
+![S < L or S > L (case) over g1 (entering grade, decimal) from -0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-sag-curve-headlight-decision)
 
-*Minimum curve length as g1 runs from -0.0525 to -0.0075, every other input as you entered it (41 solutions). Marked: your g1 = -0.03 gives L = 223. Shaded by S < L or S > L: S < L, S > L. Your inputs: g1 = -0.03, g2 = 0.02, S = 185 m.*
-
-![S < L or S > L for 25 5 x 5 combinations of g1 and S around your inputs (the other inputs as entered); the ring marks your inputs, which give S < L](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-sag-curve-headlight-live-2)
-
-*S < L or S > L for 25 5 x 5 combinations of g1 and S around your inputs (the other inputs as entered); the ring marks your inputs, which give S < L. Blank cells admit no answer. Your inputs: g1 = -0.03, g2 = 0.02, S = 185 m.*
-
-![Minimum curve length as S runs from 111 to 259 m, every other input as you entered it (27 solutions)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-sag-curve-headlight-live-3)
-
-*Minimum curve length as S runs from 111 to 259 m, every other input as you entered it (27 solutions). Marked: your S = 185 m gives L = 223. Your inputs: g1 = -0.03, g2 = 0.02, S = 185 m.*
+*S < L or S > L (case) over g1 (entering grade, decimal) from -0.045 to -0.015 and g2 (leaving grade, decimal) from 0.002 to 0.2 (logarithmic vertical axis): each of the 31 × 21 cells is one run of transportation-ai999x, coloured by the verdict it returned, S < L: 442 cells, S > L: 209 cells. Other inputs as in the worked example: S = 185.0 m. Marked: the worked example, g1 = -0.03, g2 = 0.02 → S < L.*
 
 ```python
 transportation_ai999x.solve('transport_sag_curve_headlight', g1=-0.03, g2=0.02, S=185.0)
@@ -4380,17 +4044,13 @@ $$
 - **Assumes:** m, C_D, A, $\rho > 0$; $v  \geq  0$; $0  \leq  f_r  \leq  0.1$; |G| <= 0.3; still air
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Road-load forces at 100 km/h as the model returned them, laid end to end: rolling 220](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-vehicle-resistance-breakdown)
+![Road-load forces of a vehicle (m = 1500 kg, CD = 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-vehicle-resistance-breakdown)
 
-*Road-load forces at 100 km/h as the model returned them, laid end to end: rolling 220.7 N, aerodynamic 305.6 N; total 526.3 N, power needed 14.62 kW. Your inputs: m = 1500 kg, v = 27.77777777777778 m/s, C_D = 0.3, A = 2.2 m^2.*
+*Road-load forces of a vehicle (m = 1500 kg, CD = 0.3, A = 2.2 m²) at 100 km/h, as returned and added end to end: rolling 220.725 N, aerodynamic 305.556 N; total 526.281 N, power needed 14.6189 kW.*
 
-![Aerodynamic drag as v runs from 16](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-vehicle-resistance-live-1)
+![F_roll (rolling resistance (N)) against m (vehicle mass) from 750 kg to 2250 kg](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-vehicle-resistance-curve)
 
-*Aerodynamic drag as v runs from 16.67 to 38.89 m/s, every other input as you entered it (41 solutions). Marked: your v = 27.78 m/s gives F_aero = 305.6. Your inputs: m = 1500 kg, v = 27.77777777777778 m/s, C_D = 0.3, A = 2.2 m^2.*
-
-![Aerodynamic drag as C_D runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-vehicle-resistance-live-2)
-
-*Aerodynamic drag as C_D runs from 0.075 to 0.525, every other input as you entered it (29 solutions). Marked: your C_D = 0.3 gives F_aero = 305.6. Your inputs: m = 1500 kg, v = 27.77777777777778 m/s, C_D = 0.3, A = 2.2 m^2.*
+*F_roll (rolling resistance (N)) against m (vehicle mass) from 750 kg to 2250 kg. Outputs with the same unit drawn together: F_total (total resistance (N)). Other inputs as in the worked example: v = 27.77777777777778 m/s, C_D = 0.3, A = 2.2 m^2. 31 points computed by transportation-ai999x; marked: the worked example, m = 1500 kg, F_roll = 220.725 N.*
 
 ```python
 transportation_ai999x.solve('transport_vehicle_resistance', m=1500.0, v=27.77777777777778, C_D=0.3, A=2.2)
@@ -4442,13 +4102,9 @@ $$
 - **Assumes:** m, P, C_D, A, $\rho > 0$; $0  \leq  f_r  \leq  0.1$; |G| <= 0.3; $0 < \eta  \leq  1$; power-limited (no gearing or traction limit)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Top speed as P runs from 6e+04 to 1](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-top-speed-live-1)
+![v_max (top speed (m/s)) against C_D (drag coefficient) from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-top-speed-curve)
 
-*Top speed as P runs from 6e+04 to 1.4e+05 W, every other input as you entered it (41 solutions). Marked: your P = 1e+05 W gives v_max = 60.27. Your inputs: m = 1500 kg, P = 100000 W, C_D = 0.3, A = 2.2 m^2.*
-
-![Top speed as C_D runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-top-speed-live-2)
-
-*Top speed as C_D runs from 0.075 to 0.525, every other input as you entered it (29 solutions). Marked: your C_D = 0.3 gives v_max = 60.27. Your inputs: m = 1500 kg, P = 100000 W, C_D = 0.3, A = 2.2 m^2.*
+*v_max (top speed (m/s)) against C_D (drag coefficient) from 0.02 to 0.98. One curve for each value of P (engine power): 100000 W, 50000 W, 200000 W. Other inputs as in the worked example: m = 1500.0 kg, A = 2.2 m^2. 41 points per curve computed by transportation-ai999x; marked: the worked example, C_D = 0.3, v_max = 60.2702 m/s.*
 
 ```python
 transportation_ai999x.solve('transport_top_speed', m=1500.0, P=100000.0, C_D=0.3, A=2.2)
@@ -4501,17 +4157,13 @@ $$
 - **Assumes:** $0 < m < v$; a, t1, $t_{2} > 0$; $d_{3}  \geq  0$; AASHTO 2001 four-component model
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Passing sight distance at 90 km/h: its four parts as the model returned them, laid end to end to scale](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-passing-sight-distance-breakdown)
+![Passing sight distance at v = 90 km/h (speed difference 15 km/h, acceleration 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-passing-sight-distance-breakdown)
 
-*Passing sight distance at 90 km/h: its four parts as the model returned them, laid end to end to scale. Marked: d1 = 95.5 m, d2 = 260 m, d3 = 60 m, d4 = 173.3 m, PSD = 588.8 m. Your inputs: v = 25 m/s, m_diff = 4.166666666666667 m/s, a = 0.64 m/s^2, t1 = 4.3 s, t2 = 10.4 s, d3 = 60 m.*
+*Passing sight distance at v = 90 km/h (speed difference 15 km/h, acceleration 0.64 m/s², times t1 = 4.3 s and t2 = 10.4 s): its four parts as returned, laid end to end to scale. Marked: d1 = 95.5001 m, d2 = 260 m, d3 = 60 m, d4 = 173.333 m, PSD = 588.833 m.*
 
-![Passing sight distance as v runs from 15 to 35 m/s, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-passing-sight-distance-live-1)
+![PSD (passing sight distance (m)) against t1 (time of the initial manoeuvre) from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-passing-sight-distance-curve)
 
-*Passing sight distance as v runs from 15 to 35 m/s, every other input as you entered it (41 solutions). Marked: your v = 25 m/s gives PSD = 588.8. Your inputs: v = 25 m/s, m_diff = 4.166666666666667 m/s, a = 0.64 m/s^2, t1 = 4.3 s, t2 = 10.4 s, d3 = 60 m.*
-
-![Passing sight distance and initial manoeuvre distance as t1 runs from 2](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-passing-sight-distance-live-2)
-
-*Passing sight distance and initial manoeuvre distance as t1 runs from 2.58 to 6.02 s, every other input as you entered it (29 solutions). Marked: your t1 = 4.3 s gives PSD = 588.8. Your inputs: v = 25 m/s, m_diff = 4.166666666666667 m/s, a = 0.64 m/s^2, t1 = 4.3 s, t2 = 10.4 s, d3 = 60 m.*
+*PSD (passing sight distance (m)) against t1 (time of the initial manoeuvre) from 0.43 s to 43 s on a logarithmic axis. One curve for each value of v (average speed of the passing vehicle): 25 m/s, 12.5 m/s, 50 m/s. Other inputs as in the worked example: m_diff = 4.166666666666667 m/s, a = 0.64 m/s^2, t2 = 10.4 s, d3 = 60.0 m. 41 points per curve computed by transportation-ai999x; marked: the worked example, t1 = 4.3 s, PSD = 588.833 m.*
 
 ```python
 transportation_ai999x.solve('transport_passing_sight_distance', v=25.0, m_diff=4.166666666666667, a=0.64, t1=4.3, t2=10.4, d3=60.0)
@@ -4560,17 +4212,9 @@ $$
 - **Assumes:** at least five positive travel times; T95 by linear interpolation (type 7)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The observed travel times (input), one bar per run (10), with the mean 26](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-travel-time-reliability-data)
+![The input times (observed travel times in min) as given in the worked example, one value per position (10 values); marked from what transportation-ai999x returned: mean = 26](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-travel-time-reliability-data)
 
-*The observed travel times (input), one bar per run (10), with the mean 26.4 min and the 95th percentile 32.75 min the model returned; also returned: buffer index 0.2405, planning time index 1.819, travel time index 1.467. Your inputs: times = 22, 25, 24, 30, 27, 23..., t_free = 18.*
-
-![Mean travel time as times[4] runs from 10 to 50, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-travel-time-reliability-live-1)
-
-*Mean travel time as times[4] runs from 10 to 50, every other input as you entered it (41 solutions). Marked: your times[4] = 30 gives mean = 26.4. Your inputs: times = 22, 25, 24, 30, 27, 23..., t_free = 18.*
-
-![Planning time index T95/T_free as t_free runs from 4](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-travel-time-reliability-live-2)
-
-*Planning time index T95/T_free as t_free runs from 4.5 to 31.5, every other input as you entered it (29 solutions). Marked: your t_free = 18 gives planning_time_index = 1.819. Your inputs: times = 22, 25, 24, 30, 27, 23..., t_free = 18.*
+*The input times (observed travel times in min) as given in the worked example, one value per position (10 values); marked from what transportation-ai999x returned: mean = 26.4. Also returned: t95 = 32.75, buffer_index = 0.24053, planning_time_index = 1.81944, travel_time_index = 1.46667. Other inputs: t_free = 18.0.*
 
 ```python
 transportation_ai999x.solve('transport_travel_time_reliability', times=[22, 25, 24, 30, 27, 23, 35, 26, 24, 28], t_free=18.0)
@@ -4618,13 +4262,9 @@ $$
 - **Assumes:** at least four consecutive 15-minute counts, none negative; the peak hour carries vehicles; the earliest hour is taken when two hours carry the same volume
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Peak-hour volume and peak 15-minute flow rate as counts[3] runs from 305 to 905, every other input as you entered it (42 solutions)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-peak-hour-factor-live-1)
+![V (peak-hour volume (veh/h)) as value 4 of counts (consecutive 15-minute vehicle counts (vehicles per 15 min), at least four) moves from 370 to 690, the other values as given ([450, 520, 610, 480]); 41 runs of transportation-ai999x](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-peak-hour-factor-sensitivity)
 
-*Peak-hour volume and peak 15-minute flow rate as counts[3] runs from 305 to 905, every other input as you entered it (42 solutions). Marked: your counts[3] = 610 gives V = 2060. Your inputs: counts = 450, 520, 610, 480.*
-
-![Peak-hour volume and peak 15-minute flow rate as counts[2] runs from 260 to 764, every other input as you entered it (30 solutions)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-peak-hour-factor-live-2)
-
-*Peak-hour volume and peak 15-minute flow rate as counts[2] runs from 260 to 764, every other input as you entered it (30 solutions). Marked: your counts[2] = 520 gives V = 2060. Your inputs: counts = 450, 520, 610, 480.*
+*V (peak-hour volume (veh/h)) as value 4 of counts (consecutive 15-minute vehicle counts (vehicles per 15 min), at least four) moves from 370 to 690, the other values as given ([450, 520, 610, 480]); 41 runs of transportation-ai999x. Marked: the worked example, counts[4] = 480, V = 2060 1/h.*
 
 ```python
 transportation_ai999x.solve('transport_peak_hour_factor', counts=[450, 520, 610, 480])
@@ -4670,13 +4310,9 @@ $$
 - **Assumes:** AADT > 0; $0 < K  \leq  0.3$; $0.5  \leq  D  \leq  1$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Design hourly volume, both directions as AADT runs from 1e+04 to 7e+04, every other input as you entered it (41 solutions)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-design-hourly-volume-live-1)
+![DHV (design hourly volume, both directions (veh/h)) against AADT (annual average daily traffic (veh/day)) from 20000 to 60000](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-design-hourly-volume-curve)
 
-*Design hourly volume, both directions as AADT runs from 1e+04 to 7e+04, every other input as you entered it (41 solutions). Marked: your AADT = 4e+04 gives DHV = 4000. Your inputs: AADT = 40000, K = 0.1, D = 0.6.*
-
-![Design hourly volume, both directions as K runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-design-hourly-volume-live-2)
-
-*Design hourly volume, both directions as K runs from 0.025 to 0.175, every other input as you entered it (29 solutions). Marked: your K = 0.1 gives DHV = 4000. Your inputs: AADT = 40000, K = 0.1, D = 0.6.*
+*DHV (design hourly volume, both directions (veh/h)) against AADT (annual average daily traffic (veh/day)) from 20000 to 60000. One curve for each value of K (design-hour factor K (share of the AADT in the design hour)): 0.1, 0.26. Other inputs as in the worked example: D = 0.6. 31 points per curve computed by transportation-ai999x; marked: the worked example, AADT = 40000, DHV = 4000 1/h.*
 
 ```python
 transportation_ai999x.solve('transport_design_hourly_volume', AADT=40000.0, K=0.1, D=0.6)
@@ -4729,13 +4365,13 @@ $$
 - **Assumes:** axle loads > 0, counts >= 0, one count per load; Y a whole number of years, 1 to 50; $2  \leq  n  \leq  6$; $0  \leq  g  \leq  0.2$; $0 < f_d  \leq  1$; single axles only (tandem and tridem groups need their own standard loads)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Design-period ESALs as Y runs from 5 to 35, every other input as you entered it (11 solutions)](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-equivalent-single-axle-loads-live-1)
+![load equivalency factor of each axle load (LEF) returned by transportation-ai999x for the worked example, one value for each loads (single-axle loads in kN) (3 values, first 1, last 5](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-equivalent-single-axle-loads-series)
 
-*Design-period ESALs as Y runs from 5 to 35, every other input as you entered it (11 solutions). Values in this range where the inputs admit no answer (50 of 61) are left out. Marked: your Y = 20 gives ESAL = 1.091e+07. Your inputs: loads = 80, 100, 120, counts = 500, 200, 100, Y = 20.*
+*load equivalency factor of each axle load (LEF) returned by transportation-ai999x for the worked example, one value for each loads (single-axle loads in kN) (3 values, first 1, last 5.0625, largest 5.0625). Inputs: loads = [80, 100, 120], counts = [500, 200, 100], Y = 20.0.*
 
-![Every entry of LEF as computed for your inputs (3 entries: 1, 2](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-equivalent-single-axle-loads-live-2)
+![The data counts (daily number of axles at each load) against loads (single-axle loads in kN) as given in the worked example (3 points); drawn on it from what transportation-ai999x returned: the returned LEF](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-equivalent-single-axle-loads-xy)
 
-*Every entry of LEF as computed for your inputs (3 entries: 1, 2.441, 5.062). Your inputs: loads = 80, 100, 120, counts = 500, 200, 100, Y = 20.*
+*The data counts (daily number of axles at each load) against loads (single-axle loads in kN) as given in the worked example (3 points); drawn on it from what transportation-ai999x returned: the returned LEF. Also returned: ESAL_day = 1494.53, GF = 20, ESAL = 1.0910e+07. Other inputs: Y = 20.0.*
 
 ```python
 transportation_ai999x.solve('transport_equivalent_single_axle_loads', loads=[80, 100, 120], counts=[500, 200, 100], Y=20.0)
@@ -4789,13 +4425,13 @@ $$
 - **Assumes:** 0.25 <= PHF <= 1; N a whole number of lanes, 1 to 8; $0  \leq  P_T < 1$; $1  \leq  E_T  \leq  8$; $0.7  \leq  f_p  \leq  1$; $30  \leq  S  \leq  140$ km/h; LOS from density only (demand above capacity, also F, is not checked: the capacity is not an input)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Density (pc/km/ln) as V runs from 0](https://huggingface.co/AI999X/transportation-ai999x/resolve/main/figures/transport-freeway-level-of-service-live-1.svg)
+![level of service (A to F) (LOS) over V (hourly volume, one direction (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')) from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-freeway-level-of-service-decision)
 
-*Density (pc/km/ln) as V runs from 0.6667 to 1.556 1/s, every other input as you entered it (41 solutions). Marked: your V = 1.111 1/s gives D = 15.94. Shaded by level of service (A to F): B, C, D, E. Your inputs: V = 1.1111111111111112 1/s, PHF = 0.92, N = 3, P_T = 0.1, E_T = 2, S = 27.77777777777778 m/s.*
+*level of service (A to F) (LOS) over V (hourly volume, one direction (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')) from 0.111111 1/s to 11.1111 1/s and N (number of lanes in one direction) from 1 to 11 (logarithmic horizontal axis): each of the 31 × 11 cells is one run of transportation-ai999x, coloured by the verdict it returned, A: 91 cells, B: 28 cells, C: 17 cells, D: 16 cells, E: 14 cells, F: 82 cells; blank cells: inputs the capability refuses. Other inputs as in the worked example: PHF = 0.92, P_T = 0.1, E_T = 2.0, S = 27.77777777777778 m/s. Marked: the worked example, V = 1.11111 1/s, N = 3 → C.*
 
-![Density (pc/km/ln) as PHF runs from 0](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-freeway-level-of-service-live-2)
+![D (density (pc/km/ln)) against N (number of lanes in one direction) from 1 to 11](https://www.ai999x.com/?ax_fig=transportation-ai999x/transport-freeway-level-of-service-curve)
 
-*Density (pc/km/ln) as PHF runs from 0.2793 to 0.9693, every other input as you entered it (15 solutions). Marked: your PHF = 0.92 gives D = 15.94. Shaded by level of service (A to F): F, E, D, C. Your inputs: V = 1.1111111111111112 1/s, PHF = 0.92, N = 3, P_T = 0.1, E_T = 2, S = 27.77777777777778 m/s.*
+*D (density (pc/km/ln)) against N (number of lanes in one direction) from 1 to 11. One curve for each value of V (hourly volume, one direction (veh/h in questions; veh/s in solve(), or a string such as '600 1/h')): 1.11111 1/s, 0.555556 1/s, 2.22222 1/s. Other inputs as in the worked example: PHF = 0.92, P_T = 0.1, E_T = 2.0, S = 27.77777777777778 m/s. 8 points per curve computed by transportation-ai999x; marked: the worked example, N = 3, D = 15.942 1/km.*
 
 ```python
 transportation_ai999x.solve('transport_freeway_level_of_service', V=1.1111111111111112, PHF=0.92, N=3, P_T=0.1, E_T=2.0, S=27.77777777777778)
